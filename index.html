@@ -1,14 +1,206 @@
----
-bg: "rails.jpg"
-layout: default
-crawlertitle: "Jekyll blog"
-title: "Voyager"
-summary: "main page"
----
+<!DOCTYPE HTML>
+<html lang='zh-cn'>
+<head>
+    <title>First blog</title>
+    <meta charset="UTF-8">
+<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.1.0/css/bootstrap.min.css">
+<script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdn.staticfile.org/popper.js/1.12.5/umd/popper.min.js"></script>
+<script src="https://cdn.staticfile.org/twitter-bootstrap/4.1.0/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="css/sidabar.css">
+<link rel="stylesheet" href="css/main.css">
 
-{% for post in site.posts limit: 5 %}
-  <article class="index-page">
-    <h2><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
-    {{ post.excerpt }}
-  </article>
-{% endfor %}
+</head>
+
+<body>
+
+<!--
+    侧边栏的制作
+-->
+<div class="sidabar ">
+    <!--侧边栏的内容-->
+    <div class="sidabar-content">
+        <ul class="list-group">
+            <li class="list-group-item">
+                <div class="dropdown show" >
+                    <a class="dropdown-toggle" style="color:black"  role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        个人简介
+                    </a>
+                          
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                    <a class="dropdown-item">过去</a>
+                    <a class="dropdown-item">现在</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item text-muted" >将来</a>
+                </div>
+
+                </div>
+            </li>
+            <li class="list-group-item">Web方向</li>
+            <li class="list-group-item">前线消息</li>
+            <li class="list-group-item">Vestibulum at eros</li>
+        </ul>
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Special title treatment</h5>
+                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+        </div>
+    </div>
+
+    <!--
+        收起侧边栏
+    -->
+    <button  type="button" class="btn btn-outline-secondary  ">
+        收起
+    </button>
+
+</div>
+
+<!--
+    导航栏及主页
+-->
+<div class="main">
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">Navbar</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+              
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">首页 <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">相关链接</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        博主传送
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="#">FCC</a>
+                    <a class="dropdown-item" href="#">Github</a>
+                    <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Something else here</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link disabled" href="#">NULL</a>
+                </li>
+            </ul>
+                <form class="form-inline my-2 my-lg-0">
+                    <input class="form-control mr-sm-2" type="search" placeholder="一个简单的搜索框" aria-label="Search" disabled>
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search
+                        <span class="glyphicon glyphicon-search"></span>
+                    </button>
+                </form>
+        </div>
+    </nav>
+
+    <button class="btn sidabarButton" data-toggle="popover" 
+    data-placement="top" title="展开侧边栏" data-content="你可以任意拖动该小框到屏幕中的任意位置">
+        <!--侧边栏开启按钮-->》
+    </button>
+
+    <!--
+        大块屏显示
+    -->
+    <div class="jumbotron jumbotron-fluid col-md-7">
+        <div class="container">
+        <!--
+        卡片瀑布流
+        -->    
+        <div class="card-columns">
+            <div class="card">
+              <img class="card-img-top" src="images/雪地缅因猫.jpg" alt="Card image cap">
+              <div class="card-body">
+                <h5 class="card-title">Card title that wraps to a new line</h5>
+                <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+              </div>
+            </div>
+            <div class="card p-3">
+              <blockquote class="blockquote mb-0 card-body">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+                <footer class="blockquote-footer">
+                  <small class="text-muted">
+                    Someone famous in <cite title="Source Title">Source Title</cite>
+                  </small>
+                </footer>
+              </blockquote>
+            </div>
+            <div class="card">
+              
+              <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+              </div>
+            </div>
+            <div class="card bg-primary text-white text-center p-3">
+              <blockquote class="blockquote mb-0">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat.</p>
+                <footer class="blockquote-footer">
+                  <small>
+                    Someone famous in <cite title="Source Title">Source Title</cite>
+                  </small>
+                </footer>
+              </blockquote>
+            </div>
+            <div class="card text-center">
+              <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+              </div>
+            </div>
+            <div class="card">
+              
+            </div>
+            <div class="card p-3 text-right">
+              <blockquote class="blockquote mb-0">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+                <footer class="blockquote-footer">
+                  <small class="text-muted">
+                    Someone famous in <cite title="Source Title">Source Title</cite>
+                  </small>
+                </footer>
+              </blockquote>
+            </div>
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+    
+    <!--
+        右边浮动下拉框
+    -->
+    <div class="btn-group right" >
+        <button type="button" class="btn btn-outline-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Some interseting about me
+        </button>
+        <div class="dropdown-menu p-4 text-muted" style="min-width: 200px;">
+            <p>
+            博主是个勤劳的人
+            </p>
+            <p class="mb-0">
+            ...懒得给你装特别多的功能，首页就这样算了吧
+            </p>
+        </div>
+    </div>
+</div>
+
+
+<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

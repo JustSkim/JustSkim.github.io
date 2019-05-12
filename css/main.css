@@ -1,0 +1,45 @@
+.main{
+    position: absolute;
+    background-color:lightcyan;
+    width:217vh;
+    height:210vh;
+    z-index:1;
+}
+
+.main>nav{
+    
+}
+
+.main>.sidabarButton{
+    position: fixed;
+    top:50vh;
+    left:6vh;
+    background-color: olivedrab;
+    width:6vh;
+    height:12vh;
+    border-radius:0.5vh;
+    text-align:center;
+    line-height: 6vh;
+    color:white;
+    font-size: 5vh;
+    font-weight: bold;
+}
+.main>.sidabarButton:hover{
+    background-color: lawngreen;
+}
+
+.main>.jumbotron{
+    background: rgba(236, 217, 217,0.23);
+    border-radius:10px;
+    margin:auto auto;
+}
+
+.main>.right{
+    position:fixed;
+    top:50vh;
+    right:5vh;
+}
+
+.main>.right>button{
+    min-width:100px;
+}

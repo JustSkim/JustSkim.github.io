@@ -1,8 +1,12 @@
 .main{
     position: absolute;
+    top:0;
+    bottom: 0;
+    width:100%;
+    min-height: 200vh;
+    height:100%;
+    overflow: scroll;/*将溢出属性设置为滚动条，覆盖滚动条下的全屏*/
     background-color:lightcyan;
-    width:217vh;
-    height:210vh;
     z-index:1;
 }
 
@@ -42,4 +46,21 @@
 
 .main>.right>button{
     min-width:100px;
+}
+
+.main>footer{
+    background-color: blanchedalmond;
+    /*最好能后面给颜色加上渐变*/
+    
+    position: relative;
+    /*
+    设置为relative（使其始终位于长页面的最底部）
+    而不是absolute（会让它显示在初始的全屏页面的底部）
+    */
+    bottom:0;
+    width: 100vw;
+    min-height: 10vh;
+    height:15vh;
+    
+    
 }

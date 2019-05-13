@@ -4,7 +4,7 @@
 }
 
 .sidabar{
-    display:inline-block;
+    display:none;
     position:fixed;
     z-index:2;
     width:300px;
@@ -24,7 +24,7 @@
     list-group样式默认背景为白色，会挤压父级的图片背景，需取消
     */
     width:auto;
-    background-color: rgba(178, 178, 178, 0.4);
+    background-color: rgba(206, 204, 204, 0.65);
     font-weight:bold;
     border-right: none;
 }
@@ -42,7 +42,9 @@
 }
 
 .sidabar>button{
-    position: relative;
-    margin: 58% auto auto 72%;
+    position: absolute;
+    bottom:3vh;
+    right:3vh;
+ /*   margin: 5% auto auto 72%;*/
 }
 

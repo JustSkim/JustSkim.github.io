@@ -10,6 +10,18 @@
     z-index:1;
 }
 
+/*
+在主页面将其左边距设为负值，页面一开始就隐藏起来
+*/
+.sidabar{
+    position:fixed;
+    left:-300px;
+    height:100vh;
+    width:300px;
+    z-index:99;
+}
+
+
 .main>nav{
 	background: linear-gradient(rgba(248,249,250,1.0),rgba(248,249,250,0.5));
 	background: -webkit-linear-gradient(rgba(248,249,250,1.0),rgba(248,249,250,0.5));
@@ -20,20 +32,52 @@
 .main>.sidabarButton{
     position: fixed;
     top:50vh;
-    left:6vh;
-    background-color: olivedrab;
-    width:6vh;
     height:12vh;
-    border-radius:0.5vh;
-    text-align:center;
-    line-height: 6vh;
-    color:white;
-    font-size: 5vh;
-    font-weight: bold;
+    z-index:999;  
+    padding: 0;
 }
 .main>.sidabarButton:hover{
     background-color: lawngreen;
 }
+
+.main>.sidabarButton>span{
+    margin:0;
+    line-height: 6vh;
+    letter-spacing: 0;
+    font-size: 5vh;
+    font-weight: bold;
+    letter-spacing: 0;
+}
+
+/*
+进行侧边栏按钮切换的样式
+*/
+.sidabar-unfold{
+    left:300px;
+    width: 0.1vh;
+    background-color: rgb(171, 228, 238);
+    color: green;
+    text-align: left;
+    
+}
+.sidabar-unfold>span{
+    animation:blink 1s infinite;
+}
+@keyframes blink{
+    to{
+        text-shadow: 4px 0px 4px lawngreen;
+    }
+}
+.sidabar-fold{
+    left:0px;
+    width:3vh;
+    color:white;
+    text-align:center;
+    margin: auto auto;
+    background-color: olivedrab;
+    border-radius:0 0.5vh 0.5vh 0;
+}
+
 
 .main>.jumbotron{
     background: rgba(236, 217, 217,0.23);

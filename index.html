@@ -7,59 +7,17 @@
 <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://cdn.staticfile.org/popper.js/1.12.5/umd/popper.min.js"></script>
 <script src="https://cdn.staticfile.org/twitter-bootstrap/4.1.0/js/bootstrap.min.js"></script>
-<link rel="stylesheet" href="css/sidabar.css">
-<link rel="stylesheet" href="css/main.css">
 
+<link rel="stylesheet" href="css/main.css">
+<link rel="stylesheet" href="css/sidabar.css">
 <!--font awesome图标引用-->
 <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css">
 </head>
 
 <body>
 
-<!--
-    侧边栏的制作
--->
-<div class="sidabar ">
-    <!--侧边栏的内容-->
-    <div class="sidabar-content">
-        <ul class="list-group">
-            <li class="list-group-item">
-                <div class="dropdown show" >
-                    <a class="dropdown-toggle" style="color:black"  role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        个人简介
-                    </a>
-                          
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                    <a class="dropdown-item">过去</a>
-                    <a class="dropdown-item">现在</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item text-muted" >将来</a>
-                </div>
-
-                </div>
-            </li>
-            <li class="list-group-item">Web方向</li>
-            <li class="list-group-item">前线消息</li>
-            <li class="list-group-item">Vestibulum at eros</li>
-        </ul>
-        <div class="card">
-            <div class="card-body">
-                <h5 class="card-title">博主的第一篇博客发布</h5>
-                <p class="card-text">With the supporting codes from bootstrap and jquery.
-                  The level of my coding with javascript and my English writing(Actually not only writing,but also
-                  listening,speaking) are all poor.(Such as the fact how many grammatical mistakes you can see in this message)</p>
-                <a href="#" class="btn btn-primary">Go somewhere mysterious</a>
-            </div>
-        </div>
-    </div>
-
-    <!--
-        收起侧边栏
-    -->
-    <button  type="button" class="btn btn-outline-secondary  ">
-        收起
-    </button>
-
+<div class="sidabar">
+  
 </div>
 
 <!--
@@ -105,9 +63,9 @@
         </div>
     </nav>
 
-    <button class="btn sidabarButton" data-toggle="popover" 
-    data-placement="top" title="展开侧边栏" data-content="你可以任意拖动该小框到屏幕中的任意位置">
-        <!--侧边栏开启按钮-->》
+    <button class="btn sidabarButton sidabar-fold" data-toggle="popover"
+    data-placement="top" title="展开/收起侧边栏" data-content="你可以任意拖动该小框到屏幕中的任意位置">
+        <!--侧边栏开启按钮--><span>》</span>
     </button>
 
     <!--

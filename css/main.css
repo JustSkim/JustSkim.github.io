@@ -1,3 +1,14 @@
+/*
+在主页面将其左边距设为负值，页面一开始就隐藏起来
+*/
+.sidabar{
+    position:fixed;
+    left:-300px;
+    height:100vh;
+    width:300px;
+    z-index:99;
+}
+
 .main{
     position: absolute;
     top:0;
@@ -10,23 +21,25 @@
     z-index:1;
 }
 
-/*
-在主页面将其左边距设为负值，页面一开始就隐藏起来
-*/
-.sidabar{
-    position:fixed;
-    left:-300px;
-    height:100vh;
-    width:300px;
-    z-index:99;
-}
-
-
 .main>nav{
 	background: linear-gradient(rgba(248,249,250,1.0),rgba(248,249,250,0.5));
 	background: -webkit-linear-gradient(rgba(248,249,250,1.0),rgba(248,249,250,0.5));
 	background: -o-linear-gradient(rgba(248,249,250,1.0),rgba(248,249,250,0.5));
 	background: -moz-linear-gradient(rgba(248,249,250,1.0),rgba(248,249,250,0.5));
+}
+.main>nav button{
+    min-width: 100px;
+}
+
+.main>nav>a{
+    padding: 0;
+    font-family: "simhei";
+    font-weight: bold;
+    font-size: 32px;
+    font-style: italic;
+    color:white!important;
+    text-shadow: 2px 2px 4px black,0px 0px 2px black;
+    transform: translateY(-2.5px)
 }
 
 .main>.sidabarButton{
@@ -55,12 +68,14 @@
 .sidabar-unfold{
     left:300px;
     width: 0.1vh;
-    background-color: rgb(171, 228, 238);
+    background-color: rgba(171, 228, 238, 0.1);
     color: green;
     text-align: left;
-    
+    border:none!important;
+    box-shadow: none!important;
 }
 .sidabar-unfold>span{
+    opacity: 1.0;
     animation:blink 1s infinite;
 }
 @keyframes blink{
@@ -85,6 +100,13 @@
     margin:auto auto;
 }
 
+.main>.jumbotron .card .card-title:not(.Chinese-Text):first-letter{
+    color:rgba(80, 158, 172, 0.8);
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 26px;
+    font-weight: bold;
+}
+
 .main>.right{
     position:fixed;
     top:50vh;
@@ -94,6 +116,11 @@
 .main>.right>button{
     min-width:100px;
     font-family: "Comic Sans MS";
+}
+
+.main>.jumbotron .container>div>div:first-child .card-body>p::first-line{
+    color:rgb(233, 195, 27);
+    font-family:"Comic Sans MS";
 }
 
 /*
@@ -132,7 +159,7 @@
     margin:0 50vw 0 0 !important;
 }
 
-.main>footer>div>.link{
+.main>footer .link{
     font-family: "You Yuan","幼圆",微软雅黑;
     font-size: 28px;
 }

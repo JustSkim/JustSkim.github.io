@@ -107,16 +107,20 @@
     font-weight: bold;
 }
 
+/*右边按钮的样式*/
 .main>.right{
     position:fixed;
     top:50vh;
     right:5vh;
 }
 
-.main>.right>button{
+.main>.right>div> button{
     min-width:100px;
     font-family: "Comic Sans MS";
 }
+
+
+
 
 .main>.jumbotron .container>div>div:first-child .card-body>p::first-line{
     color:rgb(233, 195, 27);
@@ -150,13 +154,13 @@
 
 .main>footer>div{
     display:inline-flex;
-    margin:0 5vh;
+    margin:0 auto;
     font-size: 54px;
 }
 
 .main>footer>.footer-left{
     display: inline-flex;
-    margin:0 50vw 0 0 !important;
+    /*margin:0 50vw 0 0 !important;*/
 }
 
 .main>footer .link{
@@ -167,4 +171,41 @@
 .mian>footer>div> span,span:hover{
     color:white!important;
     text-shadow: 2px 2px 4px gold;
+}
+
+/*
+@media 必须放在样式表的最下面，否则会被其他样式覆盖
+*/
+@media (max-width: 576px) {
+    .main{
+        min-height: 300vh;
+    }
+    .main>footer {
+        background-color: rgba(93, 132, 206, 0.2);
+        border:none;
+    }
+
+    .main>footer>div{
+        display:inline-flex;
+        margin:0 auto;
+        font-size: 2rem;
+    }
+    
+    .main>footer>.footer-left{
+        display: inline-flex;
+        /*margin:0 50vw 0 0 !important;*/
+    }
+    
+    .main>footer .link{
+        font-family: "You Yuan","幼圆",微软雅黑;
+        font-size: 0.45rem;
+    }
+    
+    .mian>footer>div> span,span:hover{
+        color:white!important;
+        text-shadow: 2px 2px 4px gold;
+    }
+    
+
+
 }

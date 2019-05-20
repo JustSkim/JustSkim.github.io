@@ -3,6 +3,8 @@
 <head>
     <title>Not a blog</title>
     <meta charset="UTF-8">
+    <!--加入此 meta 标签使 @media 媒体查询生效-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.1.0/css/bootstrap.min.css">
 <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://cdn.staticfile.org/popper.js/1.12.5/umd/popper.min.js"></script>
@@ -148,7 +150,8 @@
     <!--
         右边浮动下拉框
     -->
-    <div class="btn-group right" >
+    <div class="col-2 right">
+    <div class="btn-group" >
         <button type="button" class="btn btn-outline-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><small>
             Something interseting about me</small>
         </button>
@@ -162,23 +165,26 @@
             </p>
         </div>
     </div>
+    </div>
 
     
     
     <!--
       底部
     -->
-    <footer>
-      <div class="footer-left"><span class="fa fa-play-circle-o"></span></div>
-      <div>
+    <footer style="margin-top: 2vh;">
+
+      <div class="col  col-md-4 footer-left"><span class="fa fa-play-circle-o"></span></div>
+      <div class="col-2 col-md-2">
       <!--微信图标-->
       <span class="fa fa-comments-o"></span>
       </div>
-      <div><span class="fa fa-qq"></span></div>
-      <div><span class="fa fa-envelope"></span></div>
-      <div>
+      <div class="col-2 col-md-2"><span class="fa fa-qq"></span></div>
+      <div class="col-2 col-md-2"><span class="fa fa-envelope"></span></div>
+      <div class="col-2 col-md-2"style="font-size:2vh;">
         <span class="link">联系博主</span>
       </div>
+
     </footer>
     
 

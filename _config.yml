@@ -104,4 +104,6 @@ theme: lite
 deploy: 
   type: git
   repo: https://github.com/JustSkim/JustSkim.github.io.git
-  branch: master
+  #我们这里将分支修改为应用了lite主题的dev分支
+  branch: dev
+  

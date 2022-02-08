@@ -1,1 +1,648 @@
-<!doctype html><html lang=en><head><meta charset=UTF-8><meta name=viewport content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1,minimum-scale=1"><meta http-equiv=X-UA-Compatible content="ie=edge"><link rel="shortcut icon" href=/static/favicon.ico><title>Hexo</title><link href=/static/css/app.c64eadfc8d3abfc9d85514dba4054813.css rel=stylesheet><meta name="generator" content="Hexo 5.4.0"></head><body><div id=app></div><script type=text/javascript src=/static/js/manifest.992b63bf2abbf3194771.js></script><script type=text/javascript src=/static/js/vendor.e12dc8c9af1f7aa12436.js></script><script type=text/javascript src=/static/js/app.bc036f9167871d39aecf.js></script></body></html>
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <meta charset="utf-8">
+    
+    <title>Git第一次与远程仓库关联并push时的报错 | Hexo</title>
+    
+    
+        <meta name="keywords" content="git" />
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="Git第一次与远程仓库关联并push时的报错关于该debug的过程描述当我们在github建立一个远程仓库时，github会给予我们相应的quick start提示：  …or create a new repository on the command line1234567echo &quot;# ejs_express_demo&quot; &gt;&gt; README.mdgit ini">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Git第一次与远程仓库关联并push时的报错">
+<meta property="og:url" content="https://justskim.github.io.git/2021/09/03/Git%E7%AC%AC%E4%B8%80%E6%AC%A1%E4%B8%8E%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93%E5%85%B3%E8%81%94%E5%B9%B6push%E6%97%B6%E7%9A%84%E6%8A%A5%E9%94%99/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Git第一次与远程仓库关联并push时的报错关于该debug的过程描述当我们在github建立一个远程仓库时，github会给予我们相应的quick start提示：  …or create a new repository on the command line1234567echo &quot;# ejs_express_demo&quot; &gt;&gt; README.mdgit ini">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-09-02T23:32:48.083Z">
+<meta property="article:modified_time" content="2021-09-02T23:51:18.357Z">
+<meta property="article:author" content="JustSkim">
+<meta property="article:tag" content="git">
+<meta name="twitter:card" content="summary">
+    
+
+    
+        <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml" />
+    
+
+    
+        <link rel="icon" href="/favicon.ico" />
+    
+
+    
+<link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="/libs/open-sans/styles.css">
+
+    
+<link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    
+<script src="/libs/jquery/2.1.3/jquery.min.js"></script>
+
+    
+<script src="/libs/jquery/plugins/cookie/1.4.1/jquery.cookie.js"></script>
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+
+    
+    
+    
+    
+
+
+    
+        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+    <div id="container">
+        <header id="header">
+    <div id="header-main" class="header-inner">
+        <div class="outer">
+            <a href="/" id="logo">
+                <i class="logo"></i>
+                <span class="site-title">Hexo</span>
+            </a>
+            <nav id="main-nav">
+                
+                    <a class="main-nav-link" href="/">首页</a>
+                
+                    <a class="main-nav-link" href="/archives">归档</a>
+                
+                    <a class="main-nav-link" href="/categories">分类</a>
+                
+                    <a class="main-nav-link" href="/tags">标签</a>
+                
+                    <a class="main-nav-link" href="/about">关于</a>
+                
+            </nav>
+            
+            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+</div>
+        </div>
+    </div>
+    <div id="main-nav-mobile" class="header-sub header-inner">
+        <table class="menu outer">
+            <tr>
+                
+                    <td><a class="main-nav-link" href="/">首页</a></td>
+                
+                    <td><a class="main-nav-link" href="/archives">归档</a></td>
+                
+                    <td><a class="main-nav-link" href="/categories">分类</a></td>
+                
+                    <td><a class="main-nav-link" href="/tags">标签</a></td>
+                
+                    <td><a class="main-nav-link" href="/about">关于</a></td>
+                
+                <td>
+                    
+    <div class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+    </div>
+
+                </td>
+            </tr>
+        </table>
+    </div>
+</header>
+
+        <div class="outer">
+            
+            
+                <aside id="sidebar">
+   
+        
+    <div class="widget-wrap" id='categories'>
+        <h3 class="widget-title">
+            <span>categories</span>
+            &nbsp;
+            <a id='allExpand' href="#">
+                <i class="fa fa-angle-double-down fa-2x"></i>
+            </a>
+        </h3>
+        
+        
+        
+         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Data analysis
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2021/09/15/python%E6%97%A7%E7%89%88%E6%9C%AC%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8Edebug-%E2%80%94%E2%80%94%E2%80%94%E2%80%94-%E4%BB%A5scipy1.2.0%E4%B8%BA%E4%BE%8B/">python旧版本的安装与debug ———— 以scipy1.2.0为例</a></li>  <li class="file"><a href="/2021/09/16/scipy%E7%89%88%E6%9C%AC%E7%9A%84%E4%B8%80%E4%BA%9B%E5%BA%9F%E5%BC%83%E6%96%B9%E6%B3%95%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/">scipy版本的一些废弃方法及解决方案</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Diary
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            life
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2021/08/29/hello-world/">Hello World</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory open">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder-open"></i>
+                            &nbsp;
+                            Git
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Github
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2021/09/16/%E5%AF%B9%E4%BA%8Egithub.io%E7%9A%84%E8%AE%BF%E9%97%AE/">对于github.io的访问</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory open">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder-open"></i>
+                            &nbsp;
+                            Git报错处理
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file active"><a href="/2021/09/03/Git%E7%AC%AC%E4%B8%80%E6%AC%A1%E4%B8%8E%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93%E5%85%B3%E8%81%94%E5%B9%B6push%E6%97%B6%E7%9A%84%E6%8A%A5%E9%94%99/">Git第一次与远程仓库关联并push时的报错</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Linux
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2021/09/24/%E5%9C%A8linux%E7%B3%BB%E7%BB%9F%E4%B8%AD%E7%BC%96%E5%86%99%E5%B9%B6%E6%89%A7%E8%A1%8CC%E8%AF%AD%E8%A8%80%E7%A8%8B%E5%BA%8F/">在linux系统中编写并执行C语言程序</a></li>  <li class="file"><a href="/2021/09/26/%E5%9C%A8linux%E7%B3%BB%E7%BB%9F%E5%88%9B%E5%BB%BA%E7%88%B6%E5%AD%90%E8%BF%9B%E7%A8%8B%E5%8F%8A%E7%9B%B8%E5%85%B3%E6%93%8D%E4%BD%9C/">在linux系统创建父子进程及相关操作</a></li>  <li class="file"><a href="/2021/09/27/%E5%9C%A8vmware%E4%B8%AD%E5%AE%9E%E7%8E%B0%E5%85%B1%E4%BA%AB%E6%96%87%E4%BB%B6%E5%A4%B9%E4%BB%A5%E5%8F%8A%E5%AE%89%E8%A3%85vmware-tools/">在vmware中实现共享文件夹以及安装vmware-tools</a></li>  <li class="file"><a href="/2021/09/27/linux%E7%9A%84%E6%9D%83%E9%99%90%E4%B8%8E%E9%9A%90%E8%97%8F%E6%9D%83%E9%99%90/">linux的权限与隐藏权限</a></li>  <li class="file"><a href="/2021/10/23/%E5%9C%A8vmware%E4%B8%AD%E2%80%9Cmnthgfs%E2%80%9D%E8%B7%AF%E5%BE%84%E4%B8%8B%E5%85%B1%E4%BA%AB%E6%96%87%E4%BB%B6%E5%A4%B9%E7%9A%84%E6%8C%82%E8%BD%BD/">在vmware中“/mnt/hgfs”路径下共享文件夹的挂载</a></li>  <li class="file"><a href="/2021/10/23/linux%E7%9A%84%E8%BF%9B%E7%A8%8B%E4%BC%98%E5%85%88%E7%BA%A7%E4%B8%8E%E8%BF%9B%E7%A8%8B%E8%B0%83%E5%BA%A6%E7%AD%96%E7%95%A5/">linux的进程优先级与进程调度策略</a></li>  <li class="file"><a href="/2021/11/16/%E5%9C%A8vmware%E8%99%9A%E6%8B%9F%E6%9C%BA%E4%B8%AD%E8%BF%9B%E8%A1%8C%E7%BD%91%E7%BB%9C%E8%BF%9E%E6%8E%A5/">在vmware虚拟机中进行网络连接</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            MarkDown
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            typora的特殊使用
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2021/08/29/Reference/">typora中的锚点与引用</a></li>  <li class="file"><a href="/2021/09/06/typora%E4%B8%8Ehexo%E5%8D%9A%E5%AE%A2%E4%B8%AD%E7%9A%84%E5%9B%BE%E7%89%87%E6%8F%92%E5%85%A5/">typora与hexo博客中的图片插入</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Mysql
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2021/09/05/MYSQL%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/">MYSQL数据类型</a></li>  <li class="file"><a href="/2021/09/05/MYSQL%E5%AD%97%E6%AE%B5%E5%B1%9E%E6%80%A7/">MYSQL字段属性</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Programming languages and projects
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            JavaScript
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Nodejs
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2021/08/31/nodejs%E4%B8%ADhttp%E7%9B%B8%E5%85%B3%E6%96%B9%E6%B3%95/">nodejs中http相关方法</a></li>  <li class="file"><a href="/2021/08/31/new-Promise%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%E8%AF%A6%E8%A7%A3/">new Promise构造函数详解</a></li>  <li class="file"><a href="/2021/09/03/express%E6%A1%86%E6%9E%B6%E4%B8%8B%E4%BD%BF%E7%94%A8ejs%E6%A8%A1%E6%9D%BF/">express框架下使用ejs模板</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Vue
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2021/09/19/%E5%88%9B%E5%BB%BAvue%E9%A1%B9%E7%9B%AE%E7%9A%84%E4%B8%A4%E4%B8%AA%E5%91%BD%E4%BB%A4%EF%BC%9Avue-create-myproject%E4%B8%8Evue-init-webpack-%E8%AF%A6%E8%A7%A3/">创建vue项目的两个命令：vue create myproject与vue init webpack 详解</a></li>  <li class="file"><a href="/2021/09/19/%E5%87%A0%E4%B8%AA%E5%B8%B8%E7%94%A8%E7%9A%84vue%E5%90%8D%E8%AF%8D%E8%AF%A6%E8%A7%A3/">几个常用的vue名词详解</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            web
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2021/09/06/%E7%BD%91%E7%AB%99%E6%90%9C%E7%B4%A2%E7%BA%AA%E5%BD%95%E7%9A%84%E5%88%A0%E9%99%A4/">网站搜索纪录的删除</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Python3
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            PYQT5
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2021/08/29/PYQT5%E4%BB%8B%E7%BB%8D/">PYQT5介绍</a></li>  <li class="file"><a href="/2021/08/29/%E5%BA%94%E7%94%A8%E7%AA%97%E5%8F%A3%E5%88%9D%E5%A7%8B%E5%8C%96/">Pyqt5中的常用模块与组件</a></li>  <li class="file"><a href="/2021/08/31/Pyqt5%E4%B8%AD%E7%9A%84%E7%AA%97%E5%8F%A3%E4%B8%8E%E5%B7%A5%E5%85%B7%E6%A0%8F/">Pyqt5中的窗口与工具栏</a></li>  <li class="file"><a href="/2021/08/31/PYQT5%E5%B8%83%E5%B1%80%E7%AE%A1%E7%90%86/">PYQT5布局管理</a></li>  <li class="file"><a href="/2021/08/31/PYQT5%E4%BA%8B%E4%BB%B6%E4%B8%8E%E4%BF%A1%E5%8F%B7/">PYQT5事件与信号</a></li>  <li class="file"><a href="/2021/08/31/PYQT5%E5%AF%B9%E8%AF%9D%E6%A1%86/">PYQT5对话框</a></li>  <li class="file"><a href="/2021/08/31/PYQT5%E6%8E%A7%E4%BB%B6/">PYQT5控件</a></li>  <li class="file"><a href="/2021/08/31/PYQT5%E6%8B%96%E6%8B%BD/">PYQT5拖拽</a></li>  <li class="file"><a href="/2021/08/31/PYQT5%E7%BB%98%E5%9B%BE/">PYQT5绘图</a></li>  </ul> 
+                    </li> 
+                     <li class="file"><a href="/2021/10/31/python3%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E5%B8%B8%E8%A7%81%E8%AF%AD%E6%B3%95%E7%B3%96/">python3中的一些常见语法糖整理</a></li>  <li class="file"><a href="/2021/11/03/python3%E4%B8%AD%E7%9A%84%E7%94%9F%E6%88%90%E5%99%A8%E4%B8%8E%E8%BF%AD%E4%BB%A3%E5%99%A8/">python3中的生成器与迭代器</a></li>  <li class="file"><a href="/2021/11/09/python3%E4%B8%AD%E7%9A%84%E8%BF%90%E8%A1%8C%E5%91%BD%E4%BB%A4%E4%B8%8E%E7%8E%AF%E5%A2%83/">python3中的运行命令与环境</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                     <li class="file"><a href="/2021/08/29/first/">Your first md</a></li>  </ul> 
+    </div>
+    <script>
+        $(document).ready(function() {
+            var iconFolderOpenClass  = 'fa-folder-open';
+            var iconFolderCloseClass = 'fa-folder';
+            var iconAllExpandClass = 'fa-angle-double-down';
+            var iconAllPackClass = 'fa-angle-double-up';
+            // Handle directory-tree expansion:
+            // 左键单独展开目录
+            $(document).on('click', '#categories a[data-role="directory"]', function (event) {
+                event.preventDefault();
+
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconFolderOpenClass);
+                var subtree = $(this).siblings('ul');
+                icon.removeClass(iconFolderOpenClass).removeClass(iconFolderCloseClass);
+                if (expanded) {
+                    if (typeof subtree != 'undefined') {
+                        subtree.slideUp({ duration: 100 });
+                    }
+                    icon.addClass(iconFolderCloseClass);
+                } else {
+                    if (typeof subtree != 'undefined') {
+                        subtree.slideDown({ duration: 100 });
+                    }
+                    icon.addClass(iconFolderOpenClass);
+                }
+            });
+            // 右键展开下属所有目录
+            $('#categories a[data-role="directory"]').bind("contextmenu", function(event){
+                event.preventDefault();
+                
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconFolderOpenClass);
+                var listNode = $(this).siblings('ul');
+                var subtrees = $.merge(listNode.find('li ul'), listNode);
+                var icons = $.merge(listNode.find('.fa'), icon);
+                icons.removeClass(iconFolderOpenClass).removeClass(iconFolderCloseClass);
+                if(expanded) {
+                    subtrees.slideUp({ duration: 100 });
+                    icons.addClass(iconFolderCloseClass);
+                } else {
+                    subtrees.slideDown({ duration: 100 });
+                    icons.addClass(iconFolderOpenClass);
+                }
+            })
+            // 展开关闭所有目录按钮
+            $(document).on('click', '#allExpand', function (event) {
+                event.preventDefault();
+                
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconAllExpandClass);
+                icon.removeClass(iconAllExpandClass).removeClass(iconAllPackClass);
+                if(expanded) {
+                    $('#sidebar .fa.fa-folder').removeClass('fa-folder').addClass('fa-folder-open')
+                    $('#categories li ul').slideDown({ duration: 100 });
+                    icon.addClass(iconAllPackClass);
+                } else {
+                    $('#sidebar .fa.fa-folder-open').removeClass('fa-folder-open').addClass('fa-folder')
+                    $('#categories li ul').slideUp({ duration: 100 });
+                    icon.addClass(iconAllExpandClass);
+                }
+            });  
+        });
+    </script>
+
+    
+    <div id="toTop" class="fa fa-angle-up"></div>
+</aside>
+            
+            <section id="main"><article id="post-Git第一次与远程仓库关联并push时的报错" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/Git/">Git</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/Git/Git%E6%8A%A5%E9%94%99%E5%A4%84%E7%90%86/">Git报错处理</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link-link" href="/tags/git/" rel="tag">git</a>
+    </div>
+
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2021/09/03/Git%E7%AC%AC%E4%B8%80%E6%AC%A1%E4%B8%8E%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93%E5%85%B3%E8%81%94%E5%B9%B6push%E6%97%B6%E7%9A%84%E6%8A%A5%E9%94%99/">
+            <time datetime="2021-09-02T23:32:48.083Z" itemprop="datePublished">2021-09-03</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/zthxxx/Wiki-site/raw/writing/source/_posts/Git第一次与远程仓库关联并push时的报错.md'> Source </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/zthxxx/Wiki-site/edit/writing/source/_posts/Git第一次与远程仓库关联并push时的报错.md'> Edit </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/zthxxx/Wiki-site/commits/writing/source/_posts/Git第一次与远程仓库关联并push时的报错.md'> History </a>
+                            </div>
+                        
+                    </div>
+                
+                
+    
+        <h1 class="article-title" itemprop="name">
+            Git第一次与远程仓库关联并push时的报错
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+        
+        
+            <h1 id="Git第一次与远程仓库关联并push时的报错"><a href="#Git第一次与远程仓库关联并push时的报错" class="headerlink" title="Git第一次与远程仓库关联并push时的报错"></a>Git第一次与远程仓库关联并push时的报错</h1><h2 id="关于该debug的过程描述"><a href="#关于该debug的过程描述" class="headerlink" title="关于该debug的过程描述"></a>关于该debug的过程描述</h2><p>当我们在github建立一个远程仓库时，github会给予我们相应的quick start提示：</p>
+<blockquote>
+<h3 id="…or-create-a-new-repository-on-the-command-line"><a href="#…or-create-a-new-repository-on-the-command-line" class="headerlink" title="…or create a new repository on the command line"></a>…or create a new repository on the command line</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">echo &quot;# ejs_express_demo&quot; &gt;&gt; README.md</span><br><span class="line">git init</span><br><span class="line">git add README.md</span><br><span class="line">git commit -m &quot;first commit&quot;</span><br><span class="line">git branch -M main</span><br><span class="line">git remote add origin https://github.com/JustSkim/ejs_express_demo.git</span><br><span class="line">git push -u origin main</span><br></pre></td></tr></table></figure>
+<h3 id="…or-push-an-existing-repository-from-the-command-line"><a href="#…or-push-an-existing-repository-from-the-command-line" class="headerlink" title="…or push an existing repository from the command line"></a>…or push an existing repository from the command line</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git remote add origin https://github.com/JustSkim/ejs_express_demo.git</span><br><span class="line">git branch -M main</span><br><span class="line">git push -u origin main</span><br></pre></td></tr></table></figure>
+<h3 id="…or-import-code-from-another-repository"><a href="#…or-import-code-from-another-repository" class="headerlink" title="…or import code from another repository"></a>…or import code from another repository</h3><p>You can initialize this repository with code from a Subversion, Mercurial, or TFS project.<br><a target="_blank" rel="noopener" href="https://github.com//ejs_express_demo/import">Import code</a></p>
+</blockquote>
+<blockquote>
+<p>$ git init<br>Initialized empty Git repository in E:/JS练习/ejs_demo/.git/</p>
+</blockquote>
+<p>首先，创建一个 Git 仓库</p>
+<blockquote>
+<p>User@TAPTOP-N6POI72B MNIWG19 /e/JS练习/ejs_demo (master)<br>$ git commit -m “no useful file first commit”<br>On branch master<br>Initial commit<br>Untracked files:<br>     .gitignore<br>    package.json</p>
+<p>   nothing added to commit but untracked files present</p>
+</blockquote>
+<p>然后，提交暂存区到本地仓库。<br>事实上，我们第一次使用在该文件夹中使用该git commit命令出现了差错：<br>**Untracked files  … nothing added to commit but untracked files present **<br>一般而言，第一次执行提交暂存区到本地仓库的操作，如果使用<code>git commit -m &quot;description&quot;</code> 而不是<code>git commit -a -m &quot;description&quot;</code>，是不会出现该错误的[^1]。</p>
+<p>对于我们这种情况，出现该差错的原因在于：在我们每次使用 git commit 命令之前，<br>使用 git add 跟踪一个文件，并且将其纳入暂存区。git add使用文件或者目录作为参数，如果参数是目录，那么会递归地跟踪该目录下左右文件（为”.”，则跟踪目录下所有未被.gitignore排除的文件）[^2]。</p>
+<blockquote>
+<p>User@TAPTOP-N6POI72B MNIWG19 /e/JS练习/ejs_demo (master)<br>$git remote add origin <a href="mailto:&#x67;&#x69;&#x74;&#x40;&#103;&#x69;&#x74;&#x68;&#x75;&#98;&#46;&#99;&#x6f;&#x6d;">&#x67;&#x69;&#x74;&#x40;&#103;&#x69;&#x74;&#x68;&#x75;&#98;&#46;&#99;&#x6f;&#x6d;</a>:JustSkim/ejs_express_demo.git</p>
+</blockquote>
+<p>添加名为origind 远程版本库：</p>
+<blockquote>
+<p>User@TAPTOP-N6POI72B MNIWG19 /e/JS练习/ejs_demo (master)<br>$ git push -u origin main<br>error: src refspec main does not match any.<br>error: failed to push some refs to ‘<a href="mailto:&#x67;&#x69;&#x74;&#64;&#103;&#x69;&#116;&#x68;&#x75;&#98;&#x2e;&#99;&#x6f;&#109;">&#x67;&#x69;&#x74;&#64;&#103;&#x69;&#116;&#x68;&#x75;&#98;&#x2e;&#99;&#x6f;&#109;</a>:JustSkim/ejs_express_demo.git’</p>
+</blockquote>
+<p>这里push失败，我们尝试改为https的连接方式（事实证明这对于解决问题是起不到帮助的）<br>（但是当网络环境差导致多次Push失败时，建议更改连接方式）</p>
+<blockquote>
+<p>User@TAPTOP-N6POI72B MNIWG19 /e/JS练习/ejs_demo (master)<br>$ git remote set-url origin <a target="_blank" rel="noopener" href="https://github.com/JustSkim/ejs_express_demo.git">https://github.com/JustSkim/ejs_express_demo.git</a></p>
+<p>User@TAPTOP-N6POI72B MNIWG19 /e/JS练习/ejs_demo (master)<br>$ git push -u origin master<br>error: src refspec master does not match any.<br>error: failed to push some refs to ‘<a target="_blank" rel="noopener" href="https://github.com/JustSkim/ejs_express_demo.git&#39;">https://github.com/JustSkim/ejs_express_demo.git&#39;</a></p>
+</blockquote>
+<blockquote>
+<p>User@TAPTOP-N6POI72B MNIWG19 /e/JS练习/ejs_demo (master)<br>$ git branch -a</p>
+</blockquote>
+<p>由于之前的错误，存在未被跟踪的文件导致提交失败，因此在这里，无论使用命令“git branch”还是”git branch -a“，都没有列出任何分支</p>
+<blockquote>
+<p>User@TAPTOP-N6POI72B MNIWG19 /e/JS练习/ejs_demo (master)<br>$ git add .<br>warning: LF will be replaced by CRLF in package.json.<br>The file will have its original line endings in your working directory.</p>
+<p>User@TAPTOP-N6POI72B MNIWG19 /e/JS练习/ejs_demo (master)<br>$ git log<br>fatal: your current branch ‘master’ does not have any commits yet</p>
+</blockquote>
+<p>我们重新跟踪文件<br>这里日志提示我们 ”该master分支下至今没有任何提交“</p>
+<blockquote>
+<p>User@TAPTOP-N6POI72B MNIWG19 /e/JS练习/ejs_demo (master)<br>$ git commit -m “no file”<br>[master (root-commit) 7bbefea] no file<br>warning: LF will be replaced by CRLF in package.json.<br>The file will have its original line endings in your working directory.<br>2 files changed, 16 insertions(+)<br>create mode 100644 .gitignore<br>create mode 100644 package.json</p>
+</blockquote>
+<p>好了，这一次我们提交成功了</p>
+<blockquote>
+<p>User@TAPTOP-N6POI72B MNIWG19 /e/JS练习/ejs_demo (master)<br>$ git branch<br>*master</p>
+</blockquote>
+<p>可以看到master分支存在</p>
+<blockquote>
+<p>User@TAPTOP-N5PIO<br>$ git push origin master<br>Counting objects: 4, done.<br>Delta compression using up to 16 threads.<br>Compressing objects: 100% (3/3), done.<br>Writing objects: 100% (4/4), 445 bytes | 0 bytes/s, done.<br>Total 4 (delta 0), reused 0 (delta 0)<br>To <a target="_blank" rel="noopener" href="https://github.com/JustSkim/ejs_express_demo.git">https://github.com/JustSkim/ejs_express_demo.git</a></p>
+<ul>
+<li>[new branch]      master -&gt; master</li>
+</ul>
+</blockquote>
+<p>代码成功推送到远程仓库</p>
+<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><p>[^1]: <a target="_blank" rel="noopener" href="https://www.jianshu.com/p/61c3db30d488">git commit -a -m “提交报错”</a><br>[^2]: <a target="_blank" rel="noopener" href="https://www.jianshu.com/p/4d642a42414a">git提交报错nothing added to commit but untracked files present</a>  </p>
+
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+    
+<nav id="article-nav">
+    
+        <a href="/2021/09/03/express%E6%A1%86%E6%9E%B6%E4%B8%8B%E4%BD%BF%E7%94%A8ejs%E6%A8%A1%E6%9D%BF/" id="article-nav-newer" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">Newer</strong>
+            <div class="article-nav-title">
+                
+                    express框架下使用ejs模板
+                
+            </div>
+        </a>
+    
+    
+        <a href="/2021/08/31/new-Promise%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%E8%AF%A6%E8%A7%A3/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">Older</strong>
+            <div class="article-nav-title">new Promise构造函数详解</div>
+        </a>
+    
+</nav>
+
+
+
+
+
+    
+    
+
+
+
+
+<!-- baidu url auto push script -->
+<script type="text/javascript">
+    !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=window.location.href,o=document.referrer;if(!e.test(r)){var n="//api.share.baidu.com/s.gif";o?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var t=new Image;t.src=n}}(window);
+</script>     
+</section>
+        </div>
+        <footer id="footer">
+    <div class="outer">
+        <div id="footer-info" class="inner">
+            JustSkim &copy; 2022 
+            <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/80x15.png" /></a>
+            <br> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Theme - <a target="_blank" rel="noopener" href="https://github.com/zthxxx/hexo-theme-Wikitten">wikitten</a>
+            
+                <br>
+                <span id="busuanzi_container_site_pv"><i class="fa fa-eye"></i> <span id="busuanzi_value_site_pv"></span></span>
+                &nbsp;|&nbsp;
+                <span id="busuanzi_container_site_pv"><i class="fa fa-user"></i> <span id="busuanzi_value_site_uv"></span></span>
+            
+        </div>
+    </div>
+</footer>
+
+        
+
+    
+        
+<script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-share.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-video.min.js"></script>
+
+    
+    
+        
+<script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+    
+    
+        <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true,
+            TeX: {
+                equationNumbers: {
+                  autoNumber: 'AMS'
+                }
+            }
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script async src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+
+
+
+<!-- Custom Scripts -->
+
+<script src="/js/main.js"></script>
+
+
+    </div>
+</body>
+</html>

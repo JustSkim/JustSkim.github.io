@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <meta charset="utf-8">
+    
+    <title>python3中的运行命令与环境 | Hexo</title>
+    
+    
+        <meta name="keywords" content="python3,anaconda" />
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="python3中的运行命令与环境本机电脑仅安装python3，以下使用的均为python3环境配置 镜像是什么？镜像（Mirroring）是一种文件存储形式，是冗余的一种类型，一个磁盘上的数据在另一个磁盘上存在一个完全相同的副本即为镜像。 镜像源 就是把官方的源做一个镜像，你可以在这下载软件。 比如ubuntu官方源在国外，下载软件可能会很慢，这时候就需要换成国内的镜像源。 源 端口就是指本地端口">
+<meta property="og:type" content="article">
+<meta property="og:title" content="python3中的运行命令与环境">
+<meta property="og:url" content="https://justskim.github.io.git/2021/11/09/python3%E4%B8%AD%E7%9A%84%E8%BF%90%E8%A1%8C%E5%91%BD%E4%BB%A4%E4%B8%8E%E7%8E%AF%E5%A2%83/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="python3中的运行命令与环境本机电脑仅安装python3，以下使用的均为python3环境配置 镜像是什么？镜像（Mirroring）是一种文件存储形式，是冗余的一种类型，一个磁盘上的数据在另一个磁盘上存在一个完全相同的副本即为镜像。 镜像源 就是把官方的源做一个镜像，你可以在这下载软件。 比如ubuntu官方源在国外，下载软件可能会很慢，这时候就需要换成国内的镜像源。 源 端口就是指本地端口">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="e:/JS练习/blog/Myblog/source/images/两个命令差别.png">
+<meta property="article:published_time" content="2021-11-08T18:35:42.058Z">
+<meta property="article:modified_time" content="2021-11-08T18:36:09.710Z">
+<meta property="article:author" content="JustSkim">
+<meta property="article:tag" content="python3">
+<meta property="article:tag" content="anaconda">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="e:/JS练习/blog/Myblog/source/images/两个命令差别.png">
+    
+
+    
+        <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml" />
+    
+
+    
+        <link rel="icon" href="/favicon.ico" />
+    
+
+    
+<link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="/libs/open-sans/styles.css">
+
+    
+<link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    
+<script src="/libs/jquery/2.1.3/jquery.min.js"></script>
+
+    
+<script src="/libs/jquery/plugins/cookie/1.4.1/jquery.cookie.js"></script>
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+
+    
+    
+    
+    
+
+
+    
+        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+    <div id="container">
+        <header id="header">
+    <div id="header-main" class="header-inner">
+        <div class="outer">
+            <a href="/" id="logo">
+                <i class="logo"></i>
+                <span class="site-title">Hexo</span>
+            </a>
+            <nav id="main-nav">
+                
+                    <a class="main-nav-link" href="/">首页</a>
+                
+                    <a class="main-nav-link" href="/archives">归档</a>
+                
+                    <a class="main-nav-link" href="/categories">分类</a>
+                
+                    <a class="main-nav-link" href="/tags">标签</a>
+                
+                    <a class="main-nav-link" href="/about">关于</a>
+                
+            </nav>
+            
+            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+</div>
+        </div>
+    </div>
+    <div id="main-nav-mobile" class="header-sub header-inner">
+        <table class="menu outer">
+            <tr>
+                
+                    <td><a class="main-nav-link" href="/">首页</a></td>
+                
+                    <td><a class="main-nav-link" href="/archives">归档</a></td>
+                
+                    <td><a class="main-nav-link" href="/categories">分类</a></td>
+                
+                    <td><a class="main-nav-link" href="/tags">标签</a></td>
+                
+                    <td><a class="main-nav-link" href="/about">关于</a></td>
+                
+                <td>
+                    
+    <div class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+    </div>
+
+                </td>
+            </tr>
+        </table>
+    </div>
+</header>
+
+        <div class="outer">
+            
+            
+                <aside id="sidebar">
+   
+        
+    <div class="widget-wrap" id='categories'>
+        <h3 class="widget-title">
+            <span>categories</span>
+            &nbsp;
+            <a id='allExpand' href="#">
+                <i class="fa fa-angle-double-down fa-2x"></i>
+            </a>
+        </h3>
+        
+        
+        
+         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Data analysis
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2021/09/15/python%E6%97%A7%E7%89%88%E6%9C%AC%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8Edebug-%E2%80%94%E2%80%94%E2%80%94%E2%80%94-%E4%BB%A5scipy1.2.0%E4%B8%BA%E4%BE%8B/">python旧版本的安装与debug ———— 以scipy1.2.0为例</a></li>  <li class="file"><a href="/2021/09/16/scipy%E7%89%88%E6%9C%AC%E7%9A%84%E4%B8%80%E4%BA%9B%E5%BA%9F%E5%BC%83%E6%96%B9%E6%B3%95%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/">scipy版本的一些废弃方法及解决方案</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Diary
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            life
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2021/08/29/hello-world/">Hello World</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Git
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Github
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2021/09/16/%E5%AF%B9%E4%BA%8Egithub.io%E7%9A%84%E8%AE%BF%E9%97%AE/">对于github.io的访问</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Git报错处理
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2021/09/03/Git%E7%AC%AC%E4%B8%80%E6%AC%A1%E4%B8%8E%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93%E5%85%B3%E8%81%94%E5%B9%B6push%E6%97%B6%E7%9A%84%E6%8A%A5%E9%94%99/">Git第一次与远程仓库关联并push时的报错</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Linux
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2021/09/24/%E5%9C%A8linux%E7%B3%BB%E7%BB%9F%E4%B8%AD%E7%BC%96%E5%86%99%E5%B9%B6%E6%89%A7%E8%A1%8CC%E8%AF%AD%E8%A8%80%E7%A8%8B%E5%BA%8F/">在linux系统中编写并执行C语言程序</a></li>  <li class="file"><a href="/2021/09/26/%E5%9C%A8linux%E7%B3%BB%E7%BB%9F%E5%88%9B%E5%BB%BA%E7%88%B6%E5%AD%90%E8%BF%9B%E7%A8%8B%E5%8F%8A%E7%9B%B8%E5%85%B3%E6%93%8D%E4%BD%9C/">在linux系统创建父子进程及相关操作</a></li>  <li class="file"><a href="/2021/09/27/%E5%9C%A8vmware%E4%B8%AD%E5%AE%9E%E7%8E%B0%E5%85%B1%E4%BA%AB%E6%96%87%E4%BB%B6%E5%A4%B9%E4%BB%A5%E5%8F%8A%E5%AE%89%E8%A3%85vmware-tools/">在vmware中实现共享文件夹以及安装vmware-tools</a></li>  <li class="file"><a href="/2021/09/27/linux%E7%9A%84%E6%9D%83%E9%99%90%E4%B8%8E%E9%9A%90%E8%97%8F%E6%9D%83%E9%99%90/">linux的权限与隐藏权限</a></li>  <li class="file"><a href="/2021/10/23/%E5%9C%A8vmware%E4%B8%AD%E2%80%9Cmnthgfs%E2%80%9D%E8%B7%AF%E5%BE%84%E4%B8%8B%E5%85%B1%E4%BA%AB%E6%96%87%E4%BB%B6%E5%A4%B9%E7%9A%84%E6%8C%82%E8%BD%BD/">在vmware中“/mnt/hgfs”路径下共享文件夹的挂载</a></li>  <li class="file"><a href="/2021/10/23/linux%E7%9A%84%E8%BF%9B%E7%A8%8B%E4%BC%98%E5%85%88%E7%BA%A7%E4%B8%8E%E8%BF%9B%E7%A8%8B%E8%B0%83%E5%BA%A6%E7%AD%96%E7%95%A5/">linux的进程优先级与进程调度策略</a></li>  <li class="file"><a href="/2021/11/16/%E5%9C%A8vmware%E8%99%9A%E6%8B%9F%E6%9C%BA%E4%B8%AD%E8%BF%9B%E8%A1%8C%E7%BD%91%E7%BB%9C%E8%BF%9E%E6%8E%A5/">在vmware虚拟机中进行网络连接</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            MarkDown
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            typora的特殊使用
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2021/08/29/Reference/">typora中的锚点与引用</a></li>  <li class="file"><a href="/2021/09/06/typora%E4%B8%8Ehexo%E5%8D%9A%E5%AE%A2%E4%B8%AD%E7%9A%84%E5%9B%BE%E7%89%87%E6%8F%92%E5%85%A5/">typora与hexo博客中的图片插入</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Mysql
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2021/09/05/MYSQL%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/">MYSQL数据类型</a></li>  <li class="file"><a href="/2021/09/05/MYSQL%E5%AD%97%E6%AE%B5%E5%B1%9E%E6%80%A7/">MYSQL字段属性</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory open">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder-open"></i>
+                            &nbsp;
+                            Programming languages and projects
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            JavaScript
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Nodejs
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2021/08/31/nodejs%E4%B8%ADhttp%E7%9B%B8%E5%85%B3%E6%96%B9%E6%B3%95/">nodejs中http相关方法</a></li>  <li class="file"><a href="/2021/08/31/new-Promise%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%E8%AF%A6%E8%A7%A3/">new Promise构造函数详解</a></li>  <li class="file"><a href="/2021/09/03/express%E6%A1%86%E6%9E%B6%E4%B8%8B%E4%BD%BF%E7%94%A8ejs%E6%A8%A1%E6%9D%BF/">express框架下使用ejs模板</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Vue
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2021/09/19/%E5%88%9B%E5%BB%BAvue%E9%A1%B9%E7%9B%AE%E7%9A%84%E4%B8%A4%E4%B8%AA%E5%91%BD%E4%BB%A4%EF%BC%9Avue-create-myproject%E4%B8%8Evue-init-webpack-%E8%AF%A6%E8%A7%A3/">创建vue项目的两个命令：vue create myproject与vue init webpack 详解</a></li>  <li class="file"><a href="/2021/09/19/%E5%87%A0%E4%B8%AA%E5%B8%B8%E7%94%A8%E7%9A%84vue%E5%90%8D%E8%AF%8D%E8%AF%A6%E8%A7%A3/">几个常用的vue名词详解</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            web
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2021/09/06/%E7%BD%91%E7%AB%99%E6%90%9C%E7%B4%A2%E7%BA%AA%E5%BD%95%E7%9A%84%E5%88%A0%E9%99%A4/">网站搜索纪录的删除</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory open">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder-open"></i>
+                            &nbsp;
+                            Python3
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            PYQT5
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2021/08/29/PYQT5%E4%BB%8B%E7%BB%8D/">PYQT5介绍</a></li>  <li class="file"><a href="/2021/08/29/%E5%BA%94%E7%94%A8%E7%AA%97%E5%8F%A3%E5%88%9D%E5%A7%8B%E5%8C%96/">Pyqt5中的常用模块与组件</a></li>  <li class="file"><a href="/2021/08/31/Pyqt5%E4%B8%AD%E7%9A%84%E7%AA%97%E5%8F%A3%E4%B8%8E%E5%B7%A5%E5%85%B7%E6%A0%8F/">Pyqt5中的窗口与工具栏</a></li>  <li class="file"><a href="/2021/08/31/PYQT5%E5%B8%83%E5%B1%80%E7%AE%A1%E7%90%86/">PYQT5布局管理</a></li>  <li class="file"><a href="/2021/08/31/PYQT5%E4%BA%8B%E4%BB%B6%E4%B8%8E%E4%BF%A1%E5%8F%B7/">PYQT5事件与信号</a></li>  <li class="file"><a href="/2021/08/31/PYQT5%E5%AF%B9%E8%AF%9D%E6%A1%86/">PYQT5对话框</a></li>  <li class="file"><a href="/2021/08/31/PYQT5%E6%8E%A7%E4%BB%B6/">PYQT5控件</a></li>  <li class="file"><a href="/2021/08/31/PYQT5%E6%8B%96%E6%8B%BD/">PYQT5拖拽</a></li>  <li class="file"><a href="/2021/08/31/PYQT5%E7%BB%98%E5%9B%BE/">PYQT5绘图</a></li>  </ul> 
+                    </li> 
+                     <li class="file"><a href="/2021/10/31/python3%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E5%B8%B8%E8%A7%81%E8%AF%AD%E6%B3%95%E7%B3%96/">python3中的一些常见语法糖整理</a></li>  <li class="file"><a href="/2021/11/03/python3%E4%B8%AD%E7%9A%84%E7%94%9F%E6%88%90%E5%99%A8%E4%B8%8E%E8%BF%AD%E4%BB%A3%E5%99%A8/">python3中的生成器与迭代器</a></li>  <li class="file active"><a href="/2021/11/09/python3%E4%B8%AD%E7%9A%84%E8%BF%90%E8%A1%8C%E5%91%BD%E4%BB%A4%E4%B8%8E%E7%8E%AF%E5%A2%83/">python3中的运行命令与环境</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                     <li class="file"><a href="/2021/08/29/first/">Your first md</a></li>  </ul> 
+    </div>
+    <script>
+        $(document).ready(function() {
+            var iconFolderOpenClass  = 'fa-folder-open';
+            var iconFolderCloseClass = 'fa-folder';
+            var iconAllExpandClass = 'fa-angle-double-down';
+            var iconAllPackClass = 'fa-angle-double-up';
+            // Handle directory-tree expansion:
+            // 左键单独展开目录
+            $(document).on('click', '#categories a[data-role="directory"]', function (event) {
+                event.preventDefault();
+
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconFolderOpenClass);
+                var subtree = $(this).siblings('ul');
+                icon.removeClass(iconFolderOpenClass).removeClass(iconFolderCloseClass);
+                if (expanded) {
+                    if (typeof subtree != 'undefined') {
+                        subtree.slideUp({ duration: 100 });
+                    }
+                    icon.addClass(iconFolderCloseClass);
+                } else {
+                    if (typeof subtree != 'undefined') {
+                        subtree.slideDown({ duration: 100 });
+                    }
+                    icon.addClass(iconFolderOpenClass);
+                }
+            });
+            // 右键展开下属所有目录
+            $('#categories a[data-role="directory"]').bind("contextmenu", function(event){
+                event.preventDefault();
+                
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconFolderOpenClass);
+                var listNode = $(this).siblings('ul');
+                var subtrees = $.merge(listNode.find('li ul'), listNode);
+                var icons = $.merge(listNode.find('.fa'), icon);
+                icons.removeClass(iconFolderOpenClass).removeClass(iconFolderCloseClass);
+                if(expanded) {
+                    subtrees.slideUp({ duration: 100 });
+                    icons.addClass(iconFolderCloseClass);
+                } else {
+                    subtrees.slideDown({ duration: 100 });
+                    icons.addClass(iconFolderOpenClass);
+                }
+            })
+            // 展开关闭所有目录按钮
+            $(document).on('click', '#allExpand', function (event) {
+                event.preventDefault();
+                
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconAllExpandClass);
+                icon.removeClass(iconAllExpandClass).removeClass(iconAllPackClass);
+                if(expanded) {
+                    $('#sidebar .fa.fa-folder').removeClass('fa-folder').addClass('fa-folder-open')
+                    $('#categories li ul').slideDown({ duration: 100 });
+                    icon.addClass(iconAllPackClass);
+                } else {
+                    $('#sidebar .fa.fa-folder-open').removeClass('fa-folder-open').addClass('fa-folder')
+                    $('#categories li ul').slideUp({ duration: 100 });
+                    icon.addClass(iconAllExpandClass);
+                }
+            });  
+        });
+    </script>
+
+    
+    <div id="toTop" class="fa fa-angle-up"></div>
+</aside>
+            
+            <section id="main"><article id="post-python3中的运行命令与环境" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/Programming-languages-and-projects/">Programming languages and projects</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming-languages-and-projects/Python3/">Python3</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link-link" href="/tags/anaconda/" rel="tag">anaconda</a>, <a class="tag-link-link" href="/tags/python3/" rel="tag">python3</a>
+    </div>
+
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2021/11/09/python3%E4%B8%AD%E7%9A%84%E8%BF%90%E8%A1%8C%E5%91%BD%E4%BB%A4%E4%B8%8E%E7%8E%AF%E5%A2%83/">
+            <time datetime="2021-11-08T18:35:42.058Z" itemprop="datePublished">2021-11-09</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/zthxxx/Wiki-site/raw/writing/source/_posts/python3中的运行命令与环境.md'> Source </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/zthxxx/Wiki-site/edit/writing/source/_posts/python3中的运行命令与环境.md'> Edit </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/zthxxx/Wiki-site/commits/writing/source/_posts/python3中的运行命令与环境.md'> History </a>
+                            </div>
+                        
+                    </div>
+                
+                
+    
+        <h1 class="article-title" itemprop="name">
+            python3中的运行命令与环境
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+        
+        
+            <h1 id="python3中的运行命令与环境"><a href="#python3中的运行命令与环境" class="headerlink" title="python3中的运行命令与环境"></a>python3中的运行命令与环境</h1><p>本机电脑仅安装python3，以下使用的均为python3环境配置</p>
+<h2 id="镜像是什么？"><a href="#镜像是什么？" class="headerlink" title="镜像是什么？"></a>镜像是什么？</h2><p>镜像（Mirroring）是一种文件存储形式，是冗余的一种类型，一个磁盘上的数据在另一个磁盘上存在一个完全相同的副本即为镜像。</p>
+<p>镜像源 就是把官<strong>方的源做一个镜像，你</strong>可以在这下载软件。 比如ubuntu官方源在国外，下载软件可能会很慢，这时候就需要换成国内的镜像源。 源 端口就是指本地端口 目的端口就是远程端口 一个数据包（pocket）被解封装成数据段（segment）后就会涉及到 连接上层协议的端口问题。</p>
+<p>镜像网站（Mirror sites）又称之为镜像站点</p>
+<h2 id="anaconda环境"><a href="#anaconda环境" class="headerlink" title="anaconda环境"></a>anaconda环境</h2><h2 id="命令行运行python程序，与idle中”Run-module“的区别"><a href="#命令行运行python程序，与idle中”Run-module“的区别" class="headerlink" title="命令行运行python程序，与idle中”Run module“的区别"></a>命令行运行python程序，与idle中”Run module“的区别</h2><p>笔者在学习<a target="_blank" rel="noopener" href="https://gitee.com/daochenzha/rlcard?_from=gitee_search#/daochenzha/rlcard/blob/master/docs/toy-examples.md#playing-with-random-agents">RLCard——一款卡牌游戏强化学习工具包</a>的时候，发现了<a target="_blank" rel="noopener" href="https://gitee.com/daochenzha/rlcard/blob/master/docs/toy-examples.md#playing-with-random-agents">范例</a>中的代码如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> argparse</span><br><span class="line"><span class="keyword">import</span> rlcard</span><br><span class="line"><span class="keyword">from</span> rlcard.agents <span class="keyword">import</span> RandomAgent</span><br><span class="line"><span class="keyword">from</span> rlcard.utils <span class="keyword">import</span> set_seed</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">run</span>(<span class="params">args</span>):</span></span><br><span class="line">    <span class="comment"># Make environment</span></span><br><span class="line">    env = rlcard.make(args.env, config=&#123;<span class="string">&#x27;seed&#x27;</span>: <span class="number">42</span>&#125;)</span><br><span class="line">    num_episodes = <span class="number">1</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># Seed numpy, torch, random</span></span><br><span class="line">    set_seed(<span class="number">42</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># Set agents</span></span><br><span class="line">    agent = RandomAgent(num_actions=env.num_actions)</span><br><span class="line">    env.set_agents([agent <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(env.num_players)])</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> episode <span class="keyword">in</span> <span class="built_in">range</span>(num_episodes):</span><br><span class="line">        <span class="comment"># Generate data from the environment</span></span><br><span class="line">        trajectories, player_wins = env.run(is_training=<span class="literal">False</span>)</span><br><span class="line">        <span class="comment"># Print out the trajectories</span></span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&#x27;\nEpisode &#123;&#125;&#x27;</span>.<span class="built_in">format</span>(episode))</span><br><span class="line">        <span class="built_in">print</span>(trajectories)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    parser = argparse.ArgumentParser(<span class="string">&quot;Random example in RLCard&quot;</span>)</span><br><span class="line">    parser.add_argument(<span class="string">&#x27;--env&#x27;</span>, <span class="built_in">type</span>=<span class="built_in">str</span>, default=<span class="string">&#x27;leduc-holdem&#x27;</span>)</span><br><span class="line">    args = parser.parse_args()</span><br><span class="line">    run(args)</span><br></pre></td></tr></table></figure>
+
+<p>这段代码在idle中无法被“Run module”运行，却可以在命令行中运行</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#在idle中无法被“Run module”运行</span></span><br><span class="line">============== RESTART: E:/python练习/RLCard/examples/run_random.py ==============</span><br><span class="line">Traceback (most recent call last):</span><br><span class="line">  File <span class="string">&quot;E:/python练习/RLCard/examples/run_random.py&quot;</span>, line <span class="number">4</span>, <span class="keyword">in</span> &lt;module&gt;</span><br><span class="line">    <span class="keyword">from</span> rlcard.agents <span class="keyword">import</span> RandomAgent</span><br><span class="line">  File <span class="string">&quot;E:\python\lib\site-packages\rlcard\agents\__init__.py&quot;</span>, line <span class="number">5</span>, <span class="keyword">in</span> &lt;module&gt;</span><br><span class="line">    reqs = subprocess.check_output([sys.executable, <span class="string">&#x27;-m&#x27;</span>, <span class="string">&#x27;pip&#x27;</span>, <span class="string">&#x27;freeze&#x27;</span>])</span><br><span class="line">  File <span class="string">&quot;E:\python\lib\subprocess.py&quot;</span>, line <span class="number">424</span>, <span class="keyword">in</span> check_output</span><br><span class="line">    <span class="keyword">return</span> run(*popenargs, stdout=PIPE, timeout=timeout, check=<span class="literal">True</span>,</span><br><span class="line">  File <span class="string">&quot;E:\python\lib\subprocess.py&quot;</span>, line <span class="number">528</span>, <span class="keyword">in</span> run</span><br><span class="line">    <span class="keyword">raise</span> CalledProcessError(retcode, process.args,</span><br><span class="line">subprocess.CalledProcessError: Command <span class="string">&#x27;[&#x27;</span>E:\\python\\pythonw.exe<span class="string">&#x27;, &#x27;</span>-m<span class="string">&#x27;, &#x27;</span>pip<span class="string">&#x27;, &#x27;</span>freeze<span class="string">&#x27;]&#x27;</span> returned non-zero exit status <span class="number">120.</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#可以在命令行中运行</span></span><br><span class="line">$ python examples/run_random.py</span><br><span class="line">WARNING: Ignoring invalid distribution -ip (e:\python\lib\site-packages)</span><br><span class="line">WARNING: Ignoring invalid distribution -ip (e:\python\lib\site-packages)</span><br><span class="line"></span><br><span class="line">Episode <span class="number">0</span></span><br><span class="line">[[&#123;<span class="string">&#x27;legal_actions&#x27;</span>: OrderedDict([(<span class="number">1</span>, <span class="literal">None</span>), (<span class="number">2</span>, <span class="literal">None</span>), (<span class="number">3</span>, <span class="literal">None</span>)]), <span class="string">&#x27;obs&#x27;</span>: array([<span class="number">0.</span>, <span class="number">1.</span>, <span class="number">0.</span>, <span class="number">0.</span>, <span class="number">0.</span>, <span class="number">0.</span>, <span class="number">0.</span>, <span class="number">0.</span>, <span class="number">1.</span>, <span class="number">0.</span>, <span class="number">0.</span>, <span class="number">0.</span>, <span class="number">0.</span>, <span class="number">0.</span>, <span class="number">0.</span>, <span class="number">0.</span>, <span class="number">0.</span>,</span><br><span class="line">       <span class="number">0.</span>, <span class="number">0.</span>, <span class="number">0.</span>, <span class="number">0.</span>, <span class="number">1.</span>, <span class="number">0.</span>, <span class="number">0.</span>, <span class="number">0.</span>, <span class="number">0.</span>, <span class="number">0.</span>, <span class="number">0.</span>, <span class="number">0.</span>, <span class="number">0.</span>, <span class="number">0.</span>, <span class="number">0.</span>, <span class="number">0.</span>, <span class="number">0.</span>,</span><br><span class="line">       <span class="number">0.</span>, <span class="number">0.</span>]), <span class="string">&#x27;raw_obs&#x27;</span>: &#123;<span class="string">&#x27;hand&#x27;</span>: <span class="string">&#x27;HQ&#x27;</span>, <span class="string">&#x27;public_card&#x27;</span>: <span class="literal">None</span>, <span class="string">&#x27;all_chips&#x27;</span>: [<span class="number">2</span>, <span class="number">1</span>], <span class="string">&#x27;my_chips&#x27;</span>: <span class="number">2</span>, <span class="string">&#x27;legal_actions&#x27;</span>: [<span class="string">&#x27;raise&#x27;</span>, <span class="string">&#x27;fold&#x27;</span>, <span class="string">&#x27;check&#x27;</span>], <span class="string">&#x27;current_player&#x27;</span>: <span class="number">0</span>&#125;, <span class="string">&#x27;raw_legal_actions&#x27;</span>: [<span class="string">&#x27;raise&#x27;</span>, <span class="string">&#x27;fold&#x27;</span>, <span class="string">&#x27;check&#x27;</span>], <span class="string">&#x27;action_record&#x27;</span>: [(<span class="number">1</span>, <span class="string">&#x27;fold&#x27;</span>)]&#125;], [&#123;<span class="string">&#x27;legal_actions&#x27;</span>: OrderedDict([(<span class="number">0</span>, <span class="literal">None</span>), (<span class="number">1</span>, <span class="literal">None</span>), (<span class="number">2</span>, <span class="literal">None</span>)]), <span class="string">&#x27;obs&#x27;</span>: array([<span class="number">1.</span>, <span class="number">0.</span>, <span class="number">0.</span>, <span class="number">0.</span>, <span class="number">0.</span>, <span class="number">0.</span>, <span class="number">0.</span>, <span class="number">1.</span>, <span class="number">0.</span>, <span class="number">0.</span>, <span class="number">0.</span>, <span class="number">0.</span>, <span class="number">0.</span>, <span class="number">0.</span>, <span class="number">0.</span>, <span class="number">0.</span>, <span class="number">0.</span>,</span><br><span class="line">       <span class="number">0.</span>, <span class="number">0.</span>, <span class="number">0.</span>, <span class="number">0.</span>, <span class="number">1.</span>, <span class="number">0.</span>, <span class="number">0.</span>, <span class="number">0.</span>, <span class="number">0.</span>, <span class="number">0.</span>, <span class="number">0.</span>, <span class="number">0.</span>, <span class="number">0.</span>, <span class="number">0.</span>, <span class="number">0.</span>, <span class="number">0.</span>, <span class="number">0.</span>,</span><br><span class="line">       <span class="number">0.</span>, <span class="number">0.</span>]), <span class="string">&#x27;raw_obs&#x27;</span>: &#123;<span class="string">&#x27;hand&#x27;</span>: <span class="string">&#x27;HJ&#x27;</span>, <span class="string">&#x27;public_card&#x27;</span>: <span class="literal">None</span>, <span class="string">&#x27;all_chips&#x27;</span>: [<span class="number">2</span>, <span class="number">1</span>], <span class="string">&#x27;my_chips&#x27;</span>: <span class="number">1</span>, <span class="string">&#x27;legal_actions&#x27;</span>: [<span class="string">&#x27;call&#x27;</span>, <span class="string">&#x27;raise&#x27;</span>, <span class="string">&#x27;fold&#x27;</span>], <span class="string">&#x27;current_player&#x27;</span>: <span class="number">1</span>&#125;, <span class="string">&#x27;raw_legal_actions&#x27;</span>: [<span class="string">&#x27;call&#x27;</span>, <span class="string">&#x27;raise&#x27;</span>, <span class="string">&#x27;fold&#x27;</span>], <span class="string">&#x27;action_record&#x27;</span>: [(<span class="number">1</span>, <span class="string">&#x27;fold&#x27;</span>)]&#125;, <span class="number">2</span>, &#123;<span class="string">&#x27;legal_actions&#x27;</span>: OrderedDict([(<span class="number">1</span>, <span class="literal">None</span>), (<span class="number">2</span>, <span class="literal">None</span>), (<span class="number">3</span>, <span class="literal">None</span>)]), <span class="string">&#x27;obs&#x27;</span>: array([<span class="number">1.</span>, <span class="number">0.</span>, <span class="number">0.</span>, <span class="number">0.</span>, <span class="number">0.</span>, <span class="number">0.</span>, <span class="number">0.</span>, <span class="number">1.</span>, <span class="number">0.</span>, <span class="number">0.</span>, <span class="number">0.</span>, <span class="number">0.</span>, <span class="number">0.</span>, <span class="number">0.</span>, <span class="number">0.</span>, <span class="number">0.</span>, <span class="number">0.</span>,</span><br><span class="line">       <span class="number">0.</span>, <span class="number">0.</span>, <span class="number">0.</span>, <span class="number">0.</span>, <span class="number">1.</span>, <span class="number">0.</span>, <span class="number">0.</span>, <span class="number">0.</span>, <span class="number">0.</span>, <span class="number">0.</span>, <span class="number">0.</span>, <span class="number">0.</span>, <span class="number">0.</span>, <span class="number">0.</span>, <span class="number">0.</span>, <span class="number">0.</span>, <span class="number">0.</span>,</span><br><span class="line">       <span class="number">0.</span>, <span class="number">0.</span>]), <span class="string">&#x27;raw_obs&#x27;</span>: &#123;<span class="string">&#x27;hand&#x27;</span>: <span class="string">&#x27;HJ&#x27;</span>, <span class="string">&#x27;public_card&#x27;</span>: <span class="literal">None</span>, <span class="string">&#x27;all_chips&#x27;</span>: [<span class="number">2</span>, <span class="number">1</span>], <span class="string">&#x27;my_chips&#x27;</span>: <span class="number">1</span>, <span class="string">&#x27;legal_actions&#x27;</span>: [<span class="string">&#x27;raise&#x27;</span>, <span class="string">&#x27;fold&#x27;</span>, <span class="string">&#x27;check&#x27;</span>], <span class="string">&#x27;current_player&#x27;</span>: <span class="number">0</span>&#125;, <span class="string">&#x27;raw_legal_actions&#x27;</span>: [<span class="string">&#x27;raise&#x27;</span>, <span class="string">&#x27;fold&#x27;</span>, <span class="string">&#x27;check&#x27;</span>], <span class="string">&#x27;action_record&#x27;</span>: [(<span class="number">1</span>, <span class="string">&#x27;fold&#x27;</span>)]&#125;]]</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>我们试着来比较这两个命令的差别：</p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/150835014">这篇博客中介绍了sys模块的使用详情</a>，我们只讲两个下面会使用到的函数，</p>
+<p><em>sys模块</em>提供了一系列有关<em>Python</em>运行环境的变量和函数，</p>
+<p>sys.path<br>返回模块的搜索路径，初始化时使用PYTHONPATH环境变量的值</p>
+<h3 id="sys-executable"><a href="#sys-executable" class="headerlink" title="sys.executable"></a><strong>sys.executable</strong></h3><p>该属性是一个字符串，在正常情况下，其值是当前运行的 Python 解释器对应的可执行程序所在的绝对路径。</p>
+<p>比如在 Windows 上使用 Anaconda 安装的 Python，该属性的值就是：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>sys.executable</span><br><span class="line"><span class="string">&#x27;E:\\Anaconda\\Anaconda\\python.exe&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="E:\JS练习\blog\Myblog\source\images\两个命令差别.png"></p>
+<p>打印结果，我们可以发现二者的绝对路径不一样，在Idle中，python解释器对应的可执行程序为pythonw.exe，而在命令行中则是python.exe</p>
+<p><strong>python.exe与pythonw.exe</strong></p>
+<p>Windows系统搭建好Python的环境后，进入Python的安装目录，大家会发现目录中有python.exe和pythonw.exe两个程序。</p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/302384158">这两个程序的区别在于</a>：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">a）、python.exe在运行程序的时候，会弹出一个黑色的控制台窗口（也叫命令行窗口、DOS/CMD窗口）；</span><br><span class="line">   b）、pythonw.exe是无窗口的Python可执行程序，意思是在运行程序的时候，没有窗口，代码在后台执行</span><br><span class="line">   .py和.pyw文件的区别也来源于python.exe和pythonw.exe的区别：</span><br><span class="line">   安装视窗版 Python 时，扩展名为 .py 的文件被默认为用 python.exe 运行的文件，而 .pyw文件则被默认为用 pythonw.exe 运行。</span><br><span class="line">这里还要解释一个问题，如果.py文件直接用python.exe打开，文件被执行完成之后，视窗会立即关闭，如果想让视窗停留；给大家提供两个方法：		</span><br><span class="line">① 可以在程序中import time模块，加入超长睡眠语句，如time.sleep(1800)，如果你不手动关闭视窗，视窗将会停留30min；		</span><br><span class="line">② 可以调用sys和os模块，使用命令行语句pause</span><br><span class="line"></span><br><span class="line">  3、.pyw格式是被设计用来运行开发的纯图形界面程序的，纯图形界面程序的用户不需要看到控制台窗口。</span><br><span class="line">    在开发纯图形界面程序的时候，可以暂时把 .pyw 改成 .py ，运行时能调出控制台窗口，方便看到所有错误信息。</span><br><span class="line">    至于.pyc文件，是Python解释器运行程序的过程中产生的字节码文件（也就是中间文件）。</span><br></pre></td></tr></table></figure>
+
+<p>总之，我们尽可能地使用命令行来执行.py格式程序。</p>
+
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+    
+<nav id="article-nav">
+    
+        <a href="/2021/11/16/%E5%9C%A8vmware%E8%99%9A%E6%8B%9F%E6%9C%BA%E4%B8%AD%E8%BF%9B%E8%A1%8C%E7%BD%91%E7%BB%9C%E8%BF%9E%E6%8E%A5/" id="article-nav-newer" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">Newer</strong>
+            <div class="article-nav-title">
+                
+                    在vmware虚拟机中进行网络连接
+                
+            </div>
+        </a>
+    
+    
+        <a href="/2021/11/03/python3%E4%B8%AD%E7%9A%84%E7%94%9F%E6%88%90%E5%99%A8%E4%B8%8E%E8%BF%AD%E4%BB%A3%E5%99%A8/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">Older</strong>
+            <div class="article-nav-title">python3中的生成器与迭代器</div>
+        </a>
+    
+</nav>
+
+
+
+
+
+    
+    
+
+
+
+
+<!-- baidu url auto push script -->
+<script type="text/javascript">
+    !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=window.location.href,o=document.referrer;if(!e.test(r)){var n="//api.share.baidu.com/s.gif";o?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var t=new Image;t.src=n}}(window);
+</script>     
+</section>
+        </div>
+        <footer id="footer">
+    <div class="outer">
+        <div id="footer-info" class="inner">
+            JustSkim &copy; 2022 
+            <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/80x15.png" /></a>
+            <br> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Theme - <a target="_blank" rel="noopener" href="https://github.com/zthxxx/hexo-theme-Wikitten">wikitten</a>
+            
+                <br>
+                <span id="busuanzi_container_site_pv"><i class="fa fa-eye"></i> <span id="busuanzi_value_site_pv"></span></span>
+                &nbsp;|&nbsp;
+                <span id="busuanzi_container_site_pv"><i class="fa fa-user"></i> <span id="busuanzi_value_site_uv"></span></span>
+            
+        </div>
+    </div>
+</footer>
+
+        
+
+    
+        
+<script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-share.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-video.min.js"></script>
+
+    
+    
+        
+<script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+    
+    
+        <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true,
+            TeX: {
+                equationNumbers: {
+                  autoNumber: 'AMS'
+                }
+            }
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script async src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+
+
+
+<!-- Custom Scripts -->
+
+<script src="/js/main.js"></script>
+
+
+    </div>
+</body>
+</html>

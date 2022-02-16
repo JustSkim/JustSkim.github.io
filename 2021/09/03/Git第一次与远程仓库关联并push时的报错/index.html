@@ -506,11 +506,11 @@
 <p>然后，提交暂存区到本地仓库。<br>事实上，我们第一次使用在该文件夹中使用该git commit命令出现了差错：<br>**Untracked files  … nothing added to commit but untracked files present **<br>一般而言，第一次执行提交暂存区到本地仓库的操作，如果使用<code>git commit -m &quot;description&quot;</code> 而不是<code>git commit -a -m &quot;description&quot;</code>，是不会出现该错误的[^1]。</p>
 <p>对于我们这种情况，出现该差错的原因在于：在我们每次使用 git commit 命令之前，<br>使用 git add 跟踪一个文件，并且将其纳入暂存区。git add使用文件或者目录作为参数，如果参数是目录，那么会递归地跟踪该目录下左右文件（为”.”，则跟踪目录下所有未被.gitignore排除的文件）[^2]。</p>
 <blockquote>
-<p>User@TAPTOP-N6POI72B MNIWG19 &#x2F;e&#x2F;JS练习&#x2F;ejs_demo (master)<br>$git remote add origin <a href="mailto:&#103;&#105;&#x74;&#64;&#x67;&#105;&#116;&#x68;&#x75;&#x62;&#x2e;&#x63;&#111;&#x6d;">&#103;&#105;&#x74;&#64;&#x67;&#105;&#116;&#x68;&#x75;&#x62;&#x2e;&#x63;&#111;&#x6d;</a>:JustSkim&#x2F;ejs_express_demo.git</p>
+<p>User@TAPTOP-N6POI72B MNIWG19 &#x2F;e&#x2F;JS练习&#x2F;ejs_demo (master)<br>$git remote add origin <a href="mailto:&#x67;&#x69;&#x74;&#x40;&#103;&#x69;&#x74;&#x68;&#x75;&#x62;&#46;&#99;&#111;&#x6d;">&#x67;&#x69;&#x74;&#x40;&#103;&#x69;&#x74;&#x68;&#x75;&#x62;&#46;&#99;&#111;&#x6d;</a>:JustSkim&#x2F;ejs_express_demo.git</p>
 </blockquote>
 <p>添加名为origind 远程版本库：</p>
 <blockquote>
-<p>User@TAPTOP-N6POI72B MNIWG19 &#x2F;e&#x2F;JS练习&#x2F;ejs_demo (master)<br>$ git push -u origin main<br>error: src refspec main does not match any.<br>error: failed to push some refs to ‘<a href="mailto:&#103;&#105;&#116;&#x40;&#x67;&#105;&#x74;&#104;&#117;&#x62;&#x2e;&#x63;&#x6f;&#x6d;">&#103;&#105;&#116;&#x40;&#x67;&#105;&#x74;&#104;&#117;&#x62;&#x2e;&#x63;&#x6f;&#x6d;</a>:JustSkim&#x2F;ejs_express_demo.git’</p>
+<p>User@TAPTOP-N6POI72B MNIWG19 &#x2F;e&#x2F;JS练习&#x2F;ejs_demo (master)<br>$ git push -u origin main<br>error: src refspec main does not match any.<br>error: failed to push some refs to ‘<a href="mailto:&#x67;&#105;&#x74;&#x40;&#103;&#105;&#116;&#x68;&#117;&#98;&#46;&#x63;&#x6f;&#x6d;">&#x67;&#105;&#x74;&#x40;&#103;&#105;&#116;&#x68;&#117;&#98;&#46;&#x63;&#x6f;&#x6d;</a>:JustSkim&#x2F;ejs_express_demo.git’</p>
 </blockquote>
 <p>这里push失败，我们尝试改为https的连接方式（事实证明这对于解决问题是起不到帮助的）<br>（但是当网络环境差导致多次Push失败时，建议更改连接方式）</p>
 <blockquote>

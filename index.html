@@ -350,7 +350,7 @@
                         </a>
                          <ul class="unstyled" id="tree" >  <li class="file"><a href="/2022/02/08/win10%E4%B8%8A%E7%9A%84%E4%BB%A3%E7%90%86%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%AE%BE%E7%BD%AE%E4%B8%8E127.0.0.1/">win10上的代理服务器设置与127.0.0.1</a></li>  </ul> 
                     </li> 
-                     <li class="file"><a href="/2022/02/22/localhost%E4%B8%8E127.0.0.1%E4%B8%8E0.0.0.0%E4%BB%A5%E5%8F%8A%E7%AB%AF%E5%8F%A3/">localhost与127.0.0.1与0.0.0.0以及端口</a></li>  <li class="file"><a href="/2022/02/26/linux%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8A%E7%9A%84nginx%E4%B8%8Eapache/">linux服务器上的nginx与apache</a></li>  </ul> 
+                     <li class="file"><a href="/2022/02/22/localhost%E4%B8%8E127.0.0.1%E4%B8%8E0.0.0.0%E4%BB%A5%E5%8F%8A%E7%AB%AF%E5%8F%A3/">localhost与127.0.0.1与0.0.0.0以及端口</a></li>  <li class="file"><a href="/2022/02/26/linux%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8A%E7%9A%84nginx%E4%B8%8Eapache/">Linux服务器上的nginx与apache</a></li>  </ul> 
                     </li> 
                      <li class="file"><a href="/2021/08/29/first/">Your first md</a></li>  </ul> 
     </div>
@@ -472,7 +472,7 @@
                 
     
         <h1 itemprop="name">
-            <a class="article-title" href="/2022/02/26/linux%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8A%E7%9A%84nginx%E4%B8%8Eapache/">linux服务器上的nginx与apache</a>
+            <a class="article-title" href="/2022/02/26/linux%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8A%E7%9A%84nginx%E4%B8%8Eapache/">Linux服务器上的nginx与apache</a>
         </h1>
     
 
@@ -502,8 +502,8 @@
                 
                 
                     
-                    <p><h1 id="linux服务器上的nginx与apache"><a href="#linux服务器上的nginx与apache" class="headerlink" title="linux服务器上的nginx与apache"></a>linux服务器上的nginx与apache</h1><h2 id="起因"><a href="#起因" class="headerlink" title="起因"></a>起因</h2><p>博主在进行<a target="_blank" rel="noopener" href="https://www.byhy.net/tut/webdev/django/07/">django框架的web项目练习</a>时，参考<a target="_blank" rel="noopener" href="https://www.byhy.net/tut/webdev/django/16/#%E5%AE%89%E8%A3%85%E6%AD%A5%E9%AA%A4-nginx">相关教程</a>进行<code>django</code>项目在Linux云服务器上的部署。<code>nginx</code>无法启动服务，需要修改路径<code>/etc/nginx/nginx.conf</code>（使用命令<code>yum -y install nginx</code>默认安装）下的<code>nginx.conf</code>文件。而在浏览器上的web端阿里云控制台上，使用<code>linux</code>系统自带的<code>vim</code>编辑器，不像在桌面系统上编辑那么容易。因此打算使用第三方工具（如<code>win-scp</code>，<code>Xshell</code>），在本地编辑文件后直接拖拽进去替代。但是在这些终端模拟器上无法与阿里云服务器建立ssh连接，但却可以ping通云服务器的公网<code>ip</code>地址，如下图所示。因此博主决定深入探究，并解决该问题。</p>
-<p><img src="E:\JS练习\blog\Myblog\public\images\ssh连接报错.PNG" alt="ssh连接报错"></p>
+                    <p><h1 id="Linux服务器上的nginx与apache"><a href="#Linux服务器上的nginx与apache" class="headerlink" title="Linux服务器上的nginx与apache"></a>Linux服务器上的nginx与apache</h1><h2 id="起因"><a href="#起因" class="headerlink" title="起因"></a>起因</h2><p>博主在进行<a target="_blank" rel="noopener" href="https://www.byhy.net/tut/webdev/django/07/">django框架的web项目练习</a>时，参考<a target="_blank" rel="noopener" href="https://www.byhy.net/tut/webdev/django/16/#%E5%AE%89%E8%A3%85%E6%AD%A5%E9%AA%A4-nginx">相关教程</a>进行<code>django</code>项目在Linux云服务器上的部署。<code>nginx</code>无法启动服务，需要修改路径<code>/etc/nginx/nginx.conf</code>（使用命令<code>yum -y install nginx</code>默认安装）下的<code>nginx.conf</code>文件。而在浏览器上的web端阿里云控制台上，使用<code>linux</code>系统自带的<code>vim</code>编辑器，不像在桌面系统上编辑那么容易。因此打算使用第三方工具（如<code>win-scp</code>，<code>Xshell</code>），在本地编辑文件后直接拖拽进去替代。但是在这些终端模拟器上无法与阿里云服务器建立ssh连接，但却可以ping通云服务器的公网<code>ip</code>地址，如下图所示。因此博主决定深入探究，并解决该问题。</p>
+<p><img src="/images/ssh%E8%BF%9E%E6%8E%A5%E6%8A%A5%E9%94%99.PNG" alt="ssh连接报错"></p>
 <h2 id="没有公网ip地址-x3D-端口被屏蔽？"><a href="#没有公网ip地址-x3D-端口被屏蔽？" class="headerlink" title="没有公网ip地址&#x3D;端口被屏蔽？"></a>没有公网<code>ip</code>地址&#x3D;端口被屏蔽？</h2><p>博主遇到的这一个离谱的问题，当阿里云的服务器设置了白名单以及安全组等配置后，无法在家庭网络的三台主机中使用ssh命令或者第三方工具通过22端口进行连接。而在阿里云网页端的官方控制台可以远程连接。异地协助的朋友也可以在他的主机上直接使用<code>ssh</code>命令或者<code>Xshell</code>等第三方工具。</p>
 <h3 id="问题排查"><a href="#问题排查" class="headerlink" title="问题排查"></a>问题排查</h3><ol>
 <li><p>首先是一如既往地检查阿里云服务器的安全组设置，请求客服协助，均没有问题；</p>

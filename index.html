@@ -350,7 +350,7 @@
                         </a>
                          <ul class="unstyled" id="tree" >  <li class="file"><a href="/2022/02/08/win10%E4%B8%8A%E7%9A%84%E4%BB%A3%E7%90%86%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%AE%BE%E7%BD%AE%E4%B8%8E127.0.0.1/">win10上的代理服务器设置与127.0.0.1</a></li>  </ul> 
                     </li> 
-                     </ul> 
+                     <li class="file"><a href="/2022/02/22/localhost%E4%B8%8E127.0.0.1%E4%B8%8E0.0.0.0%E4%BB%A5%E5%8F%8A%E7%AB%AF%E5%8F%A3/">localhost与127.0.0.1与0.0.0.0以及端口</a></li>  <li class="file"><a href="/2022/02/26/linux%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8A%E7%9A%84nginx%E4%B8%8Eapache/">linux服务器上的nginx与apache</a></li>  </ul> 
                     </li> 
                      <li class="file"><a href="/2021/08/29/first/">Your first md</a></li>  </ul> 
     </div>
@@ -424,6 +424,214 @@
 </aside>
             
             <section id="main">
+        <article id="post-linux服务器上的nginx与apache" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/%E7%BD%91%E7%BB%9C/">网络</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link-link" href="/tags/apache/" rel="tag">apache</a>, <a class="tag-link-link" href="/tags/nginx/" rel="tag">nginx</a>, <a class="tag-link-link" href="/tags/%E7%BD%91%E7%BB%9C/" rel="tag">网络</a>
+    </div>
+
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2022/02/26/linux%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8A%E7%9A%84nginx%E4%B8%8Eapache/">
+            <time datetime="2022-02-26T11:00:54.169Z" itemprop="datePublished">2022-02-26</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/zthxxx/Wiki-site/raw/writing/source/_posts/linux服务器上的nginx与apache.md'> Source </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/zthxxx/Wiki-site/edit/writing/source/_posts/linux服务器上的nginx与apache.md'> Edit </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/zthxxx/Wiki-site/commits/writing/source/_posts/linux服务器上的nginx与apache.md'> History </a>
+                            </div>
+                        
+                    </div>
+                
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2022/02/26/linux%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8A%E7%9A%84nginx%E4%B8%8Eapache/">linux服务器上的nginx与apache</a>
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                
+                    
+                    <p><h1 id="linux服务器上的nginx与apache"><a href="#linux服务器上的nginx与apache" class="headerlink" title="linux服务器上的nginx与apache"></a>linux服务器上的nginx与apache</h1><h2 id="起因"><a href="#起因" class="headerlink" title="起因"></a>起因</h2><p>博主在进行<a target="_blank" rel="noopener" href="https://www.byhy.net/tut/webdev/django/07/">django框架的web项目练习</a>时，参考<a target="_blank" rel="noopener" href="https://www.byhy.net/tut/webdev/django/16/#%E5%AE%89%E8%A3%85%E6%AD%A5%E9%AA%A4-nginx">相关教程</a>进行<code>django</code>项目在Linux云服务器上的部署。<code>nginx</code>无法启动服务，需要修改路径<code>/etc/nginx/nginx.conf</code>（使用命令<code>yum -y install nginx</code>默认安装）下的<code>nginx.conf</code>文件。而在浏览器上的web端阿里云控制台上，使用<code>linux</code>系统自带的<code>vim</code>编辑器，不像在桌面系统上编辑那么容易。因此打算使用第三方工具（如<code>win-scp</code>，<code>Xshell</code>），在本地编辑文件后直接拖拽进去替代。但是在这些终端模拟器上无法与阿里云服务器建立ssh连接，但却可以ping通云服务器的公网<code>ip</code>地址，如下图所示。因此博主决定深入探究，并解决该问题。</p>
+<p><img src="E:\JS练习\blog\Myblog\public\images\ssh连接报错.PNG" alt="ssh连接报错"></p>
+<h2 id="没有公网ip地址-x3D-端口被屏蔽？"><a href="#没有公网ip地址-x3D-端口被屏蔽？" class="headerlink" title="没有公网ip地址&#x3D;端口被屏蔽？"></a>没有公网<code>ip</code>地址&#x3D;端口被屏蔽？</h2><p>博主遇到的这一个离谱的问题，当阿里云的服务器设置了白名单以及安全组等配置后，无法在家庭网络的三台主机中使用ssh命令或者第三方工具通过22端口进行连接。而在阿里云网页端的官方控制台可以远程连接。异地协助的朋友也可以在他的主机上直接使用<code>ssh</code>命令或者<code>Xshell</code>等第三方工具。</p>
+<h3 id="问题排查"><a href="#问题排查" class="headerlink" title="问题排查"></a>问题排查</h3><ol>
+<li><p>首先是一如既往地检查阿里云服务器的安全组设置，请求客服协助，均没有问题；</p>
+<p>
+                
+            
+        
+        
+            </div>   
+            <div class="article-more-link">
+                <a href="/2022/02/26/linux%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8A%E7%9A%84nginx%E4%B8%8Eapache/#more">Read More</a>
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+
+
+
+
+    
+        <article id="post-localhost与127.0.0.1与0.0.0.0以及端口" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/%E7%BD%91%E7%BB%9C/">网络</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link-link" href="/tags/%E7%BD%91%E7%BB%9C/" rel="tag">网络</a>
+    </div>
+
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2022/02/22/localhost%E4%B8%8E127.0.0.1%E4%B8%8E0.0.0.0%E4%BB%A5%E5%8F%8A%E7%AB%AF%E5%8F%A3/">
+            <time datetime="2022-02-21T17:43:42.599Z" itemprop="datePublished">2022-02-22</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/zthxxx/Wiki-site/raw/writing/source/_posts/localhost与127.0.0.1与0.0.0.0以及端口.md'> Source </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/zthxxx/Wiki-site/edit/writing/source/_posts/localhost与127.0.0.1与0.0.0.0以及端口.md'> Edit </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/zthxxx/Wiki-site/commits/writing/source/_posts/localhost与127.0.0.1与0.0.0.0以及端口.md'> History </a>
+                            </div>
+                        
+                    </div>
+                
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2022/02/22/localhost%E4%B8%8E127.0.0.1%E4%B8%8E0.0.0.0%E4%BB%A5%E5%8F%8A%E7%AB%AF%E5%8F%A3/">localhost与127.0.0.1与0.0.0.0以及端口</a>
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                
+                    
+                    <p><h1 id="localhost与127-0-0-1与0-0-0-0以及端口"><a href="#localhost与127-0-0-1与0-0-0-0以及端口" class="headerlink" title="localhost与127.0.0.1与0.0.0.0以及端口"></a>localhost与127.0.0.1与0.0.0.0以及端口</h1><h2 id="起因"><a href="#起因" class="headerlink" title="起因"></a>起因</h2><p>博主在进行<a target="_blank" rel="noopener" href="https://www.byhy.net/tut/webdev/django/07/">django框架的web项目练习</a>时，遇到的一个问题。当博主按照所需的操作编写代码后，在网页链接栏输入<code>http://localhost/mgr/index.html</code>或者<code>http://localhost/mgr/index.html#/</code>时，都会显示404的错误提示界面，如下所示：</p>
+<p><img src="E:\JS练习\blog\Myblog\source\images\localhost下的404界面.PNG" alt="localhost下的404界面"></p>
+<p>而只有在输入链接为<code>127.0.0.1:4000/mgr/index.html#/</code>时，才会出现正常界面：</p>
+<p><img src="E:\JS练习\blog\Myblog\source\images\127.0.0.1下的正常显示界面.PNG" alt="127.0.0.1下的正常显示界面.PNG"></p>
+<p>与教程中唯一不同的步骤在于，博主的django应用，是使用命令<code>python manage.py runserver 4000</code>运行在4000端口上而不是80端口上。原因在于80端口被其他应用所占用。</p>
+<p>
+                
+            
+        
+        
+            </div>   
+            <div class="article-more-link">
+                <a href="/2022/02/22/localhost%E4%B8%8E127.0.0.1%E4%B8%8E0.0.0.0%E4%BB%A5%E5%8F%8A%E7%AB%AF%E5%8F%A3/#more">Read More</a>
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+
+
+
+
+    
         <article id="post-Mysql安装的版本选择" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
@@ -1232,214 +1440,6 @@
             </div>   
             <div class="article-more-link">
                 <a href="/2021/10/23/%E5%9C%A8vmware%E4%B8%AD%E2%80%9Cmnthgfs%E2%80%9D%E8%B7%AF%E5%BE%84%E4%B8%8B%E5%85%B1%E4%BA%AB%E6%96%87%E4%BB%B6%E5%A4%B9%E7%9A%84%E6%8C%82%E8%BD%BD/#more">Read More</a>
-            </div>
-        
-        <footer class="article-footer">
-        </footer>
-    </div>
-</article>
-
-
-
-
-
-
-    
-        <article id="post-linux的权限与隐藏权限" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-                    <div class="article-meta">
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Linux/">Linux</a>
-    </div>
-
-                        
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link-link" href="/tags/linux/" rel="tag">linux</a>
-    </div>
-
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2021/09/27/linux%E7%9A%84%E6%9D%83%E9%99%90%E4%B8%8E%E9%9A%90%E8%97%8F%E6%9D%83%E9%99%90/">
-            <time datetime="2021-09-27T12:26:36.587Z" itemprop="datePublished">2021-09-27</time>
-        </a>
-    </div>
-
-
-                        
-                            <i class="fa fa-bar-chart"></i>
-                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
-                        
-                        
-                            <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/zthxxx/Wiki-site/raw/writing/source/_posts/linux的权限与隐藏权限.md'> Source </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/zthxxx/Wiki-site/edit/writing/source/_posts/linux的权限与隐藏权限.md'> Edit </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/zthxxx/Wiki-site/commits/writing/source/_posts/linux的权限与隐藏权限.md'> History </a>
-                            </div>
-                        
-                    </div>
-                
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2021/09/27/linux%E7%9A%84%E6%9D%83%E9%99%90%E4%B8%8E%E9%9A%90%E8%97%8F%E6%9D%83%E9%99%90/">linux的权限与隐藏权限</a>
-        </h1>
-    
-
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-        
-            
-                
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                
-                    
-                    <p><h1 id="linux的权限与隐藏权限"><a href="#linux的权限与隐藏权限" class="headerlink" title="linux的权限与隐藏权限"></a>linux的权限与隐藏权限</h1><h2 id="linux的权限"><a href="#linux的权限" class="headerlink" title="linux的权限"></a>linux的权限</h2><h3 id="linux中的文件类型"><a href="#linux中的文件类型" class="headerlink" title="linux中的文件类型"></a>linux中的文件类型</h3><p>　　linux一共有7种文件类型,分别如下:</p>
-<p>​    　　 -：普通文件</p>
-<p>​     　d：目录文件</p>
-<p>​     　l： 软链接（类似Windows的快捷方式）</p>
-<p>​    　　(<strong>下面四种是特殊文件)</strong></p>
-<p>
-                
-            
-        
-        
-            </div>   
-            <div class="article-more-link">
-                <a href="/2021/09/27/linux%E7%9A%84%E6%9D%83%E9%99%90%E4%B8%8E%E9%9A%90%E8%97%8F%E6%9D%83%E9%99%90/#more">Read More</a>
-            </div>
-        
-        <footer class="article-footer">
-        </footer>
-    </div>
-</article>
-
-
-
-
-
-
-    
-        <article id="post-在vmware中实现共享文件夹以及安装vmware-tools" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-                    <div class="article-meta">
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Linux/">Linux</a>
-    </div>
-
-                        
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link-link" href="/tags/linux/" rel="tag">linux</a>, <a class="tag-link-link" href="/tags/ubuntu/" rel="tag">ubuntu</a>, <a class="tag-link-link" href="/tags/vmware/" rel="tag">vmware</a>, <a class="tag-link-link" href="/tags/%E8%99%9A%E6%8B%9F%E6%9C%BA/" rel="tag">虚拟机</a>
-    </div>
-
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2021/09/27/%E5%9C%A8vmware%E4%B8%AD%E5%AE%9E%E7%8E%B0%E5%85%B1%E4%BA%AB%E6%96%87%E4%BB%B6%E5%A4%B9%E4%BB%A5%E5%8F%8A%E5%AE%89%E8%A3%85vmware-tools/">
-            <time datetime="2021-09-27T11:27:13.351Z" itemprop="datePublished">2021-09-27</time>
-        </a>
-    </div>
-
-
-                        
-                            <i class="fa fa-bar-chart"></i>
-                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
-                        
-                        
-                            <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/zthxxx/Wiki-site/raw/writing/source/_posts/在vmware中实现共享文件夹以及安装vmware-tools.md'> Source </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/zthxxx/Wiki-site/edit/writing/source/_posts/在vmware中实现共享文件夹以及安装vmware-tools.md'> Edit </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/zthxxx/Wiki-site/commits/writing/source/_posts/在vmware中实现共享文件夹以及安装vmware-tools.md'> History </a>
-                            </div>
-                        
-                    </div>
-                
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2021/09/27/%E5%9C%A8vmware%E4%B8%AD%E5%AE%9E%E7%8E%B0%E5%85%B1%E4%BA%AB%E6%96%87%E4%BB%B6%E5%A4%B9%E4%BB%A5%E5%8F%8A%E5%AE%89%E8%A3%85vmware-tools/">在vmware中实现共享文件夹以及安装vmware-tools</a>
-        </h1>
-    
-
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-        
-            
-                
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                
-                    
-                    <p><h1 id="在vmware中实现共享文件夹以及安装vmware-tools"><a href="#在vmware中实现共享文件夹以及安装vmware-tools" class="headerlink" title="在vmware中实现共享文件夹以及安装vmware-tools"></a>在vmware中实现共享文件夹以及安装vmware-tools</h1><p>原因：想要设置共享文件夹，而ubuntu16.04版本系统中，只有文件夹mnt，其中没有文件夹hgfs，而按照网上教程操作，需要重新安装vmware-tools才能使得该选项可以点击，然而虚拟机菜单栏中，“重新安装vmware-tool”的选项为灰色不可点击</p>
-<p>首先使用命令<code>su root</code>跳转至超级用户权限，</p>
-<p>然后，使用命令<code>apt-get install open-vmware-tools</code>安装，</p>
-<p>注意，完成之后，在文件夹<code>media</code>下面会有以下的文件</p>
-<p><img src="E:\JS练习\blog\Myblog\source\images\media文件夹下的vmwareTools.png" alt="media文件夹下的vmwareTools"></p>
-<p>
-                
-            
-        
-        
-            </div>   
-            <div class="article-more-link">
-                <a href="/2021/09/27/%E5%9C%A8vmware%E4%B8%AD%E5%AE%9E%E7%8E%B0%E5%85%B1%E4%BA%AB%E6%96%87%E4%BB%B6%E5%A4%B9%E4%BB%A5%E5%8F%8A%E5%AE%89%E8%A3%85vmware-tools/#more">Read More</a>
             </div>
         
         <footer class="article-footer">

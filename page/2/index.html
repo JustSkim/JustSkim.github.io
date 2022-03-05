@@ -233,7 +233,7 @@
                             &nbsp;
                             Java
                         </a>
-                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2022/03/02/java%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95%E5%AD%A6%E4%B9%A0%E8%A6%81%E6%B3%A8%E6%84%8F%E7%9A%84%E5%B0%8F%E7%BB%86%E8%8A%82/">java基础语法学习要注意的小细节</a></li>  </ul> 
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2022/03/02/java%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95%E5%AD%A6%E4%B9%A0%E8%A6%81%E6%B3%A8%E6%84%8F%E7%9A%84%E5%B0%8F%E7%BB%86%E8%8A%82/">Java基础语法学习要注意的小细节</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -348,6 +348,15 @@
                         <a href="#" data-role="directory">
                             <i class="fa fa-folder"></i>
                             &nbsp;
+                            Windows
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2022/03/05/Windows%E7%B3%BB%E7%BB%9F%E4%B8%8B%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E9%85%8D%E7%BD%AE%E4%B8%8E%E8%AE%A1%E7%AE%97%E6%9C%BA%E9%87%8D%E5%90%AF/">Windows系统下环境变量配置与计算机重启</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
                             服务器
                         </a>
                          <ul class="unstyled" id="tree" > 
@@ -451,6 +460,110 @@
 </aside>
             
             <section id="main">
+        <article id="post-python3中的一些常见语法糖" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/Programming-languages-and-projects/">Programming languages and projects</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming-languages-and-projects/Python3/">Python3</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link-link" href="/tags/python3/" rel="tag">python3</a>
+    </div>
+
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2021/10/31/python3%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E5%B8%B8%E8%A7%81%E8%AF%AD%E6%B3%95%E7%B3%96/">
+            <time datetime="2021-10-31T12:02:01.432Z" itemprop="datePublished">2021-10-31</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/zthxxx/Wiki-site/raw/writing/source/_posts/python3中的一些常见语法糖.md'> Source </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/zthxxx/Wiki-site/edit/writing/source/_posts/python3中的一些常见语法糖.md'> Edit </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/zthxxx/Wiki-site/commits/writing/source/_posts/python3中的一些常见语法糖.md'> History </a>
+                            </div>
+                        
+                    </div>
+                
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2021/10/31/python3%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E5%B8%B8%E8%A7%81%E8%AF%AD%E6%B3%95%E7%B3%96/">python3中的一些常见语法糖整理</a>
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                
+                    
+                    <p><h1 id="python3中的一些常见语法糖整理"><a href="#python3中的一些常见语法糖整理" class="headerlink" title="python3中的一些常见语法糖整理"></a>python3中的一些常见语法糖整理</h1><h2 id="输入输出的类型提示"><a href="#输入输出的类型提示" class="headerlink" title="输入输出的类型提示"></a>输入输出的类型提示</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">addBinary</span>(<span class="params">self, a: <span class="built_in">str</span>, b: <span class="built_in">str</span></span>) -&gt; <span class="built_in">str</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">str</span></span><br></pre></td></tr></table></figure>
+
+<p>学过C语言的同学，都懂得，参数中a，b要求为str类型的输入参数</p>
+<p>在定义函数时，在def那一行后面会加一个-&gt;。这个玩意儿有个专门的名词叫 <strong>type hint， 即类型提示</strong>。这里就是说返回的数据类型为<code>str</code>。</p>
+<p>在Python中，<code>str</code> 表示字符串类 ，也可以是将变量强制转换为字符串的函数，写作<code>str ()</code> </p>
+<p>
+                
+            
+        
+        
+            </div>   
+            <div class="article-more-link">
+                <a href="/2021/10/31/python3%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E5%B8%B8%E8%A7%81%E8%AF%AD%E6%B3%95%E7%B3%96/#more">Read More</a>
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+
+
+
+
+    
         <article id="post-linux的进程优先级与进程调度策略" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
@@ -1374,110 +1487,6 @@
             </div>   
             <div class="article-more-link">
                 <a href="/2021/09/16/%E5%AF%B9%E4%BA%8Egithub.io%E7%9A%84%E8%AE%BF%E9%97%AE/#more">Read More</a>
-            </div>
-        
-        <footer class="article-footer">
-        </footer>
-    </div>
-</article>
-
-
-
-
-
-
-    
-        <article id="post-scipy版本的一些废弃方法及解决方案" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-                    <div class="article-meta">
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Data-analysis/">Data analysis</a>
-    </div>
-
-                        
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link-link" href="/tags/debug/" rel="tag">debug</a>, <a class="tag-link-link" href="/tags/package/" rel="tag">package</a>, <a class="tag-link-link" href="/tags/python/" rel="tag">python</a>, <a class="tag-link-link" href="/tags/scipy/" rel="tag">scipy</a>, <a class="tag-link-link" href="/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/" rel="tag">数据分析</a>
-    </div>
-
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2021/09/16/scipy%E7%89%88%E6%9C%AC%E7%9A%84%E4%B8%80%E4%BA%9B%E5%BA%9F%E5%BC%83%E6%96%B9%E6%B3%95%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/">
-            <time datetime="2021-09-16T02:40:00.811Z" itemprop="datePublished">2021-09-16</time>
-        </a>
-    </div>
-
-
-                        
-                            <i class="fa fa-bar-chart"></i>
-                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
-                        
-                        
-                            <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/zthxxx/Wiki-site/raw/writing/source/_posts/scipy版本的一些废弃方法及解决方案.md'> Source </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/zthxxx/Wiki-site/edit/writing/source/_posts/scipy版本的一些废弃方法及解决方案.md'> Edit </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/zthxxx/Wiki-site/commits/writing/source/_posts/scipy版本的一些废弃方法及解决方案.md'> History </a>
-                            </div>
-                        
-                    </div>
-                
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2021/09/16/scipy%E7%89%88%E6%9C%AC%E7%9A%84%E4%B8%80%E4%BA%9B%E5%BA%9F%E5%BC%83%E6%96%B9%E6%B3%95%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/">scipy版本的一些废弃方法及解决方案</a>
-        </h1>
-    
-
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-        
-            
-                
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                
-                    
-                    <p><h1 id="scipy版本的一些废弃方法及解决方案"><a href="#scipy版本的一些废弃方法及解决方案" class="headerlink" title="scipy版本的一些废弃方法及解决方案"></a>scipy版本的一些废弃方法及解决方案</h1><p>在之前我们为了解决scipy版本的问题，在python的cp37环境中下载了scipy的1.2.0版本。</p>
-<p>今天，跟着numpy官方文档中的scipy章节敲代码时，发现了scipy版本废弃方法的相关bug。</p>
-<p>文档中的示例代码如下：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> scipy.misc <span class="keyword">import</span> imread, imsave, imresize</span><br><span class="line"></span><br><span class="line"><span class="comment"># Read an JPEG image into a numpy array</span></span><br><span class="line">img = imread(<span class="string">&#x27;assets/cat.jpg&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(img.dtype, img.shape)  <span class="comment"># Prints &quot;uint8 (400, 248, 3)&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># We can tint the image by scaling each of the color channels</span></span><br><span class="line"><span class="comment"># by a different scalar constant. The image has shape (400, 248, 3);</span></span><br><span class="line"><span class="comment"># we multiply it by the array [1, 0.95, 0.9] of shape (3,);</span></span><br><span class="line"><span class="comment"># numpy broadcasting means that this leaves the red channel unchanged,</span></span><br><span class="line"><span class="comment"># and multiplies the green and blue channels by 0.95 and 0.9</span></span><br><span class="line"><span class="comment"># respectively.</span></span><br><span class="line">img_tinted = img * [<span class="number">1</span>, <span class="number">0.95</span>, <span class="number">0.9</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment"># Resize the tinted image to be 300 by 300 pixels.</span></span><br><span class="line">img_tinted = imresize(img_tinted, (<span class="number">300</span>, <span class="number">300</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment"># Write the tinted image back to disk</span></span><br><span class="line">imsave(<span class="string">&#x27;assets/cat_tinted.jpg&#x27;</span>, img_tinted)</span><br></pre></td></tr></table></figure>
-
-<p>
-                
-            
-        
-        
-            </div>   
-            <div class="article-more-link">
-                <a href="/2021/09/16/scipy%E7%89%88%E6%9C%AC%E7%9A%84%E4%B8%80%E4%BA%9B%E5%BA%9F%E5%BC%83%E6%96%B9%E6%B3%95%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/#more">Read More</a>
             </div>
         
         <footer class="article-footer">

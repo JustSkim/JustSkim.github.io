@@ -233,7 +233,7 @@
                             &nbsp;
                             Java
                         </a>
-                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2022/03/02/java%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95%E5%AD%A6%E4%B9%A0%E8%A6%81%E6%B3%A8%E6%84%8F%E7%9A%84%E5%B0%8F%E7%BB%86%E8%8A%82/">java基础语法学习要注意的小细节</a></li>  </ul> 
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2022/03/02/java%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95%E5%AD%A6%E4%B9%A0%E8%A6%81%E6%B3%A8%E6%84%8F%E7%9A%84%E5%B0%8F%E7%BB%86%E8%8A%82/">Java基础语法学习要注意的小细节</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -348,6 +348,15 @@
                         <a href="#" data-role="directory">
                             <i class="fa fa-folder"></i>
                             &nbsp;
+                            Windows
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2022/03/05/Windows%E7%B3%BB%E7%BB%9F%E4%B8%8B%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E9%85%8D%E7%BD%AE%E4%B8%8E%E8%AE%A1%E7%AE%97%E6%9C%BA%E9%87%8D%E5%90%AF/">Windows系统下环境变量配置与计算机重启</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
                             服务器
                         </a>
                          <ul class="unstyled" id="tree" > 
@@ -451,6 +460,110 @@
 </aside>
             
             <section id="main">
+        <article id="post-scipy版本的一些废弃方法及解决方案" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/Data-analysis/">Data analysis</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link-link" href="/tags/debug/" rel="tag">debug</a>, <a class="tag-link-link" href="/tags/package/" rel="tag">package</a>, <a class="tag-link-link" href="/tags/python/" rel="tag">python</a>, <a class="tag-link-link" href="/tags/scipy/" rel="tag">scipy</a>, <a class="tag-link-link" href="/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/" rel="tag">数据分析</a>
+    </div>
+
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2021/09/16/scipy%E7%89%88%E6%9C%AC%E7%9A%84%E4%B8%80%E4%BA%9B%E5%BA%9F%E5%BC%83%E6%96%B9%E6%B3%95%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/">
+            <time datetime="2021-09-16T02:40:00.811Z" itemprop="datePublished">2021-09-16</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/zthxxx/Wiki-site/raw/writing/source/_posts/scipy版本的一些废弃方法及解决方案.md'> Source </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/zthxxx/Wiki-site/edit/writing/source/_posts/scipy版本的一些废弃方法及解决方案.md'> Edit </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/zthxxx/Wiki-site/commits/writing/source/_posts/scipy版本的一些废弃方法及解决方案.md'> History </a>
+                            </div>
+                        
+                    </div>
+                
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2021/09/16/scipy%E7%89%88%E6%9C%AC%E7%9A%84%E4%B8%80%E4%BA%9B%E5%BA%9F%E5%BC%83%E6%96%B9%E6%B3%95%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/">scipy版本的一些废弃方法及解决方案</a>
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                
+                    
+                    <p><h1 id="scipy版本的一些废弃方法及解决方案"><a href="#scipy版本的一些废弃方法及解决方案" class="headerlink" title="scipy版本的一些废弃方法及解决方案"></a>scipy版本的一些废弃方法及解决方案</h1><p>在之前我们为了解决scipy版本的问题，在python的cp37环境中下载了scipy的1.2.0版本。</p>
+<p>今天，跟着numpy官方文档中的scipy章节敲代码时，发现了scipy版本废弃方法的相关bug。</p>
+<p>文档中的示例代码如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> scipy.misc <span class="keyword">import</span> imread, imsave, imresize</span><br><span class="line"></span><br><span class="line"><span class="comment"># Read an JPEG image into a numpy array</span></span><br><span class="line">img = imread(<span class="string">&#x27;assets/cat.jpg&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(img.dtype, img.shape)  <span class="comment"># Prints &quot;uint8 (400, 248, 3)&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># We can tint the image by scaling each of the color channels</span></span><br><span class="line"><span class="comment"># by a different scalar constant. The image has shape (400, 248, 3);</span></span><br><span class="line"><span class="comment"># we multiply it by the array [1, 0.95, 0.9] of shape (3,);</span></span><br><span class="line"><span class="comment"># numpy broadcasting means that this leaves the red channel unchanged,</span></span><br><span class="line"><span class="comment"># and multiplies the green and blue channels by 0.95 and 0.9</span></span><br><span class="line"><span class="comment"># respectively.</span></span><br><span class="line">img_tinted = img * [<span class="number">1</span>, <span class="number">0.95</span>, <span class="number">0.9</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment"># Resize the tinted image to be 300 by 300 pixels.</span></span><br><span class="line">img_tinted = imresize(img_tinted, (<span class="number">300</span>, <span class="number">300</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment"># Write the tinted image back to disk</span></span><br><span class="line">imsave(<span class="string">&#x27;assets/cat_tinted.jpg&#x27;</span>, img_tinted)</span><br></pre></td></tr></table></figure>
+
+<p>
+                
+            
+        
+        
+            </div>   
+            <div class="article-more-link">
+                <a href="/2021/09/16/scipy%E7%89%88%E6%9C%AC%E7%9A%84%E4%B8%80%E4%BA%9B%E5%BA%9F%E5%BC%83%E6%96%B9%E6%B3%95%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/#more">Read More</a>
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+
+
+
+
+    
         <article id="post-python旧版本的安装与debug-————-以scipy1.2.0为例" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
@@ -1374,87 +1487,6 @@
             </div>   
             <div class="article-more-link">
                 <a href="/2021/08/31/nodejs%E4%B8%ADhttp%E7%9B%B8%E5%85%B3%E6%96%B9%E6%B3%95/#more">Read More</a>
-            </div>
-        
-        <footer class="article-footer">
-        </footer>
-    </div>
-</article>
-
-
-
-
-
-
-    
-        <article id="post-PYQT5绘图" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-                    <div class="article-meta">
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Programming-languages-and-projects/">Programming languages and projects</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming-languages-and-projects/Python3/">Python3</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming-languages-and-projects/Python3/PYQT5/">PYQT5</a>
-    </div>
-
-                        
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link-link" href="/tags/gui/" rel="tag">gui</a>, <a class="tag-link-link" href="/tags/python3/" rel="tag">python3</a>
-    </div>
-
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2021/08/31/PYQT5%E7%BB%98%E5%9B%BE/">
-            <time datetime="2021-08-30T21:32:57.313Z" itemprop="datePublished">2021-08-31</time>
-        </a>
-    </div>
-
-
-                        
-                            <i class="fa fa-bar-chart"></i>
-                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
-                        
-                        
-                            <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/zthxxx/Wiki-site/raw/writing/source/_posts/PYQT5绘图.md'> Source </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/zthxxx/Wiki-site/edit/writing/source/_posts/PYQT5绘图.md'> Edit </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/zthxxx/Wiki-site/commits/writing/source/_posts/PYQT5绘图.md'> History </a>
-                            </div>
-                        
-                    </div>
-                
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2021/08/31/PYQT5%E7%BB%98%E5%9B%BE/">PYQT5绘图</a>
-        </h1>
-    
-
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-        
-            
-                
-                
-                    
-                    
-                
-            
-        
-        
-            <h1 id="PYQT5绘图"><a href="#PYQT5绘图" class="headerlink" title="PYQT5绘图"></a>PYQT5绘图</h1><h2 id="绘图"><a href="#绘图" class="headerlink" title="绘图"></a>绘图</h2><h3 id="文本涂鸦"><a href="#文本涂鸦" class="headerlink" title="文本涂鸦"></a>文本涂鸦</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/python3</span></span><br><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">例子：文本涂鸦</span></span><br><span class="line"><span class="string">ZetCode PyQt5 tutorial </span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">In this example, we draw text in Russian Cylliric.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">Author: Jan Bodnar</span></span><br><span class="line"><span class="string">Website: zetcode.com </span></span><br><span class="line"><span class="string">Last edited: August 2017</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="keyword">from</span> PyQt5.QtWidgets <span class="keyword">import</span> QWidget, QApplication</span><br><span class="line"><span class="keyword">from</span> PyQt5.QtGui <span class="keyword">import</span> QPainter, QColor, QFont</span><br><span class="line"><span class="keyword">from</span> PyQt5.QtCore <span class="keyword">import</span> Qt</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Example</span>(<span class="title class_ inherited__">QWidget</span>):</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="built_in">super</span>().__init__()</span><br><span class="line"></span><br><span class="line">        self.initUI()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">initUI</span>(<span class="params">self</span>):      </span><br><span class="line"></span><br><span class="line">        self.text = <span class="string">&quot;Лев Николаевич Толстой\nАнна Каренина&quot;</span></span><br><span class="line">        <span class="comment">#写了一些文本上下居中对齐的俄罗斯Cylliric语言的文字</span></span><br><span class="line">        self.setGeometry(<span class="number">300</span>, <span class="number">300</span>, <span class="number">500</span>, <span class="number">500</span>)</span><br><span class="line">        self.setWindowTitle(<span class="string">&#x27;Drawing text&#x27;</span>)</span><br><span class="line">        self.show()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">paintEvent</span>(<span class="params">self, event</span>):</span><br><span class="line">        <span class="comment">#在绘画事件内完成绘画动作</span></span><br><span class="line">        qp = QPainter()</span><br><span class="line">        <span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">        QPainter是低级的绘画类。所有的绘画动作都在这个类的begin()和end()方法之间完成，绘画动作都封装在drawText()内部了。</span></span><br><span class="line"><span class="string">        &#x27;&#x27;&#x27;</span></span><br><span class="line">        qp.begin(self)</span><br><span class="line">        self.drawText(event, qp)</span><br><span class="line">        qp.end()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">drawText</span>(<span class="params">self, event, qp</span>):</span><br><span class="line"></span><br><span class="line">        qp.setPen(QColor(<span class="number">168</span>, <span class="number">34</span>, <span class="number">3</span>))</span><br><span class="line">        qp.setFont(QFont(<span class="string">&#x27;Decorative&#x27;</span>, <span class="number">10</span>))</span><br><span class="line">        <span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">        为文字绘画定义了笔和字体。</span></span><br><span class="line"><span class="string">        &#x27;&#x27;&#x27;</span></span><br><span class="line"></span><br><span class="line">        qp.drawText(event.rect(), Qt.AlignCenter, self.text)        </span><br><span class="line">        <span class="comment">#drawText()方法在窗口里绘制文本，rect()方法返回要更新的矩形区域</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line"></span><br><span class="line">    app = QApplication(sys.argv)</span><br><span class="line">    ex = Example()</span><br><span class="line">    sys.exit(app.exec_())</span><br></pre></td></tr></table></figure>
             </div>
         
         <footer class="article-footer">

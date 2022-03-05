@@ -348,6 +348,15 @@
                         <a href="#" data-role="directory">
                             <i class="fa fa-folder"></i>
                             &nbsp;
+                            Python
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2022/03/06/CentOS7%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85python3.7.8/">CentOS7系统安装python3.7.8</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
                             Windows
                         </a>
                          <ul class="unstyled" id="tree" >  <li class="file"><a href="/2022/03/05/Windows%E7%B3%BB%E7%BB%9F%E4%B8%8B%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E9%85%8D%E7%BD%AE%E4%B8%8E%E8%AE%A1%E7%AE%97%E6%9C%BA%E9%87%8D%E5%90%AF/">Windows系统下环境变量配置与计算机重启</a></li>  </ul> 
@@ -460,6 +469,110 @@
 </aside>
             
             <section id="main">
+        <article id="post-python3中的生成器与迭代器" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/Programming-languages-and-projects/">Programming languages and projects</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming-languages-and-projects/Python3/">Python3</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link-link" href="/tags/python3/" rel="tag">python3</a>
+    </div>
+
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2021/11/03/python3%E4%B8%AD%E7%9A%84%E7%94%9F%E6%88%90%E5%99%A8%E4%B8%8E%E8%BF%AD%E4%BB%A3%E5%99%A8/">
+            <time datetime="2021-11-03T01:55:18.115Z" itemprop="datePublished">2021-11-03</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/zthxxx/Wiki-site/raw/writing/source/_posts/python3中的生成器与迭代器.md'> Source </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/zthxxx/Wiki-site/edit/writing/source/_posts/python3中的生成器与迭代器.md'> Edit </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/zthxxx/Wiki-site/commits/writing/source/_posts/python3中的生成器与迭代器.md'> History </a>
+                            </div>
+                        
+                    </div>
+                
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2021/11/03/python3%E4%B8%AD%E7%9A%84%E7%94%9F%E6%88%90%E5%99%A8%E4%B8%8E%E8%BF%AD%E4%BB%A3%E5%99%A8/">python3中的生成器与迭代器</a>
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                
+                    
+                    <p><h1 id="python3中的生成器与迭代器"><a href="#python3中的生成器与迭代器" class="headerlink" title="python3中的生成器与迭代器"></a>python3中的生成器与迭代器</h1><h2 id="生成器与迭代器"><a href="#生成器与迭代器" class="headerlink" title="生成器与迭代器"></a>生成器与迭代器</h2><p>在Python社区，生成器和迭代器被看作一种工具，生成器的本质就是迭代器。唯一的区别就是生成器是开发人员自己用Python代码构建的数据结构，而迭代器是Python内置提供或转化而来的。</p>
+<h3 id="迭代器"><a href="#迭代器" class="headerlink" title="迭代器"></a>迭代器</h3><p>迭代器是一种对象，该对象包含值的可计数数字。</p>
+<p>迭代器是可迭代的对象，这意味着您可以遍历所有值。</p>
+<p>从技术上讲，在 Python 中，迭代器是实现迭代器协议的对象，它包含方法<code>__iter__()</code>和 <code>__next__()</code>。<br>要把对象&#x2F;类创建为迭代器，必须为对象实现<code> __iter__()</code> 和 <code>__next__()</code> 方法。</p>
+<p>正如您在 Python 类&#x2F;对象 一章中学到的，所有类都有名为 <code>__init__()</code> 的函数，它允许您在创建对象时进行一些初始化。</p>
+<p>
+                
+            
+        
+        
+            </div>   
+            <div class="article-more-link">
+                <a href="/2021/11/03/python3%E4%B8%AD%E7%9A%84%E7%94%9F%E6%88%90%E5%99%A8%E4%B8%8E%E8%BF%AD%E4%BB%A3%E5%99%A8/#more">Read More</a>
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+
+
+
+
+    
         <article id="post-python3中的一些常见语法糖" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
@@ -1383,110 +1496,6 @@
             </div>   
             <div class="article-more-link">
                 <a href="/2021/09/19/%E5%88%9B%E5%BB%BAvue%E9%A1%B9%E7%9B%AE%E7%9A%84%E4%B8%A4%E4%B8%AA%E5%91%BD%E4%BB%A4%EF%BC%9Avue-create-myproject%E4%B8%8Evue-init-webpack-%E8%AF%A6%E8%A7%A3/#more">Read More</a>
-            </div>
-        
-        <footer class="article-footer">
-        </footer>
-    </div>
-</article>
-
-
-
-
-
-
-    
-        <article id="post-对于github.io的访问" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-                    <div class="article-meta">
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Git/">Git</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/Git/Github/">Github</a>
-    </div>
-
-                        
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link-link" href="/tags/%E5%AE%89%E5%85%A8%E8%AF%81%E4%B9%A6/" rel="tag">安全证书</a>
-    </div>
-
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2021/09/16/%E5%AF%B9%E4%BA%8Egithub.io%E7%9A%84%E8%AE%BF%E9%97%AE/">
-            <time datetime="2021-09-16T09:51:57.773Z" itemprop="datePublished">2021-09-16</time>
-        </a>
-    </div>
-
-
-                        
-                            <i class="fa fa-bar-chart"></i>
-                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
-                        
-                        
-                            <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/zthxxx/Wiki-site/raw/writing/source/_posts/对于github.io的访问.md'> Source </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/zthxxx/Wiki-site/edit/writing/source/_posts/对于github.io的访问.md'> Edit </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/zthxxx/Wiki-site/commits/writing/source/_posts/对于github.io的访问.md'> History </a>
-                            </div>
-                        
-                    </div>
-                
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2021/09/16/%E5%AF%B9%E4%BA%8Egithub.io%E7%9A%84%E8%AE%BF%E9%97%AE/">对于github.io的访问</a>
-        </h1>
-    
-
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-        
-            
-                
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                
-                    
-                    <p><h1 id="对于github-io的访问"><a href="#对于github-io的访问" class="headerlink" title="对于github.io的访问"></a>对于github.io的访问</h1><hr>
-<p>当我们写完一篇博客，想要到自己的github.io界面看一看效果时，在谷歌浏览器中可能会遇到下面的情况：</p>
-<p><img src="/images/%E6%82%A8%E7%9A%84%E8%BF%9E%E6%8E%A5%E4%B8%8D%E6%98%AF%E7%A7%81%E5%AF%86%E8%BF%9E%E6%8E%A5.png" alt="您的连接不是私密连接"></p>
-<p>产生的原因可能是<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_29283569/article/details/107501508">这一篇博客</a>讲到的证书问题，我们后续再进行探究。</p>
-<hr>
-<p>
-                
-            
-        
-        
-            </div>   
-            <div class="article-more-link">
-                <a href="/2021/09/16/%E5%AF%B9%E4%BA%8Egithub.io%E7%9A%84%E8%AE%BF%E9%97%AE/#more">Read More</a>
             </div>
         
         <footer class="article-footer">

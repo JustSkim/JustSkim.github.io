@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <meta charset="utf-8">
+    
+    <title>知识图谱专业术语与基本知识 | Hexo</title>
+    
+    
+        <meta name="keywords" content="知识图谱" />
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="知识图谱的应用：我们为什么要做知识图谱 语义搜索  智能问答  个性化推荐  辅助决策   起源和基本概念在这篇知识图谱的介绍专栏中，可以知道，知识图谱起源于语义网络（semantic nets or semantic networks），语义网络一种用互联的的节点和弧来表示知识的一个结构，节点可以代表一个概念(concept)、一个属性(attribute)、一个事件(event)或者一个实体(">
+<meta property="og:type" content="article">
+<meta property="og:title" content="知识图谱专业术语与基本知识">
+<meta property="og:url" content="http://justskim.github.io/2022/03/16/%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1%E4%B8%93%E4%B8%9A%E6%9C%AF%E8%AF%AD%E4%B8%8E%E5%9F%BA%E6%9C%AC%E7%9F%A5%E8%AF%86/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="知识图谱的应用：我们为什么要做知识图谱 语义搜索  智能问答  个性化推荐  辅助决策   起源和基本概念在这篇知识图谱的介绍专栏中，可以知道，知识图谱起源于语义网络（semantic nets or semantic networks），语义网络一种用互联的的节点和弧来表示知识的一个结构，节点可以代表一个概念(concept)、一个属性(attribute)、一个事件(event)或者一个实体(">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://pic3.zhimg.com/80/v2-367fae46217b2666f15e20255a803eb2_720w.jpg">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200106162929139.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM5MzA0ODUx,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://pic4.zhimg.com/80/v2-86c66ac77e2b89d0f39b31b230bfdf7f_720w.jpg">
+<meta property="og:image" content="https://pic2.zhimg.com/80/v2-ced25261ed496e505147fc23aa9cb95d_720w.jpg">
+<meta property="article:published_time" content="2022-03-16T07:04:43.745Z">
+<meta property="article:modified_time" content="2022-03-18T02:28:29.290Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="知识图谱">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://pic3.zhimg.com/80/v2-367fae46217b2666f15e20255a803eb2_720w.jpg">
+    
+
+    
+
+    
+        <link rel="icon" href="/favicon.ico" />
+    
+
+    
+<link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="/libs/open-sans/styles.css">
+
+    
+<link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    
+<script src="/libs/jquery/2.1.3/jquery.min.js"></script>
+
+    
+<script src="/libs/jquery/plugins/cookie/1.4.1/jquery.cookie.js"></script>
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+
+    
+    
+    
+    
+
+
+    
+        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+<meta name="generator" content="Hexo 5.4.1"><link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+</head>
+
+<body>
+    <div id="container">
+        <header id="header">
+    <div id="header-main" class="header-inner">
+        <div class="outer">
+            <a href="/" id="logo">
+                <i class="logo"></i>
+                <span class="site-title">Hexo</span>
+            </a>
+            <nav id="main-nav">
+                
+                    <a class="main-nav-link" href="/">首页</a>
+                
+                    <a class="main-nav-link" href="/archives">归档</a>
+                
+                    <a class="main-nav-link" href="/categories">分类</a>
+                
+                    <a class="main-nav-link" href="/tags">标签</a>
+                
+                    <a class="main-nav-link" href="/about">关于</a>
+                
+            </nav>
+            
+            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+</div>
+        </div>
+    </div>
+    <div id="main-nav-mobile" class="header-sub header-inner">
+        <table class="menu outer">
+            <tr>
+                
+                    <td><a class="main-nav-link" href="/">首页</a></td>
+                
+                    <td><a class="main-nav-link" href="/archives">归档</a></td>
+                
+                    <td><a class="main-nav-link" href="/categories">分类</a></td>
+                
+                    <td><a class="main-nav-link" href="/tags">标签</a></td>
+                
+                    <td><a class="main-nav-link" href="/about">关于</a></td>
+                
+                <td>
+                    
+    <div class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+    </div>
+
+                </td>
+            </tr>
+        </table>
+    </div>
+</header>
+
+        <div class="outer">
+            
+            
+                <aside id="sidebar">
+   
+        
+    <div class="widget-wrap" id='categories'>
+        <h3 class="widget-title">
+            <span>categories</span>
+            &nbsp;
+            <a id='allExpand' href="#">
+                <i class="fa fa-angle-double-down fa-2x"></i>
+            </a>
+        </h3>
+        
+        
+        
+         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Data analysis
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2021/09/15/python%E6%97%A7%E7%89%88%E6%9C%AC%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8Edebug-%E2%80%94%E2%80%94%E2%80%94%E2%80%94-%E4%BB%A5scipy1.2.0%E4%B8%BA%E4%BE%8B/">python旧版本的安装与debug ———— 以scipy1.2.0为例</a></li>  <li class="file"><a href="/2021/09/16/scipy%E7%89%88%E6%9C%AC%E7%9A%84%E4%B8%80%E4%BA%9B%E5%BA%9F%E5%BC%83%E6%96%B9%E6%B3%95%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/">scipy版本的一些废弃方法及解决方案</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Diary
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            life
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2021/08/29/hello-world/">Hello World</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Git
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Github
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2021/09/16/%E5%AF%B9%E4%BA%8Egithub.io%E7%9A%84%E8%AE%BF%E9%97%AE/">对于github.io的访问</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Git报错处理
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2021/09/03/Git%E7%AC%AC%E4%B8%80%E6%AC%A1%E4%B8%8E%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93%E5%85%B3%E8%81%94%E5%B9%B6push%E6%97%B6%E7%9A%84%E6%8A%A5%E9%94%99/">Git第一次与远程仓库关联并push时的报错</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Java
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Eclipse
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2022/03/06/%E9%87%8D%E6%96%B0%E5%AE%89%E8%A3%85JDK%E5%90%8EEclipse%E6%9B%B4%E6%94%B9%E9%85%8D%E7%BD%AE/">重新安装JDK后Eclipse更改配置</a></li>  <li class="file"><a href="/2022/03/06/Eclipse-web-%E5%B7%A5%E7%A8%8B%E7%9A%84%E9%A1%B9%E7%9B%AE%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84/">Eclipse web 工程的项目目录结构</a></li>  </ul> 
+                    </li> 
+                     <li class="file"><a href="/2022/03/02/java%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95%E5%AD%A6%E4%B9%A0%E8%A6%81%E6%B3%A8%E6%84%8F%E7%9A%84%E5%B0%8F%E7%BB%86%E8%8A%82/">Java基础语法学习要注意的小细节</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Linux
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2021/09/24/%E5%9C%A8linux%E7%B3%BB%E7%BB%9F%E4%B8%AD%E7%BC%96%E5%86%99%E5%B9%B6%E6%89%A7%E8%A1%8CC%E8%AF%AD%E8%A8%80%E7%A8%8B%E5%BA%8F/">在linux系统中编写并执行C语言程序</a></li>  <li class="file"><a href="/2021/09/26/%E5%9C%A8linux%E7%B3%BB%E7%BB%9F%E5%88%9B%E5%BB%BA%E7%88%B6%E5%AD%90%E8%BF%9B%E7%A8%8B%E5%8F%8A%E7%9B%B8%E5%85%B3%E6%93%8D%E4%BD%9C/">在linux系统创建父子进程及相关操作</a></li>  <li class="file"><a href="/2021/09/27/%E5%9C%A8vmware%E4%B8%AD%E5%AE%9E%E7%8E%B0%E5%85%B1%E4%BA%AB%E6%96%87%E4%BB%B6%E5%A4%B9%E4%BB%A5%E5%8F%8A%E5%AE%89%E8%A3%85vmware-tools/">在vmware中实现共享文件夹以及安装vmware-tools</a></li>  <li class="file"><a href="/2021/09/27/linux%E7%9A%84%E6%9D%83%E9%99%90%E4%B8%8E%E9%9A%90%E8%97%8F%E6%9D%83%E9%99%90/">linux的权限与隐藏权限</a></li>  <li class="file"><a href="/2021/10/23/%E5%9C%A8vmware%E4%B8%AD%E2%80%9Cmnthgfs%E2%80%9D%E8%B7%AF%E5%BE%84%E4%B8%8B%E5%85%B1%E4%BA%AB%E6%96%87%E4%BB%B6%E5%A4%B9%E7%9A%84%E6%8C%82%E8%BD%BD/">在vmware中“/mnt/hgfs”路径下共享文件夹的挂载</a></li>  <li class="file"><a href="/2021/10/23/linux%E7%9A%84%E8%BF%9B%E7%A8%8B%E4%BC%98%E5%85%88%E7%BA%A7%E4%B8%8E%E8%BF%9B%E7%A8%8B%E8%B0%83%E5%BA%A6%E7%AD%96%E7%95%A5/">linux的进程优先级与进程调度策略</a></li>  <li class="file"><a href="/2021/11/16/%E5%9C%A8vmware%E8%99%9A%E6%8B%9F%E6%9C%BA%E4%B8%AD%E8%BF%9B%E8%A1%8C%E7%BD%91%E7%BB%9C%E8%BF%9E%E6%8E%A5/">在vmware虚拟机中进行网络连接</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            MarkDown
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            typora的特殊使用
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2021/08/29/Reference/">typora中的锚点与引用</a></li>  <li class="file"><a href="/2021/09/06/typora%E4%B8%8Ehexo%E5%8D%9A%E5%AE%A2%E4%B8%AD%E7%9A%84%E5%9B%BE%E7%89%87%E6%8F%92%E5%85%A5/">typora与hexo博客中的图片插入</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Mysql
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            安装
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2022/02/12/Mysql%E5%AE%89%E8%A3%85%E7%9A%84%E7%89%88%E6%9C%AC%E9%80%89%E6%8B%A9/">Mysql安装的版本选择</a></li>  </ul> 
+                    </li> 
+                     <li class="file"><a href="/2021/09/05/MYSQL%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/">MYSQL数据类型</a></li>  <li class="file"><a href="/2021/09/05/MYSQL%E5%AD%97%E6%AE%B5%E5%B1%9E%E6%80%A7/">MYSQL字段属性</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Programming languages and projects
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            JavaScript
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Nodejs
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2021/08/31/nodejs%E4%B8%ADhttp%E7%9B%B8%E5%85%B3%E6%96%B9%E6%B3%95/">nodejs中http相关方法</a></li>  <li class="file"><a href="/2021/08/31/new-Promise%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%E8%AF%A6%E8%A7%A3/">new Promise构造函数详解</a></li>  <li class="file"><a href="/2021/09/03/express%E6%A1%86%E6%9E%B6%E4%B8%8B%E4%BD%BF%E7%94%A8ejs%E6%A8%A1%E6%9D%BF/">express框架下使用ejs模板</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Vue
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2021/09/19/%E5%88%9B%E5%BB%BAvue%E9%A1%B9%E7%9B%AE%E7%9A%84%E4%B8%A4%E4%B8%AA%E5%91%BD%E4%BB%A4%EF%BC%9Avue-create-myproject%E4%B8%8Evue-init-webpack-%E8%AF%A6%E8%A7%A3/">创建vue项目的两个命令：vue create myproject与vue init webpack 详解</a></li>  <li class="file"><a href="/2021/09/19/%E5%87%A0%E4%B8%AA%E5%B8%B8%E7%94%A8%E7%9A%84vue%E5%90%8D%E8%AF%8D%E8%AF%A6%E8%A7%A3/">几个常用的vue名词详解</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            web
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2021/09/06/%E7%BD%91%E7%AB%99%E6%90%9C%E7%B4%A2%E7%BA%AA%E5%BD%95%E7%9A%84%E5%88%A0%E9%99%A4/">网站搜索纪录的删除</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Python3
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            PYQT5
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2021/08/29/PYQT5%E4%BB%8B%E7%BB%8D/">PYQT5介绍</a></li>  <li class="file"><a href="/2021/08/29/%E5%BA%94%E7%94%A8%E7%AA%97%E5%8F%A3%E5%88%9D%E5%A7%8B%E5%8C%96/">Pyqt5中的常用模块与组件</a></li>  <li class="file"><a href="/2021/08/31/Pyqt5%E4%B8%AD%E7%9A%84%E7%AA%97%E5%8F%A3%E4%B8%8E%E5%B7%A5%E5%85%B7%E6%A0%8F/">Pyqt5中的窗口与工具栏</a></li>  <li class="file"><a href="/2021/08/31/PYQT5%E5%B8%83%E5%B1%80%E7%AE%A1%E7%90%86/">PYQT5布局管理</a></li>  <li class="file"><a href="/2021/08/31/PYQT5%E4%BA%8B%E4%BB%B6%E4%B8%8E%E4%BF%A1%E5%8F%B7/">PYQT5事件与信号</a></li>  <li class="file"><a href="/2021/08/31/PYQT5%E5%AF%B9%E8%AF%9D%E6%A1%86/">PYQT5对话框</a></li>  <li class="file"><a href="/2021/08/31/PYQT5%E6%8E%A7%E4%BB%B6/">PYQT5控件</a></li>  <li class="file"><a href="/2021/08/31/PYQT5%E6%8B%96%E6%8B%BD/">PYQT5拖拽</a></li>  <li class="file"><a href="/2021/08/31/PYQT5%E7%BB%98%E5%9B%BE/">PYQT5绘图</a></li>  </ul> 
+                    </li> 
+                     <li class="file"><a href="/2021/10/31/python3%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E5%B8%B8%E8%A7%81%E8%AF%AD%E6%B3%95%E7%B3%96/">python3中的一些常见语法糖整理</a></li>  <li class="file"><a href="/2021/11/03/python3%E4%B8%AD%E7%9A%84%E7%94%9F%E6%88%90%E5%99%A8%E4%B8%8E%E8%BF%AD%E4%BB%A3%E5%99%A8/">python3中的生成器与迭代器</a></li>  <li class="file"><a href="/2021/11/09/python3%E4%B8%AD%E7%9A%84%E8%BF%90%E8%A1%8C%E5%91%BD%E4%BB%A4%E4%B8%8E%E7%8E%AF%E5%A2%83/">python3中的运行命令与环境</a></li>  <li class="file"><a href="/2022/03/06/CentOS7%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85python3.7.8/">CentOS7系统安装python3.7.8</a></li>  <li class="file"><a href="/2022/03/07/visual-studio-code%E4%B8%AD%E6%97%A0%E6%B3%95%E5%88%87%E6%8D%A2Python%E7%89%88%E6%9C%AC%E7%9A%84%E8%A7%A3%E5%86%B3/">visual studio code中无法切换Python版本的解决</a></li>  </ul> 
+                    </li> 
+                     <li class="file"><a href="/2022/03/18/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80%E7%9A%84%E6%96%87%E6%A1%A3%E6%B3%A8%E9%87%8A/">编程语言的文档注释</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Windows
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2022/03/05/Windows%E7%B3%BB%E7%BB%9F%E4%B8%8B%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E9%85%8D%E7%BD%AE%E4%B8%8E%E8%AE%A1%E7%AE%97%E6%9C%BA%E9%87%8D%E5%90%AF/">Windows系统下环境变量配置与计算机重启</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            服务器
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            tomcat
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2022/03/01/tomcat%E4%B8%8Bstartup.bat%E5%90%AF%E5%8A%A8%E6%8A%A5%E9%94%99%E8%AF%A6%E8%A7%A3/">tomcat下startup.bat启动报错详解</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory open">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder-open"></i>
+                            &nbsp;
+                            知识图谱
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file active"><a href="/2022/03/16/%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1%E4%B8%93%E4%B8%9A%E6%9C%AF%E8%AF%AD%E4%B8%8E%E5%9F%BA%E6%9C%AC%E7%9F%A5%E8%AF%86/">知识图谱专业术语与基本知识</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            网络
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            服务器
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2022/02/08/win10%E4%B8%8A%E7%9A%84%E4%BB%A3%E7%90%86%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%AE%BE%E7%BD%AE%E4%B8%8E127.0.0.1/">win10上的代理服务器设置与127.0.0.1</a></li>  </ul> 
+                    </li> 
+                     <li class="file"><a href="/2022/02/22/localhost%E4%B8%8E127.0.0.1%E4%B8%8E0.0.0.0%E4%BB%A5%E5%8F%8A%E7%AB%AF%E5%8F%A3/">localhost与127.0.0.1与0.0.0.0以及端口</a></li>  <li class="file"><a href="/2022/02/26/linux%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8A%E7%9A%84nginx%E4%B8%8Eapache/">Linux服务器上的nginx与apache</a></li>  </ul> 
+                    </li> 
+                     <li class="file"><a href="/2021/08/29/first/">Your first md</a></li>  </ul> 
+    </div>
+    <script>
+        $(document).ready(function() {
+            var iconFolderOpenClass  = 'fa-folder-open';
+            var iconFolderCloseClass = 'fa-folder';
+            var iconAllExpandClass = 'fa-angle-double-down';
+            var iconAllPackClass = 'fa-angle-double-up';
+            // Handle directory-tree expansion:
+            // 左键单独展开目录
+            $(document).on('click', '#categories a[data-role="directory"]', function (event) {
+                event.preventDefault();
+
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconFolderOpenClass);
+                var subtree = $(this).siblings('ul');
+                icon.removeClass(iconFolderOpenClass).removeClass(iconFolderCloseClass);
+                if (expanded) {
+                    if (typeof subtree != 'undefined') {
+                        subtree.slideUp({ duration: 100 });
+                    }
+                    icon.addClass(iconFolderCloseClass);
+                } else {
+                    if (typeof subtree != 'undefined') {
+                        subtree.slideDown({ duration: 100 });
+                    }
+                    icon.addClass(iconFolderOpenClass);
+                }
+            });
+            // 右键展开下属所有目录
+            $('#categories a[data-role="directory"]').bind("contextmenu", function(event){
+                event.preventDefault();
+                
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconFolderOpenClass);
+                var listNode = $(this).siblings('ul');
+                var subtrees = $.merge(listNode.find('li ul'), listNode);
+                var icons = $.merge(listNode.find('.fa'), icon);
+                icons.removeClass(iconFolderOpenClass).removeClass(iconFolderCloseClass);
+                if(expanded) {
+                    subtrees.slideUp({ duration: 100 });
+                    icons.addClass(iconFolderCloseClass);
+                } else {
+                    subtrees.slideDown({ duration: 100 });
+                    icons.addClass(iconFolderOpenClass);
+                }
+            })
+            // 展开关闭所有目录按钮
+            $(document).on('click', '#allExpand', function (event) {
+                event.preventDefault();
+                
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconAllExpandClass);
+                icon.removeClass(iconAllExpandClass).removeClass(iconAllPackClass);
+                if(expanded) {
+                    $('#sidebar .fa.fa-folder').removeClass('fa-folder').addClass('fa-folder-open')
+                    $('#categories li ul').slideDown({ duration: 100 });
+                    icon.addClass(iconAllPackClass);
+                } else {
+                    $('#sidebar .fa.fa-folder-open').removeClass('fa-folder-open').addClass('fa-folder')
+                    $('#categories li ul').slideUp({ duration: 100 });
+                    icon.addClass(iconAllExpandClass);
+                }
+            });  
+        });
+    </script>
+
+    
+    <div id="toTop" class="fa fa-angle-up"></div>
+</aside>
+            
+            <section id="main"><article id="post-知识图谱专业术语与基本知识" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1/">知识图谱</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link-link" href="/tags/%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1/" rel="tag">知识图谱</a>
+    </div>
+
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2022/03/16/%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1%E4%B8%93%E4%B8%9A%E6%9C%AF%E8%AF%AD%E4%B8%8E%E5%9F%BA%E6%9C%AC%E7%9F%A5%E8%AF%86/">
+            <time datetime="2022-03-16T07:04:43.745Z" itemprop="datePublished">2022-03-16</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/zthxxx/Wiki-site/raw/writing/source/_posts/知识图谱专业术语与基本知识.md'> Source </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/zthxxx/Wiki-site/edit/writing/source/_posts/知识图谱专业术语与基本知识.md'> Edit </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/zthxxx/Wiki-site/commits/writing/source/_posts/知识图谱专业术语与基本知识.md'> History </a>
+                            </div>
+                        
+                    </div>
+                
+                
+    
+        <h1 class="article-title" itemprop="name">
+            知识图谱专业术语与基本知识
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+        
+        
+            <h2 id="知识图谱的应用：我们为什么要做知识图谱"><a href="#知识图谱的应用：我们为什么要做知识图谱" class="headerlink" title="知识图谱的应用：我们为什么要做知识图谱"></a>知识图谱的应用：我们为什么要做知识图谱</h2><ol>
+<li><p>语义搜索</p>
+</li>
+<li><p>智能问答</p>
+</li>
+<li><p>个性化推荐</p>
+</li>
+<li><p>辅助决策</p>
+</li>
+</ol>
+<h2 id="起源和基本概念"><a href="#起源和基本概念" class="headerlink" title="起源和基本概念"></a>起源和基本概念</h2><p>在这篇<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/148785892">知识图谱的介绍专栏</a>中，可以知道，<strong>知识图谱起源于语义网络（semantic nets or semantic networks）</strong>，语义网络一种用互联的的节点和弧来表示知识的一个结构，节点可以代表一个概念(concept)、一个属性(attribute)、一个事件(event)或者一个实体(entity)，而弧则用来表示节点之间的关系，弧的标签指明了关系的类型。<br>知识图谱不能仅理解为一个图，应该说：知识图谱是一种采用图模型（即由点和线组成的图形）来对人类知识进行表示的知识库或者知识的集合，并且符合某种语法和语义。</p>
+<blockquote>
+<p>知识图谱的图模型是一个有向图G&#x3D;&lt;O,E&gt;，这里O是一个实体或者字面量（literal）的集合，一般有以下几种：</p>
+<ol>
+<li>实例，即一个现实世界中具体的实物，比如说图1中的resource&#x2F;2019新型冠状病毒感染肺炎；</li>
+<li>概念，可以看成是实例的集合，比如说图1中的class&#x2F;疾病；</li>
+<li>字面量（literal），主要分为字符串和数据类型，这里数据类型包括日期值、高度等。</li>
+</ol>
+<p>知识图谱中<strong>一条知识</strong>称为<strong>三元组</strong>，即**<code>&lt;o1, e, o2&gt;</code><strong>的格式，这里<code>o1</code>和<code>o2</code>是实体或者字面量，而e则是带标签的边（类似图结构中我们要用两个点，一条边来表示）。</strong>一个三元组可以等价于一条主谓宾的知识，即<code>o1</code>和<code>o2</code>分别对应主语和宾语，e对应谓语**。</p>
+</blockquote>
+<p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/941dc6d7e760">三元组的基本组成部分</a>：</p>
+<blockquote>
+<ul>
+<li>实体（Entity）：实体是对客观个体的抽象，一个人、一部电影、一句话都可以看作是一个实体。例如：姚明，李安，我不是潘金莲</li>
+<li>类型（type）：类型是对具有相同特点或属性的实体集合的抽象。举例：中国是一个实体，美国是一个实体，法国是一个实体。这些实体都有首都、人口、面积等共同特征，因此例如像中国、美国、法国等都有首都、人口、面积等特征的实体可以抽象为“国家”类型</li>
+<li>属性（property）：属性是对实体与实体之间关系的抽象，例如李安是一个实体，李安是一个人物（type），少年派的奇幻漂流是一个实体，少年派的奇幻漂流是一个电影（type），很明显两个实体之间存在着关系即为：李安→导演→少年派的奇幻漂流因此李安与少年派的奇幻漂流之间的关系可以用属性“导演”刻画。那么可以根据属性构建一层关系，人物（type）→导演（property）→电影（type）。</li>
+<li>关系（relation）：关系是<strong>实体与实体之间</strong>关系的抽象，李安（entity）→导演（relation）→少年派的奇幻漂流（entity），导演这个relation则是描述李安和少年派的奇幻漂流的关系。</li>
+<li>域（domain）：域是类型的集合，凌驾于类型之上，是对某一领域所有类型的抽象，例如：国家是对中国、美国这样实体的一种抽象，是一种类型，而一个地理位置除了国家类型之外，还包括其他类型：城市、区域、洲等等，而把这些所有类型：洲、国家、城市、区域等类型抽象起来，就形成了地理位置域。</li>
+<li>值（value）：值是用来描述实体的，可以分为文本型和数值型，EG：姚明（entity）→身高（relation）→ 226 cm（value）。</li>
+</ul>
+</blockquote>
+<p>想要系统学习知识图谱，基础阶段可以看一下知乎上这一位博主的<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/396516565">知识图谱专栏学习笔记</a>，比如他这里介绍的知识图谱构建方法：</p>
+<p><img src="https://pic3.zhimg.com/80/v2-367fae46217b2666f15e20255a803eb2_720w.jpg" alt="知识图谱的构建"></p>
+<p>建立知识图谱的第一步是获得数据，根据数据的类型可以分为：</p>
+<ol>
+<li><p>结构化的数据：表格、数据库等按照一定格式表示的数据，通常可以直接用来构建知识图谱；</p>
+</li>
+<li><p>非结构化的数据：文本、音频、视频、图片等，需要对它们进行信息抽取才能进一步建立知识图谱；</p>
+</li>
+<li><p>半结构化数据是介于结构化和非结构化之间的一种数据，也需要进行信息抽取才能建立知识图谱。</p>
+</li>
+</ol>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/taon1607/article/details/107087408">连续型数据和非连续型数据</a>：</p>
+<blockquote>
+<p>离散型数据都是类别值，如：男生，女生，商务座，一等座，二等座等等。连续型数据基本上都是数值型数据，如年龄（10岁，11岁…），身高（110cm, 175cm…），海拔，薪资等等。<br>既然连续型数据都是数值，是可以直接拿来供计算机使用的，那么连续型数据该如何处理？这里我们提出一个处理思想：连续型数据离散化。连续型数据离散化以后的建模效果一定会比原来的好吗？这个答案是不一定的</p>
+</blockquote>
+<p><img src="https://img-blog.csdnimg.cn/20200106162929139.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM5MzA0ODUx,size_16,color_FFFFFF,t_70" alt="对不同类型数据的处理"></p>
+<p><strong>信息抽取（知识抽取）</strong></p>
+<blockquote>
+<p>可以分为实体识别、关系抽取、属性抽取等。目前结构化的数据时最主要的知识来源。针对结构化的数据，知识图谱通常可以直接利用和转化，形成基础数据集，再利用知识图谱补全技术进一步扩展知识图谱。</p>
+<p>针对文本型数据这种非结构化数据，知识获取的方式主要包括实体识别、关系抽取、属性抽取等。具体的方法又包括基于特征模版的方法、基于核函数的监督学习方法、基于深度学习的方法等</p>
+<p>实体识别：指在一段文本中识别哪些词代表实体，并打上标签（进行分类）。例如“演员于和伟出演了电视剧《觉醒年代》”这句话中，“于和伟”和“《觉醒年代》”就是两个实体</p>
+<p>关系抽取：识别文本（或其他数据）中实体之间的关系。例如“演员于和伟出演了电视剧《觉醒年代》”这句话中，“出演”为“演员于和伟”与“电视剧《觉醒年代》”之间的关系</p>
+</blockquote>
+<h3 id="知识表示与建模"><a href="#知识表示与建模" class="headerlink" title="知识表示与建模"></a>知识表示与建模</h3><p><strong>知识表示</strong></p>
+<p>用一定的结构和符号语言来描述知识，并且能够用计算机进行推理、计算等操作的技术。知识表示的方法：谓词逻辑表示法、框架表示法、基于语意网路的表示法等。</p>
+<p><strong>知识融合</strong></p>
+<p>由于得到的数据可能会存在交叉和重叠，因此同一个概念、实体可能会反复出现，知识融合的目的就是把表示相同概念的实体进行合并。根据专栏作者的解释：</p>
+<blockquote>
+<p>主要任务包括实体消歧和指代消解，它们都用来判断知识库中的同名实体是代表同一含义、是否有其他实体也表示相同含义。实体消歧专门用于解决同名实体产生歧义的问题，通常采用聚类法、空间向量模型、语义模型等。指代消解则为了避免代词指代不清的情况。</p>
+</blockquote>
+<h3 id="知识推理"><a href="#知识推理" class="headerlink" title="知识推理"></a>知识推理</h3><blockquote>
+<p>知识推理是根据已有的数据模型和数据，依据推理规则，获取新的知识或者结论，新的知识或结论应该是满足语义的。知识推理，依据描述逻辑系统实现。描述逻辑(Description Logic)是基于对象的知识表示的形式化，也叫概念表示语言或术语逻辑，是一阶谓词逻辑的一个可判定子集。</p>
+<p>一个描述逻辑系统由四个基本部分组成： 最基本的元素：概念、关系、个体；TBox术语集：概念术语的公理集合； Abox断言集：个体的断言集合；TBox 和 ABox上的推理机制。</p>
+<p>描述逻辑涉及到的内容也比较多，此处举几个例子，比如实体的分类包含关系，一个电脑椅是椅子，椅子是家具，可以说，一个电脑椅是家具。常识规则的推理，一个男人的孩子是A，一个女人的孩子是A，可以知道，这个男人和女人是配偶。</p>
+</blockquote>
+<p><img src="https://pic4.zhimg.com/80/v2-86c66ac77e2b89d0f39b31b230bfdf7f_720w.jpg" alt="知识推理的三大方式"></p>
+<p>简单地说，推理任务主要有：通过<strong>规则挖掘</strong>对知识图谱进行<strong>补全（Knowledge Base Completion,KBC）与质量校验</strong>、<strong>链接预测、关联关系推理</strong>与<strong>冲突检测</strong>等。</p>
+<p>基于规则的推理通过定义或学习知识中存在的规则进行挖掘与推理，从早期的ILP(Inductive Logic Programming)系统中衍生的AMIE、AMIE+算法， 强调通过自动化的规则学习方法，快速有效的从大规模知识图谱中学习出置信度较高的规则，并且应用于推理任务。</p>
+<p><img src="https://pic2.zhimg.com/80/v2-ced25261ed496e505147fc23aa9cb95d_720w.jpg" alt="各种推理方法极其优缺点总结"></p>
+<h3 id="Trans-E-算法细说"><a href="#Trans-E-算法细说" class="headerlink" title="Trans E 算法细说"></a>Trans E 算法细说</h3><p>transE算法就是一个非常经典的知识表示学习，用<a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=%E5%88%86%E5%B8%83%E5%BC%8F&spm=1001.2101.3001.7020">分布式</a>表示（distributed representation）来描述知识库中的三元组，<a target="_blank" rel="noopener" href="https://blog.csdn.net/shunaoxi2313/article/details/89766467">这里可以看下其简单的算法思想</a>：</p>
+<blockquote>
+<p>知识图谱中的事实是用三元组 ( h , l , t ) (h,l,t)(h,l,t) 表示的，那么如何用低维稠密向量来表示它们，才能得到这种依赖关系呢？transE算法的思想非常简单，它受word2vec平移不变性的启发，希望h + l ≈ t h+l≈th+l≈t（此为归纳偏差？）。</p>
+<p>光有这一个约束可不够。想让h + l ≈ t h+l≈th+l≈t，如何设置损失函数是个关键。我们发现表示学习都没有明显的监督信号，也就是不会明确告诉模型你学到的表示正不正确，那么想要快速收敛就得引入“相对”概念，即相对负例来说，正例的打分要更高，方法学名：<strong>“negative sampling”</strong>，也就是<strong>负采样</strong>。</p>
+</blockquote>
+<p>转移距离模型（Translational Distance Model）的主要思想是将衡量向量化后的知识图谱中三元组的合理性问题，转化成衡量头实体和尾实体的距离问题。这一方法的重点是如何设计得分函数，得分函数常常被设计成利用关系把头实体转移到尾实体的合理性的函数。 受词向量的启发，由词与词在向量空间的语义层面关系，可以拓展到知识图谱中头实体和尾实体在向量空间的关系。也就是说，同样可以 考虑把知识图谱中的头实体和尾实体映射到向量空间中，且它们之间的 联系也可以考虑成三元组中的关系。</p>
+<p>TransE便是受到了词向量中平移不变性的启发，在 TransE 中，把实体和关系都表示为向量，对于某一个具体的关系（head, relation, tail），把关系的向量表示解释成头实体的向量到尾实体的向量的转移向量（Translation vector）。也就是说， 如果在一个知识图谱中，某一个三元组成立，则它的实体和关系需要满 足关系head+relation≈tail。</p>
+<h3 id="知识图谱的嵌入"><a href="#知识图谱的嵌入" class="headerlink" title="知识图谱的嵌入"></a>知识图谱的嵌入</h3><p>知识图谱通常存在链接缺失问题，这限制了知识图谱在相关下游任务中的应用。为解决该问题，知识图谱补全任务应运而生。知识图谱补全旨在根据知识图谱中已有事实推断出新的事实，从而使得知识图谱更完整。</p>
+<p>知识图谱嵌入 (Knowledge Graph Embedding) 是解决知识图谱补全问题的重要方法之一，它通过将知识图谱中的实体 (Entity) 和关系 (Relation) 嵌入到连续向量空间，从而在方便计算的同时保留知识图谱中的结构信息。知识图谱嵌入模型大致可以分为三类：</p>
+<blockquote>
+<h2 id="知识图谱补全任务"><a href="#知识图谱补全任务" class="headerlink" title="知识图谱补全任务"></a>知识图谱补全任务</h2><h3 id="符号定义"><a href="#符号定义" class="headerlink" title="符号定义"></a>符号定义</h3><p>知识图谱通常以三<a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=%E5%85%83%E7%BB%84&spm=1001.2101.3001.7020">元组</a> (Triple) 来表示知识，三元组的一般格式为 (<em>头实体</em>，<em>关系</em>，<em>尾实体</em>)，如“金庸的表兄是徐志摩”表示成三元组为 (<em>金庸</em>，<em>表兄</em>，<em>徐志摩</em>)，其中<em>金庸</em>为头实体，<em>徐志摩</em>为尾实体，<em>表兄</em>是这两个实体之间的关系。我们使用小写的字母 来分别表示头实体、关系和尾实体， 表示知识图谱中的一个三元组。相应地，小写加粗字母 分别表示头实体、关系和尾实体对应的嵌入向量。向量 的第 个元素记作 。 表示嵌入向量的维度。  表示两个向量间的 Hadamard (element-wise) product。另外，我们使用 来分别表示 和 范数。</p>
+<h3 id="补全任务与性能指标"><a href="#补全任务与性能指标" class="headerlink" title="补全任务与性能指标"></a>补全任务与性能指标</h3><p>知识图谱补全 (Knowledge Graph Completion)，是根据知识图谱中已有的三元组去对未知三元组进行预测。我们使用 表示已知头实体和关系来预测尾实体， 表示已知关系和尾实体来预测头实体，其中 和 被称为查询 (Query)。实际上，知识图谱补全任务，本质上给定查询下的排序问题。比如，对于图2所示的查询 (<em>陆小曼</em>，<em>丈夫</em>，<em>？</em>)，返回的是预测答案的排序列表，正确答案排名越高，预测的效果就越好。</p>
+</blockquote>
+<h3 id="质量评估"><a href="#质量评估" class="headerlink" title="质量评估"></a>质量评估</h3><p>在知识推理完了之后，我们也不能忘记质量评估这一个最后的步骤：</p>
+<blockquote>
+<p>质量评估就是对最后的结果数据进行评估，将合格的数据放入知识图谱中。质量评估的方法，根据所构建的知识图谱的不同，对数据要求的差异而有所差别。总的目的是要获得合乎要求的知识图谱数据，要求的标准根据具体情况确定。 比如对于公共领域的知识图谱，知识的获取采用了众包的方法，对于同一个知识点，可能会有很多人来完成，如果这个知识点只有一个答案，可以采用的一种策略是，将多人的标注结果进行比较，取投票多的结果作为最终的结果。当然，这是不严谨的，因为真理往往掌握在少数人的手里，特别是针对一些行业的知识图谱，表现尤为突出。行业内的一条知识，可能只有行业专家能够给出权威正确的答案，如果让大众投票来决定，可能会得到一条错误的知识。所以，针对行业知识图谱，可能会采用不同于公共知识图谱的策略，来进行知识的质量评估。</p>
+</blockquote>
+<h3 id="NLP中的负采样（Negative-Sampling）"><a href="#NLP中的负采样（Negative-Sampling）" class="headerlink" title="NLP中的负采样（Negative Sampling）"></a>NLP中的负采样（Negative Sampling）</h3><p>负采样是NLP领域一个出现频次极高的词，负抽样的目的是为了最终输出的上下文单词（正样本），在采样过程中应该保留下来并更新，同时也需要采集部分负样本（非上下文单词）。通过负采样，在更新隐层到输出层的权重时，只需更负采样的单词，而不用更新词汇表所有单词，<br><a target="_blank" rel="noopener" href="https://blog.csdn.net/ningyanggege/article/details/87869393">对负采样理解</a>来自于word2vec算法：</p>
+<blockquote>
+<p>比如说  love 和me两个单词；<br>使用特殊思维模式；假设整个词汇表只有100个单词；love 表示成one-hot向量； me表示成one-hot向量；<br>模型输入为love的one-hot向量；模型输出为me的one-hot向量；<br>假设模型的神经网络结构为100<em>10</em>100；输出层100个；<br>输出层中除了me对应位置的1外，其他全是0；称这为负样本；参数数量为10<em>100<br>采样就是从这样负样本中抽样；比如说抽取5个；那么在此次梯度更新中就只更新10</em>5；更新数量为原来的1&#x2F;20</p>
+<p>因此，可以看到负采样的本质：每次让一个训练样本<strong>只更新部分权重</strong>，<strong>其他权重全部固定</strong>；<strong>减少计算量</strong>；（一定程度上还可以增加随机性）</p>
+</blockquote>
+
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+    
+<nav id="article-nav">
+    
+        <a href="/2022/03/18/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80%E7%9A%84%E6%96%87%E6%A1%A3%E6%B3%A8%E9%87%8A/" id="article-nav-newer" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">Newer</strong>
+            <div class="article-nav-title">
+                
+                    编程语言的文档注释
+                
+            </div>
+        </a>
+    
+    
+        <a href="/2022/03/07/visual-studio-code%E4%B8%AD%E6%97%A0%E6%B3%95%E5%88%87%E6%8D%A2Python%E7%89%88%E6%9C%AC%E7%9A%84%E8%A7%A3%E5%86%B3/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">Older</strong>
+            <div class="article-nav-title">visual studio code中无法切换Python版本的解决</div>
+        </a>
+    
+</nav>
+
+
+
+
+
+    
+    
+
+
+
+
+<!-- baidu url auto push script -->
+<script type="text/javascript">
+    !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=window.location.href,o=document.referrer;if(!e.test(r)){var n="//api.share.baidu.com/s.gif";o?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var t=new Image;t.src=n}}(window);
+</script>     
+</section>
+        </div>
+        <footer id="footer">
+    <div class="outer">
+        <div id="footer-info" class="inner">
+            John Doe &copy; 2022 
+            <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/80x15.png" /></a>
+            <br> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Theme - <a target="_blank" rel="noopener" href="https://github.com/zthxxx/hexo-theme-Wikitten">wikitten</a>
+            
+                <br>
+                <span id="busuanzi_container_site_pv"><i class="fa fa-eye"></i> <span id="busuanzi_value_site_pv"></span></span>
+                &nbsp;|&nbsp;
+                <span id="busuanzi_container_site_pv"><i class="fa fa-user"></i> <span id="busuanzi_value_site_uv"></span></span>
+            
+        </div>
+    </div>
+</footer>
+
+        
+
+    
+        
+<script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-share.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-video.min.js"></script>
+
+    
+    
+        
+<script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+    
+    
+        <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true,
+            TeX: {
+                equationNumbers: {
+                  autoNumber: 'AMS'
+                }
+            }
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script async src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+
+
+
+<!-- Custom Scripts -->
+
+<script src="/js/main.js"></script>
+
+
+    </div>
+</body>
+</html>

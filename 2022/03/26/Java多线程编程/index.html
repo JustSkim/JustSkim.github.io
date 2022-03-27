@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <meta charset="utf-8">
+    
+    <title>Java多线程编程 | Hexo</title>
+    
+    
+        <meta name="keywords" content="java" />
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="jdk11API中文文档中对java.lang.Thread类的介绍：   java.lang.Object    java.lang.Thread    实现的所有接口  Runnable   已知直接子类：  ForkJoinWorkerThread    public class Thread   extends Objectimplements Runnable线程是程序中执行的线程。 J">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java多线程编程">
+<meta property="og:url" content="http://justskim.github.io/2022/03/26/Java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%BC%96%E7%A8%8B/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="jdk11API中文文档中对java.lang.Thread类的介绍：   java.lang.Object    java.lang.Thread    实现的所有接口  Runnable   已知直接子类：  ForkJoinWorkerThread    public class Thread   extends Objectimplements Runnable线程是程序中执行的线程。 J">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://justskim.github.io/images/%E7%BA%BF%E7%A8%8B%E7%9A%84%E5%90%84%E7%A7%8D%E7%8A%B6%E6%80%81.jpg">
+<meta property="article:published_time" content="2022-03-26T08:42:38.194Z">
+<meta property="article:modified_time" content="2022-03-26T10:15:38.432Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="java">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://justskim.github.io/images/%E7%BA%BF%E7%A8%8B%E7%9A%84%E5%90%84%E7%A7%8D%E7%8A%B6%E6%80%81.jpg">
+    
+
+    
+
+    
+        <link rel="icon" href="/favicon.ico" />
+    
+
+    
+<link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="/libs/open-sans/styles.css">
+
+    
+<link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    
+<script src="/libs/jquery/2.1.3/jquery.min.js"></script>
+
+    
+<script src="/libs/jquery/plugins/cookie/1.4.1/jquery.cookie.js"></script>
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+
+    
+    
+    
+    
+
+
+    
+        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+<meta name="generator" content="Hexo 5.4.1"><link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+</head>
+
+<body>
+    <div id="container">
+        <header id="header">
+    <div id="header-main" class="header-inner">
+        <div class="outer">
+            <a href="/" id="logo">
+                <i class="logo"></i>
+                <span class="site-title">Hexo</span>
+            </a>
+            <nav id="main-nav">
+                
+                    <a class="main-nav-link" href="/">首页</a>
+                
+                    <a class="main-nav-link" href="/archives">归档</a>
+                
+                    <a class="main-nav-link" href="/categories">分类</a>
+                
+                    <a class="main-nav-link" href="/tags">标签</a>
+                
+                    <a class="main-nav-link" href="/about">关于</a>
+                
+            </nav>
+            
+            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+</div>
+        </div>
+    </div>
+    <div id="main-nav-mobile" class="header-sub header-inner">
+        <table class="menu outer">
+            <tr>
+                
+                    <td><a class="main-nav-link" href="/">首页</a></td>
+                
+                    <td><a class="main-nav-link" href="/archives">归档</a></td>
+                
+                    <td><a class="main-nav-link" href="/categories">分类</a></td>
+                
+                    <td><a class="main-nav-link" href="/tags">标签</a></td>
+                
+                    <td><a class="main-nav-link" href="/about">关于</a></td>
+                
+                <td>
+                    
+    <div class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+    </div>
+
+                </td>
+            </tr>
+        </table>
+    </div>
+</header>
+
+        <div class="outer">
+            
+            
+                <aside id="sidebar">
+   
+        
+    <div class="widget-wrap" id='categories'>
+        <h3 class="widget-title">
+            <span>categories</span>
+            &nbsp;
+            <a id='allExpand' href="#">
+                <i class="fa fa-angle-double-down fa-2x"></i>
+            </a>
+        </h3>
+        
+        
+        
+         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Data analysis
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2021/09/15/python%E6%97%A7%E7%89%88%E6%9C%AC%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8Edebug-%E2%80%94%E2%80%94%E2%80%94%E2%80%94-%E4%BB%A5scipy1.2.0%E4%B8%BA%E4%BE%8B/">python旧版本的安装与debug ———— 以scipy1.2.0为例</a></li>  <li class="file"><a href="/2021/09/16/scipy%E7%89%88%E6%9C%AC%E7%9A%84%E4%B8%80%E4%BA%9B%E5%BA%9F%E5%BC%83%E6%96%B9%E6%B3%95%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/">scipy版本的一些废弃方法及解决方案</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Diary
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            life
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2021/08/29/hello-world/">Hello World</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Git
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Github
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2021/09/16/%E5%AF%B9%E4%BA%8Egithub.io%E7%9A%84%E8%AE%BF%E9%97%AE/">对于github.io的访问</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Git报错处理
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2021/09/03/Git%E7%AC%AC%E4%B8%80%E6%AC%A1%E4%B8%8E%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93%E5%85%B3%E8%81%94%E5%B9%B6push%E6%97%B6%E7%9A%84%E6%8A%A5%E9%94%99/">Git第一次与远程仓库关联并push时的报错</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory open">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder-open"></i>
+                            &nbsp;
+                            Java
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Eclipse
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2022/03/06/%E9%87%8D%E6%96%B0%E5%AE%89%E8%A3%85JDK%E5%90%8EEclipse%E6%9B%B4%E6%94%B9%E9%85%8D%E7%BD%AE/">重新安装JDK后Eclipse更改配置</a></li>  <li class="file"><a href="/2022/03/06/Eclipse-web-%E5%B7%A5%E7%A8%8B%E7%9A%84%E9%A1%B9%E7%9B%AE%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84/">Eclipse web 工程的项目目录结构</a></li>  </ul> 
+                    </li> 
+                     <li class="file"><a href="/2022/03/02/java%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95%E5%AD%A6%E4%B9%A0%E8%A6%81%E6%B3%A8%E6%84%8F%E7%9A%84%E5%B0%8F%E7%BB%86%E8%8A%82/">Java基础语法学习要注意的小细节</a></li>  <li class="file active"><a href="/2022/03/26/Java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%BC%96%E7%A8%8B/">Java多线程编程</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Latex
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2022/03/27/LaTex,mikTex%E4%B8%8Eword%E4%B8%ADauora%E6%8F%92%E5%85%A5/">LaTex,mikTex与word中auora插入</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Linux
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2021/09/24/%E5%9C%A8linux%E7%B3%BB%E7%BB%9F%E4%B8%AD%E7%BC%96%E5%86%99%E5%B9%B6%E6%89%A7%E8%A1%8CC%E8%AF%AD%E8%A8%80%E7%A8%8B%E5%BA%8F/">在linux系统中编写并执行C语言程序</a></li>  <li class="file"><a href="/2021/09/26/%E5%9C%A8linux%E7%B3%BB%E7%BB%9F%E5%88%9B%E5%BB%BA%E7%88%B6%E5%AD%90%E8%BF%9B%E7%A8%8B%E5%8F%8A%E7%9B%B8%E5%85%B3%E6%93%8D%E4%BD%9C/">在linux系统创建父子进程及相关操作</a></li>  <li class="file"><a href="/2021/09/27/%E5%9C%A8vmware%E4%B8%AD%E5%AE%9E%E7%8E%B0%E5%85%B1%E4%BA%AB%E6%96%87%E4%BB%B6%E5%A4%B9%E4%BB%A5%E5%8F%8A%E5%AE%89%E8%A3%85vmware-tools/">在vmware中实现共享文件夹以及安装vmware-tools</a></li>  <li class="file"><a href="/2021/09/27/linux%E7%9A%84%E6%9D%83%E9%99%90%E4%B8%8E%E9%9A%90%E8%97%8F%E6%9D%83%E9%99%90/">linux的权限与隐藏权限</a></li>  <li class="file"><a href="/2021/10/23/%E5%9C%A8vmware%E4%B8%AD%E2%80%9Cmnthgfs%E2%80%9D%E8%B7%AF%E5%BE%84%E4%B8%8B%E5%85%B1%E4%BA%AB%E6%96%87%E4%BB%B6%E5%A4%B9%E7%9A%84%E6%8C%82%E8%BD%BD/">在vmware中“/mnt/hgfs”路径下共享文件夹的挂载</a></li>  <li class="file"><a href="/2021/10/23/linux%E7%9A%84%E8%BF%9B%E7%A8%8B%E4%BC%98%E5%85%88%E7%BA%A7%E4%B8%8E%E8%BF%9B%E7%A8%8B%E8%B0%83%E5%BA%A6%E7%AD%96%E7%95%A5/">linux的进程优先级与进程调度策略</a></li>  <li class="file"><a href="/2021/11/16/%E5%9C%A8vmware%E8%99%9A%E6%8B%9F%E6%9C%BA%E4%B8%AD%E8%BF%9B%E8%A1%8C%E7%BD%91%E7%BB%9C%E8%BF%9E%E6%8E%A5/">在vmware虚拟机中进行网络连接</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            MarkDown
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            typora的特殊使用
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2021/08/29/Reference/">typora中的锚点与引用</a></li>  <li class="file"><a href="/2021/09/06/typora%E4%B8%8Ehexo%E5%8D%9A%E5%AE%A2%E4%B8%AD%E7%9A%84%E5%9B%BE%E7%89%87%E6%8F%92%E5%85%A5/">typora与hexo博客中的图片插入</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Mysql
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            安装
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2022/02/12/Mysql%E5%AE%89%E8%A3%85%E7%9A%84%E7%89%88%E6%9C%AC%E9%80%89%E6%8B%A9/">Mysql安装的版本选择</a></li>  </ul> 
+                    </li> 
+                     <li class="file"><a href="/2021/09/05/MYSQL%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/">MYSQL数据类型</a></li>  <li class="file"><a href="/2021/09/05/MYSQL%E5%AD%97%E6%AE%B5%E5%B1%9E%E6%80%A7/">MYSQL字段属性</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Programming languages and projects
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            JavaScript
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Nodejs
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2021/08/31/nodejs%E4%B8%ADhttp%E7%9B%B8%E5%85%B3%E6%96%B9%E6%B3%95/">nodejs中http相关方法</a></li>  <li class="file"><a href="/2021/08/31/new-Promise%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%E8%AF%A6%E8%A7%A3/">new Promise构造函数详解</a></li>  <li class="file"><a href="/2021/09/03/express%E6%A1%86%E6%9E%B6%E4%B8%8B%E4%BD%BF%E7%94%A8ejs%E6%A8%A1%E6%9D%BF/">express框架下使用ejs模板</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Vue
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2021/09/19/%E5%88%9B%E5%BB%BAvue%E9%A1%B9%E7%9B%AE%E7%9A%84%E4%B8%A4%E4%B8%AA%E5%91%BD%E4%BB%A4%EF%BC%9Avue-create-myproject%E4%B8%8Evue-init-webpack-%E8%AF%A6%E8%A7%A3/">创建vue项目的两个命令：vue create myproject与vue init webpack 详解</a></li>  <li class="file"><a href="/2021/09/19/%E5%87%A0%E4%B8%AA%E5%B8%B8%E7%94%A8%E7%9A%84vue%E5%90%8D%E8%AF%8D%E8%AF%A6%E8%A7%A3/">几个常用的vue名词详解</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            web
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2021/09/06/%E7%BD%91%E7%AB%99%E6%90%9C%E7%B4%A2%E7%BA%AA%E5%BD%95%E7%9A%84%E5%88%A0%E9%99%A4/">网站搜索纪录的删除</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Python3
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            PYQT5
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2021/08/29/PYQT5%E4%BB%8B%E7%BB%8D/">PYQT5介绍</a></li>  <li class="file"><a href="/2021/08/29/%E5%BA%94%E7%94%A8%E7%AA%97%E5%8F%A3%E5%88%9D%E5%A7%8B%E5%8C%96/">Pyqt5中的常用模块与组件</a></li>  <li class="file"><a href="/2021/08/31/Pyqt5%E4%B8%AD%E7%9A%84%E7%AA%97%E5%8F%A3%E4%B8%8E%E5%B7%A5%E5%85%B7%E6%A0%8F/">Pyqt5中的窗口与工具栏</a></li>  <li class="file"><a href="/2021/08/31/PYQT5%E5%B8%83%E5%B1%80%E7%AE%A1%E7%90%86/">PYQT5布局管理</a></li>  <li class="file"><a href="/2021/08/31/PYQT5%E4%BA%8B%E4%BB%B6%E4%B8%8E%E4%BF%A1%E5%8F%B7/">PYQT5事件与信号</a></li>  <li class="file"><a href="/2021/08/31/PYQT5%E5%AF%B9%E8%AF%9D%E6%A1%86/">PYQT5对话框</a></li>  <li class="file"><a href="/2021/08/31/PYQT5%E6%8E%A7%E4%BB%B6/">PYQT5控件</a></li>  <li class="file"><a href="/2021/08/31/PYQT5%E6%8B%96%E6%8B%BD/">PYQT5拖拽</a></li>  <li class="file"><a href="/2021/08/31/PYQT5%E7%BB%98%E5%9B%BE/">PYQT5绘图</a></li>  </ul> 
+                    </li> 
+                     <li class="file"><a href="/2021/10/31/python3%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E5%B8%B8%E8%A7%81%E8%AF%AD%E6%B3%95%E7%B3%96/">python3中的一些常见语法糖整理</a></li>  <li class="file"><a href="/2021/11/03/python3%E4%B8%AD%E7%9A%84%E7%94%9F%E6%88%90%E5%99%A8%E4%B8%8E%E8%BF%AD%E4%BB%A3%E5%99%A8/">python3中的生成器与迭代器</a></li>  <li class="file"><a href="/2021/11/09/python3%E4%B8%AD%E7%9A%84%E8%BF%90%E8%A1%8C%E5%91%BD%E4%BB%A4%E4%B8%8E%E7%8E%AF%E5%A2%83/">python3中的运行命令与环境</a></li>  <li class="file"><a href="/2022/03/06/CentOS7%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85python3.7.8/">CentOS7系统安装python3.7.8</a></li>  <li class="file"><a href="/2022/03/07/visual-studio-code%E4%B8%AD%E6%97%A0%E6%B3%95%E5%88%87%E6%8D%A2Python%E7%89%88%E6%9C%AC%E7%9A%84%E8%A7%A3%E5%86%B3/">visual studio code中无法切换Python版本的解决</a></li>  </ul> 
+                    </li> 
+                     <li class="file"><a href="/2022/03/18/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80%E7%9A%84%E6%96%87%E6%A1%A3%E6%B3%A8%E9%87%8A/">编程语言的文档注释</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Windows
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2022/03/05/Windows%E7%B3%BB%E7%BB%9F%E4%B8%8B%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E9%85%8D%E7%BD%AE%E4%B8%8E%E8%AE%A1%E7%AE%97%E6%9C%BA%E9%87%8D%E5%90%AF/">Windows系统下环境变量配置与计算机重启</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            服务器
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            tomcat
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2022/03/01/tomcat%E4%B8%8Bstartup.bat%E5%90%AF%E5%8A%A8%E6%8A%A5%E9%94%99%E8%AF%A6%E8%A7%A3/">tomcat下startup.bat启动报错详解</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            知识图谱
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2022/03/16/%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1%E4%B8%93%E4%B8%9A%E6%9C%AF%E8%AF%AD%E4%B8%8E%E5%9F%BA%E6%9C%AC%E7%9F%A5%E8%AF%86/">知识图谱专业术语与基本知识</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            网络
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            服务器
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2022/02/08/win10%E4%B8%8A%E7%9A%84%E4%BB%A3%E7%90%86%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%AE%BE%E7%BD%AE%E4%B8%8E127.0.0.1/">win10上的代理服务器设置与127.0.0.1</a></li>  </ul> 
+                    </li> 
+                     <li class="file"><a href="/2022/02/22/localhost%E4%B8%8E127.0.0.1%E4%B8%8E0.0.0.0%E4%BB%A5%E5%8F%8A%E7%AB%AF%E5%8F%A3/">localhost与127.0.0.1与0.0.0.0以及端口</a></li>  <li class="file"><a href="/2022/02/26/linux%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8A%E7%9A%84nginx%E4%B8%8Eapache/">Linux服务器上的nginx与apache</a></li>  </ul> 
+                    </li> 
+                     <li class="file"><a href="/2021/08/29/first/">Your first md</a></li>  </ul> 
+    </div>
+    <script>
+        $(document).ready(function() {
+            var iconFolderOpenClass  = 'fa-folder-open';
+            var iconFolderCloseClass = 'fa-folder';
+            var iconAllExpandClass = 'fa-angle-double-down';
+            var iconAllPackClass = 'fa-angle-double-up';
+            // Handle directory-tree expansion:
+            // 左键单独展开目录
+            $(document).on('click', '#categories a[data-role="directory"]', function (event) {
+                event.preventDefault();
+
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconFolderOpenClass);
+                var subtree = $(this).siblings('ul');
+                icon.removeClass(iconFolderOpenClass).removeClass(iconFolderCloseClass);
+                if (expanded) {
+                    if (typeof subtree != 'undefined') {
+                        subtree.slideUp({ duration: 100 });
+                    }
+                    icon.addClass(iconFolderCloseClass);
+                } else {
+                    if (typeof subtree != 'undefined') {
+                        subtree.slideDown({ duration: 100 });
+                    }
+                    icon.addClass(iconFolderOpenClass);
+                }
+            });
+            // 右键展开下属所有目录
+            $('#categories a[data-role="directory"]').bind("contextmenu", function(event){
+                event.preventDefault();
+                
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconFolderOpenClass);
+                var listNode = $(this).siblings('ul');
+                var subtrees = $.merge(listNode.find('li ul'), listNode);
+                var icons = $.merge(listNode.find('.fa'), icon);
+                icons.removeClass(iconFolderOpenClass).removeClass(iconFolderCloseClass);
+                if(expanded) {
+                    subtrees.slideUp({ duration: 100 });
+                    icons.addClass(iconFolderCloseClass);
+                } else {
+                    subtrees.slideDown({ duration: 100 });
+                    icons.addClass(iconFolderOpenClass);
+                }
+            })
+            // 展开关闭所有目录按钮
+            $(document).on('click', '#allExpand', function (event) {
+                event.preventDefault();
+                
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconAllExpandClass);
+                icon.removeClass(iconAllExpandClass).removeClass(iconAllPackClass);
+                if(expanded) {
+                    $('#sidebar .fa.fa-folder').removeClass('fa-folder').addClass('fa-folder-open')
+                    $('#categories li ul').slideDown({ duration: 100 });
+                    icon.addClass(iconAllPackClass);
+                } else {
+                    $('#sidebar .fa.fa-folder-open').removeClass('fa-folder-open').addClass('fa-folder')
+                    $('#categories li ul').slideUp({ duration: 100 });
+                    icon.addClass(iconAllExpandClass);
+                }
+            });  
+        });
+    </script>
+
+    
+    <div id="toTop" class="fa fa-angle-up"></div>
+</aside>
+            
+            <section id="main"><article id="post-Java多线程编程" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/Java/">Java</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link-link" href="/tags/java/" rel="tag">java</a>
+    </div>
+
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2022/03/26/Java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%BC%96%E7%A8%8B/">
+            <time datetime="2022-03-26T08:42:38.194Z" itemprop="datePublished">2022-03-26</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/zthxxx/Wiki-site/raw/writing/source/_posts/Java多线程编程.md'> Source </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/zthxxx/Wiki-site/edit/writing/source/_posts/Java多线程编程.md'> Edit </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/zthxxx/Wiki-site/commits/writing/source/_posts/Java多线程编程.md'> History </a>
+                            </div>
+                        
+                    </div>
+                
+                
+    
+        <h1 class="article-title" itemprop="name">
+            Java多线程编程
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+        
+        
+            <p>jdk11API中文文档中对java.lang.Thread类的介绍：</p>
+<blockquote>
+<ul>
+<li><p><a href="Object.html">java.lang.Object</a> </p>
+</li>
+<li><ul>
+<li>java.lang.Thread</li>
+</ul>
+</li>
+<li><ul>
+<li><p>实现的所有接口 </p>
+<p><code>Runnable</code> </p>
+</li>
+<li><p>已知直接子类： </p>
+<p><code>ForkJoinWorkerThread</code></p>
+</li>
+</ul>
+<p> public class Thread</p>
+</li>
+</ul>
+<p>extends Object<br>implements Runnable线程是程序中执行的线程。 Java虚拟机允许应用程序同时运行多个执行线程。     </p>
+</blockquote>
+<p>操作系统中，我们了解到当CPU的核数&lt;当前任务运行数量的时候，多任务的执行其实是轮流交替的。一个任务&#x3D;一个进程，而进程内至少有一个线程，即子任务。<a target="_blank" rel="noopener" href="https://www.liaoxuefeng.com/wiki/1252599548343744/1304521607217185">多线程模型是Java程序最基本的并发模型，数据库处理和Web操作等都要依赖它</a>：</p>
+<blockquote>
+<p>Java语言内置了多线程支持：一个Java程序实际上是一个JVM进程，JVM进程用一个主线程来执行<code>main()</code>方法，在<code>main()</code>方法内部，我们又可以启动多个线程。此外，JVM还有负责垃圾回收的其他工作线程等。</p>
+<p>进程和线程是包含关系，但是多任务既可以由多进程实现，也可以由单进程内的多线程实现，还可以混合多进程＋多线程。</p>
+<p>具体采用哪种方式，要考虑到进程和线程的特点。</p>
+<p>和多线程相比，多进程的缺点在于：</p>
+<ul>
+<li>创建进程比创建线程开销大，尤其是在Windows系统上；</li>
+<li>进程间通信比线程间通信要慢，因为线程间通信就是读写同一个变量，速度很快。</li>
+</ul>
+<p>而多进程的优点在于：</p>
+<p>多进程稳定性比多线程高，因为在多进程的情况下，一个进程崩溃不会影响其他进程，而在多线程的情况下，任何一个线程崩溃会直接导致整个进程崩溃。</p>
+</blockquote>
+<p>我们创建一个程序来新建一个线程：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">TestThread1</span> <span class="keyword">extends</span> <span class="title class_">Thread</span>&#123;</span><br><span class="line">	<span class="comment">//可以重写父类的run()方法</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">run</span><span class="params">()</span>&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;<span class="number">20</span>;i++)&#123;System.out.println(<span class="string">&quot;run()方法中执行&quot;</span>+i);&#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String []args)</span>&#123;</span><br><span class="line">        <span class="type">TestThread1</span> <span class="variable">testThread1</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">TestThread1</span>();</span><br><span class="line">        <span class="comment">//建一个新线程非常容易，我们需要实例化一个Thread实例，然后调用它的start()方法，start()方法会在内部自动调用实例的run()方法</span></span><br><span class="line">        testThread1.start();</span><br><span class="line">        <span class="comment">//start()方法被调用时，JVM就创建了一个新线程，线程开启不一定立即执行，由CPU调度执行，所以我们可以看到控制台交替打印“run()...”“main()...”</span></span><br><span class="line">        <span class="comment">/*</span></span><br><span class="line"><span class="comment">        testThread1.run();</span></span><br><span class="line"><span class="comment">        注意，如果我们把上面的start语句注释掉，直接调用run方法，相当于调用了一个普通的Java方法，当前线程并没有任何改变，也不会启动新线程。</span></span><br><span class="line"><span class="comment">        必须调用Thread实例的start()方法才能启动新线程，如果我们查看Thread类的源代码，会看到start()方法内部调用了一个private native void start0()方法，</span></span><br><span class="line"><span class="comment">        native修饰符表示这个方法是由JVM虚拟机内部的C代码实现的，不是由Java代码实现的。</span></span><br><span class="line"><span class="comment">         */</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;<span class="number">222</span>;i++)&#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;main()方法中执行&quot;</span>+i);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<p>可以使用<code>Thread.setPriority(int n)</code>来设置<strong>线程</strong>优先级，但注意！优先级高的线程被操作系统调度的优先级较高，操作系统对高优先级线程可能调度更频繁，但我们决不能通过设置优先级来确保高优先级的线程一定会先执行。</p>
+<p>注意，Java用一个<code>Thread</code>对象表示一个线程，通过调用<code>start()</code>启动一个新线程；</p>
+<p>注意，像进程的创建状态一样一个线程对象只能调用一次<code>start()</code>方法；</p>
+<p>线程的执行代码写在<code>run()</code>方法中；</p>
+<p>线程调度由操作系统决定，程序本身无法决定调度顺序；</p>
+<p><code>Thread.sleep()</code>可以把当前线程暂停一段时间。</p>
+<p>使用<code>getState()</code>可以返回线程的状态，返回值是一个<code>java.lang.Thread.State </code>的枚举类型（注意<strong>java.lang.Enum</strong> 类是所有<strong>Java</strong>语言枚举类型的公共基类）</p>
+<p>线程的各种状态变化如下图：</p>
+<p><img src="/images/%E7%BA%BF%E7%A8%8B%E7%9A%84%E5%90%84%E7%A7%8D%E7%8A%B6%E6%80%81.jpg" alt="线程的各种状态"></p>
+<h3 id="进程的结束"><a href="#进程的结束" class="headerlink" title="进程的结束"></a>进程的结束</h3><p>Java程序入口就是由JVM启动<code>main</code>线程，<code>main</code>线程又可以启动其他线程。当所有线程都运行结束时，JVM退出，进程结束。</p>
+<p>如果有一个线程没有退出，JVM进程就不会退出。所以，必须保证所有线程都能及时结束。</p>
+<p>但是这样引发一个问题，比如有一些线程是定时执行或者随时都在执行的，不结束就无法结束<code>JVM</code>进程，同时也没有专门的线程用来负责结束这一类线程。这时候就要使用<strong>守护线程（Daemon Thread）</strong>——为其他线程服务的线程。在<code>JVM</code>中，所有非守护线程都执行完毕后，无论有没有守护线程，虚拟机都会自动退出。创建守护线程，只需在<code>start()</code>函数前调用<code>setDaemon(true)</code>把该线程标记为守护线程即可。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Thread</span> <span class="variable">t</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">MyThread</span>();</span><br><span class="line">t.setDaemon(<span class="literal">true</span>);</span><br><span class="line">t.start();</span><br></pre></td></tr></table></figure>
+
+
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+    
+<nav id="article-nav">
+    
+        <a href="/2022/03/27/LaTex,mikTex%E4%B8%8Eword%E4%B8%ADauora%E6%8F%92%E5%85%A5/" id="article-nav-newer" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">Newer</strong>
+            <div class="article-nav-title">
+                
+                    LaTex,mikTex与word中auora插入
+                
+            </div>
+        </a>
+    
+    
+        <a href="/2022/03/18/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80%E7%9A%84%E6%96%87%E6%A1%A3%E6%B3%A8%E9%87%8A/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">Older</strong>
+            <div class="article-nav-title">编程语言的文档注释</div>
+        </a>
+    
+</nav>
+
+
+
+
+
+    
+    
+
+
+
+
+<!-- baidu url auto push script -->
+<script type="text/javascript">
+    !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=window.location.href,o=document.referrer;if(!e.test(r)){var n="//api.share.baidu.com/s.gif";o?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var t=new Image;t.src=n}}(window);
+</script>     
+</section>
+        </div>
+        <footer id="footer">
+    <div class="outer">
+        <div id="footer-info" class="inner">
+            John Doe &copy; 2022 
+            <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/80x15.png" /></a>
+            <br> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Theme - <a target="_blank" rel="noopener" href="https://github.com/zthxxx/hexo-theme-Wikitten">wikitten</a>
+            
+                <br>
+                <span id="busuanzi_container_site_pv"><i class="fa fa-eye"></i> <span id="busuanzi_value_site_pv"></span></span>
+                &nbsp;|&nbsp;
+                <span id="busuanzi_container_site_pv"><i class="fa fa-user"></i> <span id="busuanzi_value_site_uv"></span></span>
+            
+        </div>
+    </div>
+</footer>
+
+        
+
+    
+        
+<script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-share.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-video.min.js"></script>
+
+    
+    
+        
+<script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+    
+    
+        <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true,
+            TeX: {
+                equationNumbers: {
+                  autoNumber: 'AMS'
+                }
+            }
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script async src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+
+
+
+<!-- Custom Scripts -->
+
+<script src="/js/main.js"></script>
+
+
+    </div>
+</body>
+</html>

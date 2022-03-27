@@ -23,8 +23,9 @@
 <meta property="og:image" content="http://justskim.github.io/images/%E7%BB%A7%E6%89%BF%E4%B8%80%E4%B8%AA%E7%88%B6%E7%B1%BB%E5%AE%9E%E7%8E%B0%E5%A4%9A%E4%B8%AA%E6%8E%A5%E5%8F%A3.PNG">
 <meta property="og:image" content="http://justskim.github.io/images/java%E5%90%84%E7%A7%8D%E7%B1%BB%E5%9C%A8%E5%AE%9E%E9%99%85%E9%A1%B9%E7%9B%AE%E4%B8%AD%E7%9A%84%E8%BF%90%E7%94%A8.png">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/2021091016343182.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBAeHh5bmV5bWFy,size_20,color_FFFFFF,t_70,g_se,x_16">
+<meta property="og:image" content="http://justskim.github.io/images/FileNotFoundException.png">
 <meta property="article:published_time" content="2022-03-01T19:38:13.360Z">
-<meta property="article:modified_time" content="2022-03-13T13:50:59.387Z">
+<meta property="article:modified_time" content="2022-03-26T06:58:50.001Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="java">
 <meta name="twitter:card" content="summary">
@@ -255,7 +256,16 @@
                         </a>
                          <ul class="unstyled" id="tree" >  <li class="file"><a href="/2022/03/06/%E9%87%8D%E6%96%B0%E5%AE%89%E8%A3%85JDK%E5%90%8EEclipse%E6%9B%B4%E6%94%B9%E9%85%8D%E7%BD%AE/">重新安装JDK后Eclipse更改配置</a></li>  <li class="file"><a href="/2022/03/06/Eclipse-web-%E5%B7%A5%E7%A8%8B%E7%9A%84%E9%A1%B9%E7%9B%AE%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84/">Eclipse web 工程的项目目录结构</a></li>  </ul> 
                     </li> 
-                     <li class="file active"><a href="/2022/03/02/java%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95%E5%AD%A6%E4%B9%A0%E8%A6%81%E6%B3%A8%E6%84%8F%E7%9A%84%E5%B0%8F%E7%BB%86%E8%8A%82/">Java基础语法学习要注意的小细节</a></li>  </ul> 
+                     <li class="file active"><a href="/2022/03/02/java%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95%E5%AD%A6%E4%B9%A0%E8%A6%81%E6%B3%A8%E6%84%8F%E7%9A%84%E5%B0%8F%E7%BB%86%E8%8A%82/">Java基础语法学习要注意的小细节</a></li>  <li class="file"><a href="/2022/03/26/Java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%BC%96%E7%A8%8B/">Java多线程编程</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Latex
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2022/03/27/LaTex,mikTex%E4%B8%8Eword%E4%B8%ADauora%E6%8F%92%E5%85%A5/">LaTex,mikTex与word中auora插入</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -638,7 +648,7 @@
 
 <p>这两种方法的区别在于：<u>String 创建的字符串存储在公共池中，而 new 创建的字符串对象在堆上</u>。</p>
 <p>关于这一点我们日后再进行深入探究，并和<strong>JavaScript中String()与new String()的区别</strong>做对比。</p>
-<p>我们要注意，<u>单个字符的char类型不能为空，但String对象可以为一个空字符串</u>。我们在程序中依次对下面几行进行注释，然后将<code>java</code>文件编译执行：</p>
+<p>我们要注意，<u>单个字符的char类型不能为空，但String对象可以为一个空字符串。跟C语言一样，单引号中的只能是一个字符，双引号中的只能是字符串，但该字符串可以只有单个字符！</u>。我们在程序中依次对下面几行进行注释，然后将<code>java</code>文件编译执行：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">System.out.println(<span class="string">&quot;&quot;</span>);<span class="comment">//输出一行空行</span></span><br><span class="line">System.out.println(<span class="string">&#x27;&#x27;</span>);</span><br><span class="line"><span class="comment">/*编译时就无法通过，会报错</span></span><br><span class="line"><span class="comment">DEMOCONST.java:5: 错误: 空字符文字</span></span><br><span class="line"><span class="comment">                System.out.println(&#x27;&#x27;);</span></span><br><span class="line"><span class="comment">                                   ^</span></span><br><span class="line"><span class="comment">1 个错误</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line">System.out.println(<span class="literal">true</span>);<span class="comment">//输出字符串true</span></span><br><span class="line">System.out.println(<span class="literal">false</span>);<span class="comment">//输出字符串false</span></span><br><span class="line"></span><br><span class="line">System.out.println(<span class="literal">null</span>); <span class="comment">//null代表空，什么都没有</span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">DemoConst.java:8: 错误: 对println的引用不明确</span></span><br><span class="line"><span class="comment">                System.out.println(null);</span></span><br><span class="line"><span class="comment">                          ^</span></span><br><span class="line"><span class="comment">  PrintStream 中的方法 println(char[]) 和 PrintStream 中的方法 println(String) 都匹配</span></span><br><span class="line"><span class="comment">1 个错误</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
 
 
@@ -828,6 +838,32 @@
 </li>
 </ol>
 </blockquote>
+<p><strong>Java注解</strong></p>
+<p>Java 注解（Annotation）又称 Java 标注，是 JDK5.0 引入的一种注释机制。在编译时注解会被检查，但执行的时候不会被执行到。</p>
+<p>Java 语言中的类、方法、变量、参数和包等都可以被标注。和 Javadoc 不同，Java  标注可以通过反射获取标注内容。在编译器生成类文件时，标注可以被嵌入到字节码中。Java 虚拟机可以保留标注内容，在运行时可以获取到标注内容 ，Java也支持自定义 Java 标注。</p>
+<blockquote>
+<p>Java 定义了一套注解，共有 7 个，3 个在 java.lang 中，剩下 4 个在 java.lang.annotation 中。</p>
+<p><strong>作用在代码的注解是</strong></p>
+<ul>
+<li>@Override - 检查该方法是否是重写方法。如果发现其父类，或者是引用的接口中并没有该方法时，会报编译错误。</li>
+<li>@Deprecated - 标记过时方法。如果使用该方法，会报编译警告。</li>
+<li>@SuppressWarnings - 指示编译器去忽略注解中声明的警告。</li>
+</ul>
+<p>作用在其他注解的注解(或者说 元注解)是:</p>
+<ul>
+<li>@Retention - 标识这个注解怎么保存，是只在代码中，还是编入class文件中，或者是在运行时可以通过反射访问。</li>
+<li>@Documented - 标记这些注解是否包含在用户文档中。</li>
+<li>@Target - 标记这个注解应该是哪种 Java 成员。</li>
+<li>@Inherited - 标记这个注解是继承于哪个注解类(默认 注解并没有继承于任何子类)</li>
+</ul>
+<p>从 Java 7 开始，额外添加了 3 个注解:</p>
+<ul>
+<li>@SafeVarargs - Java 7 开始支持，忽略任何使用参数为泛型变量的方法或构造函数调用产生的警告。</li>
+<li>@FunctionalInterface - Java 8 开始支持，标识一个匿名函数或函数式接口。</li>
+<li>@Repeatable - Java 8 开始支持，标识某注解可以在同一个声明上使用多次。</li>
+</ul>
+</blockquote>
+<p>以重写的<code>@Override</code>注解为例，即使我们不在重写方法的上一行加上此注解，依然可以运行，只是不方便后续程序维护（比如重写的函数名写错的情况）</p>
 <p><strong>包装类</strong></p>
 <p>包装类：将基本数据类型封装成一个类，包含的方法基本相同。java中的包装类提供了将原始数据类型转换为对象，以及将对象转换为原始数据类型的机制。包装类属于<strong>引用数据类型</strong>， 其中6个包装类（Double、Float、Byte、Short、Integer 以及 Long）都是 Number 这一个<strong>抽象类</strong>（因此其不能直接实例化，而是必须实例化其具体的子类）的子类。<code>java.lang.Number</code>的父类是Object类。</p>
 <p>Object 类存储在**java.lang.<em><strong>包中，是所有java类 (Object 类除外)的终极</strong>父类</em><em>。Java中规定：如果一个类没有显式声明它的父类，那么默认这个类的父类就是java.lang.Object 。注意，</em>子类是抽象类，父类也不一定是抽象类*（比如Object 是具体类，却是Number的父类，只要子类添加了自己的抽象方法，子类就必须是抽象类而无论其父类是不是。不过父类是具体类，而其唯一的子类是抽象类的情况没有使用的必要）</p>
@@ -897,6 +933,89 @@
 <p>　　　②、集合存放的是多个对象的引用，对象本身还是放在堆内存中。</p>
 <p>　　　③、集合可以存放不同类型，不限数量的数据类型。</p>
 <p>定义集合的示例：<code>ArrayList&lt;Integer&gt; list = new ArrayList&lt;&gt;();</code></p>
+<p><strong>集合类体系结构</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">graph TD</span><br><span class="line">A(集合)--&gt;B1(Collection)</span><br><span class="line">A--&gt;B2(Map)</span><br><span class="line">	B1--&gt;C1(List)</span><br><span class="line">		C1--&gt;E1(ArrayList)</span><br><span class="line">		C1--&gt;E2(LinkedList)</span><br><span class="line">		C1--&gt;E3(.....)</span><br><span class="line">	B1--&gt;C2(Set)</span><br><span class="line">		C2--&gt;F1(HashSet)</span><br><span class="line">		C2--&gt;F2(TreeSet)</span><br><span class="line">		C2--&gt;F3(.....)</span><br><span class="line">	B2--&gt;D1(HashMap)</span><br><span class="line">	B2--&gt;D2(....)</span><br></pre></td></tr></table></figure>
+<p>其中，最底层的是具体的实现类，而第二、三层的诸如Collection，Map，List，Set和HashMap等实际只是接口。Set和List区别在于其中元素能否重复。和单列的Collection不同，Map是“key -&gt; value”对的存储方式，即双列结构。runoob网站中对此有一个简单的介绍：</p>
+<blockquote>
+<p>Java 集合框架主要包括两种类型的容器，一种是集合（Collection），存储一个元素集合，另一种是图（Map），存储键&#x2F;值对映射。Collection 接口又有 3 种子类型，List、Set 和 Queue，再下面是一些抽象类，最后是具体实现类，常用的有 <a target="_blank" rel="noopener" href="https://www.runoob.com/java/java-arraylist.html">ArrayList</a>、<a target="_blank" rel="noopener" href="https://www.runoob.com/java/java-linkedlist.html">LinkedList</a>、<a target="_blank" rel="noopener" href="https://www.runoob.com/java/java-hashset.html">HashSet</a>、LinkedHashSet、<a target="_blank" rel="noopener" href="https://www.runoob.com/java/java-hashmap.html">HashMap</a>、LinkedHashMap 等等。</p>
+</blockquote>
+<p>注意，<strong>JDK不提供单例集合的顶层接口——Collection的任何直接实现，而只提供更具体的子接口（Set和List等）的实现</strong>，这很正常，毕竟这些数据结构差别太大。注意Collection和Collection<strong>s</strong>的区别：</p>
+<blockquote>
+<p>java.util.Collection 是一个 <strong>集合接口</strong>。它提供了对集合对象进行基本操作的通用接口方法。Collection接口在Java 类库中有很多具体的实现。</p>
+<p>而java.util.Collections 是一个包装类。它包含有各种有关集合操作的 <strong>静态多态方法</strong>。此类 <strong>不能实例化</strong>，就像一 <strong>个工具类</strong>，服务于Java的Collection框架。</p>
+</blockquote>
+<p>创建Collection集合对象的方式有以下两种：</p>
+<ol>
+<li><p>通过多态：比如<code>Collection &lt;String&gt; c = new ArrayList&lt;String&gt;();</code>其中“&lt;&gt;”中是集合汇总元素的类型。<a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_39946313/article/details/114173639">集合类的定义</a>：</p>
+<blockquote>
+<p>集合类是放在java.util.*；这个包里。集合类存放的都是对象的引用，而非对象本身，为了说起来方便些，我们称集合中的对象就是指集合中对象的引用(reference)。引用的概念大家不会忘了吧，在前边我们讲数据类型时讲的。 集合类型主要有3种：set(集)、list(列表)、map(映射)和Queue(队列)。&#x2F;&#x2F;队列为jdk5中的加上的</p>
+</blockquote>
+</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">collection_demo</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">ArrayList</span> <span class="variable">arrayList</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ArrayList</span>();</span><br><span class="line">        arrayList.add(<span class="string">&quot;adc&quot;</span>);</span><br><span class="line">        arrayList.add(<span class="number">1222</span>);</span><br><span class="line">        System.out.println(arrayList);</span><br><span class="line">        <span class="type">Collection</span> <span class="variable">ap</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;Integer&gt;();<span class="comment">//这么写没有问题</span></span><br><span class="line">        <span class="comment">//Collection是一个接口，new的是接口的实现类ArrayList，像我们上边所讲的</span></span><br><span class="line">        ap.add(<span class="string">&quot;jdsi&quot;</span>);</span><br><span class="line">        System.out.println(ap);</span><br><span class="line">        Collection &lt;Integer&gt; ad = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;Integer&gt;();</span><br><span class="line">        ad.add(<span class="string">&quot;jdsi&quot;</span>);<span class="comment">//会报错  java: 不兼容的类型: java.lang.String无法转换为java.lang.Integer</span></span><br><span class="line">        ad.add(<span class="number">8</span>);</span><br><span class="line">        System.out.println(ap);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<ol start="2">
+<li>使用具体的实现类ArrayList</li>
+</ol>
+<p><strong>Collection集合的遍历——迭代器的使用</strong></p>
+<p><a target="_blank" rel="noopener" href="https://www.runoob.com/java/java-iterator.html">runoob的集合框架中这么描述迭代器</a>：</p>
+<blockquote>
+<p>Java Iterator（迭代器）不是一个集合，它是一种用于访问集合的方法，可用于迭代 <a target="_blank" rel="noopener" href="https://www.runoob.com/java/java-arraylist.html">ArrayList</a> 和 <a target="_blank" rel="noopener" href="https://www.runoob.com/java/java-hashset.html">HashSet</a> 等集合。</p>
+<p>Iterator 是 Java 迭代器最简单的实现，ListIterator 是 Collection API 中的接口， 它扩展了 Iterator 接口。</p>
+</blockquote>
+<p>在<code>JDK 11</code>文档中Collection集合的方法下可以找到一个<code>iterator</code>方法，是返回此集合中元素的迭代器。其返回值的变量类型为<code>Iterator&lt;E&gt;</code>。</p>
+<p><code>Iterator&lt;E&gt;</code>中常用的方法有：</p>
+<table>
+<thead>
+<tr>
+<th>变量和类型</th>
+<th>方法</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>default void</code></td>
+<td><code>forEachRemaining(Consumer&lt;? super E&gt; action)</code></td>
+<td>对每个剩余元素执行给定操作，直到处理完所有元素或操作引发异常。</td>
+</tr>
+<tr>
+<td><code>boolean</code></td>
+<td><code>hasNext()</code></td>
+<td>如果迭代具有更多元素，则返回 <code>true</code> 。</td>
+</tr>
+<tr>
+<td><code>E</code></td>
+<td><code>next()</code></td>
+<td>返回迭代中的下一个元素。</td>
+</tr>
+<tr>
+<td><code>default void</code></td>
+<td><code>remove()</code></td>
+<td>从底层集合中移除此迭代器返回的最后一个元素（可选操作）。</td>
+</tr>
+</tbody></table>
+<p>其中，<em>java</em>中&lt;<strong>E**&gt;是表示泛型，就是指任意类型，这也符合<code>next</code>函数返回迭代中下一个元素的作用。类似的</strong>java 中泛型标记符：**为了易于分辨，约定俗成的写法有以下这几种：</p>
+<ul>
+<li><p><strong>E</strong> - Element (在集合中使用，因为集合中存放的是元素)</p>
+</li>
+<li><p><strong>T</strong> - Type（Java 类）</p>
+</li>
+<li><p><strong>K</strong> - Key（键）</p>
+</li>
+<li><p><strong>V</strong> - Value（值）</p>
+</li>
+<li><p><strong>N</strong> - Number（数值类型）</p>
+</li>
+<li><p><strong>？</strong> - 表示不确定的 java 类型</p>
+</li>
+</ul>
+<p>Java中迭代器的使用：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Collection&lt;String&gt; c = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;String&gt;();<span class="comment">//创建集合对象，这里的对象是String类型，我们当然也可以用自定义的类，比如Collection&lt;Student&gt;创建学生类的集合对象</span></span><br><span class="line">c.add(<span class="string">&quot;hello&quot;</span>);c.add(<span class="string">&quot;world&quot;</span>);c.add(<span class="string">&quot;java&quot;</span>);</span><br><span class="line">Iterator&lt;String&gt; it = c.iterator();<span class="comment">//通过集合对象获取迭代器对象，注意类型要相同</span></span><br><span class="line">System.out.println(<span class="string">&quot;it = &quot;</span>+it);<span class="comment">//it = java.util.ArrayList$Itr@5ebec15</span></span><br><span class="line">System.out.println(it.next());<span class="comment">//hello</span></span><br><span class="line">System.out.println(it.next());<span class="comment">//world</span></span><br><span class="line">System.out.println(it.next());<span class="comment">//java</span></span><br></pre></td></tr></table></figure>
+
+<p>如果迭代没有更多元素，那么<code>next</code>方法将会抛出异常<code>NoSuchElementException</code>。</p>
+<p>注意，如果给<code>Set</code>集合添加两个相同的元素，不会报错，但<code>Set</code>集合中只会存在一个元素。</p>
 <p>Java中有四种引用——引用强度和生命周期长度依次为：强引用&gt;软引用＞弱引用＞虚引用。（JDK1.2之后的引用概念扩充）</p>
 <h3 id="强引用"><a href="#强引用" class="headerlink" title="强引用"></a>强引用</h3><p>默认声明的就是强引用，比如<code>Object obj = new Object()</code>，只要obj还指向Object对象（也就是强引用还存在），Object对象就不会被垃圾回收器回收。即使内存不足时，<code>JVM</code>也会直接抛出<code>OutOfMemoryError</code>而不会去回收。若想中断强引用与对象之间的联系，可以将强引用赋值为null。另外的，字符串<code>String str = new String();</code>也是强引用类型，不过使用时是默认导入了<code>java.lang.String</code>包（<code>java.lang.*</code>不用我们导入，编译器会自动导入）</p>
 <h3 id="软引用"><a href="#软引用" class="headerlink" title="软引用"></a>软引用</h3><p>描述一些非必需但仍有用的对象。<strong>在内存足够的时候，软引用对象不会被回收，只有在内存不足时，系统则会回收软引用对象，如果回收了软引用对象之后仍然没有足够的内存，才会抛出内存溢出异常</strong>。这种特性常常被用来实现缓存技术，比如网页缓存，图片缓存等。在 JDK1.2 之后，用java.lang.ref.SoftReference类来表示软引用。</p>
@@ -920,6 +1039,58 @@
 
 <p>控制台中的打印结果：</p>
 <figure class="highlight bat"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">E:\<span class="title">Java_practice</span>&gt;<span class="title">java</span> <span class="title">Demo_println</span></span></span><br><span class="line"><span class="function"><span class="title">Employee</span>@512<span class="title">ddf17</span></span></span><br><span class="line"><span class="function">#一般的对象都是使用“类型信息+@+地址值”来作为字符串内容</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+<h3 id="IO流"><a href="#IO流" class="headerlink" title="IO流"></a>IO流</h3><p>与其他语言相比，<a target="_blank" rel="noopener" href="https://blog.csdn.net/young_1004/article/details/82912714">Java具有独特的输入和输出机制</a>，Java的I&#x2F;O建立在流（stream）之上：</p>
+<blockquote>
+<p>输入流读取文件，输出流写入文件，不同的流类，如java.io.FileInputStream和sun.net.TelnetOutputStream会读&#x2F;写某个特定的数据源，但是所有的输出流都有相同的基本方法来写入数据，所有的输入流使用相同的基本方法来读取数据。创建一个流之后，读&#x2F;写时通常可以忽略读&#x2F;写的具体细节。</p>
+<p>过滤器流（filter）可以串链到输入流或输出流上。读&#x2F;写数据时，过滤器可以修改数据（例如，通过加密或压缩），或者只是提供额外的方法，将读&#x2F;写的数据转换为其他格式。例如，java.io.DataOutputStream类就提供了一个方法，将int转换为4字节，并把这些字节写入底层的输入流。</p>
+<p>阅读器（reader）和书写器（writer）可以串链到输入和输出流上，允许程序读&#x2F;些文本（即字符） 而不是字节。只要正确的使用，阅读器和书写器可以处理很多字符编码，包括多字节字符即SJIS和UTF-8。</p>
+<p>流是同步的，也就是说，当程序（确切的讲是线程）请求一个流读&#x2F;写一段数据时，在任何其他操作时，它要等待所读&#x2F;写的数据。</p>
+<p>Java还支持使用通道和缓冲区的非阻塞I&#x2F;O。非阻塞I&#x2F;O稍微有些复杂，但在某些高吞吐量的应用程序中（如web服务器），非阻塞I&#x2F;O要快的多。通常情况下，基本流模型就是实现客户端所需要和应当使用的全部内容。由于通道和缓冲区依赖于流，下面首先介绍流和客户端。</p>
+</blockquote>
+<p>IO流分类：</p>
+<ul>
+<li><p>按照数据流向分：</p>
+<ul>
+<li><p>输入流：写数据</p>
+</li>
+<li><p>输出流：读数据</p>
+</li>
+</ul>
+</li>
+<li><p>按照数据类型分：</p>
+<ul>
+<li>字节流：字节输入流，字节输出流</li>
+<li>字符流：字符输入流，字符输出流</li>
+</ul>
+</li>
+</ul>
+<p>IO流的分类<strong>一般按照数据类型划分</strong>，区别使用字节流和字符流的一个小技巧：</p>
+<blockquote>
+<p>如果数据能通过Window系统自带的记事本软件打开，且其中的内容没有乱码则使用字符流；否则使用字节流。当不确定使用哪种类型的流时，使用字节流。</p>
+</blockquote>
+<p><strong>输入流写数据</strong></p>
+<p>打开jdk11API中文文档，在“搜索”一栏输入<code>InputStream</code>可以查看该类相关信息：</p>
+<figure class="highlight plaintext"><figcaption><span>wiki</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">模块  java.base </span><br><span class="line">软件包  java.io </span><br><span class="line">Class InputStream</span><br><span class="line">java.lang.Object </span><br><span class="line">java.io.InputStream </span><br><span class="line"></span><br><span class="line">实现的所有接口 </span><br><span class="line">Closeable ， AutoCloseable </span><br><span class="line">已知直接子类： </span><br><span class="line">AudioInputStream ， ByteArrayInputStream ， FileInputStream ， FilterInputStream ， ObjectInputStream ， PipedInputStream ， SequenceInputStream ， StringBufferInputStream </span><br></pre></td></tr></table></figure>
+
+<p><strong>该抽象类java.io.InputStream位于java.io这个package下，是表示输入字节流的所有类的超类</strong></p>
+<p>可以使用字符串类型的文件名来创建一个输入流对象来读取文件：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">InputStream</span> <span class="variable">f</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">FileInputStream</span>(<span class="string">&quot;C:/java/hello&quot;</span>);</span><br><span class="line"><span class="comment">//如上所示，这里用的是向上转型的方法，子类转父类</span></span><br></pre></td></tr></table></figure>
+
+<p>注意，IO类的定义要搭配异常处理（比如在函数签名尾部用throws关键字声明 IOException）</p>
+<p><img src="/images/FileNotFoundException.png" alt="FileNotFoundException"></p>
+<p>原因在于：FileInputStream、FileOutputStream的构造器用throws关键字声明了FileNotFoundException异常<br>，而且该构造器的代码中判定如果文件无效就用throws关键字抛出异常对象，这是因为Java设计考虑到IO操作时文件路径不存在等异常情况。这一块我们也可以参考Java的父子异常处理。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.io.FileOutputStream;</span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="comment">//注意，IO类要我们手动导入</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">FileOutputStreamDemo01</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> IOException &#123;</span><br><span class="line">        <span class="comment">//创建字节流输出对象，这里的路径命名要注意</span></span><br><span class="line">        <span class="type">FileOutputStream</span> <span class="variable">fos</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">FileOutputStream</span>(<span class="string">&quot;E:\\Java_practice\\web_study\\fos.txt&quot;</span>);</span><br><span class="line">        <span class="comment">/*</span></span><br><span class="line"><span class="comment">        * 做了三件事情：</span></span><br><span class="line"><span class="comment">        * 1. 调用系统功能创建了文件</span></span><br><span class="line"><span class="comment">        * 2. 创建了字节输出流对象</span></span><br><span class="line"><span class="comment">        * 3. 让字节输出流对象指向创建好的文件</span></span><br><span class="line"><span class="comment">        * */</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">//将指定的字节写入此文件输出流</span></span><br><span class="line">        fos.write(<span class="number">98</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//所有和IO相关的方法最后都要释放资源</span></span><br><span class="line">        fos.close();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
 
 
             </div>

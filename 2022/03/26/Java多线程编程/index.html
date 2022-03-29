@@ -18,7 +18,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://justskim.github.io/images/%E7%BA%BF%E7%A8%8B%E7%9A%84%E5%90%84%E7%A7%8D%E7%8A%B6%E6%80%81.jpg">
 <meta property="article:published_time" content="2022-03-26T08:42:38.194Z">
-<meta property="article:modified_time" content="2022-03-26T10:15:38.432Z">
+<meta property="article:modified_time" content="2022-03-29T08:34:17.765Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="java">
 <meta name="twitter:card" content="summary">
@@ -605,10 +605,56 @@
 <p>使用<code>getState()</code>可以返回线程的状态，返回值是一个<code>java.lang.Thread.State </code>的枚举类型（注意<strong>java.lang.Enum</strong> 类是所有<strong>Java</strong>语言枚举类型的公共基类）</p>
 <p>线程的各种状态变化如下图：</p>
 <p><img src="/images/%E7%BA%BF%E7%A8%8B%E7%9A%84%E5%90%84%E7%A7%8D%E7%8A%B6%E6%80%81.jpg" alt="线程的各种状态"></p>
+<p>这里注意一下<a target="_blank" rel="noopener" href="https://blog.csdn.net/muzhixi/article/details/105197446">WAITING、TIMED_WAITING与BLOCKED的区别</a>：</p>
+<blockquote>
+<ul>
+<li>WAITING：进入等待状态，方式：wait&#x2F;join&#x2F;park方法进入无限等待，通过notify&#x2F;notifyAll&#x2F;unpark唤醒；</li>
+<li>TIMED_WAITING：与WAITING类似，方式：a. 给定等待时间的wait&#x2F;join&#x2F;park方法；b. sleep方法；</li>
+<li>BLOCKED：被动进入等待状态，方式：进入Synchronized块。</li>
+</ul>
+</blockquote>
 <h3 id="进程的结束"><a href="#进程的结束" class="headerlink" title="进程的结束"></a>进程的结束</h3><p>Java程序入口就是由JVM启动<code>main</code>线程，<code>main</code>线程又可以启动其他线程。当所有线程都运行结束时，JVM退出，进程结束。</p>
 <p>如果有一个线程没有退出，JVM进程就不会退出。所以，必须保证所有线程都能及时结束。</p>
 <p>但是这样引发一个问题，比如有一些线程是定时执行或者随时都在执行的，不结束就无法结束<code>JVM</code>进程，同时也没有专门的线程用来负责结束这一类线程。这时候就要使用<strong>守护线程（Daemon Thread）</strong>——为其他线程服务的线程。在<code>JVM</code>中，所有非守护线程都执行完毕后，无论有没有守护线程，虚拟机都会自动退出。创建守护线程，只需在<code>start()</code>函数前调用<code>setDaemon(true)</code>把该线程标记为守护线程即可。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Thread</span> <span class="variable">t</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">MyThread</span>();</span><br><span class="line">t.setDaemon(<span class="literal">true</span>);</span><br><span class="line">t.start();</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="使用接口创建线程"><a href="#使用接口创建线程" class="headerlink" title="使用接口创建线程"></a>使用接口创建线程</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">MyRunnable</span> <span class="keyword">implements</span> <span class="title class_">Runnable</span> &#123;	<span class="comment">//线程的主体类</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">run</span><span class="params">()</span> &#123;System.out.println(<span class="string">&quot;start new thread!&quot;</span>);&#125;</span><br><span class="line">    <span class="comment">//线程的主体方法</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在文章开头我们给出了<code>jdk11</code>文档中<code>Thread</code>类的说明，反应到代码中就是：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Thread</span> <span class="keyword">extends</span> <span class="title class_">Object</span> <span class="keyword">implements</span> <span class="title class_">Runnable</span> &#123;&#125;</span><br></pre></td></tr></table></figure>
+
+<p>可知，继承Thread类时覆写的还是Runnable接口的run()方法。</p>
+<p>如果一个类<strong>继承Thread，则不适合资源共享</strong>（注意并不是不能，当以Thread方式去实现资源共享时，实际上源码内部是将thread向下转型为了Runnable，实际上内部依然是以Runnable形式去实现的资源共享），但若实现了Runable接口的话，则很容易的实现资源共享。</p>
+<ul>
+<li>继承Thread类：<ul>
+<li>子类继承Thread类具备多线程能力</li>
+<li>启动线程：子类对象.start()</li>
+<li>不建议使用：避免OOP单继承局限性</li>
+</ul>
+</li>
+<li>实现Runnable接口：<ul>
+<li>实现Runnable接口具有多线程能力</li>
+<li>启动线程：传入目标对象+Thread对象.start()</li>
+<li>推荐使用：避免单继承局限性，<strong>方便同一个对象被多个线程使用</strong></li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>java中的单继承是指<strong>一个子类最多只能有一个父类</strong>，不支持多继承。单继承使JAVA的继承关系很简单，一个类只能有一个父类，易于管理程序。但一个类可以实现多个接口，从而克服单继承的缺点。</p>
+</blockquote>
+<p>还有一种比较少用的，Java1.5之后才出现的Callable接口方式，Callable接口和Runnable接口的异同：</p>
+<ul>
+<li>都是 Functional 接口（函数式接口），因此可以直接使用Lamba表达式来实现线程函数，而不一定非得实现一个类来实现接口。</li>
+<li>Runnable 可以直接传给 Thread 构造方法，Callable 不可以;</li>
+<li>Callable 只能使用 ExecutorService，但是Callable可以返回线程的运行结果，Runnable 不可以。</li>
+</ul>
+<blockquote>
+<p>附注：函数式接口(Functional Interface)就是一个有且仅有一个抽象方法，但是可以有多个非抽象方法的接口，函数式接口可以被隐式转换为 lambda 表达式。</p>
+</blockquote>
+<h3 id="Thread类中的静态方法"><a href="#Thread类中的静态方法" class="headerlink" title="Thread类中的静态方法"></a>Thread类中的静态方法</h3><p>Thread类中的静态方法表示操作的线程是”<strong>正在执行静态方法所在的代码块的线程</strong>“。用处：能对CPU<strong>当前正在运行的线程</strong>进行操作。下面来看一下Thread类中的静态方法</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Race</span> <span class="keyword">implements</span> <span class="title class_">Runnable</span>&#123;</span><br><span class="line">    <span class="comment">//winner</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> String winner;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">run</span><span class="params">()</span>&#123;</span><br><span class="line">        <span class="comment">//获取现在正在运行的进程，currentThread会返回一个Thread对象的引用，getName是实例（非静态）方法，会返回一个String类型的线程对象的名称</span></span><br><span class="line">        <span class="keyword">if</span>(Thread.currentThread().getName().equals(<span class="string">&quot;rabbit&quot;</span>))&#123;</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                Thread.sleep(<span class="number">2</span>);</span><br><span class="line">                <span class="comment">//sleep是一个静态方法，让线程休眠2毫秒</span></span><br><span class="line">            &#125;<span class="keyword">catch</span> (InterruptedException e)&#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">Race</span> <span class="variable">race</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Race</span>();</span><br><span class="line">        <span class="keyword">new</span> <span class="title class_">Thread</span>(race,<span class="string">&quot;rabbit&quot;</span>).start();<span class="comment">//新建一个线程并随之启动</span></span><br><span class="line">        <span class="keyword">new</span> <span class="title class_">Thread</span>(race,<span class="string">&quot;tortoise&quot;</span>).start();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 
             </div>

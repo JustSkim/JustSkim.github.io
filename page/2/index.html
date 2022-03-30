@@ -242,7 +242,7 @@
                         </a>
                          <ul class="unstyled" id="tree" >  <li class="file"><a href="/2022/03/06/%E9%87%8D%E6%96%B0%E5%AE%89%E8%A3%85JDK%E5%90%8EEclipse%E6%9B%B4%E6%94%B9%E9%85%8D%E7%BD%AE/">重新安装JDK后Eclipse更改配置</a></li>  <li class="file"><a href="/2022/03/06/Eclipse-web-%E5%B7%A5%E7%A8%8B%E7%9A%84%E9%A1%B9%E7%9B%AE%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84/">Eclipse web 工程的项目目录结构</a></li>  </ul> 
                     </li> 
-                     <li class="file"><a href="/2022/03/02/java%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95%E5%AD%A6%E4%B9%A0%E8%A6%81%E6%B3%A8%E6%84%8F%E7%9A%84%E5%B0%8F%E7%BB%86%E8%8A%82/">Java基础语法学习要注意的小细节</a></li>  <li class="file"><a href="/2022/03/26/Java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%BC%96%E7%A8%8B/">Java多线程编程</a></li>  </ul> 
+                     <li class="file"><a href="/2022/03/02/java%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95%E5%AD%A6%E4%B9%A0%E8%A6%81%E6%B3%A8%E6%84%8F%E7%9A%84%E5%B0%8F%E7%BB%86%E8%8A%82/">Java基础语法学习要注意的小细节</a></li>  <li class="file"><a href="/2022/03/26/Java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%BC%96%E7%A8%8B/">Java多线程编程</a></li>  <li class="file"><a href="/2022/03/30/Java-Reflection%E5%8F%8D%E5%B0%84%E6%9C%BA%E5%88%B6/">Java Reflection反射机制</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -487,6 +487,110 @@
 </aside>
             
             <section id="main">
+        <article id="post-java基础语法学习要注意的小细节" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/Java/">Java</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link-link" href="/tags/java/" rel="tag">java</a>
+    </div>
+
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2022/03/02/java%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95%E5%AD%A6%E4%B9%A0%E8%A6%81%E6%B3%A8%E6%84%8F%E7%9A%84%E5%B0%8F%E7%BB%86%E8%8A%82/">
+            <time datetime="2022-03-01T19:38:13.360Z" itemprop="datePublished">2022-03-02</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/zthxxx/Wiki-site/raw/writing/source/_posts/java基础语法学习要注意的小细节.md'> Source </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/zthxxx/Wiki-site/edit/writing/source/_posts/java基础语法学习要注意的小细节.md'> Edit </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/zthxxx/Wiki-site/commits/writing/source/_posts/java基础语法学习要注意的小细节.md'> History </a>
+                            </div>
+                        
+                    </div>
+                
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2022/03/02/java%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95%E5%AD%A6%E4%B9%A0%E8%A6%81%E6%B3%A8%E6%84%8F%E7%9A%84%E5%B0%8F%E7%BB%86%E8%8A%82/">Java基础语法学习要注意的小细节</a>
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                
+                    
+                    <p><h1 id="Java基础语法学习要注意的小细节"><a href="#Java基础语法学习要注意的小细节" class="headerlink" title="Java基础语法学习要注意的小细节"></a>Java基础语法学习要注意的小细节</h1><p><strong>最最基本的</strong></p>
+<p><code>Java</code><strong>8</strong>和11是两个最常用的版本，也是推荐新手起步安装的版本，博主一开始使用最新的JDK17，但很多文件位置和环境配置都不同，看使用旧版本的开发教程时很麻烦。Java平台包括Java se(J2SE，标准版)  Java ee(J2EE，企业版，J2SE是其子集) Java me(J2ME，用于嵌入式的，比较少)。普通用户只需安装JER(Java Runtime Environment)来运行Java程序，而开发者必须安装JDK来对程序进行编译调试。版本的关系对应为：Java X &#x3D; Java SE X &#x3D; JDK 1.X 。</p>
+<p>对于Java SE，<a target="_blank" rel="noopener" href="https://www.huoxiaoqiang.com/experience/javae/2381.html">各大厂商的JDK</a>有所区别。官网的下载速度很慢还要注册账号，我们可以在<a target="_blank" rel="noopener" href="https://blog.csdn.net/wanghao72214/article/details/109720371">推荐的三家国内jdk镜像站</a>中下载相应的JDK。其中，<a target="_blank" rel="noopener" href="https://mirrors.tuna.tsinghua.edu.cn/AdoptOpenJDK/11/jdk/x64/windows/">清华大学开源软件镜像站</a>的<code>JDK</code>为Eclipse Temurin Java SE，由Eclipse基金会发布，即OpenJDK的”生产就绪“构建，免费试用，且所有版本都通过了Oracle的Java SE技术兼容性工具包测试以及Eclipse AQAvit互操作性和性能测试。不过博主还是选择了传统的OpenJDK11版本，在之后可能会再使用探究（尽可能省去麻烦）。安装<code>JDK</code>时，路径中不能有中文和空格，并且要单独取消外部公共<code>JRE</code>的安装。</p>
+<p>虚拟机 <code>JVM</code> ⫋ 运行环境 <code>JRE</code> ⫋ 开发工具 <code>JDK </code></p>
+<p><strong>编译的编码与修改环境变量</strong></p>
+<p>
+                
+            
+        
+        
+            </div>   
+            <div class="article-more-link">
+                <a href="/2022/03/02/java%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95%E5%AD%A6%E4%B9%A0%E8%A6%81%E6%B3%A8%E6%84%8F%E7%9A%84%E5%B0%8F%E7%BB%86%E8%8A%82/#more">Read More</a>
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+
+
+
+
+    
         <article id="post-tomcat下startup.bat启动报错详解" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
@@ -1412,112 +1516,8 @@
 
 
     
-        <article id="post-linux的进程优先级与进程调度策略" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-                    <div class="article-meta">
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Linux/">Linux</a>
-    </div>
-
-                        
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link-link" href="/tags/linux/" rel="tag">linux</a>
-    </div>
-
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2021/10/23/linux%E7%9A%84%E8%BF%9B%E7%A8%8B%E4%BC%98%E5%85%88%E7%BA%A7%E4%B8%8E%E8%BF%9B%E7%A8%8B%E8%B0%83%E5%BA%A6%E7%AD%96%E7%95%A5/">
-            <time datetime="2021-10-23T12:38:09.488Z" itemprop="datePublished">2021-10-23</time>
-        </a>
-    </div>
-
-
-                        
-                            <i class="fa fa-bar-chart"></i>
-                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
-                        
-                        
-                            <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/zthxxx/Wiki-site/raw/writing/source/_posts/linux的进程优先级与进程调度策略.md'> Source </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/zthxxx/Wiki-site/edit/writing/source/_posts/linux的进程优先级与进程调度策略.md'> Edit </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/zthxxx/Wiki-site/commits/writing/source/_posts/linux的进程优先级与进程调度策略.md'> History </a>
-                            </div>
-                        
-                    </div>
-                
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2021/10/23/linux%E7%9A%84%E8%BF%9B%E7%A8%8B%E4%BC%98%E5%85%88%E7%BA%A7%E4%B8%8E%E8%BF%9B%E7%A8%8B%E8%B0%83%E5%BA%A6%E7%AD%96%E7%95%A5/">linux的进程优先级与进程调度策略</a>
-        </h1>
-    
-
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-        
-            
-                
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                
-                    
-                    <p><h1 id="linux的进程优先级与进程调度策略"><a href="#linux的进程优先级与进程调度策略" class="headerlink" title="linux的进程优先级与进程调度策略"></a>linux的进程优先级与进程调度策略</h1><h2 id="linux中的进程调度策略"><a href="#linux中的进程调度策略" class="headerlink" title="linux中的进程调度策略"></a>linux中的进程调度策略</h2><p>FIFO，RR，OTHER</p>
-<p>实时进程会抢占普通进程，FIFO会导致同优先级实时进程始终占用CPU，RR会保证同优先级实时进程按时间片轮流执行。</p>
-<p>上面说的很通俗易懂，那么，两个同等优先级的FIFO实时进程，是不是谁先占据了cpu，另一个就只能等待它完成了让出CPU呢？</p>
-<p>其实不尽然，即使是在单核cpu的linux系统中，FIFO实时进程也会被调度。</p>
-<p>具体可见博客：</p>
-<p>
-                
-            
-        
-        
-            </div>   
-            <div class="article-more-link">
-                <a href="/2021/10/23/linux%E7%9A%84%E8%BF%9B%E7%A8%8B%E4%BC%98%E5%85%88%E7%BA%A7%E4%B8%8E%E8%BF%9B%E7%A8%8B%E8%B0%83%E5%BA%A6%E7%AD%96%E7%95%A5/#more">Read More</a>
-            </div>
-        
-        <footer class="article-footer">
-        </footer>
-    </div>
-</article>
-
-
-
-
-
-
-    
         <nav id="page-nav">
-        <a class="extend prev" rel="prev" href="/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/3/">Next &amp;raquo;</a>
+        <a class="extend prev" rel="prev" href="/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/3/">Next &amp;raquo;</a>
         </nav>
     
 </section>

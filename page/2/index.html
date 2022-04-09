@@ -197,7 +197,7 @@
                         </a>
                          <ul class="unstyled" id="tree" >  <li class="file"><a href="/2021/08/29/hello-world/">Hello World</a></li>  </ul> 
                     </li> 
-                     </ul> 
+                     <li class="file"><a href="/2022/03/31/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9A%84%E5%90%84%E7%B1%BB%E6%9C%9F%E5%88%8A%E5%88%86%E7%BA%A7%E4%B8%8E%E4%BB%8B%E7%BB%8D/">计算机的各类期刊分级与介绍</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -242,7 +242,16 @@
                         </a>
                          <ul class="unstyled" id="tree" >  <li class="file"><a href="/2022/03/06/%E9%87%8D%E6%96%B0%E5%AE%89%E8%A3%85JDK%E5%90%8EEclipse%E6%9B%B4%E6%94%B9%E9%85%8D%E7%BD%AE/">重新安装JDK后Eclipse更改配置</a></li>  <li class="file"><a href="/2022/03/06/Eclipse-web-%E5%B7%A5%E7%A8%8B%E7%9A%84%E9%A1%B9%E7%9B%AE%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84/">Eclipse web 工程的项目目录结构</a></li>  </ul> 
                     </li> 
-                     <li class="file"><a href="/2022/03/02/java%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95%E5%AD%A6%E4%B9%A0%E8%A6%81%E6%B3%A8%E6%84%8F%E7%9A%84%E5%B0%8F%E7%BB%86%E8%8A%82/">Java基础语法学习要注意的小细节</a></li>  <li class="file"><a href="/2022/03/26/Java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%BC%96%E7%A8%8B/">Java多线程编程</a></li>  <li class="file"><a href="/2022/03/30/Java-Reflection%E5%8F%8D%E5%B0%84%E6%9C%BA%E5%88%B6/">Java Reflection反射机制</a></li>  </ul> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Servlet
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2022/04/08/Tomcat%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8EServlet%E7%A8%8B%E5%BA%8F/">Tomcat服务器与Servlet程序</a></li>  </ul> 
+                    </li> 
+                     <li class="file"><a href="/2022/03/02/java%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95%E5%AD%A6%E4%B9%A0%E8%A6%81%E6%B3%A8%E6%84%8F%E7%9A%84%E5%B0%8F%E7%BB%86%E8%8A%82/">Java基础语法学习要注意的小细节</a></li>  <li class="file"><a href="/2022/03/26/Java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%BC%96%E7%A8%8B/">Java多线程编程</a></li>  <li class="file"><a href="/2022/03/30/Java-Reflection%E5%8F%8D%E5%B0%84%E6%9C%BA%E5%88%B6/">Java Reflection反射机制</a></li>  <li class="file"><a href="/2022/04/09/IDEA%E4%B8%ADmaven%E9%A1%B9%E7%9B%AE%E6%97%A0%E6%B3%95%E8%87%AA%E5%8A%A8%E5%AF%BC%E5%85%A5%E5%8C%85%E7%9A%84%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/">IDEA中maven项目无法自动导入包的问题解决</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -382,7 +391,7 @@
                         <a href="#" data-role="directory">
                             <i class="fa fa-folder"></i>
                             &nbsp;
-                            tomcat
+                            Tomcat
                         </a>
                          <ul class="unstyled" id="tree" >  <li class="file"><a href="/2022/03/01/tomcat%E4%B8%8Bstartup.bat%E5%90%AF%E5%8A%A8%E6%8A%A5%E9%94%99%E8%AF%A6%E8%A7%A3/">tomcat下startup.bat启动报错详解</a></li>  </ul> 
                     </li> 
@@ -487,6 +496,318 @@
 </aside>
             
             <section id="main">
+        <article id="post-重新安装JDK后Eclipse更改配置" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/Java/">Java</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/Java/Eclipse/">Eclipse</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link-link" href="/tags/eclipse/" rel="tag">eclipse</a>, <a class="tag-link-link" href="/tags/java/" rel="tag">java</a>
+    </div>
+
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2022/03/06/%E9%87%8D%E6%96%B0%E5%AE%89%E8%A3%85JDK%E5%90%8EEclipse%E6%9B%B4%E6%94%B9%E9%85%8D%E7%BD%AE/">
+            <time datetime="2022-03-06T00:42:59.456Z" itemprop="datePublished">2022-03-06</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/zthxxx/Wiki-site/raw/writing/source/_posts/重新安装JDK后Eclipse更改配置.md'> Source </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/zthxxx/Wiki-site/edit/writing/source/_posts/重新安装JDK后Eclipse更改配置.md'> Edit </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/zthxxx/Wiki-site/commits/writing/source/_posts/重新安装JDK后Eclipse更改配置.md'> History </a>
+                            </div>
+                        
+                    </div>
+                
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2022/03/06/%E9%87%8D%E6%96%B0%E5%AE%89%E8%A3%85JDK%E5%90%8EEclipse%E6%9B%B4%E6%94%B9%E9%85%8D%E7%BD%AE/">重新安装JDK后Eclipse更改配置</a>
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                
+                    
+                    <p><p>博主在将原先的JDK卸载，又重新安装JDK11后，发现了Eclipse软件无法正常打开的情况：</p>
+<p><img src="/images/%E9%87%8D%E6%96%B0%E5%AE%89%E8%A3%85Java%E5%90%8EEclipse%E6%97%A0%E6%B3%95%E6%89%93%E5%BC%80.PNG" alt="重新安装Java后Eclipse无法打开"></p>
+<p>这种情况下我们一般先检查环境变量，通过命令行和系统环境的Java变量配置查看均无异常。我们查询当时Eclipse的安装教程，看是否有Eclipse软件相关的环境变量需要重新配置，结果的no。</p>
+<p>那么，问题很明显，Eclipse软件会在第一次使用的时候获取系统的Java相关环境变量，然后将其存入自己的相关配置文件中，之后就不必获取了。在网上搜索得到Eclipse软件的配置文件为安装目录下bin文件夹中的<code>eclipse.ini</code>文件，我们打开搜索，可以看到<code>vm</code>（virtual machine 虚拟机）选项下有个旧版本<code>JDK</code>安装路径的bin文件夹：</p>
+<p><img src="/images/eclipse.ini%E4%B8%AD%E4%BF%AE%E6%94%B9vm%E4%B8%8Bjavaw.exe%E7%9A%84%E8%B7%AF%E5%BE%84.PNG" alt="eclipse.ini中修改vm下javaw.exe的路径.PNG"></p>
+<p>
+                
+            
+        
+        
+            </div>   
+            <div class="article-more-link">
+                <a href="/2022/03/06/%E9%87%8D%E6%96%B0%E5%AE%89%E8%A3%85JDK%E5%90%8EEclipse%E6%9B%B4%E6%94%B9%E9%85%8D%E7%BD%AE/#more">Read More</a>
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+
+
+
+
+    
+        <article id="post-CentOS7系统安装python3.7.8" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/Programming-languages-and-projects/">Programming languages and projects</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming-languages-and-projects/Python3/">Python3</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link-link" href="/tags/linux/" rel="tag">linux</a>, <a class="tag-link-link" href="/tags/python/" rel="tag">python</a>
+    </div>
+
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2022/03/06/CentOS7%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85python3.7.8/">
+            <time datetime="2022-03-05T17:17:00.722Z" itemprop="datePublished">2022-03-06</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/zthxxx/Wiki-site/raw/writing/source/_posts/CentOS7系统安装python3.7.8.md'> Source </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/zthxxx/Wiki-site/edit/writing/source/_posts/CentOS7系统安装python3.7.8.md'> Edit </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/zthxxx/Wiki-site/commits/writing/source/_posts/CentOS7系统安装python3.7.8.md'> History </a>
+                            </div>
+                        
+                    </div>
+                
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2022/03/06/CentOS7%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85python3.7.8/">CentOS7系统安装python3.7.8</a>
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                
+                    
+                    <p><p>首先在<a target="_blank" rel="noopener" href="https://www.python.org/downloads/source/">Python官方网站</a>中找到我们特定版本的安装包，这里我们要选择适合Linux系统的<code>tar.xz</code>格式压缩包。我们要注意，大部分Linux系统发行版，比如博主所用的Centos7都预装了python2，可以使用命令<code>python -V</code>查看其版本为2.7.5，但可能没有装pip工具。但是这样也有个好处，下载包的时候免得我们混淆。我们注意<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_40584960/article/details/86082019">pip2和pip3的关系</a>：</p>
+<blockquote>
+<ol>
+<li>pip是python的包管理工具，pip和pip3版本不同，都位于Scripts\目录下；</li>
+<li>如果系统中只安装了Python2，那么就只能使用pip；</li>
+<p>
+                
+            
+        
+        
+            </div>   
+            <div class="article-more-link">
+                <a href="/2022/03/06/CentOS7%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85python3.7.8/#more">Read More</a>
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+
+
+
+
+    
+        <article id="post-Windows系统下环境变量配置与计算机重启" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/Windows/">Windows</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link-link" href="/tags/windows/" rel="tag">windows</a>
+    </div>
+
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2022/03/05/Windows%E7%B3%BB%E7%BB%9F%E4%B8%8B%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E9%85%8D%E7%BD%AE%E4%B8%8E%E8%AE%A1%E7%AE%97%E6%9C%BA%E9%87%8D%E5%90%AF/">
+            <time datetime="2022-03-05T08:50:11.668Z" itemprop="datePublished">2022-03-05</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/zthxxx/Wiki-site/raw/writing/source/_posts/Windows系统下环境变量配置与计算机重启.md'> Source </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/zthxxx/Wiki-site/edit/writing/source/_posts/Windows系统下环境变量配置与计算机重启.md'> Edit </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/zthxxx/Wiki-site/commits/writing/source/_posts/Windows系统下环境变量配置与计算机重启.md'> History </a>
+                            </div>
+                        
+                    </div>
+                
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2022/03/05/Windows%E7%B3%BB%E7%BB%9F%E4%B8%8B%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E9%85%8D%E7%BD%AE%E4%B8%8E%E8%AE%A1%E7%AE%97%E6%9C%BA%E9%87%8D%E5%90%AF/">Windows系统下环境变量配置与计算机重启</a>
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                
+                    
+                    <p><p>我们来看一下<a target="_blank" rel="noopener" href="https://blog.csdn.net/shuixin536/article/details/8084612">对于Windows不重启使环境变量修改生效的解释</a>：</p>
+<blockquote>
+<p>一个程序启动时，环境变量被复制到该程序所在的环境中，在该程序执行过程中不会被除该程序以外的其他程序所改变。也就是说，假设我们启动了一个cmd程序，然后通过控制面板修改了环境变量设置，但是已经启动了的cmd所拥有的环境变量并不会被改变。如果我们在修改环境变量之后启动cmd程序，则该程序将拥有新的环境变量。<br>那么结论就很明显了：修改环境变量之后，如果受影响的是应用程序，那么只要简单地重新启动此应用程序，环境变量的修改就会反映到该程序中，而不必重新启动计算机；但是，如果受影响的是系统服务，就必须重新启动才能将环境变量的修改反映到系统服务中（因为没有办法在不重启计算机的情况下重新启动系统服务管理器）</p>
+</blockquote>
+<p>那么有没有什么办法可以不重启就使一切修改的环境变量配置生效呢？有，当我们很不想重启windows系统时可以尝试这么做：</p>
+<p>
+                
+            
+        
+        
+            </div>   
+            <div class="article-more-link">
+                <a href="/2022/03/05/Windows%E7%B3%BB%E7%BB%9F%E4%B8%8B%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E9%85%8D%E7%BD%AE%E4%B8%8E%E8%AE%A1%E7%AE%97%E6%9C%BA%E9%87%8D%E5%90%AF/#more">Read More</a>
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+
+
+
+
+    
         <article id="post-java基础语法学习要注意的小细节" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
@@ -601,7 +922,7 @@
                         
     <div class="article-category">
     	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/">服务器</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/tomcat/">tomcat</a>
+        <a class="article-category-link" href="/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/">服务器</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/Tomcat/">Tomcat</a>
     </div>
 
                         
@@ -1191,318 +1512,6 @@
             </div>   
             <div class="article-more-link">
                 <a href="/2021/11/16/%E5%9C%A8vmware%E8%99%9A%E6%8B%9F%E6%9C%BA%E4%B8%AD%E8%BF%9B%E8%A1%8C%E7%BD%91%E7%BB%9C%E8%BF%9E%E6%8E%A5/#more">Read More</a>
-            </div>
-        
-        <footer class="article-footer">
-        </footer>
-    </div>
-</article>
-
-
-
-
-
-
-    
-        <article id="post-python3中的运行命令与环境" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-                    <div class="article-meta">
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Programming-languages-and-projects/">Programming languages and projects</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming-languages-and-projects/Python3/">Python3</a>
-    </div>
-
-                        
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link-link" href="/tags/anaconda/" rel="tag">anaconda</a>, <a class="tag-link-link" href="/tags/python3/" rel="tag">python3</a>
-    </div>
-
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2021/11/09/python3%E4%B8%AD%E7%9A%84%E8%BF%90%E8%A1%8C%E5%91%BD%E4%BB%A4%E4%B8%8E%E7%8E%AF%E5%A2%83/">
-            <time datetime="2021-11-08T18:35:42.058Z" itemprop="datePublished">2021-11-09</time>
-        </a>
-    </div>
-
-
-                        
-                            <i class="fa fa-bar-chart"></i>
-                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
-                        
-                        
-                            <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/zthxxx/Wiki-site/raw/writing/source/_posts/python3中的运行命令与环境.md'> Source </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/zthxxx/Wiki-site/edit/writing/source/_posts/python3中的运行命令与环境.md'> Edit </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/zthxxx/Wiki-site/commits/writing/source/_posts/python3中的运行命令与环境.md'> History </a>
-                            </div>
-                        
-                    </div>
-                
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2021/11/09/python3%E4%B8%AD%E7%9A%84%E8%BF%90%E8%A1%8C%E5%91%BD%E4%BB%A4%E4%B8%8E%E7%8E%AF%E5%A2%83/">python3中的运行命令与环境</a>
-        </h1>
-    
-
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-        
-            
-                
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                
-                    
-                    <p><h1 id="python3中的运行命令与环境"><a href="#python3中的运行命令与环境" class="headerlink" title="python3中的运行命令与环境"></a>python3中的运行命令与环境</h1><p>本机电脑仅安装python3，以下使用的均为python3环境配置</p>
-<h2 id="镜像是什么？"><a href="#镜像是什么？" class="headerlink" title="镜像是什么？"></a>镜像是什么？</h2><p>镜像（Mirroring）是一种文件存储形式，是冗余的一种类型，一个磁盘上的数据在另一个磁盘上存在一个完全相同的副本即为镜像。</p>
-<p>镜像源 就是把官<strong>方的源做一个镜像，你</strong>可以在这下载软件。 比如ubuntu官方源在国外，下载软件可能会很慢，这时候就需要换成国内的镜像源。 源 端口就是指本地端口 目的端口就是远程端口 一个数据包（pocket）被解封装成数据段（segment）后就会涉及到 连接上层协议的端口问题。</p>
-<p>镜像网站（Mirror sites）又称之为镜像站点</p>
-<h2 id="anaconda环境"><a href="#anaconda环境" class="headerlink" title="anaconda环境"></a>anaconda环境</h2><h2 id="命令行运行python程序，与idle中”Run-module“的区别"><a href="#命令行运行python程序，与idle中”Run-module“的区别" class="headerlink" title="命令行运行python程序，与idle中”Run module“的区别"></a>命令行运行python程序，与idle中”Run module“的区别</h2><p>笔者在学习<a target="_blank" rel="noopener" href="https://gitee.com/daochenzha/rlcard?_from=gitee_search#/daochenzha/rlcard/blob/master/docs/toy-examples.md#playing-with-random-agents">RLCard——一款卡牌游戏强化学习工具包</a>的时候，发现了<a target="_blank" rel="noopener" href="https://gitee.com/daochenzha/rlcard/blob/master/docs/toy-examples.md#playing-with-random-agents">范例</a>中的代码如下：</p>
-<p>
-                
-            
-        
-        
-            </div>   
-            <div class="article-more-link">
-                <a href="/2021/11/09/python3%E4%B8%AD%E7%9A%84%E8%BF%90%E8%A1%8C%E5%91%BD%E4%BB%A4%E4%B8%8E%E7%8E%AF%E5%A2%83/#more">Read More</a>
-            </div>
-        
-        <footer class="article-footer">
-        </footer>
-    </div>
-</article>
-
-
-
-
-
-
-    
-        <article id="post-python3中的生成器与迭代器" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-                    <div class="article-meta">
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Programming-languages-and-projects/">Programming languages and projects</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming-languages-and-projects/Python3/">Python3</a>
-    </div>
-
-                        
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link-link" href="/tags/python3/" rel="tag">python3</a>
-    </div>
-
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2021/11/03/python3%E4%B8%AD%E7%9A%84%E7%94%9F%E6%88%90%E5%99%A8%E4%B8%8E%E8%BF%AD%E4%BB%A3%E5%99%A8/">
-            <time datetime="2021-11-03T01:55:18.115Z" itemprop="datePublished">2021-11-03</time>
-        </a>
-    </div>
-
-
-                        
-                            <i class="fa fa-bar-chart"></i>
-                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
-                        
-                        
-                            <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/zthxxx/Wiki-site/raw/writing/source/_posts/python3中的生成器与迭代器.md'> Source </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/zthxxx/Wiki-site/edit/writing/source/_posts/python3中的生成器与迭代器.md'> Edit </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/zthxxx/Wiki-site/commits/writing/source/_posts/python3中的生成器与迭代器.md'> History </a>
-                            </div>
-                        
-                    </div>
-                
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2021/11/03/python3%E4%B8%AD%E7%9A%84%E7%94%9F%E6%88%90%E5%99%A8%E4%B8%8E%E8%BF%AD%E4%BB%A3%E5%99%A8/">python3中的生成器与迭代器</a>
-        </h1>
-    
-
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-        
-            
-                
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                
-                    
-                    <p><h1 id="python3中的生成器与迭代器"><a href="#python3中的生成器与迭代器" class="headerlink" title="python3中的生成器与迭代器"></a>python3中的生成器与迭代器</h1><h2 id="生成器与迭代器"><a href="#生成器与迭代器" class="headerlink" title="生成器与迭代器"></a>生成器与迭代器</h2><p>在Python社区，生成器和迭代器被看作一种工具，生成器的本质就是迭代器。唯一的区别就是生成器是开发人员自己用Python代码构建的数据结构，而迭代器是Python内置提供或转化而来的。</p>
-<h3 id="迭代器"><a href="#迭代器" class="headerlink" title="迭代器"></a>迭代器</h3><p>迭代器是一种对象，该对象包含值的可计数数字。</p>
-<p>迭代器是可迭代的对象，这意味着您可以遍历所有值。</p>
-<p>从技术上讲，在 Python 中，迭代器是实现迭代器协议的对象，它包含方法<code>__iter__()</code>和 <code>__next__()</code>。<br>要把对象&#x2F;类创建为迭代器，必须为对象实现<code> __iter__()</code> 和 <code>__next__()</code> 方法。</p>
-<p>正如您在 Python 类&#x2F;对象 一章中学到的，所有类都有名为 <code>__init__()</code> 的函数，它允许您在创建对象时进行一些初始化。</p>
-<p>
-                
-            
-        
-        
-            </div>   
-            <div class="article-more-link">
-                <a href="/2021/11/03/python3%E4%B8%AD%E7%9A%84%E7%94%9F%E6%88%90%E5%99%A8%E4%B8%8E%E8%BF%AD%E4%BB%A3%E5%99%A8/#more">Read More</a>
-            </div>
-        
-        <footer class="article-footer">
-        </footer>
-    </div>
-</article>
-
-
-
-
-
-
-    
-        <article id="post-python3中的一些常见语法糖" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-                    <div class="article-meta">
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Programming-languages-and-projects/">Programming languages and projects</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming-languages-and-projects/Python3/">Python3</a>
-    </div>
-
-                        
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link-link" href="/tags/python3/" rel="tag">python3</a>
-    </div>
-
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2021/10/31/python3%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E5%B8%B8%E8%A7%81%E8%AF%AD%E6%B3%95%E7%B3%96/">
-            <time datetime="2021-10-31T12:02:01.432Z" itemprop="datePublished">2021-10-31</time>
-        </a>
-    </div>
-
-
-                        
-                            <i class="fa fa-bar-chart"></i>
-                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
-                        
-                        
-                            <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/zthxxx/Wiki-site/raw/writing/source/_posts/python3中的一些常见语法糖.md'> Source </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/zthxxx/Wiki-site/edit/writing/source/_posts/python3中的一些常见语法糖.md'> Edit </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/zthxxx/Wiki-site/commits/writing/source/_posts/python3中的一些常见语法糖.md'> History </a>
-                            </div>
-                        
-                    </div>
-                
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2021/10/31/python3%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E5%B8%B8%E8%A7%81%E8%AF%AD%E6%B3%95%E7%B3%96/">python3中的一些常见语法糖整理</a>
-        </h1>
-    
-
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-        
-            
-                
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                
-                    
-                    <p><h1 id="python3中的一些常见语法糖整理"><a href="#python3中的一些常见语法糖整理" class="headerlink" title="python3中的一些常见语法糖整理"></a>python3中的一些常见语法糖整理</h1><h2 id="输入输出的类型提示"><a href="#输入输出的类型提示" class="headerlink" title="输入输出的类型提示"></a>输入输出的类型提示</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">addBinary</span>(<span class="params">self, a: <span class="built_in">str</span>, b: <span class="built_in">str</span></span>) -&gt; <span class="built_in">str</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">str</span></span><br></pre></td></tr></table></figure>
-
-<p>学过C语言的同学，都懂得，参数中a，b要求为str类型的输入参数</p>
-<p>在定义函数时，在def那一行后面会加一个-&gt;。这个玩意儿有个专门的名词叫 <strong>type hint， 即类型提示</strong>。这里就是说返回的数据类型为<code>str</code>。</p>
-<p>在Python中，<code>str</code> 表示字符串类 ，也可以是将变量强制转换为字符串的函数，写作<code>str ()</code> </p>
-<p>
-                
-            
-        
-        
-            </div>   
-            <div class="article-more-link">
-                <a href="/2021/10/31/python3%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E5%B8%B8%E8%A7%81%E8%AF%AD%E6%B3%95%E7%B3%96/#more">Read More</a>
             </div>
         
         <footer class="article-footer">

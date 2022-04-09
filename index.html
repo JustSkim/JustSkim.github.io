@@ -197,7 +197,7 @@
                         </a>
                          <ul class="unstyled" id="tree" >  <li class="file"><a href="/2021/08/29/hello-world/">Hello World</a></li>  </ul> 
                     </li> 
-                     </ul> 
+                     <li class="file"><a href="/2022/03/31/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9A%84%E5%90%84%E7%B1%BB%E6%9C%9F%E5%88%8A%E5%88%86%E7%BA%A7%E4%B8%8E%E4%BB%8B%E7%BB%8D/">计算机的各类期刊分级与介绍</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -242,7 +242,16 @@
                         </a>
                          <ul class="unstyled" id="tree" >  <li class="file"><a href="/2022/03/06/%E9%87%8D%E6%96%B0%E5%AE%89%E8%A3%85JDK%E5%90%8EEclipse%E6%9B%B4%E6%94%B9%E9%85%8D%E7%BD%AE/">重新安装JDK后Eclipse更改配置</a></li>  <li class="file"><a href="/2022/03/06/Eclipse-web-%E5%B7%A5%E7%A8%8B%E7%9A%84%E9%A1%B9%E7%9B%AE%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84/">Eclipse web 工程的项目目录结构</a></li>  </ul> 
                     </li> 
-                     <li class="file"><a href="/2022/03/02/java%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95%E5%AD%A6%E4%B9%A0%E8%A6%81%E6%B3%A8%E6%84%8F%E7%9A%84%E5%B0%8F%E7%BB%86%E8%8A%82/">Java基础语法学习要注意的小细节</a></li>  <li class="file"><a href="/2022/03/26/Java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%BC%96%E7%A8%8B/">Java多线程编程</a></li>  <li class="file"><a href="/2022/03/30/Java-Reflection%E5%8F%8D%E5%B0%84%E6%9C%BA%E5%88%B6/">Java Reflection反射机制</a></li>  </ul> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Servlet
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2022/04/08/Tomcat%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8EServlet%E7%A8%8B%E5%BA%8F/">Tomcat服务器与Servlet程序</a></li>  </ul> 
+                    </li> 
+                     <li class="file"><a href="/2022/03/02/java%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95%E5%AD%A6%E4%B9%A0%E8%A6%81%E6%B3%A8%E6%84%8F%E7%9A%84%E5%B0%8F%E7%BB%86%E8%8A%82/">Java基础语法学习要注意的小细节</a></li>  <li class="file"><a href="/2022/03/26/Java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%BC%96%E7%A8%8B/">Java多线程编程</a></li>  <li class="file"><a href="/2022/03/30/Java-Reflection%E5%8F%8D%E5%B0%84%E6%9C%BA%E5%88%B6/">Java Reflection反射机制</a></li>  <li class="file"><a href="/2022/04/09/IDEA%E4%B8%ADmaven%E9%A1%B9%E7%9B%AE%E6%97%A0%E6%B3%95%E8%87%AA%E5%8A%A8%E5%AF%BC%E5%85%A5%E5%8C%85%E7%9A%84%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/">IDEA中maven项目无法自动导入包的问题解决</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -382,7 +391,7 @@
                         <a href="#" data-role="directory">
                             <i class="fa fa-folder"></i>
                             &nbsp;
-                            tomcat
+                            Tomcat
                         </a>
                          <ul class="unstyled" id="tree" >  <li class="file"><a href="/2022/03/01/tomcat%E4%B8%8Bstartup.bat%E5%90%AF%E5%8A%A8%E6%8A%A5%E9%94%99%E8%AF%A6%E8%A7%A3/">tomcat下startup.bat启动报错详解</a></li>  </ul> 
                     </li> 
@@ -487,6 +496,318 @@
 </aside>
             
             <section id="main">
+        <article id="post-IDEA中maven项目无法自动导入包的问题解决" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/Java/">Java</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link-link" href="/tags/java/" rel="tag">java</a>, <a class="tag-link-link" href="/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/" rel="tag">服务器</a>
+    </div>
+
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2022/04/09/IDEA%E4%B8%ADmaven%E9%A1%B9%E7%9B%AE%E6%97%A0%E6%B3%95%E8%87%AA%E5%8A%A8%E5%AF%BC%E5%85%A5%E5%8C%85%E7%9A%84%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/">
+            <time datetime="2022-04-09T08:50:55.411Z" itemprop="datePublished">2022-04-09</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/zthxxx/Wiki-site/raw/writing/source/_posts/IDEA中maven项目无法自动导入包的问题解决.md'> Source </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/zthxxx/Wiki-site/edit/writing/source/_posts/IDEA中maven项目无法自动导入包的问题解决.md'> Edit </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/zthxxx/Wiki-site/commits/writing/source/_posts/IDEA中maven项目无法自动导入包的问题解决.md'> History </a>
+                            </div>
+                        
+                    </div>
+                
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2022/04/09/IDEA%E4%B8%ADmaven%E9%A1%B9%E7%9B%AE%E6%97%A0%E6%B3%95%E8%87%AA%E5%8A%A8%E5%AF%BC%E5%85%A5%E5%8C%85%E7%9A%84%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/">IDEA中maven项目无法自动导入包的问题解决</a>
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                
+                    
+                    <p><h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>在IDEA中创建项目工程后（父工程的src文件夹可以在创建后删除），再选择“module”创建子工程，发现无法自动导入依赖，具体表现为“HttpServlet”等不是java jdk自带的包会在代码中爆红，即使在pom.xml文件中按要求添加了相关依赖，也无法解决问题。按照网上教程所说的有以下方法：</p>
+<ol>
+<li>在settings中设置maven相关项</li>
+<li>点击“文件”-&gt; “清除缓存”；</li>
+<li>点击界面最右边一侧的“maven”设置，clean后install，或者点击项目菜单中的“reimport”选项</li>
+<p>
+                
+            
+        
+        
+            </div>   
+            <div class="article-more-link">
+                <a href="/2022/04/09/IDEA%E4%B8%ADmaven%E9%A1%B9%E7%9B%AE%E6%97%A0%E6%B3%95%E8%87%AA%E5%8A%A8%E5%AF%BC%E5%85%A5%E5%8C%85%E7%9A%84%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/#more">Read More</a>
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+
+
+
+
+    
+        <article id="post-Tomcat服务器与Servlet程序" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/Java/">Java</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/Java/Servlet/">Servlet</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link-link" href="/tags/java/" rel="tag">java</a>, <a class="tag-link-link" href="/tags/servlet/" rel="tag">servlet</a>, <a class="tag-link-link" href="/tags/tomcat/" rel="tag">tomcat</a>
+    </div>
+
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2022/04/08/Tomcat%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8EServlet%E7%A8%8B%E5%BA%8F/">
+            <time datetime="2022-04-08T09:50:37.820Z" itemprop="datePublished">2022-04-08</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/zthxxx/Wiki-site/raw/writing/source/_posts/Tomcat服务器与Servlet程序.md'> Source </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/zthxxx/Wiki-site/edit/writing/source/_posts/Tomcat服务器与Servlet程序.md'> Edit </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/zthxxx/Wiki-site/commits/writing/source/_posts/Tomcat服务器与Servlet程序.md'> History </a>
+                            </div>
+                        
+                    </div>
+                
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2022/04/08/Tomcat%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8EServlet%E7%A8%8B%E5%BA%8F/">Tomcat服务器与Servlet程序</a>
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                
+                    
+                    <p><h2 id="起因"><a href="#起因" class="headerlink" title="起因"></a>起因</h2><p>按照<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV12J411M7Sj">狂神的JavaWeb教程</a>，在为Maven项目配置Servlet的映射时，出现了访问地址404的问题，检查文件<code>web.xml</code>的代码，发现在路径映射这一块并没有写错</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">web-app</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!--注册Servlet--&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">servlet</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">servlet-name</span>&gt;</span>hello<span class="tag">&lt;/<span class="name">servlet-name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">servlet-class</span>&gt;</span>com.kuang.servlet.HelloServlet<span class="tag">&lt;/<span class="name">servlet-class</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">servlet</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!--servlet的请求路径--&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">servlet-mapping</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">servlet-name</span>&gt;</span>hello<span class="tag">&lt;/<span class="name">servlet-name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">url-pattern</span>&gt;</span>/hello<span class="tag">&lt;/<span class="name">url-pattern</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">servlet-mapping</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">web-app</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="web-xml文件详解"><a href="#web-xml文件详解" class="headerlink" title="web.xml文件详解"></a>web.xml文件详解</h3><p>web.xml的模式文件是由Sun公司定义的，但不是必须的。<strong>web.xml文件是用来配置：欢迎页、servlet、filter等的。当创建的java web工程没用到这些功能时，可以不用web.xml文件来配置你的web工程。</strong>web.xml的模式(Schema)文件中定义了多少种标签元素，web.xml中就可以出现它的模式文件所定义的标签元素，它就能拥有定义出来的那些功能。</p>
+<h3 id="web项目启动的第一步-——web-xml加载过程"><a href="#web项目启动的第一步-——web-xml加载过程" class="headerlink" title="web项目启动的第一步 ——web.xml加载过程"></a>web项目启动的第一步 ——web.xml加载过程</h3><p>启动一个WEB项目时，容器包括（JBoss、Tomcat等）首先会读取项目web.xml配置文件里的配置，当这一步骤成功完成之后，项目才正常启动。更详细的加载过程和文件作用详见<a target="_blank" rel="noopener" href="https://www.cnblogs.com/linhuaming/p/9464356.html%E3%80%82">https://www.cnblogs.com/linhuaming/p/9464356.html。</a></p>
+<p>
+                
+            
+        
+        
+            </div>   
+            <div class="article-more-link">
+                <a href="/2022/04/08/Tomcat%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8EServlet%E7%A8%8B%E5%BA%8F/#more">Read More</a>
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+
+
+
+
+    
+        <article id="post-计算机的各类期刊分级与介绍" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/Diary/">Diary</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link-link" href="/tags/life/" rel="tag">life</a>
+    </div>
+
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2022/03/31/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9A%84%E5%90%84%E7%B1%BB%E6%9C%9F%E5%88%8A%E5%88%86%E7%BA%A7%E4%B8%8E%E4%BB%8B%E7%BB%8D/">
+            <time datetime="2022-03-31T10:34:55.244Z" itemprop="datePublished">2022-03-31</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/zthxxx/Wiki-site/raw/writing/source/_posts/计算机的各类期刊分级与介绍.md'> Source </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/zthxxx/Wiki-site/edit/writing/source/_posts/计算机的各类期刊分级与介绍.md'> Edit </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/zthxxx/Wiki-site/commits/writing/source/_posts/计算机的各类期刊分级与介绍.md'> History </a>
+                            </div>
+                        
+                    </div>
+                
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2022/03/31/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9A%84%E5%90%84%E7%B1%BB%E6%9C%9F%E5%88%8A%E5%88%86%E7%BA%A7%E4%B8%8E%E4%BB%8B%E7%BB%8D/">计算机的各类期刊分级与介绍</a>
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                
+                    
+                    <p><h2 id="会议论文和期刊论文"><a href="#会议论文和期刊论文" class="headerlink" title="会议论文和期刊论文"></a>会议论文和期刊论文</h2><p>会议论文和期刊论文是两种主要的论文形式：</p>
+<ul>
+<li>会议论文：针对某个学术会议投稿，由学术会议的会务组决定是否录用；</li>
+<li>期刊论文：针对某学术期刊投稿，由期刊编辑部决定是否录用，审稿专家只负责审稿并返回意见，真正决定录用权在期刊编辑手上。</li>
+</ul>
+<p>
+                
+            
+        
+        
+            </div>   
+            <div class="article-more-link">
+                <a href="/2022/03/31/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9A%84%E5%90%84%E7%B1%BB%E6%9C%9F%E5%88%8A%E5%88%86%E7%BA%A7%E4%B8%8E%E4%BB%8B%E7%BB%8D/#more">Read More</a>
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+
+
+
+
+    
         <article id="post-Java-Reflection反射机制" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
@@ -1191,318 +1512,6 @@
             </div>   
             <div class="article-more-link">
                 <a href="/2022/03/06/Eclipse-web-%E5%B7%A5%E7%A8%8B%E7%9A%84%E9%A1%B9%E7%9B%AE%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84/#more">Read More</a>
-            </div>
-        
-        <footer class="article-footer">
-        </footer>
-    </div>
-</article>
-
-
-
-
-
-
-    
-        <article id="post-重新安装JDK后Eclipse更改配置" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-                    <div class="article-meta">
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Java/">Java</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/Java/Eclipse/">Eclipse</a>
-    </div>
-
-                        
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link-link" href="/tags/eclipse/" rel="tag">eclipse</a>, <a class="tag-link-link" href="/tags/java/" rel="tag">java</a>
-    </div>
-
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2022/03/06/%E9%87%8D%E6%96%B0%E5%AE%89%E8%A3%85JDK%E5%90%8EEclipse%E6%9B%B4%E6%94%B9%E9%85%8D%E7%BD%AE/">
-            <time datetime="2022-03-06T00:42:59.456Z" itemprop="datePublished">2022-03-06</time>
-        </a>
-    </div>
-
-
-                        
-                            <i class="fa fa-bar-chart"></i>
-                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
-                        
-                        
-                            <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/zthxxx/Wiki-site/raw/writing/source/_posts/重新安装JDK后Eclipse更改配置.md'> Source </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/zthxxx/Wiki-site/edit/writing/source/_posts/重新安装JDK后Eclipse更改配置.md'> Edit </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/zthxxx/Wiki-site/commits/writing/source/_posts/重新安装JDK后Eclipse更改配置.md'> History </a>
-                            </div>
-                        
-                    </div>
-                
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2022/03/06/%E9%87%8D%E6%96%B0%E5%AE%89%E8%A3%85JDK%E5%90%8EEclipse%E6%9B%B4%E6%94%B9%E9%85%8D%E7%BD%AE/">重新安装JDK后Eclipse更改配置</a>
-        </h1>
-    
-
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-        
-            
-                
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                
-                    
-                    <p><p>博主在将原先的JDK卸载，又重新安装JDK11后，发现了Eclipse软件无法正常打开的情况：</p>
-<p><img src="/images/%E9%87%8D%E6%96%B0%E5%AE%89%E8%A3%85Java%E5%90%8EEclipse%E6%97%A0%E6%B3%95%E6%89%93%E5%BC%80.PNG" alt="重新安装Java后Eclipse无法打开"></p>
-<p>这种情况下我们一般先检查环境变量，通过命令行和系统环境的Java变量配置查看均无异常。我们查询当时Eclipse的安装教程，看是否有Eclipse软件相关的环境变量需要重新配置，结果的no。</p>
-<p>那么，问题很明显，Eclipse软件会在第一次使用的时候获取系统的Java相关环境变量，然后将其存入自己的相关配置文件中，之后就不必获取了。在网上搜索得到Eclipse软件的配置文件为安装目录下bin文件夹中的<code>eclipse.ini</code>文件，我们打开搜索，可以看到<code>vm</code>（virtual machine 虚拟机）选项下有个旧版本<code>JDK</code>安装路径的bin文件夹：</p>
-<p><img src="/images/eclipse.ini%E4%B8%AD%E4%BF%AE%E6%94%B9vm%E4%B8%8Bjavaw.exe%E7%9A%84%E8%B7%AF%E5%BE%84.PNG" alt="eclipse.ini中修改vm下javaw.exe的路径.PNG"></p>
-<p>
-                
-            
-        
-        
-            </div>   
-            <div class="article-more-link">
-                <a href="/2022/03/06/%E9%87%8D%E6%96%B0%E5%AE%89%E8%A3%85JDK%E5%90%8EEclipse%E6%9B%B4%E6%94%B9%E9%85%8D%E7%BD%AE/#more">Read More</a>
-            </div>
-        
-        <footer class="article-footer">
-        </footer>
-    </div>
-</article>
-
-
-
-
-
-
-    
-        <article id="post-CentOS7系统安装python3.7.8" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-                    <div class="article-meta">
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Programming-languages-and-projects/">Programming languages and projects</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming-languages-and-projects/Python3/">Python3</a>
-    </div>
-
-                        
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link-link" href="/tags/linux/" rel="tag">linux</a>, <a class="tag-link-link" href="/tags/python/" rel="tag">python</a>
-    </div>
-
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2022/03/06/CentOS7%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85python3.7.8/">
-            <time datetime="2022-03-05T17:17:00.722Z" itemprop="datePublished">2022-03-06</time>
-        </a>
-    </div>
-
-
-                        
-                            <i class="fa fa-bar-chart"></i>
-                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
-                        
-                        
-                            <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/zthxxx/Wiki-site/raw/writing/source/_posts/CentOS7系统安装python3.7.8.md'> Source </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/zthxxx/Wiki-site/edit/writing/source/_posts/CentOS7系统安装python3.7.8.md'> Edit </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/zthxxx/Wiki-site/commits/writing/source/_posts/CentOS7系统安装python3.7.8.md'> History </a>
-                            </div>
-                        
-                    </div>
-                
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2022/03/06/CentOS7%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85python3.7.8/">CentOS7系统安装python3.7.8</a>
-        </h1>
-    
-
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-        
-            
-                
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                
-                    
-                    <p><p>首先在<a target="_blank" rel="noopener" href="https://www.python.org/downloads/source/">Python官方网站</a>中找到我们特定版本的安装包，这里我们要选择适合Linux系统的<code>tar.xz</code>格式压缩包。我们要注意，大部分Linux系统发行版，比如博主所用的Centos7都预装了python2，可以使用命令<code>python -V</code>查看其版本为2.7.5，但可能没有装pip工具。但是这样也有个好处，下载包的时候免得我们混淆。我们注意<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_40584960/article/details/86082019">pip2和pip3的关系</a>：</p>
-<blockquote>
-<ol>
-<li>pip是python的包管理工具，pip和pip3版本不同，都位于Scripts\目录下；</li>
-<li>如果系统中只安装了Python2，那么就只能使用pip；</li>
-<p>
-                
-            
-        
-        
-            </div>   
-            <div class="article-more-link">
-                <a href="/2022/03/06/CentOS7%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85python3.7.8/#more">Read More</a>
-            </div>
-        
-        <footer class="article-footer">
-        </footer>
-    </div>
-</article>
-
-
-
-
-
-
-    
-        <article id="post-Windows系统下环境变量配置与计算机重启" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-                    <div class="article-meta">
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Windows/">Windows</a>
-    </div>
-
-                        
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link-link" href="/tags/windows/" rel="tag">windows</a>
-    </div>
-
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2022/03/05/Windows%E7%B3%BB%E7%BB%9F%E4%B8%8B%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E9%85%8D%E7%BD%AE%E4%B8%8E%E8%AE%A1%E7%AE%97%E6%9C%BA%E9%87%8D%E5%90%AF/">
-            <time datetime="2022-03-05T08:50:11.668Z" itemprop="datePublished">2022-03-05</time>
-        </a>
-    </div>
-
-
-                        
-                            <i class="fa fa-bar-chart"></i>
-                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
-                        
-                        
-                            <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/zthxxx/Wiki-site/raw/writing/source/_posts/Windows系统下环境变量配置与计算机重启.md'> Source </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/zthxxx/Wiki-site/edit/writing/source/_posts/Windows系统下环境变量配置与计算机重启.md'> Edit </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/zthxxx/Wiki-site/commits/writing/source/_posts/Windows系统下环境变量配置与计算机重启.md'> History </a>
-                            </div>
-                        
-                    </div>
-                
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2022/03/05/Windows%E7%B3%BB%E7%BB%9F%E4%B8%8B%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E9%85%8D%E7%BD%AE%E4%B8%8E%E8%AE%A1%E7%AE%97%E6%9C%BA%E9%87%8D%E5%90%AF/">Windows系统下环境变量配置与计算机重启</a>
-        </h1>
-    
-
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-        
-            
-                
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                
-                    
-                    <p><p>我们来看一下<a target="_blank" rel="noopener" href="https://blog.csdn.net/shuixin536/article/details/8084612">对于Windows不重启使环境变量修改生效的解释</a>：</p>
-<blockquote>
-<p>一个程序启动时，环境变量被复制到该程序所在的环境中，在该程序执行过程中不会被除该程序以外的其他程序所改变。也就是说，假设我们启动了一个cmd程序，然后通过控制面板修改了环境变量设置，但是已经启动了的cmd所拥有的环境变量并不会被改变。如果我们在修改环境变量之后启动cmd程序，则该程序将拥有新的环境变量。<br>那么结论就很明显了：修改环境变量之后，如果受影响的是应用程序，那么只要简单地重新启动此应用程序，环境变量的修改就会反映到该程序中，而不必重新启动计算机；但是，如果受影响的是系统服务，就必须重新启动才能将环境变量的修改反映到系统服务中（因为没有办法在不重启计算机的情况下重新启动系统服务管理器）</p>
-</blockquote>
-<p>那么有没有什么办法可以不重启就使一切修改的环境变量配置生效呢？有，当我们很不想重启windows系统时可以尝试这么做：</p>
-<p>
-                
-            
-        
-        
-            </div>   
-            <div class="article-more-link">
-                <a href="/2022/03/05/Windows%E7%B3%BB%E7%BB%9F%E4%B8%8B%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E9%85%8D%E7%BD%AE%E4%B8%8E%E8%AE%A1%E7%AE%97%E6%9C%BA%E9%87%8D%E5%90%AF/#more">Read More</a>
             </div>
         
         <footer class="article-footer">

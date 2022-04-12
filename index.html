@@ -247,6 +247,15 @@
                         <a href="#" data-role="directory">
                             <i class="fa fa-folder"></i>
                             &nbsp;
+                            Maven
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2022/04/12/IDEA%E4%B8%ADMaven%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%89%93%E5%8C%85%E4%B8%8Etomcat%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%BF%90%E8%A1%8C/">IDEA中Maven项目的打包与tomcat服务器运行</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
                             Servlet
                         </a>
                          <ul class="unstyled" id="tree" >  <li class="file"><a href="/2022/04/08/Tomcat%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8EServlet%E7%A8%8B%E5%BA%8F/">Tomcat服务器与Servlet程序</a></li>  </ul> 
@@ -402,6 +411,15 @@
                         <a href="#" data-role="directory">
                             <i class="fa fa-folder"></i>
                             &nbsp;
+                            机器学习
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2022/04/12/Python%E4%B8%ADgraphviz%E6%A8%A1%E5%9D%97%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8Ebug%E8%A7%A3%E5%86%B3/">Python中graphviz包的安装与bug解决</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
                             知识图谱
                         </a>
                          <ul class="unstyled" id="tree" >  <li class="file"><a href="/2022/03/16/%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1%E4%B8%93%E4%B8%9A%E6%9C%AF%E8%AF%AD%E4%B8%8E%E5%9F%BA%E6%9C%AC%E7%9F%A5%E8%AF%86/">知识图谱专业术语与基本知识</a></li>  </ul> 
@@ -496,6 +514,214 @@
 </aside>
             
             <section id="main">
+        <article id="post-IDEA中Maven项目的打包与tomcat服务器运行" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/Java/">Java</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/Java/Maven/">Maven</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link-link" href="/tags/IDEA/" rel="tag">IDEA</a>, <a class="tag-link-link" href="/tags/java/" rel="tag">java</a>, <a class="tag-link-link" href="/tags/maven/" rel="tag">maven</a>, <a class="tag-link-link" href="/tags/servlet/" rel="tag">servlet</a>, <a class="tag-link-link" href="/tags/tomcat/" rel="tag">tomcat</a>
+    </div>
+
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2022/04/12/IDEA%E4%B8%ADMaven%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%89%93%E5%8C%85%E4%B8%8Etomcat%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%BF%90%E8%A1%8C/">
+            <time datetime="2022-04-12T11:06:52.334Z" itemprop="datePublished">2022-04-12</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/zthxxx/Wiki-site/raw/writing/source/_posts/IDEA中Maven项目的打包与tomcat服务器运行.md'> Source </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/zthxxx/Wiki-site/edit/writing/source/_posts/IDEA中Maven项目的打包与tomcat服务器运行.md'> Edit </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/zthxxx/Wiki-site/commits/writing/source/_posts/IDEA中Maven项目的打包与tomcat服务器运行.md'> History </a>
+                            </div>
+                        
+                    </div>
+                
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2022/04/12/IDEA%E4%B8%ADMaven%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%89%93%E5%8C%85%E4%B8%8Etomcat%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%BF%90%E8%A1%8C/">IDEA中Maven项目的打包与tomcat服务器运行</a>
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                
+                    
+                    <p><h2 id="起因以及解决方案"><a href="#起因以及解决方案" class="headerlink" title="起因以及解决方案"></a>起因以及解决方案</h2><p>在学习狂神说 Java web中的servlet项目时，学到<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV12J411M7Sj?p=15">第15课 javaweb的应用</a>时，想跳转到的项目的发布路径一直显示404，页面的报错信息为：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">HTTP Status 404 – Not Found</span><br><span class="line">Type Status Report</span><br><span class="line">Message 文.件[/request_war_exploded/success.jsp] 未找到</span><br><span class="line">Description The origin server did not find a current representation for the target resource or is not willing to disclose that one exists.</span><br><span class="line">Apache Tomcat/9.0.62</span><br></pre></td></tr></table></figure>
+
+<p>经过多次检查代码，并没有发现错误的地方，最后发现是模块打包的target文件夹下，并没有success.jsp文件，即使多次重启或者重新部署tomcat服务器后依然未能解决该问题：</p>
+<p><img src="/images/%E6%89%93%E5%8C%85%E7%9A%84target%E6%96%87%E4%BB%B6%E5%A4%B9%E4%B8%8B%E6%B2%A1%E6%9C%89success.jsp%E6%96%87%E4%BB%B6.PNG" alt="打包的target文件夹下没有success.jsp文件"> </p>
+<p>
+                
+            
+        
+        
+            </div>   
+            <div class="article-more-link">
+                <a href="/2022/04/12/IDEA%E4%B8%ADMaven%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%89%93%E5%8C%85%E4%B8%8Etomcat%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%BF%90%E8%A1%8C/#more">Read More</a>
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+
+
+
+
+    
+        <article id="post-Python中graphviz模块的安装与bug解决" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">机器学习</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link-link" href="/tags/machine-learning/" rel="tag">machine learning</a>, <a class="tag-link-link" href="/tags/python/" rel="tag">python</a>
+    </div>
+
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2022/04/12/Python%E4%B8%ADgraphviz%E6%A8%A1%E5%9D%97%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8Ebug%E8%A7%A3%E5%86%B3/">
+            <time datetime="2022-04-12T03:33:44.869Z" itemprop="datePublished">2022-04-12</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/zthxxx/Wiki-site/raw/writing/source/_posts/Python中graphviz模块的安装与bug解决.md'> Source </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/zthxxx/Wiki-site/edit/writing/source/_posts/Python中graphviz模块的安装与bug解决.md'> Edit </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/zthxxx/Wiki-site/commits/writing/source/_posts/Python中graphviz模块的安装与bug解决.md'> History </a>
+                            </div>
+                        
+                    </div>
+                
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2022/04/12/Python%E4%B8%ADgraphviz%E6%A8%A1%E5%9D%97%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8Ebug%E8%A7%A3%E5%86%B3/">Python中graphviz包的安装与bug解决</a>
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                
+                    
+                    <p><h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>按照学校课程要求，配合scikit-learn官方文档，学习机器学习的过程中，在<a target="_blank" rel="noopener" href="https://scikit-learn.org/stable/modules/tree.html">决策树</a>这一章，安装graphviz模块后运行程序产生报错：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">AttributeError: module <span class="string">&#x27;graphviz.backend&#x27;</span> has no attribute <span class="string">&#x27;ENCODING&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<p>Graphviz是一款自动排版的绘图软件，而python graphviz则是该软件在python的实现，graphviz模块提供了Graph和Digraph两个类，分别以DOT语言为无向图和有向图创建图描述。</p>
+<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>搜索该问题解决方案，相关中文博客中给出的以下两个解决方案：</p>
+<p>
+                
+            
+        
+        
+            </div>   
+            <div class="article-more-link">
+                <a href="/2022/04/12/Python%E4%B8%ADgraphviz%E6%A8%A1%E5%9D%97%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8Ebug%E8%A7%A3%E5%86%B3/#more">Read More</a>
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+
+
+
+
+    
         <article id="post-IDEA中maven项目无法自动导入包的问题解决" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
@@ -1304,214 +1530,6 @@
             </div>   
             <div class="article-more-link">
                 <a href="/2022/03/16/%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1%E4%B8%93%E4%B8%9A%E6%9C%AF%E8%AF%AD%E4%B8%8E%E5%9F%BA%E6%9C%AC%E7%9F%A5%E8%AF%86/#more">Read More</a>
-            </div>
-        
-        <footer class="article-footer">
-        </footer>
-    </div>
-</article>
-
-
-
-
-
-
-    
-        <article id="post-visual-studio-code中无法切换Python版本的解决" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-                    <div class="article-meta">
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Programming-languages-and-projects/">Programming languages and projects</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming-languages-and-projects/Python3/">Python3</a>
-    </div>
-
-                        
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link-link" href="/tags/python/" rel="tag">python</a>, <a class="tag-link-link" href="/tags/visual-studio-code/" rel="tag">visual studio code</a>
-    </div>
-
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2022/03/07/visual-studio-code%E4%B8%AD%E6%97%A0%E6%B3%95%E5%88%87%E6%8D%A2Python%E7%89%88%E6%9C%AC%E7%9A%84%E8%A7%A3%E5%86%B3/">
-            <time datetime="2022-03-07T01:50:49.323Z" itemprop="datePublished">2022-03-07</time>
-        </a>
-    </div>
-
-
-                        
-                            <i class="fa fa-bar-chart"></i>
-                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
-                        
-                        
-                            <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/zthxxx/Wiki-site/raw/writing/source/_posts/visual-studio-code中无法切换Python版本的解决.md'> Source </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/zthxxx/Wiki-site/edit/writing/source/_posts/visual-studio-code中无法切换Python版本的解决.md'> Edit </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/zthxxx/Wiki-site/commits/writing/source/_posts/visual-studio-code中无法切换Python版本的解决.md'> History </a>
-                            </div>
-                        
-                    </div>
-                
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2022/03/07/visual-studio-code%E4%B8%AD%E6%97%A0%E6%B3%95%E5%88%87%E6%8D%A2Python%E7%89%88%E6%9C%AC%E7%9A%84%E8%A7%A3%E5%86%B3/">visual studio code中无法切换Python版本的解决</a>
-        </h1>
-    
-
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-        
-            
-                
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                
-                    
-                    <p><h2 id="起因"><a href="#起因" class="headerlink" title="起因"></a>起因</h2><p>使用Python进行机器学习，需要引入<code>sklearn</code>模块，因此在我们建立的<code>anaconda</code>环境（名称<code>py378</code>，用的Python 3.7.8的版本）中activate该环境，并安装<code>scikit-learn</code>库（安装的模块名和导入的库名称不一样，这个见网上详细解释，<code>scikit-learn</code>其实就是其工具包）。但来到软件<code>visual studio code</code>界面中却发现无法正常切换Python版本，工作区也未能生成<code>.vscode</code>文件夹：</p>
-<p>![visual studio code无法切换python环境](&#x2F;images&#x2F;visual studio code无法切换python环境.PNG)</p>
-<p>我们可以看到，在左下角并没有加载出Python Interpreter，终端中手动输入命令切换环境也依然无法奏效。</p>
-<h2 id="尝试步骤"><a href="#尝试步骤" class="headerlink" title="尝试步骤"></a>尝试步骤</h2><ol>
-<li><p>按住<code>ctrl+shift+p</code>，输入<code>Python Interpreter</code>切换环境，发现已经被切换到<code>py378</code></p>
-<p>
-                
-            
-        
-        
-            </div>   
-            <div class="article-more-link">
-                <a href="/2022/03/07/visual-studio-code%E4%B8%AD%E6%97%A0%E6%B3%95%E5%88%87%E6%8D%A2Python%E7%89%88%E6%9C%AC%E7%9A%84%E8%A7%A3%E5%86%B3/#more">Read More</a>
-            </div>
-        
-        <footer class="article-footer">
-        </footer>
-    </div>
-</article>
-
-
-
-
-
-
-    
-        <article id="post-Eclipse-web-工程的项目目录结构" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-                    <div class="article-meta">
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Java/">Java</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/Java/Eclipse/">Eclipse</a>
-    </div>
-
-                        
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link-link" href="/tags/eclipse/" rel="tag">eclipse</a>, <a class="tag-link-link" href="/tags/java/" rel="tag">java</a>
-    </div>
-
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2022/03/06/Eclipse-web-%E5%B7%A5%E7%A8%8B%E7%9A%84%E9%A1%B9%E7%9B%AE%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84/">
-            <time datetime="2022-03-06T10:10:07.896Z" itemprop="datePublished">2022-03-06</time>
-        </a>
-    </div>
-
-
-                        
-                            <i class="fa fa-bar-chart"></i>
-                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
-                        
-                        
-                            <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/zthxxx/Wiki-site/raw/writing/source/_posts/Eclipse-web-工程的项目目录结构.md'> Source </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/zthxxx/Wiki-site/edit/writing/source/_posts/Eclipse-web-工程的项目目录结构.md'> Edit </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/zthxxx/Wiki-site/commits/writing/source/_posts/Eclipse-web-工程的项目目录结构.md'> History </a>
-                            </div>
-                        
-                    </div>
-                
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2022/03/06/Eclipse-web-%E5%B7%A5%E7%A8%8B%E7%9A%84%E9%A1%B9%E7%9B%AE%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84/">Eclipse web 工程的项目目录结构</a>
-        </h1>
-    
-
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-        
-            
-                
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                
-                    
-                    <p><p>在使用Eclipse学习Java开发的过程中，发现我自己新建<code>dynamic web project</code>的项目目录结构和视频中演示的不同，最明显的区别是没有Java Resources和JavaScript Resources这两个文件夹：</p>
-<p><img src="/images/%E6%96%B0%E5%BB%BAweb%E9%A1%B9%E7%9B%AE%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84.PNG" alt="新建web项目目录结构"></p>
-<p>查阅多方资料显示，这种项目结构的不同对于程序执行并没有大问题，要参考项目中各个文件和目录的功能，可以见以下三篇博客：</p>
-<ol>
-<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/yyuanxiwen/article/details/94600630">https://blog.csdn.net/yyuanxiwen/article/details/94600630</a></li>
-<p>
-                
-            
-        
-        
-            </div>   
-            <div class="article-more-link">
-                <a href="/2022/03/06/Eclipse-web-%E5%B7%A5%E7%A8%8B%E7%9A%84%E9%A1%B9%E7%9B%AE%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84/#more">Read More</a>
             </div>
         
         <footer class="article-footer">

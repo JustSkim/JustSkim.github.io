@@ -6,7 +6,7 @@
   <link href="http://justskim.github.io/atom.xml" rel="self"/>
   
   <link href="http://justskim.github.io/"/>
-  <updated>2022-04-09T10:00:55.750Z</updated>
+  <updated>2022-04-12T16:14:22.111Z</updated>
   <id>http://justskim.github.io/</id>
   
   <author>
@@ -17,13 +17,73 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>IDEA中Maven项目的打包与tomcat服务器运行</title>
+    <link href="http://justskim.github.io/2022/04/12/IDEA%E4%B8%ADMaven%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%89%93%E5%8C%85%E4%B8%8Etomcat%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%BF%90%E8%A1%8C/"/>
+    <id>http://justskim.github.io/2022/04/12/IDEA%E4%B8%ADMaven%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%89%93%E5%8C%85%E4%B8%8Etomcat%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%BF%90%E8%A1%8C/</id>
+    <published>2022-04-12T11:06:52.334Z</published>
+    <updated>2022-04-12T16:14:22.111Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="起因以及解决方案"><a href="#起因以及解决方案" class="headerlink" title="起因以及解决方案"></a>起因以及解决方案</h2><p>在学习狂神说 Java web中的servlet项目时，学到<a href="https://www.bilibili.com/video/BV12J411M7Sj?p=15">第15课 javaweb的应用</a>时，想跳转到的项目的发布路径一直显示404，页面的报错信息为：</p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">HTTP Status 404 – Not Found</span><br><span class="line">Type Status Report</span><br><span class="line">Message 文.件[/request_war_exploded/success.jsp] 未找到</span><br><span class="line">Description The origin server did not find a current representation for the target resource or is not willing to disclose that one exists.</span><br><span class="line">Apache Tomcat/9.0.62</span><br></pre></td></tr></table></figure><p>经过多次检查代码，并没有发现错误的地方，最后发现是模块打包的target文件夹下，并没有success.jsp文件，即使多次重启或者重新部署tomcat服务器后依然未能解决该问题：</p><p><img src="/images/%E6%89%93%E5%8C%85%E7%9A%84target%E6%96%87%E4%BB%B6%E5%A4%B9%E4%B8%8B%E6%B2%A1%E6%9C%89success.jsp%E6%96%87%E4%BB%B6.PNG" alt="打包的target文件夹下没有success.jsp文件"> </p><p>手动将success.jsp文件复制粘贴到打包的request文件夹下，问题解决！</p><h2 id="maven项目打包机制与target文件夹"><a href="#maven项目打包机制与target文件夹" class="headerlink" title="maven项目打包机制与target文件夹"></a>maven项目打包机制与target文件夹</h2><p>maven项目创建完后，要打包并部署到服务器上。</p><h3 id="Java打包"><a href="#Java打包" class="headerlink" title="Java打包"></a>Java打包</h3><p>Java中两种项目打包的格式：jar 包和 war包。</p><ul><li><p>jar包，将项目看成一整个拼图，引入的每个jar包就是一个拼块，在依赖中经常使用，向项目中添加某些依赖就是下载相应的 jar 包添加到项目中。jar包中只是用java来写的项目打包来的，里面只有编译后的class和一些部署文件。</p></li><li><p>war包，在 <strong>Java web</strong>中通常都是将项目打包成<strong>war包</strong>再进行部署——这是因为war包不仅包含代码编译成的class文件，还有依赖的包、配置文件，以及包括html，jsp等等在内的资源文件。一个war包可以理解为一个web项目，里面有项目的所有东西。<br>pom.xml文件中可以规定打包的相关要求，比如<code>&lt;packaging&gt;war&lt;/packaging&gt;</code>会要求打包成war格式包。</p></li></ul><p><a href="https://blog.csdn.net/qq_41394352/article/details/119192755">maven常用打包命令</a>：</p><blockquote><ol><li><code>mvn compile</code> 编译,将Java 源程序编译成 class 字节码文件。</li><li><code>mvn test</code> 测试，并生成测试报告</li><li><code>mvn clean</code> 将以前编译得到的旧的 class 字节码文件删除</li><li><code>mvn pakage</code> 打包,动态 web工程打 war包，Java工程打 jar 包。</li><li><code>mvn install</code> 将项目生成 jar 包放在仓库中，以便别的模块调用</li><li><code>mvn clean install -Dmaven.test.skip=true</code> 打成jar包，并且抛弃测试用例打包</li><li><code>mvn clean pakage -Dmaven.test.skip=true </code>动态 web工程打 war包，Java工程打 jar 包 ，并且抛弃测试用例打包</li></ol></blockquote><h2 id="tomcat的运行和debug"><a href="#tomcat的运行和debug" class="headerlink" title="tomcat的运行和debug"></a>tomcat的运行和debug</h2><h2 id="热加载和热部署"><a href="#热加载和热部署" class="headerlink" title="热加载和热部署"></a><a href="https://blog.csdn.net/Wangdiankun/article/details/105753755">热加载和热部署</a></h2><p><strong>热加载(Hot Reload)<strong>：实现方式是 Web 容器（Context组件）启动一个后台线程，定期检测类文件的变化，如果有变化，就重新加载类，即在运行时重新加载class。在这个过程中不会清空 Session，不安全，一般用在开发环境。</strong>Tomcat默认情况下不开启热加载功能</strong>，包括博主所用的tomcat 9 版本。如果需要用到热加载功能，则要在Tomcat安装路径下的 Context.xml文件中配置 reloadable 参数来开启。</p><p>**热部署(Hot Swap)**：原理类似，也由后台线程定时检测 Web 应用的变化，但会重新加载整个 Web 应用。这种方式会清空Session，比热加载更加干净、彻底，一般用在生产环境。<br>本质区别：热加载的粒度比较小，主要是针对类文件的更新，通过创建新的类加载器来实现重新加载。而热部署是针对整个 Web应用的，重新部署 Web 应用，服务器如Tomcat，会将原来的 Context 对象（包括其所关联的一切资源，比如Session）整个销毁掉，再重新创建 Context 容器对象。<br>相同的目的：在不重启 Tomcat 的情况下实现 Web 应用的更新。</p><h2 id="tomcat服务器上的重启与热加载、重新部署"><a href="#tomcat服务器上的重启与热加载、重新部署" class="headerlink" title="tomcat服务器上的重启与热加载、重新部署"></a>tomcat服务器上的重启与热加载、重新部署</h2><p><a href="https://www.jetbrains.com/help/idea/updating-applications-on-application-servers.html">IDEA的官方文档中介绍了tomcat服务器更新的四个选项区别所在</a>：</p><p><img src="/images/IDEA%E4%B8%ADtomcat%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%9B%B4%E6%96%B0%E7%9A%84%E5%9B%9B%E4%B8%AA%E9%80%89%E9%A1%B9.PNG" alt="IDEA中tomcat服务器更新的四个选项"></p><ol><li><p>更新资源 Update resources：更新所有更改的资源，例如 HTML、JSP、JavaScript、CSS 和图像；</p></li><li><p>更新类和资源 Update classes and resources：更新所有更改的资源并重新编译所有更改的 Java 类（EJB、servlet） 等；</p></li></ol><p>以上两者都是热部署——在不重启tomcat服务器的前提下，将自己的项目部署到tomcat服务器中。</p><ol start="3"><li><p>重新部署 redeploy：把当前的一个项目重新部署到Tomcat服务器上；</p></li><li><p>重启服务器 restart：在重新部署的基础上，对Tomcat的相关配置文件进行刷新。在tomcat为debug 模式下，修改当前正在用的类的定义（包括：类名，方法，方法名称，参数等等……），需要重启tomcat</p></li></ol><p>因此，如果我们项目处于开发模式（即我们在之前的博客中讲到的 war exploded部署方式）下，如果只修改了JSP和其他资源文件，采用第一个选项即可；如果修改了Java程序，则选择第二个选项<code>Update classes and resources</code>；</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;起因以及解决方案&quot;&gt;&lt;a href=&quot;#起因以及解决方案&quot; class=&quot;headerlink&quot; title=&quot;起因以及解决方案&quot;&gt;&lt;/a&gt;起因以及解决方案&lt;/h2&gt;&lt;p&gt;在学习狂神说 Java web中的servlet项目时，学到&lt;a href=&quot;https:/</summary>
+      
+    
+    
+    
+    <category term="Java" scheme="http://justskim.github.io/categories/Java/"/>
+    
+    <category term="Maven" scheme="http://justskim.github.io/categories/Java/Maven/"/>
+    
+    
+    <category term="java" scheme="http://justskim.github.io/tags/java/"/>
+    
+    <category term="tomcat" scheme="http://justskim.github.io/tags/tomcat/"/>
+    
+    <category term="servlet" scheme="http://justskim.github.io/tags/servlet/"/>
+    
+    <category term="maven" scheme="http://justskim.github.io/tags/maven/"/>
+    
+    <category term="IDEA" scheme="http://justskim.github.io/tags/IDEA/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Python中graphviz包的安装与bug解决</title>
+    <link href="http://justskim.github.io/2022/04/12/Python%E4%B8%ADgraphviz%E6%A8%A1%E5%9D%97%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8Ebug%E8%A7%A3%E5%86%B3/"/>
+    <id>http://justskim.github.io/2022/04/12/Python%E4%B8%ADgraphviz%E6%A8%A1%E5%9D%97%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8Ebug%E8%A7%A3%E5%86%B3/</id>
+    <published>2022-04-12T03:33:44.869Z</published>
+    <updated>2022-04-12T07:07:14.990Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>按照学校课程要求，配合scikit-learn官方文档，学习机器学习的过程中，在<a href="https://scikit-learn.org/stable/modules/tree.html">决策树</a>这一章，安装graphviz模块后运行程序产生报错：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">AttributeError: module <span class="string">&#x27;graphviz.backend&#x27;</span> has no attribute <span class="string">&#x27;ENCODING&#x27;</span></span><br></pre></td></tr></table></figure><p>Graphviz是一款自动排版的绘图软件，而python graphviz则是该软件在python的实现，graphviz模块提供了Graph和Digraph两个类，分别以DOT语言为无向图和有向图创建图描述。</p><h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>搜索该问题解决方案，相关中文博客中给出的以下两个解决方案：</p><ol><li><p>下载模块python-graphviz；</p></li><li><p>本地下载安装graphviz软件，在系统变量中配置环境变量<code>GRAPHVIZ_INSTALL_DIR</code>（路径为bin文件夹）和<code>GRAPHVIZ_DOT</code>（路径为bin文件夹下的dot.exe程序），在用户变量中也要配置<code>GRAPHVIZ_INSTALL_DIR</code>，然后重启计算机；</p></li></ol><p>但是经过以上尝试过后，该问题依旧没有解决，最后在<a href="https://stackoverflow.com/questions/69989691/how-to-resolve-attributeerror-module-graphviz-backend-has-no-attribute-encod">stackoverflow上的相关问题</a>中，发现问题的根源在于graphviz的版本，并摸索出了相关的解决方案：</p><ol><li><p>使用命令<code>conda uninstall graphviz</code>后，还要将本地环境下的两个文件夹<code>graphviz</code>和<code>graphviz-0.19.2.dist-info</code>删除，否则使用第二步的命令时会被提示已安装；</p></li><li><p>使用命令<code>pip install graphviz=0.19.2 </code>下载符合要求的包；</p></li><li><p>在程序中，加入这么两句代码，添加路径：</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line">os.environ[<span class="string">&quot;PATH&quot;</span>]+=os.pathsep+<span class="string">&quot;E:/download/Graphviz/bin&quot;</span></span><br></pre></td></tr></table></figure></li></ol>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;问题描述&quot;&gt;&lt;a href=&quot;#问题描述&quot; class=&quot;headerlink&quot; title=&quot;问题描述&quot;&gt;&lt;/a&gt;问题描述&lt;/h2&gt;&lt;p&gt;按照学校课程要求，配合scikit-learn官方文档，学习机器学习的过程中，在&lt;a href=&quot;https://sciki</summary>
+      
+    
+    
+    
+    <category term="机器学习" scheme="http://justskim.github.io/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+    <category term="python" scheme="http://justskim.github.io/tags/python/"/>
+    
+    <category term="machine learning" scheme="http://justskim.github.io/tags/machine-learning/"/>
+    
+  </entry>
+  
+  <entry>
     <title>IDEA中maven项目无法自动导入包的问题解决</title>
     <link href="http://justskim.github.io/2022/04/09/IDEA%E4%B8%ADmaven%E9%A1%B9%E7%9B%AE%E6%97%A0%E6%B3%95%E8%87%AA%E5%8A%A8%E5%AF%BC%E5%85%A5%E5%8C%85%E7%9A%84%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/"/>
     <id>http://justskim.github.io/2022/04/09/IDEA%E4%B8%ADmaven%E9%A1%B9%E7%9B%AE%E6%97%A0%E6%B3%95%E8%87%AA%E5%8A%A8%E5%AF%BC%E5%85%A5%E5%8C%85%E7%9A%84%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/</id>
     <published>2022-04-09T08:50:55.411Z</published>
-    <updated>2022-04-09T10:00:55.750Z</updated>
+    <updated>2022-04-09T10:31:43.219Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>在IDEA中创建项目工程后（父工程的src文件夹可以在创建后删除），再选择“module”创建子工程，发现无法自动导入依赖，具体表现为“HttpServlet”等不是java jdk自带的包会在代码中爆红，即使在pom.xml文件中按要求添加了相关依赖，也无法解决问题。按照网上教程所说的有以下方法：</p><ol><li>在settings中设置maven相关项</li><li>点击“文件”-&gt; “清除缓存”；</li><li>点击界面最右边一侧的“maven”设置，clean后install，或者点击项目菜单中的“reimport”选项</li></ol><p>以上做法均失效（对于引入jdk自带的包，比如java.lang中的包，可以采用上边的方式让其自动引入）。</p><h2 id="排查问题"><a href="#排查问题" class="headerlink" title="排查问题"></a>排查问题</h2><p>查看父工程的外部库External libaries可以发现，其中只有jdk11自带的包，而没有出现我们需要引入的依赖包，成功引入的界面应该是长下面这样：</p><p><img src="/images/%E6%88%90%E5%8A%9F%E4%BB%8E%E5%A4%96%E9%83%A8%E5%BA%93%E5%BC%95%E5%85%A5%E4%BE%9D%E8%B5%96%E5%8C%85.PNG" alt="成功从外部库引入依赖包"></p><p>重新新建一个项目来探究问题所在，发现在选择骨架创建子工程后，下方maven控制台的运行中，会出现一项<code>org.apache.maven.plugins:maven-archetype-plugin:RELEASE:generate</code>一直处于加载的状态！有时候甚至加载了十分钟依然未能成功！</p><p>这是因为子项目使用骨架创建时，需要从外部联网下载，<strong>因此由于网络的缘故导致工程骨架未能完全下载</strong>，进而导致功能不全的报错。</p><h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p><strong>调整一下网络</strong>就可以成功创建项目。</p><h3 id="将负责配置的xml文件下载到本地"><a href="#将负责配置的xml文件下载到本地" class="headerlink" title="将负责配置的xml文件下载到本地"></a>将负责配置的xml文件下载到本地</h3><p>如果不想每次都让IDEA去联网下载archetype-catalog.xml文件（IDEA每次新建maven项目都会下载一次这个文件），可以将其下载到本地用户的<code>.m2</code>文件夹下，在新建maven项目时使用本地文件，并在IDEA的maven runner设置中的<code>VM Options</code>一栏输入：<code>-DarchetypeCatalog=local</code></p><h3 id="改变依赖的jar包的下载地址——采用国内镜像"><a href="#改变依赖的jar包的下载地址——采用国内镜像" class="headerlink" title="改变依赖的jar包的下载地址——采用国内镜像"></a>改变依赖的jar包的下载地址——采用国内镜像</h3><p>同样，IDEA的maven项目可以设置自动添加依赖功能，当我们的仓库中没有该jar包的时候可以设置让其自动下载。但是这样添加jar包时要连接网络仓库，为了更快的下载速度，需要更改maven的仓库地址——采用国内阿里云的镜像：在IDEA安装路径下，搜素“settings.xml”（不同版本该文件位置不同），然后在“mirrors”标签中添加我们的mirror标签，如下面的代码：</p><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">mirror</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">id</span>&gt;</span>alimaven<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">name</span>&gt;</span>aliyun maven<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">url</span>&gt;</span>http://maven.aliyun.com/nexus/content/groups/public/<span class="tag">&lt;/<span class="name">url</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">mirrorOf</span>&gt;</span>central<span class="tag">&lt;/<span class="name">mirrorOf</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;/<span class="name">mirror</span>&gt;</span></span><br></pre></td></tr></table></figure><p>重新创建项目，可以发现，使用镜像地址和本地文件后，下载骨架的速度很快，子模块中的文件夹和配置文件的加载也是很快就出来。同时，外部库中也自动地将maven所需的依赖如”maven:junit”引入。在父工程的pom.xml文件中设置servlet的相关依赖后，点击“maven”小图标加载maven变更，外部库中也成功地出现相关依赖jar包。</p><p>实际上，在maven的仓库配置这一块，IDEA软件是自带maven的，如果我们要使用本地计算机原有安装的不同版本的maven，只需要在设置中进行修改，然后在本地计算机的maven安装路径的xml配置文件中，同样设置镜像就可以了。</p><h2 id="Maven-父子项目的依赖继承"><a href="#Maven-父子项目的依赖继承" class="headerlink" title="Maven 父子项目的依赖继承"></a>Maven 父子项目的依赖继承</h2><p>在父项目的pom.xml文件中，在depencyManagement结构体中添加相关依赖dependencies，然后在子项目的依赖文件中，只需要添加groupId和artifactId即可，版本号在父项目的pom.xml中已经定义好了：</p><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--子项目的依赖--&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>javax.servlet<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>servlet-api<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>javax.servlet.jsp<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>javax.servlet.jsp-api<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br></pre></td></tr></table></figure><p>如果maven同步后显示子项目代码中引入相关包的报错，可以先在子项目中把version一项加上，同步一次之后再删除这一项。</p><h2 id="Tomcat对IDEA开发项目的部署"><a href="#Tomcat对IDEA开发项目的部署" class="headerlink" title="Tomcat对IDEA开发项目的部署"></a>Tomcat对IDEA开发项目的部署</h2><p>在IDEA中配置Tomcat服务器时，需要在部署deployment中手动二选一设置：</p><ol><li>servlet-01:war</li><li>servlet-01:war exploded</li></ol><p>这里的servlet-01是web工程的模块名称，两个部署方式在区别在于：</p><ol><li><p>war模式（发布模式）：将web工程以包的形式上传到服务器；</p></li><li><p>war exploded模式（开发模式）：将web工程以当前文件夹的位置关系上传到服务器</p></li></ol><p>很显然，在我们需要不断调试程序的开发过程中，更应使用war exploded模式，这种方式也支持热部署。</p><p>使用war exploded部署方式，还需要在tomcat配置中的Server选项中进行如下改动：</p><ol><li>执行更新操作——<code>On &#39;Update&#39; action</code>项选择<code>Update resources</code>；</li><li>框架停用时——<code>On frame deactivation</code>项选择<code>Update resources</code>；</li></ol>]]></content>
+    <content type="html"><![CDATA[<h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>在IDEA中创建项目工程后（父工程的src文件夹可以在创建后删除），再选择“module”创建子工程，发现无法自动导入依赖，具体表现为“HttpServlet”等不是java jdk自带的包会在代码中爆红，即使在pom.xml文件中按要求添加了相关依赖，也无法解决问题。按照网上教程所说的有以下方法：</p><ol><li>在settings中设置maven相关项</li><li>点击“文件”-&gt; “清除缓存”；</li><li>点击界面最右边一侧的“maven”设置，clean后install，或者点击项目菜单中的“reimport”选项</li></ol><p>以上做法均失效（对于引入jdk自带的包，比如java.lang中的包，可以采用上边的方式让其自动引入）。</p><h2 id="排查问题"><a href="#排查问题" class="headerlink" title="排查问题"></a>排查问题</h2><p>查看父工程的外部库External libaries可以发现，其中只有jdk11自带的包，而没有出现我们需要引入的依赖包，成功引入的界面应该是长下面这样：</p><p><img src="/images/%E6%88%90%E5%8A%9F%E4%BB%8E%E5%A4%96%E9%83%A8%E5%BA%93%E5%BC%95%E5%85%A5%E4%BE%9D%E8%B5%96%E5%8C%85.PNG" alt="成功从外部库引入依赖包"></p><p>重新新建一个项目来探究问题所在，发现在选择骨架创建子工程后，下方maven控制台的运行中，会出现一项<code>org.apache.maven.plugins:maven-archetype-plugin:RELEASE:generate</code>一直处于加载的状态！有时候甚至加载了十分钟依然未能成功！</p><p>这是因为子项目使用骨架创建时，需要从外部联网下载，<strong>因此由于网络的缘故导致工程骨架未能完全下载</strong>，进而导致功能不全的报错。</p><h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p><strong>调整一下网络</strong>就可以成功创建项目。</p><h3 id="将负责配置的xml文件下载到本地"><a href="#将负责配置的xml文件下载到本地" class="headerlink" title="将负责配置的xml文件下载到本地"></a>将负责配置的xml文件下载到本地</h3><p>如果不想每次都让IDEA去联网下载archetype-catalog.xml文件（IDEA每次新建maven项目都会下载一次这个文件），可以将其下载到本地用户的<code>.m2</code>文件夹下，在新建maven项目时使用本地文件，并在IDEA的maven runner设置中的<code>VM Options</code>一栏输入：<code>-DarchetypeCatalog=local</code></p><h3 id="改变依赖的jar包的下载地址——采用国内镜像"><a href="#改变依赖的jar包的下载地址——采用国内镜像" class="headerlink" title="改变依赖的jar包的下载地址——采用国内镜像"></a>改变依赖的jar包的下载地址——采用国内镜像</h3><p>同样，IDEA的maven项目可以设置自动添加依赖功能，当我们的仓库中没有该jar包的时候可以设置让其自动下载。但是这样添加jar包时要连接网络仓库，为了更快的下载速度，需要更改maven的仓库地址——采用国内阿里云的镜像：在IDEA安装路径下，搜素“settings.xml”（不同版本该文件位置不同），然后在“mirrors”标签中添加我们的mirror标签，如下面的代码：</p><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">mirror</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">id</span>&gt;</span>alimaven<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">name</span>&gt;</span>aliyun maven<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">url</span>&gt;</span>http://maven.aliyun.com/nexus/content/groups/public/<span class="tag">&lt;/<span class="name">url</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">mirrorOf</span>&gt;</span>central<span class="tag">&lt;/<span class="name">mirrorOf</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;/<span class="name">mirror</span>&gt;</span></span><br></pre></td></tr></table></figure><p>重新创建项目，可以发现，使用镜像地址和本地文件后，下载骨架的速度很快，子模块中的文件夹和配置文件的加载也是很快就出来。同时，外部库中也自动地将maven所需的依赖如”maven:junit”引入。在父工程的pom.xml文件中设置servlet的相关依赖后，点击“maven”小图标加载maven变更，外部库中也成功地出现相关依赖jar包。</p><p>实际上，在maven的仓库配置这一块，IDEA软件是自带maven的，如果我们要使用本地计算机原有安装的不同版本的maven，只需要在设置中进行修改，然后在本地计算机的maven安装路径的xml配置文件中，同样设置镜像就可以了。</p><h2 id="Maven-父子项目的依赖继承"><a href="#Maven-父子项目的依赖继承" class="headerlink" title="Maven 父子项目的依赖继承"></a>Maven 父子项目的依赖继承</h2><p>在父项目的pom.xml文件中，在depencyManagement结构体中添加相关依赖dependencies，然后在子项目的依赖文件中，只需要添加groupId和artifactId即可，版本号在父项目的pom.xml中已经定义好了：</p><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--子项目的依赖--&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>javax.servlet<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>servlet-api<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>javax.servlet.jsp<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>javax.servlet.jsp-api<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br></pre></td></tr></table></figure><p>如果maven同步后显示子项目代码中引入相关包的报错，可以先在子项目中把version一项加上，同步一次之后再删除这一项。</p><h2 id="Tomcat对IDEA开发项目的部署"><a href="#Tomcat对IDEA开发项目的部署" class="headerlink" title="Tomcat对IDEA开发项目的部署"></a>Tomcat对IDEA开发项目的部署</h2><p>在IDEA中配置Tomcat服务器时，需要在部署deployment中手动二选一设置：</p><ol><li>servlet-01:war</li><li>servlet-01:war exploded</li></ol><p>这里的servlet-01是web工程的模块名称，两个部署方式在区别在于：</p><ol><li><p>war模式（发布模式）：将web工程以包的形式上传到服务器；</p></li><li><p>war exploded模式（开发模式）：将web工程以当前文件夹的位置关系上传到服务器</p></li></ol><p>很显然，在我们需要不断调试程序的开发过程中，更应使用war exploded模式，这种方式也支持热部署。</p><p>使用war exploded部署方式，还需要在tomcat配置中的Server选项中进行如下改动：</p><ol><li>执行更新操作——<code>On &#39;Update&#39; action</code>项选择<code>Update resources</code>；</li><li>框架停用时——<code>On frame deactivation</code>项选择<code>Update resources</code>；</li></ol><h2 id="maven工程框架的目录-x2F-文件缺失问题"><a href="#maven工程框架的目录-x2F-文件缺失问题" class="headerlink" title="maven工程框架的目录&#x2F;文件缺失问题"></a>maven工程框架的目录&#x2F;文件缺失问题</h2><p>即使我们使用了本地文件+国内镜像的相关配置，有时候使用框架创建maven项目依然可能出现目录&#x2F;文件缺失的情况，这里以webapp文件夹为例，如果我们使用框架搭建的maven项目缺失了该文件夹：</p><ol><li>点击IDEA的第一个”File”选项，点击项目结构”Project Structure”；</li><li>修改Web资源目录和Web模块部署描述符</li></ol><p><img src="/images/%E4%BF%AE%E6%94%B9Web%E8%B5%84%E6%BA%90%E7%9B%AE%E5%BD%95%E5%92%8CWeb%E6%A8%A1%E5%9D%97%E9%83%A8%E7%BD%B2%E6%8F%8F%E8%BF%B0%E7%AC%A6.PNG" alt="修改Web资源目录和Web模块部署描述符"></p><p>如果缺失了其他的文件，我们也可以手动增加。</p>]]></content>
     
     
       
@@ -498,64 +558,6 @@
     
     
     <category term="mysql" scheme="http://justskim.github.io/tags/mysql/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>win10上的代理服务器设置与127.0.0.1</title>
-    <link href="http://justskim.github.io/2022/02/08/win10%E4%B8%8A%E7%9A%84%E4%BB%A3%E7%90%86%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%AE%BE%E7%BD%AE%E4%B8%8E127.0.0.1/"/>
-    <id>http://justskim.github.io/2022/02/08/win10%E4%B8%8A%E7%9A%84%E4%BB%A3%E7%90%86%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%AE%BE%E7%BD%AE%E4%B8%8E127.0.0.1/</id>
-    <published>2022-02-08T06:02:05.413Z</published>
-    <updated>2022-02-08T07:13:50.206Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="win10上的代理服务器设置与127-0-0-1"><a href="#win10上的代理服务器设置与127-0-0-1" class="headerlink" title="win10上的代理服务器设置与127.0.0.1"></a>win10上的代理服务器设置与127.0.0.1</h1><h2 id="代理服务器的定义"><a href="#代理服务器的定义" class="headerlink" title="代理服务器的定义"></a>代理服务器的定义</h2><p>代理服务器（Proxy Server）是介于浏览器和Web服务器之间的一台服务器，可被用于代理网络用户去取得网络信息。可以说，代理服务器是网络信息的中转站，是个人网络和Internet服务商之间的中间代理机构，负责转发合法的网络信息，对转发进行控制和登记，工作在OSI模型的对话层。当你通过代理服务器上网浏览时，浏览器不是直接到Web服务器去取回网页，而是向代理服务器发出请求，由代理服务器来取回浏览器所需要的信息，并传送给你的浏览器。 </p><p>Win10系统提供<strong>系统级代理服务器设置，通过在Win10系统中设置代理服务器</strong>，系统中所有的软件都会通过我们设置的代理服务器访问网络，这样就不用一个一个软件设置代理服务器了，包括浏览器等应用，都会使用设定的系统代理服务器上网。</p><h2 id="环回地址127-0-0-1"><a href="#环回地址127-0-0-1" class="headerlink" title="环回地址127.0.0.1"></a>环回地址127.0.0.1</h2><p>127.0.0.1是回送地址主要用于网络软件测试以及本地机进程间通信，无论什么程序，一旦使用回送地址发送数据，协议软件立即返回之，不进行任何网络传输。有时候当我们使用浏览器点击网页时，有时候会发现提示网页无法找到，建议我们检查代理服务器设置。而在win10系统的设置一栏，有一项“代理服务器”的设置，有时我们点开这里，会发现代理服务器被设置为127.0.0.1，原因不明，但将代理服务器关闭即可正常访问网络，检查host文件也没有发现异常。</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h1 id=&quot;win10上的代理服务器设置与127-0-0-1&quot;&gt;&lt;a href=&quot;#win10上的代理服务器设置与127-0-0-1&quot; class=&quot;headerlink&quot; title=&quot;win10上的代理服务器设置与127.0.0.1&quot;&gt;&lt;/a&gt;win10上的代理服务器设置</summary>
-      
-    
-    
-    
-    <category term="网络" scheme="http://justskim.github.io/categories/%E7%BD%91%E7%BB%9C/"/>
-    
-    <category term="服务器" scheme="http://justskim.github.io/categories/%E7%BD%91%E7%BB%9C/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
-    
-    
-    <category term="网络" scheme="http://justskim.github.io/tags/%E7%BD%91%E7%BB%9C/"/>
-    
-    <category term="服务器" scheme="http://justskim.github.io/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>在vmware虚拟机中进行网络连接</title>
-    <link href="http://justskim.github.io/2021/11/16/%E5%9C%A8vmware%E8%99%9A%E6%8B%9F%E6%9C%BA%E4%B8%AD%E8%BF%9B%E8%A1%8C%E7%BD%91%E7%BB%9C%E8%BF%9E%E6%8E%A5/"/>
-    <id>http://justskim.github.io/2021/11/16/%E5%9C%A8vmware%E8%99%9A%E6%8B%9F%E6%9C%BA%E4%B8%AD%E8%BF%9B%E8%A1%8C%E7%BD%91%E7%BB%9C%E8%BF%9E%E6%8E%A5/</id>
-    <published>2021-11-16T07:16:40.924Z</published>
-    <updated>2022-02-12T10:13:06.192Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="在vmware虚拟机中进行网络连接"><a href="#在vmware虚拟机中进行网络连接" class="headerlink" title="在vmware虚拟机中进行网络连接"></a>在<code>vmware</code>虚拟机中进行网络连接</h1><h2 id="四种网络模式"><a href="#四种网络模式" class="headerlink" title="四种网络模式"></a>四种网络模式</h2><p>点击<code>VMware Workstation</code>的导航栏，在“虚拟机-&gt;设置-&gt;硬件-&gt;网络设配器”中，可看到网络连接模式的选择（不能在虚拟机挂起的时候进行更改），<a href="https://docs.vmware.com/cn/VMware-Workstation-Pro/14.0/com.vmware.ws.using.doc/GUID-3B504F2F-7A0B-415F-AE01-62363A95D052.html">VMware的官方网站</a>中说明了四种网络模式的区别：</p><table><thead><tr><th align="left">设置</th><th align="left">说明</th></tr></thead><tbody><tr><td align="left"><strong>使用桥接模式网络连接</strong></td><td align="left">为虚拟机配置桥接模式网络连接。使用桥接模式网络连接时，虚拟机将具有直接访问外部以太网网络的权限。虚拟机必须在外部网络中具有自己的 IP 地址。如果您的主机系统位于网络中，而且您拥有可用于虚拟机的单独 IP 地址（或者可以从 DHCP 服务器获得 IP 地址），请选择此设置。网络中的其他计算机将能够与该虚拟机直接通信。</td></tr><tr><td align="left"><strong>使用网络地址转换 (NAT)</strong></td><td align="left">为虚拟机配置 NAT 连接。利用 NAT，虚拟机和主机系统将共享一个网络标识，此标识在网络以外不可见。如果您没有可用于虚拟机的单独 IP 地址，但又希望能够连接到 Internet，请选择 NAT。</td></tr><tr><td align="left"><strong>使用仅主机模式网络连接</strong></td><td align="left">为虚拟机配置仅主机模式网络连接。仅主机模式网络连接使用对主机操作系统可见的虚拟网络适配器，在虚拟机和主机系统之间提供网络连接。使用仅主机模式网络连接时，虚拟机只能与主机系统以及仅主机模式网络中的其他虚拟机进行通信。要设置独立的虚拟网络，请选择仅主机模式网络连接。</td></tr><tr><td align="left"><strong>不使用网络连接</strong></td><td align="left">不为虚拟机配置网络连接。</td></tr><tr><td align="left"><strong>自定义</strong>（Windows 主机）或<strong>已命名的网络</strong>（Linux 主机）</td><td align="left">（仅限远程虚拟机）选择特定虚拟网络。从下拉菜单中选择一个自定义网络。尽管列表中有 <code>VMnet0</code>、<code>VMnet1 </code>和 <code>VMnet8</code>，但这些网络通常被用于桥接模式、仅主机模式和 NAT 模式网络。</td></tr></tbody></table><p>对于使用校园网或者公司网络的用户，NAT是最简单的方式。</p><h2 id="网络配置相关文件"><a href="#网络配置相关文件" class="headerlink" title="网络配置相关文件"></a>网络配置相关文件</h2><p><strong>eth0</strong></p><p>该文件一般位于路径“&#x2F;etc&#x2F;sysconfig&#x2F;network-scripts”中</p><h2 id="网络配置相关命令"><a href="#网络配置相关命令" class="headerlink" title="网络配置相关命令"></a>网络配置相关命令</h2><p><strong><code>ifconfig</code></strong></p><p><strong>用于配置网卡的基本命令</strong>，注意不是<code>ipconfig</code>！<code>ifconfig</code>命令的英文全称是“network interfaces configuring”，即用于配置和显示Linux内核中网络接口的网络参数。用<code>ifconfig</code>命令配置的网卡信息，在网卡重启后机器重启后，配置就不存在。要想将上述的配置信息永远的存的电脑里，那就要修改网卡的配置文件了。</p><p><strong>常用参数：</strong></p><table><thead><tr><th>add &lt;地址&gt;</th><th>设置网络设备IPv6的IP地址</th></tr></thead><tbody><tr><td><code>del</code> &lt;地址&gt;</td><td>删除网络设备IPv6的IP地址</td></tr><tr><td>down</td><td>关闭指定的网络设备</td></tr><tr><td>up</td><td>启动指定的网络设备</td></tr><tr><td>IP地址</td><td>指定网络设备的IP地址</td></tr></tbody></table><p>一个与之相似的命令是windows系统下的<code>ipconfig</code>命令</p><p><strong>ethtool</strong></p><p>用于查询ethX网口基本设置、及设置网卡的参数</p><h2 id="以上步骤尝试过后，依然无法解决联网问题"><a href="#以上步骤尝试过后，依然无法解决联网问题" class="headerlink" title="以上步骤尝试过后，依然无法解决联网问题"></a>以上步骤尝试过后，依然无法解决联网问题</h2><p>如果在以上步骤尝试过后，依然无法解决联网问题，特别是最简单的NAT模式下，可以查看相关端口是否被杀毒软件禁止，以及服务是否成功启动。笔者在实际操作中遇到过这种情况，最后，根据<a href="https://www.cnblogs.com/hi3254014978/p/12668471.html">这篇博客</a>，将win10中的服务打开，手动启动或者重新启动<code>VMware DHCP Service</code>和<code>VMware NAT Service</code>两个服务即可。</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h1 id=&quot;在vmware虚拟机中进行网络连接&quot;&gt;&lt;a href=&quot;#在vmware虚拟机中进行网络连接&quot; class=&quot;headerlink&quot; title=&quot;在vmware虚拟机中进行网络连接&quot;&gt;&lt;/a&gt;在&lt;code&gt;vmware&lt;/code&gt;虚拟机中进行网络连接&lt;/h1&gt;</summary>
-      
-    
-    
-    
-    <category term="Linux" scheme="http://justskim.github.io/categories/Linux/"/>
-    
-    
-    <category term="linux" scheme="http://justskim.github.io/tags/linux/"/>
-    
-    <category term="虚拟机" scheme="http://justskim.github.io/tags/%E8%99%9A%E6%8B%9F%E6%9C%BA/"/>
-    
-    <category term="ubuntu" scheme="http://justskim.github.io/tags/ubuntu/"/>
-    
-    <category term="vmware" scheme="http://justskim.github.io/tags/vmware/"/>
     
   </entry>
   

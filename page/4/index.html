@@ -247,6 +247,15 @@
                         <a href="#" data-role="directory">
                             <i class="fa fa-folder"></i>
                             &nbsp;
+                            Maven
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2022/04/12/IDEA%E4%B8%ADMaven%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%89%93%E5%8C%85%E4%B8%8Etomcat%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%BF%90%E8%A1%8C/">IDEA中Maven项目的打包与tomcat服务器运行</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
                             Servlet
                         </a>
                          <ul class="unstyled" id="tree" >  <li class="file"><a href="/2022/04/08/Tomcat%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8EServlet%E7%A8%8B%E5%BA%8F/">Tomcat服务器与Servlet程序</a></li>  </ul> 
@@ -402,6 +411,15 @@
                         <a href="#" data-role="directory">
                             <i class="fa fa-folder"></i>
                             &nbsp;
+                            机器学习
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2022/04/12/Python%E4%B8%ADgraphviz%E6%A8%A1%E5%9D%97%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8Ebug%E8%A7%A3%E5%86%B3/">Python中graphviz包的安装与bug解决</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
                             知识图谱
                         </a>
                          <ul class="unstyled" id="tree" >  <li class="file"><a href="/2022/03/16/%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1%E4%B8%93%E4%B8%9A%E6%9C%AF%E8%AF%AD%E4%B8%8E%E5%9F%BA%E6%9C%AC%E7%9F%A5%E8%AF%86/">知识图谱专业术语与基本知识</a></li>  </ul> 
@@ -496,6 +514,214 @@
 </aside>
             
             <section id="main">
+        <article id="post-在linux系统中编写并执行C语言程序" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/Linux/">Linux</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link-link" href="/tags/c%E8%AF%AD%E8%A8%80/" rel="tag">c语言</a>, <a class="tag-link-link" href="/tags/linux/" rel="tag">linux</a>, <a class="tag-link-link" href="/tags/ubuntu/" rel="tag">ubuntu</a>, <a class="tag-link-link" href="/tags/%E8%99%9A%E6%8B%9F%E6%9C%BA/" rel="tag">虚拟机</a>
+    </div>
+
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2021/09/24/%E5%9C%A8linux%E7%B3%BB%E7%BB%9F%E4%B8%AD%E7%BC%96%E5%86%99%E5%B9%B6%E6%89%A7%E8%A1%8CC%E8%AF%AD%E8%A8%80%E7%A8%8B%E5%BA%8F/">
+            <time datetime="2021-09-24T12:07:36.765Z" itemprop="datePublished">2021-09-24</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/zthxxx/Wiki-site/raw/writing/source/_posts/在linux系统中编写并执行C语言程序.md'> Source </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/zthxxx/Wiki-site/edit/writing/source/_posts/在linux系统中编写并执行C语言程序.md'> Edit </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/zthxxx/Wiki-site/commits/writing/source/_posts/在linux系统中编写并执行C语言程序.md'> History </a>
+                            </div>
+                        
+                    </div>
+                
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2021/09/24/%E5%9C%A8linux%E7%B3%BB%E7%BB%9F%E4%B8%AD%E7%BC%96%E5%86%99%E5%B9%B6%E6%89%A7%E8%A1%8CC%E8%AF%AD%E8%A8%80%E7%A8%8B%E5%BA%8F/">在linux系统中编写并执行C语言程序</a>
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                
+                    
+                    <p><h1 id="在linux系统中编写并执行C语言程序"><a href="#在linux系统中编写并执行C语言程序" class="headerlink" title="在linux系统中编写并执行C语言程序"></a>在linux系统中编写并执行C语言程序</h1><h2 id="1-按照教程使用Vmware创建虚拟机"><a href="#1-按照教程使用Vmware创建虚拟机" class="headerlink" title="1. 按照教程使用Vmware创建虚拟机"></a>1. 按照<a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_44232795/article/details/104556174">教程</a>使用Vmware创建虚拟机</h2><p>值得注意的两点是，vmware15的激活码无法适用于vmware16的虚拟机，ubuntu的iso映像文件可以在官方网站中下载，使用最新（20版本）的即可。版本名称中带有desktop字段的意味着自带图形界面系统。</p>
+<h2 id="2-linux系统下的C语言编译执行"><a href="#2-linux系统下的C语言编译执行" class="headerlink" title="2. linux系统下的C语言编译执行"></a>2. linux系统下的C语言编译执行</h2><p>我们按照教程的步骤配置编译程序环境：</p>
+<blockquote>
+<p>找到命令行窗口输入：<br>（1）、sudo apt-get install gcc<br>（2）、sudo apt-get install build-essential &#x2F;&#x2F;编写c所用到的库<br>（3）、gedit [文件名].c &#x2F;&#x2F;创建一个c文件，并且会自动打开，即可开始编写<br>（4）、gcc [文件名].c -o [自定义程序名] &#x2F;&#x2F;创建可执行文件<br>（5）、.&#x2F; [自定义程序名] &#x2F;&#x2F;即可运行</p>
+</blockquote>
+<p>
+                
+            
+        
+        
+            </div>   
+            <div class="article-more-link">
+                <a href="/2021/09/24/%E5%9C%A8linux%E7%B3%BB%E7%BB%9F%E4%B8%AD%E7%BC%96%E5%86%99%E5%B9%B6%E6%89%A7%E8%A1%8CC%E8%AF%AD%E8%A8%80%E7%A8%8B%E5%BA%8F/#more">Read More</a>
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+
+
+
+
+    
+        <article id="post-几个常用的vue名词详解" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/Programming-languages-and-projects/">Programming languages and projects</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming-languages-and-projects/JavaScript/">JavaScript</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming-languages-and-projects/JavaScript/Vue/">Vue</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link-link" href="/tags/router/" rel="tag">router</a>, <a class="tag-link-link" href="/tags/store/" rel="tag">store</a>, <a class="tag-link-link" href="/tags/vue/" rel="tag">vue</a>, <a class="tag-link-link" href="/tags/vue-cli/" rel="tag">vue-cli</a>, <a class="tag-link-link" href="/tags/webpack/" rel="tag">webpack</a>
+    </div>
+
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2021/09/19/%E5%87%A0%E4%B8%AA%E5%B8%B8%E7%94%A8%E7%9A%84vue%E5%90%8D%E8%AF%8D%E8%AF%A6%E8%A7%A3/">
+            <time datetime="2021-09-19T02:25:01.014Z" itemprop="datePublished">2021-09-19</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/zthxxx/Wiki-site/raw/writing/source/_posts/几个常用的vue名词详解.md'> Source </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/zthxxx/Wiki-site/edit/writing/source/_posts/几个常用的vue名词详解.md'> Edit </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/zthxxx/Wiki-site/commits/writing/source/_posts/几个常用的vue名词详解.md'> History </a>
+                            </div>
+                        
+                    </div>
+                
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2021/09/19/%E5%87%A0%E4%B8%AA%E5%B8%B8%E7%94%A8%E7%9A%84vue%E5%90%8D%E8%AF%8D%E8%AF%A6%E8%A7%A3/">几个常用的vue名词详解</a>
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                
+                    
+                    <p><h1 id="几个常用的vue名词详解"><a href="#几个常用的vue名词详解" class="headerlink" title="几个常用的vue名词详解"></a>几个常用的vue名词详解</h1><h2 id="vue是什么？"><a href="#vue是什么？" class="headerlink" title="vue是什么？"></a>vue是什么？</h2><p>没有比<a target="_blank" rel="noopener" href="https://v3.cn.vuejs.org/guide/introduction.html#vue-js-%E6%98%AF%E4%BB%80%E4%B9%88">官网</a>更好的解释了：</p>
+<blockquote>
+<p>Vue (读音 &#x2F;vjuː&#x2F;，类似于 <strong>view</strong>) 是一套用于构建用户界面的<strong>渐进式框架</strong>。与其它大型框架不同的是，Vue 被设计为可以自底向上逐层应用。Vue 的核心库只关注视图层，不仅易于上手，还便于与第三方库或既有项目整合。另一方面，当与<a target="_blank" rel="noopener" href="https://cn.vuejs.org/v2/guide/single-file-components.html">现代化的工具链</a>以及各种<a target="_blank" rel="noopener" href="https://github.com/vuejs/awesome-vue#libraries--plugins">支持类库</a>结合使用时，Vue 也完全能够为复杂的单页应用提供驱动。</p>
+</blockquote>
+<p>官方文档中还提供提供了<a target="_blank" rel="noopener" href="https://cn.vuejs.org/v2/guide/comparison.html">vue2与其他几个常见框架的对比</a>。</p>
+<p>
+                
+            
+        
+        
+            </div>   
+            <div class="article-more-link">
+                <a href="/2021/09/19/%E5%87%A0%E4%B8%AA%E5%B8%B8%E7%94%A8%E7%9A%84vue%E5%90%8D%E8%AF%8D%E8%AF%A6%E8%A7%A3/#more">Read More</a>
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+
+
+
+
+    
         <article id="post-创建vue项目的两个命令：vue-create-myproject与vue-init-webpack-详解" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
@@ -1315,214 +1541,6 @@
             </div>   
             <div class="article-more-link">
                 <a href="/2021/09/05/MYSQL%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/#more">Read More</a>
-            </div>
-        
-        <footer class="article-footer">
-        </footer>
-    </div>
-</article>
-
-
-
-
-
-
-    
-        <article id="post-express框架下使用ejs模板" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-                    <div class="article-meta">
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Programming-languages-and-projects/">Programming languages and projects</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming-languages-and-projects/JavaScript/">JavaScript</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming-languages-and-projects/JavaScript/Nodejs/">Nodejs</a>
-    </div>
-
-                        
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link-link" href="/tags/ejs/" rel="tag">ejs</a>, <a class="tag-link-link" href="/tags/express/" rel="tag">express</a>, <a class="tag-link-link" href="/tags/nodejs/" rel="tag">nodejs</a>
-    </div>
-
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2021/09/03/express%E6%A1%86%E6%9E%B6%E4%B8%8B%E4%BD%BF%E7%94%A8ejs%E6%A8%A1%E6%9D%BF/">
-            <time datetime="2021-09-03T10:14:57.108Z" itemprop="datePublished">2021-09-03</time>
-        </a>
-    </div>
-
-
-                        
-                            <i class="fa fa-bar-chart"></i>
-                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
-                        
-                        
-                            <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/zthxxx/Wiki-site/raw/writing/source/_posts/express框架下使用ejs模板.md'> Source </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/zthxxx/Wiki-site/edit/writing/source/_posts/express框架下使用ejs模板.md'> Edit </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/zthxxx/Wiki-site/commits/writing/source/_posts/express框架下使用ejs模板.md'> History </a>
-                            </div>
-                        
-                    </div>
-                
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2021/09/03/express%E6%A1%86%E6%9E%B6%E4%B8%8B%E4%BD%BF%E7%94%A8ejs%E6%A8%A1%E6%9D%BF/">express框架下使用ejs模板</a>
-        </h1>
-    
-
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-        
-            
-                
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                
-                    
-                    <p><h1 id="express框架下使用ejs模板"><a href="#express框架下使用ejs模板" class="headerlink" title="express框架下使用ejs模板"></a>express框架下使用ejs模板</h1><h2 id="ejs模板"><a href="#ejs模板" class="headerlink" title="ejs模板"></a>ejs模板</h2><p><a target="_blank" rel="noopener" href="https://ejs.bootcss.com/#docs">ejs官方文档</a><a href="%5Bejs%E5%AE%98%E6%96%B9%E6%96%87%E6%A1%A3%5D(https://ejs.bootcss.com/#docs)">^1</a>中，对于其的描述为：</p>
-<blockquote>
-<p>EJS 是一套简单的模板语言，帮你利用普通的 JavaScript 代码生成 HTML 页面。EJS 没有如何组织内容的教条；也没有再造一套迭代和控制流语法；有的只是普通的 JavaScript 代码而已。</p>
-<p>利用 NPM 安装 EJS 很简单。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install ejs</span><br></pre></td></tr></table></figure>
-<p>
-                
-            
-        
-        
-            </div>   
-            <div class="article-more-link">
-                <a href="/2021/09/03/express%E6%A1%86%E6%9E%B6%E4%B8%8B%E4%BD%BF%E7%94%A8ejs%E6%A8%A1%E6%9D%BF/#more">Read More</a>
-            </div>
-        
-        <footer class="article-footer">
-        </footer>
-    </div>
-</article>
-
-
-
-
-
-
-    
-        <article id="post-Git第一次与远程仓库关联并push时的报错" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-                    <div class="article-meta">
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Git/">Git</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/Git/Git%E6%8A%A5%E9%94%99%E5%A4%84%E7%90%86/">Git报错处理</a>
-    </div>
-
-                        
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link-link" href="/tags/git/" rel="tag">git</a>
-    </div>
-
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2021/09/03/Git%E7%AC%AC%E4%B8%80%E6%AC%A1%E4%B8%8E%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93%E5%85%B3%E8%81%94%E5%B9%B6push%E6%97%B6%E7%9A%84%E6%8A%A5%E9%94%99/">
-            <time datetime="2021-09-02T23:32:48.083Z" itemprop="datePublished">2021-09-03</time>
-        </a>
-    </div>
-
-
-                        
-                            <i class="fa fa-bar-chart"></i>
-                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
-                        
-                        
-                            <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/zthxxx/Wiki-site/raw/writing/source/_posts/Git第一次与远程仓库关联并push时的报错.md'> Source </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/zthxxx/Wiki-site/edit/writing/source/_posts/Git第一次与远程仓库关联并push时的报错.md'> Edit </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/zthxxx/Wiki-site/commits/writing/source/_posts/Git第一次与远程仓库关联并push时的报错.md'> History </a>
-                            </div>
-                        
-                    </div>
-                
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2021/09/03/Git%E7%AC%AC%E4%B8%80%E6%AC%A1%E4%B8%8E%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93%E5%85%B3%E8%81%94%E5%B9%B6push%E6%97%B6%E7%9A%84%E6%8A%A5%E9%94%99/">Git第一次与远程仓库关联并push时的报错</a>
-        </h1>
-    
-
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-        
-            
-                
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                
-                    
-                    <p><h1 id="Git第一次与远程仓库关联并push时的报错"><a href="#Git第一次与远程仓库关联并push时的报错" class="headerlink" title="Git第一次与远程仓库关联并push时的报错"></a>Git第一次与远程仓库关联并push时的报错</h1><h2 id="关于该debug的过程描述"><a href="#关于该debug的过程描述" class="headerlink" title="关于该debug的过程描述"></a>关于该debug的过程描述</h2><p>当我们在github建立一个远程仓库时，github会给予我们相应的quick start提示：</p>
-<blockquote>
-<h3 id="…or-create-a-new-repository-on-the-command-line"><a href="#…or-create-a-new-repository-on-the-command-line" class="headerlink" title="…or create a new repository on the command line"></a>…or create a new repository on the command line</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">echo &quot;# ejs_express_demo&quot; &gt;&gt; README.md</span><br><span class="line">git init</span><br><span class="line">git add README.md</span><br><span class="line">git commit -m &quot;first commit&quot;</span><br><span class="line">git branch -M main</span><br><span class="line">git remote add origin https://github.com/JustSkim/ejs_express_demo.git</span><br><span class="line">git push -u origin main</span><br></pre></td></tr></table></figure>
-<h3 id="…or-push-an-existing-repository-from-the-command-line"><a href="#…or-push-an-existing-repository-from-the-command-line" class="headerlink" title="…or push an existing repository from the command line"></a>…or push an existing repository from the command line</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git remote add origin https://github.com/JustSkim/ejs_express_demo.git</span><br><span class="line">git branch -M main</span><br><span class="line">git push -u origin main</span><br></pre></td></tr></table></figure>
-<h3 id="…or-import-code-from-another-repository"><a href="#…or-import-code-from-another-repository" class="headerlink" title="…or import code from another repository"></a>…or import code from another repository</h3><p>You can initialize this repository with code from a Subversion, Mercurial, or TFS project.<br><a target="_blank" rel="noopener" href="https://github.com//ejs_express_demo/import">Import code</a></p>
-<p>
-                
-            
-        
-        
-            </div>   
-            <div class="article-more-link">
-                <a href="/2021/09/03/Git%E7%AC%AC%E4%B8%80%E6%AC%A1%E4%B8%8E%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93%E5%85%B3%E8%81%94%E5%B9%B6push%E6%97%B6%E7%9A%84%E6%8A%A5%E9%94%99/#more">Read More</a>
             </div>
         
         <footer class="article-footer">

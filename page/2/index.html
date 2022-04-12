@@ -247,6 +247,15 @@
                         <a href="#" data-role="directory">
                             <i class="fa fa-folder"></i>
                             &nbsp;
+                            Maven
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2022/04/12/IDEA%E4%B8%ADMaven%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%89%93%E5%8C%85%E4%B8%8Etomcat%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%BF%90%E8%A1%8C/">IDEA中Maven项目的打包与tomcat服务器运行</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
                             Servlet
                         </a>
                          <ul class="unstyled" id="tree" >  <li class="file"><a href="/2022/04/08/Tomcat%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8EServlet%E7%A8%8B%E5%BA%8F/">Tomcat服务器与Servlet程序</a></li>  </ul> 
@@ -402,6 +411,15 @@
                         <a href="#" data-role="directory">
                             <i class="fa fa-folder"></i>
                             &nbsp;
+                            机器学习
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2022/04/12/Python%E4%B8%ADgraphviz%E6%A8%A1%E5%9D%97%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8Ebug%E8%A7%A3%E5%86%B3/">Python中graphviz包的安装与bug解决</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
                             知识图谱
                         </a>
                          <ul class="unstyled" id="tree" >  <li class="file"><a href="/2022/03/16/%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1%E4%B8%93%E4%B8%9A%E6%9C%AF%E8%AF%AD%E4%B8%8E%E5%9F%BA%E6%9C%AC%E7%9F%A5%E8%AF%86/">知识图谱专业术语与基本知识</a></li>  </ul> 
@@ -496,6 +514,214 @@
 </aside>
             
             <section id="main">
+        <article id="post-visual-studio-code中无法切换Python版本的解决" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/Programming-languages-and-projects/">Programming languages and projects</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming-languages-and-projects/Python3/">Python3</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link-link" href="/tags/python/" rel="tag">python</a>, <a class="tag-link-link" href="/tags/visual-studio-code/" rel="tag">visual studio code</a>
+    </div>
+
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2022/03/07/visual-studio-code%E4%B8%AD%E6%97%A0%E6%B3%95%E5%88%87%E6%8D%A2Python%E7%89%88%E6%9C%AC%E7%9A%84%E8%A7%A3%E5%86%B3/">
+            <time datetime="2022-03-07T01:50:49.323Z" itemprop="datePublished">2022-03-07</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/zthxxx/Wiki-site/raw/writing/source/_posts/visual-studio-code中无法切换Python版本的解决.md'> Source </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/zthxxx/Wiki-site/edit/writing/source/_posts/visual-studio-code中无法切换Python版本的解决.md'> Edit </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/zthxxx/Wiki-site/commits/writing/source/_posts/visual-studio-code中无法切换Python版本的解决.md'> History </a>
+                            </div>
+                        
+                    </div>
+                
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2022/03/07/visual-studio-code%E4%B8%AD%E6%97%A0%E6%B3%95%E5%88%87%E6%8D%A2Python%E7%89%88%E6%9C%AC%E7%9A%84%E8%A7%A3%E5%86%B3/">visual studio code中无法切换Python版本的解决</a>
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                
+                    
+                    <p><h2 id="起因"><a href="#起因" class="headerlink" title="起因"></a>起因</h2><p>使用Python进行机器学习，需要引入<code>sklearn</code>模块，因此在我们建立的<code>anaconda</code>环境（名称<code>py378</code>，用的Python 3.7.8的版本）中activate该环境，并安装<code>scikit-learn</code>库（安装的模块名和导入的库名称不一样，这个见网上详细解释，<code>scikit-learn</code>其实就是其工具包）。但来到软件<code>visual studio code</code>界面中却发现无法正常切换Python版本，工作区也未能生成<code>.vscode</code>文件夹：</p>
+<p>![visual studio code无法切换python环境](&#x2F;images&#x2F;visual studio code无法切换python环境.PNG)</p>
+<p>我们可以看到，在左下角并没有加载出Python Interpreter，终端中手动输入命令切换环境也依然无法奏效。</p>
+<h2 id="尝试步骤"><a href="#尝试步骤" class="headerlink" title="尝试步骤"></a>尝试步骤</h2><ol>
+<li><p>按住<code>ctrl+shift+p</code>，输入<code>Python Interpreter</code>切换环境，发现已经被切换到<code>py378</code></p>
+<p>
+                
+            
+        
+        
+            </div>   
+            <div class="article-more-link">
+                <a href="/2022/03/07/visual-studio-code%E4%B8%AD%E6%97%A0%E6%B3%95%E5%88%87%E6%8D%A2Python%E7%89%88%E6%9C%AC%E7%9A%84%E8%A7%A3%E5%86%B3/#more">Read More</a>
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+
+
+
+
+    
+        <article id="post-Eclipse-web-工程的项目目录结构" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/Java/">Java</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/Java/Eclipse/">Eclipse</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link-link" href="/tags/eclipse/" rel="tag">eclipse</a>, <a class="tag-link-link" href="/tags/java/" rel="tag">java</a>
+    </div>
+
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2022/03/06/Eclipse-web-%E5%B7%A5%E7%A8%8B%E7%9A%84%E9%A1%B9%E7%9B%AE%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84/">
+            <time datetime="2022-03-06T10:10:07.896Z" itemprop="datePublished">2022-03-06</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/zthxxx/Wiki-site/raw/writing/source/_posts/Eclipse-web-工程的项目目录结构.md'> Source </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/zthxxx/Wiki-site/edit/writing/source/_posts/Eclipse-web-工程的项目目录结构.md'> Edit </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/zthxxx/Wiki-site/commits/writing/source/_posts/Eclipse-web-工程的项目目录结构.md'> History </a>
+                            </div>
+                        
+                    </div>
+                
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2022/03/06/Eclipse-web-%E5%B7%A5%E7%A8%8B%E7%9A%84%E9%A1%B9%E7%9B%AE%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84/">Eclipse web 工程的项目目录结构</a>
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                
+                    
+                    <p><p>在使用Eclipse学习Java开发的过程中，发现我自己新建<code>dynamic web project</code>的项目目录结构和视频中演示的不同，最明显的区别是没有Java Resources和JavaScript Resources这两个文件夹：</p>
+<p><img src="/images/%E6%96%B0%E5%BB%BAweb%E9%A1%B9%E7%9B%AE%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84.PNG" alt="新建web项目目录结构"></p>
+<p>查阅多方资料显示，这种项目结构的不同对于程序执行并没有大问题，要参考项目中各个文件和目录的功能，可以见以下三篇博客：</p>
+<ol>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/yyuanxiwen/article/details/94600630">https://blog.csdn.net/yyuanxiwen/article/details/94600630</a></li>
+<p>
+                
+            
+        
+        
+            </div>   
+            <div class="article-more-link">
+                <a href="/2022/03/06/Eclipse-web-%E5%B7%A5%E7%A8%8B%E7%9A%84%E9%A1%B9%E7%9B%AE%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84/#more">Read More</a>
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+
+
+
+
+    
         <article id="post-重新安装JDK后Eclipse更改配置" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
@@ -1315,203 +1541,6 @@
             </div>   
             <div class="article-more-link">
                 <a href="/2022/02/12/Mysql%E5%AE%89%E8%A3%85%E7%9A%84%E7%89%88%E6%9C%AC%E9%80%89%E6%8B%A9/#more">Read More</a>
-            </div>
-        
-        <footer class="article-footer">
-        </footer>
-    </div>
-</article>
-
-
-
-
-
-
-    
-        <article id="post-win10上的代理服务器设置与127.0.0.1" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-                    <div class="article-meta">
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/%E7%BD%91%E7%BB%9C/">网络</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/%E7%BD%91%E7%BB%9C/%E6%9C%8D%E5%8A%A1%E5%99%A8/">服务器</a>
-    </div>
-
-                        
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link-link" href="/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/" rel="tag">服务器</a>, <a class="tag-link-link" href="/tags/%E7%BD%91%E7%BB%9C/" rel="tag">网络</a>
-    </div>
-
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2022/02/08/win10%E4%B8%8A%E7%9A%84%E4%BB%A3%E7%90%86%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%AE%BE%E7%BD%AE%E4%B8%8E127.0.0.1/">
-            <time datetime="2022-02-08T06:02:05.413Z" itemprop="datePublished">2022-02-08</time>
-        </a>
-    </div>
-
-
-                        
-                            <i class="fa fa-bar-chart"></i>
-                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
-                        
-                        
-                            <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/zthxxx/Wiki-site/raw/writing/source/_posts/win10上的代理服务器设置与127.0.0.1.md'> Source </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/zthxxx/Wiki-site/edit/writing/source/_posts/win10上的代理服务器设置与127.0.0.1.md'> Edit </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/zthxxx/Wiki-site/commits/writing/source/_posts/win10上的代理服务器设置与127.0.0.1.md'> History </a>
-                            </div>
-                        
-                    </div>
-                
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2022/02/08/win10%E4%B8%8A%E7%9A%84%E4%BB%A3%E7%90%86%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%AE%BE%E7%BD%AE%E4%B8%8E127.0.0.1/">win10上的代理服务器设置与127.0.0.1</a>
-        </h1>
-    
-
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-        
-            
-                
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-            
-        
-        
-            <h1 id="win10上的代理服务器设置与127-0-0-1"><a href="#win10上的代理服务器设置与127-0-0-1" class="headerlink" title="win10上的代理服务器设置与127.0.0.1"></a>win10上的代理服务器设置与127.0.0.1</h1><h2 id="代理服务器的定义"><a href="#代理服务器的定义" class="headerlink" title="代理服务器的定义"></a>代理服务器的定义</h2><p>代理服务器（Proxy Server）是介于浏览器和Web服务器之间的一台服务器，可被用于代理网络用户去取得网络信息。可以说，代理服务器是网络信息的中转站，是个人网络和Internet服务商之间的中间代理机构，负责转发合法的网络信息，对转发进行控制和登记，工作在OSI模型的对话层。当你通过代理服务器上网浏览时，浏览器不是直接到Web服务器去取回网页，而是向代理服务器发出请求，由代理服务器来取回浏览器所需要的信息，并传送给你的浏览器。 </p>
-<p>Win10系统提供<strong>系统级代理服务器设置，通过在Win10系统中设置代理服务器</strong>，系统中所有的软件都会通过我们设置的代理服务器访问网络，这样就不用一个一个软件设置代理服务器了，包括浏览器等应用，都会使用设定的系统代理服务器上网。</p>
-<h2 id="环回地址127-0-0-1"><a href="#环回地址127-0-0-1" class="headerlink" title="环回地址127.0.0.1"></a>环回地址127.0.0.1</h2><p>127.0.0.1是回送地址主要用于网络软件测试以及本地机进程间通信，无论什么程序，一旦使用回送地址发送数据，协议软件立即返回之，不进行任何网络传输。有时候当我们使用浏览器点击网页时，有时候会发现提示网页无法找到，建议我们检查代理服务器设置。而在win10系统的设置一栏，有一项“代理服务器”的设置，有时我们点开这里，会发现代理服务器被设置为127.0.0.1，原因不明，但将代理服务器关闭即可正常访问网络，检查host文件也没有发现异常。</p>
-
-            </div>
-        
-        <footer class="article-footer">
-        </footer>
-    </div>
-</article>
-
-
-
-
-
-
-    
-        <article id="post-在vmware虚拟机中进行网络连接" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-                    <div class="article-meta">
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Linux/">Linux</a>
-    </div>
-
-                        
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link-link" href="/tags/linux/" rel="tag">linux</a>, <a class="tag-link-link" href="/tags/ubuntu/" rel="tag">ubuntu</a>, <a class="tag-link-link" href="/tags/vmware/" rel="tag">vmware</a>, <a class="tag-link-link" href="/tags/%E8%99%9A%E6%8B%9F%E6%9C%BA/" rel="tag">虚拟机</a>
-    </div>
-
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2021/11/16/%E5%9C%A8vmware%E8%99%9A%E6%8B%9F%E6%9C%BA%E4%B8%AD%E8%BF%9B%E8%A1%8C%E7%BD%91%E7%BB%9C%E8%BF%9E%E6%8E%A5/">
-            <time datetime="2021-11-16T07:16:40.924Z" itemprop="datePublished">2021-11-16</time>
-        </a>
-    </div>
-
-
-                        
-                            <i class="fa fa-bar-chart"></i>
-                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
-                        
-                        
-                            <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/zthxxx/Wiki-site/raw/writing/source/_posts/在vmware虚拟机中进行网络连接.md'> Source </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/zthxxx/Wiki-site/edit/writing/source/_posts/在vmware虚拟机中进行网络连接.md'> Edit </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/zthxxx/Wiki-site/commits/writing/source/_posts/在vmware虚拟机中进行网络连接.md'> History </a>
-                            </div>
-                        
-                    </div>
-                
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2021/11/16/%E5%9C%A8vmware%E8%99%9A%E6%8B%9F%E6%9C%BA%E4%B8%AD%E8%BF%9B%E8%A1%8C%E7%BD%91%E7%BB%9C%E8%BF%9E%E6%8E%A5/">在vmware虚拟机中进行网络连接</a>
-        </h1>
-    
-
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-        
-            
-                
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                
-                    
-                    <p><h1 id="在vmware虚拟机中进行网络连接"><a href="#在vmware虚拟机中进行网络连接" class="headerlink" title="在vmware虚拟机中进行网络连接"></a>在<code>vmware</code>虚拟机中进行网络连接</h1><h2 id="四种网络模式"><a href="#四种网络模式" class="headerlink" title="四种网络模式"></a>四种网络模式</h2><p>点击<code>VMware Workstation</code>的导航栏，在“虚拟机-&gt;设置-&gt;硬件-&gt;网络设配器”中，可看到网络连接模式的选择（不能在虚拟机挂起的时候进行更改），<a target="_blank" rel="noopener" href="https://docs.vmware.com/cn/VMware-Workstation-Pro/14.0/com.vmware.ws.using.doc/GUID-3B504F2F-7A0B-415F-AE01-62363A95D052.html">VMware的官方网站</a>中说明了四种网络模式的区别：</p>
-<table>
-<thead>
-<tr>
-<th align="left">设置</th>
-<p>
-                
-            
-        
-        
-            </div>   
-            <div class="article-more-link">
-                <a href="/2021/11/16/%E5%9C%A8vmware%E8%99%9A%E6%8B%9F%E6%9C%BA%E4%B8%AD%E8%BF%9B%E8%A1%8C%E7%BD%91%E7%BB%9C%E8%BF%9E%E6%8E%A5/#more">Read More</a>
             </div>
         
         <footer class="article-footer">

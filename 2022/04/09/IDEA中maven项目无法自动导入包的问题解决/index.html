@@ -17,8 +17,9 @@
 <meta property="og:description" content="问题描述在IDEA中创建项目工程后（父工程的src文件夹可以在创建后删除），再选择“module”创建子工程，发现无法自动导入依赖，具体表现为“HttpServlet”等不是java jdk自带的包会在代码中爆红，即使在pom.xml文件中按要求添加了相关依赖，也无法解决问题。按照网上教程所说的有以下方法：  在settings中设置maven相关项 点击“文件”-&gt; “清除缓存”； 点击界">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://justskim.github.io/images/%E6%88%90%E5%8A%9F%E4%BB%8E%E5%A4%96%E9%83%A8%E5%BA%93%E5%BC%95%E5%85%A5%E4%BE%9D%E8%B5%96%E5%8C%85.PNG">
+<meta property="og:image" content="http://justskim.github.io/images/%E4%BF%AE%E6%94%B9Web%E8%B5%84%E6%BA%90%E7%9B%AE%E5%BD%95%E5%92%8CWeb%E6%A8%A1%E5%9D%97%E9%83%A8%E7%BD%B2%E6%8F%8F%E8%BF%B0%E7%AC%A6.PNG">
 <meta property="article:published_time" content="2022-04-09T08:50:55.411Z">
-<meta property="article:modified_time" content="2022-04-09T10:00:55.750Z">
+<meta property="article:modified_time" content="2022-04-09T10:31:43.219Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="服务器">
 <meta property="article:tag" content="java">
@@ -255,6 +256,15 @@
                         <a href="#" data-role="directory">
                             <i class="fa fa-folder"></i>
                             &nbsp;
+                            Maven
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2022/04/12/IDEA%E4%B8%ADMaven%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%89%93%E5%8C%85%E4%B8%8Etomcat%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%BF%90%E8%A1%8C/">IDEA中Maven项目的打包与tomcat服务器运行</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
                             Servlet
                         </a>
                          <ul class="unstyled" id="tree" >  <li class="file"><a href="/2022/04/08/Tomcat%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8EServlet%E7%A8%8B%E5%BA%8F/">Tomcat服务器与Servlet程序</a></li>  </ul> 
@@ -404,6 +414,15 @@
                          <ul class="unstyled" id="tree" >  <li class="file"><a href="/2022/03/01/tomcat%E4%B8%8Bstartup.bat%E5%90%AF%E5%8A%A8%E6%8A%A5%E9%94%99%E8%AF%A6%E8%A7%A3/">tomcat下startup.bat启动报错详解</a></li>  </ul> 
                     </li> 
                      </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            机器学习
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2022/04/12/Python%E4%B8%ADgraphviz%E6%A8%A1%E5%9D%97%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8Ebug%E8%A7%A3%E5%86%B3/">Python中graphviz包的安装与bug解决</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -604,6 +623,13 @@
 <li>执行更新操作——<code>On &#39;Update&#39; action</code>项选择<code>Update resources</code>；</li>
 <li>框架停用时——<code>On frame deactivation</code>项选择<code>Update resources</code>；</li>
 </ol>
+<h2 id="maven工程框架的目录-x2F-文件缺失问题"><a href="#maven工程框架的目录-x2F-文件缺失问题" class="headerlink" title="maven工程框架的目录&#x2F;文件缺失问题"></a>maven工程框架的目录&#x2F;文件缺失问题</h2><p>即使我们使用了本地文件+国内镜像的相关配置，有时候使用框架创建maven项目依然可能出现目录&#x2F;文件缺失的情况，这里以webapp文件夹为例，如果我们使用框架搭建的maven项目缺失了该文件夹：</p>
+<ol>
+<li>点击IDEA的第一个”File”选项，点击项目结构”Project Structure”；</li>
+<li>修改Web资源目录和Web模块部署描述符</li>
+</ol>
+<p><img src="/images/%E4%BF%AE%E6%94%B9Web%E8%B5%84%E6%BA%90%E7%9B%AE%E5%BD%95%E5%92%8CWeb%E6%A8%A1%E5%9D%97%E9%83%A8%E7%BD%B2%E6%8F%8F%E8%BF%B0%E7%AC%A6.PNG" alt="修改Web资源目录和Web模块部署描述符"></p>
+<p>如果缺失了其他的文件，我们也可以手动增加。</p>
 
             </div>
         
@@ -615,6 +641,15 @@
 
     
 <nav id="article-nav">
+    
+        <a href="/2022/04/12/Python%E4%B8%ADgraphviz%E6%A8%A1%E5%9D%97%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8Ebug%E8%A7%A3%E5%86%B3/" id="article-nav-newer" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">Newer</strong>
+            <div class="article-nav-title">
+                
+                    Python中graphviz包的安装与bug解决
+                
+            </div>
+        </a>
     
     
         <a href="/2022/04/08/Tomcat%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8EServlet%E7%A8%8B%E5%BA%8F/" id="article-nav-older" class="article-nav-link-wrap">

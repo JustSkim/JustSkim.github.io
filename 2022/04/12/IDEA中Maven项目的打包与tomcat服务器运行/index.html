@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <meta charset="utf-8">
+    
+    <title>IDEA中Maven项目的打包与tomcat服务器运行 | Hexo</title>
+    
+    
+        <meta name="keywords" content="java,tomcat,servlet,maven,IDEA" />
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="起因以及解决方案在学习狂神说 Java web中的servlet项目时，学到第15课 javaweb的应用时，想跳转到的项目的发布路径一直显示404，页面的报错信息为： 12345HTTP Status 404 – Not FoundType Status ReportMessage 文.件[&#x2F;request_war_exploded&#x2F;success.jsp] 未找到Description The">
+<meta property="og:type" content="article">
+<meta property="og:title" content="IDEA中Maven项目的打包与tomcat服务器运行">
+<meta property="og:url" content="http://justskim.github.io/2022/04/12/IDEA%E4%B8%ADMaven%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%89%93%E5%8C%85%E4%B8%8Etomcat%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%BF%90%E8%A1%8C/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="起因以及解决方案在学习狂神说 Java web中的servlet项目时，学到第15课 javaweb的应用时，想跳转到的项目的发布路径一直显示404，页面的报错信息为： 12345HTTP Status 404 – Not FoundType Status ReportMessage 文.件[&#x2F;request_war_exploded&#x2F;success.jsp] 未找到Description The">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://justskim.github.io/images/%E6%89%93%E5%8C%85%E7%9A%84target%E6%96%87%E4%BB%B6%E5%A4%B9%E4%B8%8B%E6%B2%A1%E6%9C%89success.jsp%E6%96%87%E4%BB%B6.PNG">
+<meta property="og:image" content="http://justskim.github.io/images/IDEA%E4%B8%ADtomcat%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%9B%B4%E6%96%B0%E7%9A%84%E5%9B%9B%E4%B8%AA%E9%80%89%E9%A1%B9.PNG">
+<meta property="article:published_time" content="2022-04-12T11:06:52.334Z">
+<meta property="article:modified_time" content="2022-04-12T16:14:22.111Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="java">
+<meta property="article:tag" content="tomcat">
+<meta property="article:tag" content="servlet">
+<meta property="article:tag" content="maven">
+<meta property="article:tag" content="IDEA">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://justskim.github.io/images/%E6%89%93%E5%8C%85%E7%9A%84target%E6%96%87%E4%BB%B6%E5%A4%B9%E4%B8%8B%E6%B2%A1%E6%9C%89success.jsp%E6%96%87%E4%BB%B6.PNG">
+    
+
+    
+
+    
+        <link rel="icon" href="/favicon.ico" />
+    
+
+    
+<link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="/libs/open-sans/styles.css">
+
+    
+<link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    
+<script src="/libs/jquery/2.1.3/jquery.min.js"></script>
+
+    
+<script src="/libs/jquery/plugins/cookie/1.4.1/jquery.cookie.js"></script>
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+
+    
+    
+    
+    
+
+
+    
+        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+<meta name="generator" content="Hexo 5.4.1"><link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+</head>
+
+<body>
+    <div id="container">
+        <header id="header">
+    <div id="header-main" class="header-inner">
+        <div class="outer">
+            <a href="/" id="logo">
+                <i class="logo"></i>
+                <span class="site-title">Hexo</span>
+            </a>
+            <nav id="main-nav">
+                
+                    <a class="main-nav-link" href="/">首页</a>
+                
+                    <a class="main-nav-link" href="/archives">归档</a>
+                
+                    <a class="main-nav-link" href="/categories">分类</a>
+                
+                    <a class="main-nav-link" href="/tags">标签</a>
+                
+                    <a class="main-nav-link" href="/about">关于</a>
+                
+            </nav>
+            
+            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+</div>
+        </div>
+    </div>
+    <div id="main-nav-mobile" class="header-sub header-inner">
+        <table class="menu outer">
+            <tr>
+                
+                    <td><a class="main-nav-link" href="/">首页</a></td>
+                
+                    <td><a class="main-nav-link" href="/archives">归档</a></td>
+                
+                    <td><a class="main-nav-link" href="/categories">分类</a></td>
+                
+                    <td><a class="main-nav-link" href="/tags">标签</a></td>
+                
+                    <td><a class="main-nav-link" href="/about">关于</a></td>
+                
+                <td>
+                    
+    <div class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+    </div>
+
+                </td>
+            </tr>
+        </table>
+    </div>
+</header>
+
+        <div class="outer">
+            
+            
+                <aside id="sidebar">
+   
+        
+    <div class="widget-wrap" id='categories'>
+        <h3 class="widget-title">
+            <span>categories</span>
+            &nbsp;
+            <a id='allExpand' href="#">
+                <i class="fa fa-angle-double-down fa-2x"></i>
+            </a>
+        </h3>
+        
+        
+        
+         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Data analysis
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2021/09/15/python%E6%97%A7%E7%89%88%E6%9C%AC%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8Edebug-%E2%80%94%E2%80%94%E2%80%94%E2%80%94-%E4%BB%A5scipy1.2.0%E4%B8%BA%E4%BE%8B/">python旧版本的安装与debug ———— 以scipy1.2.0为例</a></li>  <li class="file"><a href="/2021/09/16/scipy%E7%89%88%E6%9C%AC%E7%9A%84%E4%B8%80%E4%BA%9B%E5%BA%9F%E5%BC%83%E6%96%B9%E6%B3%95%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/">scipy版本的一些废弃方法及解决方案</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Diary
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            life
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2021/08/29/hello-world/">Hello World</a></li>  </ul> 
+                    </li> 
+                     <li class="file"><a href="/2022/03/31/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9A%84%E5%90%84%E7%B1%BB%E6%9C%9F%E5%88%8A%E5%88%86%E7%BA%A7%E4%B8%8E%E4%BB%8B%E7%BB%8D/">计算机的各类期刊分级与介绍</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Git
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Github
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2021/09/16/%E5%AF%B9%E4%BA%8Egithub.io%E7%9A%84%E8%AE%BF%E9%97%AE/">对于github.io的访问</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Git报错处理
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2021/09/03/Git%E7%AC%AC%E4%B8%80%E6%AC%A1%E4%B8%8E%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93%E5%85%B3%E8%81%94%E5%B9%B6push%E6%97%B6%E7%9A%84%E6%8A%A5%E9%94%99/">Git第一次与远程仓库关联并push时的报错</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory open">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder-open"></i>
+                            &nbsp;
+                            Java
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Eclipse
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2022/03/06/%E9%87%8D%E6%96%B0%E5%AE%89%E8%A3%85JDK%E5%90%8EEclipse%E6%9B%B4%E6%94%B9%E9%85%8D%E7%BD%AE/">重新安装JDK后Eclipse更改配置</a></li>  <li class="file"><a href="/2022/03/06/Eclipse-web-%E5%B7%A5%E7%A8%8B%E7%9A%84%E9%A1%B9%E7%9B%AE%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84/">Eclipse web 工程的项目目录结构</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory open">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder-open"></i>
+                            &nbsp;
+                            Maven
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file active"><a href="/2022/04/12/IDEA%E4%B8%ADMaven%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%89%93%E5%8C%85%E4%B8%8Etomcat%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%BF%90%E8%A1%8C/">IDEA中Maven项目的打包与tomcat服务器运行</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Servlet
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2022/04/08/Tomcat%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8EServlet%E7%A8%8B%E5%BA%8F/">Tomcat服务器与Servlet程序</a></li>  </ul> 
+                    </li> 
+                     <li class="file"><a href="/2022/03/02/java%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95%E5%AD%A6%E4%B9%A0%E8%A6%81%E6%B3%A8%E6%84%8F%E7%9A%84%E5%B0%8F%E7%BB%86%E8%8A%82/">Java基础语法学习要注意的小细节</a></li>  <li class="file"><a href="/2022/03/26/Java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%BC%96%E7%A8%8B/">Java多线程编程</a></li>  <li class="file"><a href="/2022/03/30/Java-Reflection%E5%8F%8D%E5%B0%84%E6%9C%BA%E5%88%B6/">Java Reflection反射机制</a></li>  <li class="file"><a href="/2022/04/09/IDEA%E4%B8%ADmaven%E9%A1%B9%E7%9B%AE%E6%97%A0%E6%B3%95%E8%87%AA%E5%8A%A8%E5%AF%BC%E5%85%A5%E5%8C%85%E7%9A%84%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/">IDEA中maven项目无法自动导入包的问题解决</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Latex
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2022/03/27/LaTex,mikTex%E4%B8%8Eword%E4%B8%ADauora%E6%8F%92%E5%85%A5/">LaTex,mikTex与word中auora插入</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Linux
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2021/09/24/%E5%9C%A8linux%E7%B3%BB%E7%BB%9F%E4%B8%AD%E7%BC%96%E5%86%99%E5%B9%B6%E6%89%A7%E8%A1%8CC%E8%AF%AD%E8%A8%80%E7%A8%8B%E5%BA%8F/">在linux系统中编写并执行C语言程序</a></li>  <li class="file"><a href="/2021/09/26/%E5%9C%A8linux%E7%B3%BB%E7%BB%9F%E5%88%9B%E5%BB%BA%E7%88%B6%E5%AD%90%E8%BF%9B%E7%A8%8B%E5%8F%8A%E7%9B%B8%E5%85%B3%E6%93%8D%E4%BD%9C/">在linux系统创建父子进程及相关操作</a></li>  <li class="file"><a href="/2021/09/27/%E5%9C%A8vmware%E4%B8%AD%E5%AE%9E%E7%8E%B0%E5%85%B1%E4%BA%AB%E6%96%87%E4%BB%B6%E5%A4%B9%E4%BB%A5%E5%8F%8A%E5%AE%89%E8%A3%85vmware-tools/">在vmware中实现共享文件夹以及安装vmware-tools</a></li>  <li class="file"><a href="/2021/09/27/linux%E7%9A%84%E6%9D%83%E9%99%90%E4%B8%8E%E9%9A%90%E8%97%8F%E6%9D%83%E9%99%90/">linux的权限与隐藏权限</a></li>  <li class="file"><a href="/2021/10/23/%E5%9C%A8vmware%E4%B8%AD%E2%80%9Cmnthgfs%E2%80%9D%E8%B7%AF%E5%BE%84%E4%B8%8B%E5%85%B1%E4%BA%AB%E6%96%87%E4%BB%B6%E5%A4%B9%E7%9A%84%E6%8C%82%E8%BD%BD/">在vmware中“/mnt/hgfs”路径下共享文件夹的挂载</a></li>  <li class="file"><a href="/2021/10/23/linux%E7%9A%84%E8%BF%9B%E7%A8%8B%E4%BC%98%E5%85%88%E7%BA%A7%E4%B8%8E%E8%BF%9B%E7%A8%8B%E8%B0%83%E5%BA%A6%E7%AD%96%E7%95%A5/">linux的进程优先级与进程调度策略</a></li>  <li class="file"><a href="/2021/11/16/%E5%9C%A8vmware%E8%99%9A%E6%8B%9F%E6%9C%BA%E4%B8%AD%E8%BF%9B%E8%A1%8C%E7%BD%91%E7%BB%9C%E8%BF%9E%E6%8E%A5/">在vmware虚拟机中进行网络连接</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            MarkDown
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            typora的特殊使用
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2021/08/29/Reference/">typora中的锚点与引用</a></li>  <li class="file"><a href="/2021/09/06/typora%E4%B8%8Ehexo%E5%8D%9A%E5%AE%A2%E4%B8%AD%E7%9A%84%E5%9B%BE%E7%89%87%E6%8F%92%E5%85%A5/">typora与hexo博客中的图片插入</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Mysql
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            安装
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2022/02/12/Mysql%E5%AE%89%E8%A3%85%E7%9A%84%E7%89%88%E6%9C%AC%E9%80%89%E6%8B%A9/">Mysql安装的版本选择</a></li>  </ul> 
+                    </li> 
+                     <li class="file"><a href="/2021/09/05/MYSQL%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/">MYSQL数据类型</a></li>  <li class="file"><a href="/2021/09/05/MYSQL%E5%AD%97%E6%AE%B5%E5%B1%9E%E6%80%A7/">MYSQL字段属性</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Programming languages and projects
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            JavaScript
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Nodejs
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2021/08/31/nodejs%E4%B8%ADhttp%E7%9B%B8%E5%85%B3%E6%96%B9%E6%B3%95/">nodejs中http相关方法</a></li>  <li class="file"><a href="/2021/08/31/new-Promise%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%E8%AF%A6%E8%A7%A3/">new Promise构造函数详解</a></li>  <li class="file"><a href="/2021/09/03/express%E6%A1%86%E6%9E%B6%E4%B8%8B%E4%BD%BF%E7%94%A8ejs%E6%A8%A1%E6%9D%BF/">express框架下使用ejs模板</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Vue
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2021/09/19/%E5%88%9B%E5%BB%BAvue%E9%A1%B9%E7%9B%AE%E7%9A%84%E4%B8%A4%E4%B8%AA%E5%91%BD%E4%BB%A4%EF%BC%9Avue-create-myproject%E4%B8%8Evue-init-webpack-%E8%AF%A6%E8%A7%A3/">创建vue项目的两个命令：vue create myproject与vue init webpack 详解</a></li>  <li class="file"><a href="/2021/09/19/%E5%87%A0%E4%B8%AA%E5%B8%B8%E7%94%A8%E7%9A%84vue%E5%90%8D%E8%AF%8D%E8%AF%A6%E8%A7%A3/">几个常用的vue名词详解</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            web
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2021/09/06/%E7%BD%91%E7%AB%99%E6%90%9C%E7%B4%A2%E7%BA%AA%E5%BD%95%E7%9A%84%E5%88%A0%E9%99%A4/">网站搜索纪录的删除</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Python3
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            PYQT5
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2021/08/29/PYQT5%E4%BB%8B%E7%BB%8D/">PYQT5介绍</a></li>  <li class="file"><a href="/2021/08/29/%E5%BA%94%E7%94%A8%E7%AA%97%E5%8F%A3%E5%88%9D%E5%A7%8B%E5%8C%96/">Pyqt5中的常用模块与组件</a></li>  <li class="file"><a href="/2021/08/31/Pyqt5%E4%B8%AD%E7%9A%84%E7%AA%97%E5%8F%A3%E4%B8%8E%E5%B7%A5%E5%85%B7%E6%A0%8F/">Pyqt5中的窗口与工具栏</a></li>  <li class="file"><a href="/2021/08/31/PYQT5%E5%B8%83%E5%B1%80%E7%AE%A1%E7%90%86/">PYQT5布局管理</a></li>  <li class="file"><a href="/2021/08/31/PYQT5%E4%BA%8B%E4%BB%B6%E4%B8%8E%E4%BF%A1%E5%8F%B7/">PYQT5事件与信号</a></li>  <li class="file"><a href="/2021/08/31/PYQT5%E5%AF%B9%E8%AF%9D%E6%A1%86/">PYQT5对话框</a></li>  <li class="file"><a href="/2021/08/31/PYQT5%E6%8E%A7%E4%BB%B6/">PYQT5控件</a></li>  <li class="file"><a href="/2021/08/31/PYQT5%E6%8B%96%E6%8B%BD/">PYQT5拖拽</a></li>  <li class="file"><a href="/2021/08/31/PYQT5%E7%BB%98%E5%9B%BE/">PYQT5绘图</a></li>  </ul> 
+                    </li> 
+                     <li class="file"><a href="/2021/10/31/python3%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E5%B8%B8%E8%A7%81%E8%AF%AD%E6%B3%95%E7%B3%96/">python3中的一些常见语法糖整理</a></li>  <li class="file"><a href="/2021/11/03/python3%E4%B8%AD%E7%9A%84%E7%94%9F%E6%88%90%E5%99%A8%E4%B8%8E%E8%BF%AD%E4%BB%A3%E5%99%A8/">python3中的生成器与迭代器</a></li>  <li class="file"><a href="/2021/11/09/python3%E4%B8%AD%E7%9A%84%E8%BF%90%E8%A1%8C%E5%91%BD%E4%BB%A4%E4%B8%8E%E7%8E%AF%E5%A2%83/">python3中的运行命令与环境</a></li>  <li class="file"><a href="/2022/03/06/CentOS7%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85python3.7.8/">CentOS7系统安装python3.7.8</a></li>  <li class="file"><a href="/2022/03/07/visual-studio-code%E4%B8%AD%E6%97%A0%E6%B3%95%E5%88%87%E6%8D%A2Python%E7%89%88%E6%9C%AC%E7%9A%84%E8%A7%A3%E5%86%B3/">visual studio code中无法切换Python版本的解决</a></li>  </ul> 
+                    </li> 
+                     <li class="file"><a href="/2022/03/18/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80%E7%9A%84%E6%96%87%E6%A1%A3%E6%B3%A8%E9%87%8A/">编程语言的文档注释</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Windows
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2022/03/05/Windows%E7%B3%BB%E7%BB%9F%E4%B8%8B%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E9%85%8D%E7%BD%AE%E4%B8%8E%E8%AE%A1%E7%AE%97%E6%9C%BA%E9%87%8D%E5%90%AF/">Windows系统下环境变量配置与计算机重启</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            服务器
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Tomcat
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2022/03/01/tomcat%E4%B8%8Bstartup.bat%E5%90%AF%E5%8A%A8%E6%8A%A5%E9%94%99%E8%AF%A6%E8%A7%A3/">tomcat下startup.bat启动报错详解</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            机器学习
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2022/04/12/Python%E4%B8%ADgraphviz%E6%A8%A1%E5%9D%97%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8Ebug%E8%A7%A3%E5%86%B3/">Python中graphviz包的安装与bug解决</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            知识图谱
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2022/03/16/%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1%E4%B8%93%E4%B8%9A%E6%9C%AF%E8%AF%AD%E4%B8%8E%E5%9F%BA%E6%9C%AC%E7%9F%A5%E8%AF%86/">知识图谱专业术语与基本知识</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            网络
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            服务器
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2022/02/08/win10%E4%B8%8A%E7%9A%84%E4%BB%A3%E7%90%86%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%AE%BE%E7%BD%AE%E4%B8%8E127.0.0.1/">win10上的代理服务器设置与127.0.0.1</a></li>  </ul> 
+                    </li> 
+                     <li class="file"><a href="/2022/02/22/localhost%E4%B8%8E127.0.0.1%E4%B8%8E0.0.0.0%E4%BB%A5%E5%8F%8A%E7%AB%AF%E5%8F%A3/">localhost与127.0.0.1与0.0.0.0以及端口</a></li>  <li class="file"><a href="/2022/02/26/linux%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8A%E7%9A%84nginx%E4%B8%8Eapache/">Linux服务器上的nginx与apache</a></li>  </ul> 
+                    </li> 
+                     <li class="file"><a href="/2021/08/29/first/">Your first md</a></li>  </ul> 
+    </div>
+    <script>
+        $(document).ready(function() {
+            var iconFolderOpenClass  = 'fa-folder-open';
+            var iconFolderCloseClass = 'fa-folder';
+            var iconAllExpandClass = 'fa-angle-double-down';
+            var iconAllPackClass = 'fa-angle-double-up';
+            // Handle directory-tree expansion:
+            // 左键单独展开目录
+            $(document).on('click', '#categories a[data-role="directory"]', function (event) {
+                event.preventDefault();
+
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconFolderOpenClass);
+                var subtree = $(this).siblings('ul');
+                icon.removeClass(iconFolderOpenClass).removeClass(iconFolderCloseClass);
+                if (expanded) {
+                    if (typeof subtree != 'undefined') {
+                        subtree.slideUp({ duration: 100 });
+                    }
+                    icon.addClass(iconFolderCloseClass);
+                } else {
+                    if (typeof subtree != 'undefined') {
+                        subtree.slideDown({ duration: 100 });
+                    }
+                    icon.addClass(iconFolderOpenClass);
+                }
+            });
+            // 右键展开下属所有目录
+            $('#categories a[data-role="directory"]').bind("contextmenu", function(event){
+                event.preventDefault();
+                
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconFolderOpenClass);
+                var listNode = $(this).siblings('ul');
+                var subtrees = $.merge(listNode.find('li ul'), listNode);
+                var icons = $.merge(listNode.find('.fa'), icon);
+                icons.removeClass(iconFolderOpenClass).removeClass(iconFolderCloseClass);
+                if(expanded) {
+                    subtrees.slideUp({ duration: 100 });
+                    icons.addClass(iconFolderCloseClass);
+                } else {
+                    subtrees.slideDown({ duration: 100 });
+                    icons.addClass(iconFolderOpenClass);
+                }
+            })
+            // 展开关闭所有目录按钮
+            $(document).on('click', '#allExpand', function (event) {
+                event.preventDefault();
+                
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconAllExpandClass);
+                icon.removeClass(iconAllExpandClass).removeClass(iconAllPackClass);
+                if(expanded) {
+                    $('#sidebar .fa.fa-folder').removeClass('fa-folder').addClass('fa-folder-open')
+                    $('#categories li ul').slideDown({ duration: 100 });
+                    icon.addClass(iconAllPackClass);
+                } else {
+                    $('#sidebar .fa.fa-folder-open').removeClass('fa-folder-open').addClass('fa-folder')
+                    $('#categories li ul').slideUp({ duration: 100 });
+                    icon.addClass(iconAllExpandClass);
+                }
+            });  
+        });
+    </script>
+
+    
+    <div id="toTop" class="fa fa-angle-up"></div>
+</aside>
+            
+            <section id="main"><article id="post-IDEA中Maven项目的打包与tomcat服务器运行" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/Java/">Java</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/Java/Maven/">Maven</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link-link" href="/tags/IDEA/" rel="tag">IDEA</a>, <a class="tag-link-link" href="/tags/java/" rel="tag">java</a>, <a class="tag-link-link" href="/tags/maven/" rel="tag">maven</a>, <a class="tag-link-link" href="/tags/servlet/" rel="tag">servlet</a>, <a class="tag-link-link" href="/tags/tomcat/" rel="tag">tomcat</a>
+    </div>
+
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2022/04/12/IDEA%E4%B8%ADMaven%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%89%93%E5%8C%85%E4%B8%8Etomcat%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%BF%90%E8%A1%8C/">
+            <time datetime="2022-04-12T11:06:52.334Z" itemprop="datePublished">2022-04-12</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/zthxxx/Wiki-site/raw/writing/source/_posts/IDEA中Maven项目的打包与tomcat服务器运行.md'> Source </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/zthxxx/Wiki-site/edit/writing/source/_posts/IDEA中Maven项目的打包与tomcat服务器运行.md'> Edit </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/zthxxx/Wiki-site/commits/writing/source/_posts/IDEA中Maven项目的打包与tomcat服务器运行.md'> History </a>
+                            </div>
+                        
+                    </div>
+                
+                
+    
+        <h1 class="article-title" itemprop="name">
+            IDEA中Maven项目的打包与tomcat服务器运行
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+        
+        
+            <h2 id="起因以及解决方案"><a href="#起因以及解决方案" class="headerlink" title="起因以及解决方案"></a>起因以及解决方案</h2><p>在学习狂神说 Java web中的servlet项目时，学到<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV12J411M7Sj?p=15">第15课 javaweb的应用</a>时，想跳转到的项目的发布路径一直显示404，页面的报错信息为：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">HTTP Status 404 – Not Found</span><br><span class="line">Type Status Report</span><br><span class="line">Message 文.件[/request_war_exploded/success.jsp] 未找到</span><br><span class="line">Description The origin server did not find a current representation for the target resource or is not willing to disclose that one exists.</span><br><span class="line">Apache Tomcat/9.0.62</span><br></pre></td></tr></table></figure>
+
+<p>经过多次检查代码，并没有发现错误的地方，最后发现是模块打包的target文件夹下，并没有success.jsp文件，即使多次重启或者重新部署tomcat服务器后依然未能解决该问题：</p>
+<p><img src="/images/%E6%89%93%E5%8C%85%E7%9A%84target%E6%96%87%E4%BB%B6%E5%A4%B9%E4%B8%8B%E6%B2%A1%E6%9C%89success.jsp%E6%96%87%E4%BB%B6.PNG" alt="打包的target文件夹下没有success.jsp文件"> </p>
+<p>手动将success.jsp文件复制粘贴到打包的request文件夹下，问题解决！</p>
+<h2 id="maven项目打包机制与target文件夹"><a href="#maven项目打包机制与target文件夹" class="headerlink" title="maven项目打包机制与target文件夹"></a>maven项目打包机制与target文件夹</h2><p>maven项目创建完后，要打包并部署到服务器上。</p>
+<h3 id="Java打包"><a href="#Java打包" class="headerlink" title="Java打包"></a>Java打包</h3><p>Java中两种项目打包的格式：jar 包和 war包。</p>
+<ul>
+<li><p>jar包，将项目看成一整个拼图，引入的每个jar包就是一个拼块，在依赖中经常使用，向项目中添加某些依赖就是下载相应的 jar 包添加到项目中。jar包中只是用java来写的项目打包来的，里面只有编译后的class和一些部署文件。</p>
+</li>
+<li><p>war包，在 <strong>Java web</strong>中通常都是将项目打包成<strong>war包</strong>再进行部署——这是因为war包不仅包含代码编译成的class文件，还有依赖的包、配置文件，以及包括html，jsp等等在内的资源文件。一个war包可以理解为一个web项目，里面有项目的所有东西。<br>pom.xml文件中可以规定打包的相关要求，比如<code>&lt;packaging&gt;war&lt;/packaging&gt;</code>会要求打包成war格式包。</p>
+</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_41394352/article/details/119192755">maven常用打包命令</a>：</p>
+<blockquote>
+<ol>
+<li><code>mvn compile</code> 编译,将Java 源程序编译成 class 字节码文件。</li>
+<li><code>mvn test</code> 测试，并生成测试报告</li>
+<li><code>mvn clean</code> 将以前编译得到的旧的 class 字节码文件删除</li>
+<li><code>mvn pakage</code> 打包,动态 web工程打 war包，Java工程打 jar 包。</li>
+<li><code>mvn install</code> 将项目生成 jar 包放在仓库中，以便别的模块调用</li>
+<li><code>mvn clean install -Dmaven.test.skip=true</code> 打成jar包，并且抛弃测试用例打包</li>
+<li><code>mvn clean pakage -Dmaven.test.skip=true </code>动态 web工程打 war包，Java工程打 jar 包 ，并且抛弃测试用例打包</li>
+</ol>
+</blockquote>
+<h2 id="tomcat的运行和debug"><a href="#tomcat的运行和debug" class="headerlink" title="tomcat的运行和debug"></a>tomcat的运行和debug</h2><h2 id="热加载和热部署"><a href="#热加载和热部署" class="headerlink" title="热加载和热部署"></a><a target="_blank" rel="noopener" href="https://blog.csdn.net/Wangdiankun/article/details/105753755">热加载和热部署</a></h2><p><strong>热加载(Hot Reload)<strong>：实现方式是 Web 容器（Context组件）启动一个后台线程，定期检测类文件的变化，如果有变化，就重新加载类，即在运行时重新加载class。在这个过程中不会清空 Session，不安全，一般用在开发环境。</strong>Tomcat默认情况下不开启热加载功能</strong>，包括博主所用的tomcat 9 版本。如果需要用到热加载功能，则要在Tomcat安装路径下的 Context.xml文件中配置 reloadable 参数来开启。</p>
+<p>**热部署(Hot Swap)**：原理类似，也由后台线程定时检测 Web 应用的变化，但会重新加载整个 Web 应用。这种方式会清空Session，比热加载更加干净、彻底，一般用在生产环境。<br>本质区别：热加载的粒度比较小，主要是针对类文件的更新，通过创建新的类加载器来实现重新加载。而热部署是针对整个 Web应用的，重新部署 Web 应用，服务器如Tomcat，会将原来的 Context 对象（包括其所关联的一切资源，比如Session）整个销毁掉，再重新创建 Context 容器对象。<br>相同的目的：在不重启 Tomcat 的情况下实现 Web 应用的更新。</p>
+<h2 id="tomcat服务器上的重启与热加载、重新部署"><a href="#tomcat服务器上的重启与热加载、重新部署" class="headerlink" title="tomcat服务器上的重启与热加载、重新部署"></a>tomcat服务器上的重启与热加载、重新部署</h2><p><a target="_blank" rel="noopener" href="https://www.jetbrains.com/help/idea/updating-applications-on-application-servers.html">IDEA的官方文档中介绍了tomcat服务器更新的四个选项区别所在</a>：</p>
+<p><img src="/images/IDEA%E4%B8%ADtomcat%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%9B%B4%E6%96%B0%E7%9A%84%E5%9B%9B%E4%B8%AA%E9%80%89%E9%A1%B9.PNG" alt="IDEA中tomcat服务器更新的四个选项"></p>
+<ol>
+<li><p>更新资源 Update resources：更新所有更改的资源，例如 HTML、JSP、JavaScript、CSS 和图像；</p>
+</li>
+<li><p>更新类和资源 Update classes and resources：更新所有更改的资源并重新编译所有更改的 Java 类（EJB、servlet） 等；</p>
+</li>
+</ol>
+<p>以上两者都是热部署——在不重启tomcat服务器的前提下，将自己的项目部署到tomcat服务器中。</p>
+<ol start="3">
+<li><p>重新部署 redeploy：把当前的一个项目重新部署到Tomcat服务器上；</p>
+</li>
+<li><p>重启服务器 restart：在重新部署的基础上，对Tomcat的相关配置文件进行刷新。在tomcat为debug 模式下，修改当前正在用的类的定义（包括：类名，方法，方法名称，参数等等……），需要重启tomcat</p>
+</li>
+</ol>
+<p>因此，如果我们项目处于开发模式（即我们在之前的博客中讲到的 war exploded部署方式）下，如果只修改了JSP和其他资源文件，采用第一个选项即可；如果修改了Java程序，则选择第二个选项<code>Update classes and resources</code>；</p>
+
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+    
+<nav id="article-nav">
+    
+    
+        <a href="/2022/04/12/Python%E4%B8%ADgraphviz%E6%A8%A1%E5%9D%97%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8Ebug%E8%A7%A3%E5%86%B3/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">Older</strong>
+            <div class="article-nav-title">Python中graphviz包的安装与bug解决</div>
+        </a>
+    
+</nav>
+
+
+
+
+
+    
+    
+
+
+
+
+<!-- baidu url auto push script -->
+<script type="text/javascript">
+    !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=window.location.href,o=document.referrer;if(!e.test(r)){var n="//api.share.baidu.com/s.gif";o?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var t=new Image;t.src=n}}(window);
+</script>     
+</section>
+        </div>
+        <footer id="footer">
+    <div class="outer">
+        <div id="footer-info" class="inner">
+            John Doe &copy; 2022 
+            <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/80x15.png" /></a>
+            <br> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Theme - <a target="_blank" rel="noopener" href="https://github.com/zthxxx/hexo-theme-Wikitten">wikitten</a>
+            
+                <br>
+                <span id="busuanzi_container_site_pv"><i class="fa fa-eye"></i> <span id="busuanzi_value_site_pv"></span></span>
+                &nbsp;|&nbsp;
+                <span id="busuanzi_container_site_pv"><i class="fa fa-user"></i> <span id="busuanzi_value_site_uv"></span></span>
+            
+        </div>
+    </div>
+</footer>
+
+        
+
+    
+        
+<script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-share.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-video.min.js"></script>
+
+    
+    
+        
+<script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+    
+    
+        <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true,
+            TeX: {
+                equationNumbers: {
+                  autoNumber: 'AMS'
+                }
+            }
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script async src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+
+
+
+<!-- Custom Scripts -->
+
+<script src="/js/main.js"></script>
+
+
+    </div>
+</body>
+</html>

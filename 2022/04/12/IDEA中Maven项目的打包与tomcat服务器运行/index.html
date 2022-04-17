@@ -19,7 +19,7 @@
 <meta property="og:image" content="http://justskim.github.io/images/%E6%89%93%E5%8C%85%E7%9A%84target%E6%96%87%E4%BB%B6%E5%A4%B9%E4%B8%8B%E6%B2%A1%E6%9C%89success.jsp%E6%96%87%E4%BB%B6.PNG">
 <meta property="og:image" content="http://justskim.github.io/images/IDEA%E4%B8%ADtomcat%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%9B%B4%E6%96%B0%E7%9A%84%E5%9B%9B%E4%B8%AA%E9%80%89%E9%A1%B9.PNG">
 <meta property="article:published_time" content="2022-04-12T11:06:52.334Z">
-<meta property="article:modified_time" content="2022-04-13T12:38:50.573Z">
+<meta property="article:modified_time" content="2022-04-13T16:14:45.665Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="java">
 <meta property="article:tag" content="tomcat">
@@ -633,6 +633,7 @@
 <p>因此，如果我们项目处于开发模式（即我们在之前的博客中讲到的 war exploded部署方式）下，如果只是修改了已有的JSP文件或者其他资源文件，采用第一个选项即可（无论tomcat处于运行模式还是调试模式）；如果<strong>修改了java代码，需要更新class类文件</strong>，且<strong>tomcat处于调试模式下</strong>，那么我们**可以选择第二个选项<code>Update classes and resources</code>**，处于运行模式下的tomcat服务器无法更新java程序，只能更新已有的被修改的资源文件。</p>
 <p>但是注意以上两个方式，只能用于更新已经被部署到tomcat服务器上的资源和类文件，无论tomcat处于运行状态还是debug状态，对于我们新建的资源&#x2F;类文件都必须重新打包部署！使用“更新类和资源”操作，虽然可以在target文件夹中看到新建的资源文件和class类，但因为没有被部署到tomcat服务器上，会报告404的http转换码。同时，上述两个操作也无法应用于删除类文件或资源的情形，在项目中删除相关文件后，必须使用重新部署的方式，才能删除target包中的对应文件。</p>
 <p>对于我们新建的文件，又或者是处于生产模式下，就需要采用 redeploy 方式重新部署了；若我们修改了tomcat服务器的相关配置，则应选择最后一个选项将服务器重启。</p>
+<p>在前面我们说道，web.xml文件并非每个java web工程都必须的，但web.xml文件会被用于servlet程序等一系列配置，因此如果我们<strong>更新了web.xml文件</strong>，无论tomcat处于运行还是调试模式，更新类和资源操作都无法使web.xml中修改的配置生效，<strong>必须重新部署才行</strong>。</p>
 
             </div>
         

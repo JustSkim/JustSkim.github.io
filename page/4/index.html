@@ -386,7 +386,7 @@
                             &nbsp;
                             Windows
                         </a>
-                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2022/03/05/Windows%E7%B3%BB%E7%BB%9F%E4%B8%8B%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E9%85%8D%E7%BD%AE%E4%B8%8E%E8%AE%A1%E7%AE%97%E6%9C%BA%E9%87%8D%E5%90%AF/">Windows系统下环境变量配置与计算机重启</a></li>  </ul> 
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2022/03/05/Windows%E7%B3%BB%E7%BB%9F%E4%B8%8B%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E9%85%8D%E7%BD%AE%E4%B8%8E%E8%AE%A1%E7%AE%97%E6%9C%BA%E9%87%8D%E5%90%AF/">Windows系统下环境变量配置与计算机重启</a></li>  <li class="file"><a href="/2023/01/26/win10%E7%B3%BB%E7%BB%9F%E5%81%9C%E6%AD%A2%E6%9B%B4%E6%96%B0/">win10系统停止更新</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -514,6 +514,110 @@
 </aside>
             
             <section id="main">
+        <article id="post-linux的进程优先级与进程调度策略" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/Linux/">Linux</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link-link" href="/tags/linux/" rel="tag">linux</a>
+    </div>
+
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2021/10/23/linux%E7%9A%84%E8%BF%9B%E7%A8%8B%E4%BC%98%E5%85%88%E7%BA%A7%E4%B8%8E%E8%BF%9B%E7%A8%8B%E8%B0%83%E5%BA%A6%E7%AD%96%E7%95%A5/">
+            <time datetime="2021-10-23T12:38:09.488Z" itemprop="datePublished">2021-10-23</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/zthxxx/Wiki-site/raw/writing/source/_posts/linux的进程优先级与进程调度策略.md'> Source </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/zthxxx/Wiki-site/edit/writing/source/_posts/linux的进程优先级与进程调度策略.md'> Edit </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/zthxxx/Wiki-site/commits/writing/source/_posts/linux的进程优先级与进程调度策略.md'> History </a>
+                            </div>
+                        
+                    </div>
+                
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2021/10/23/linux%E7%9A%84%E8%BF%9B%E7%A8%8B%E4%BC%98%E5%85%88%E7%BA%A7%E4%B8%8E%E8%BF%9B%E7%A8%8B%E8%B0%83%E5%BA%A6%E7%AD%96%E7%95%A5/">linux的进程优先级与进程调度策略</a>
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                
+                    
+                    <p><h1 id="linux的进程优先级与进程调度策略"><a href="#linux的进程优先级与进程调度策略" class="headerlink" title="linux的进程优先级与进程调度策略"></a>linux的进程优先级与进程调度策略</h1><h2 id="linux中的进程调度策略"><a href="#linux中的进程调度策略" class="headerlink" title="linux中的进程调度策略"></a>linux中的进程调度策略</h2><p>FIFO，RR，OTHER</p>
+<p>实时进程会抢占普通进程，FIFO会导致同优先级实时进程始终占用CPU，RR会保证同优先级实时进程按时间片轮流执行。</p>
+<p>上面说的很通俗易懂，那么，两个同等优先级的FIFO实时进程，是不是谁先占据了cpu，另一个就只能等待它完成了让出CPU呢？</p>
+<p>其实不尽然，即使是在单核cpu的linux系统中，FIFO实时进程也会被调度。</p>
+<p>具体可见博客：</p>
+<p>
+                
+            
+        
+        
+            </div>   
+            <div class="article-more-link">
+                <a href="/2021/10/23/linux%E7%9A%84%E8%BF%9B%E7%A8%8B%E4%BC%98%E5%85%88%E7%BA%A7%E4%B8%8E%E8%BF%9B%E7%A8%8B%E8%B0%83%E5%BA%A6%E7%AD%96%E7%95%A5/#more">Read More</a>
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+
+
+
+
+    
         <article id="post-在vmware中“mnthgfs”路径下共享文件夹的挂载" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
@@ -1450,112 +1554,8 @@
 
 
     
-        <article id="post-python旧版本的安装与debug-————-以scipy1.2.0为例" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-                    <div class="article-meta">
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Data-analysis/">Data analysis</a>
-    </div>
-
-                        
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link-link" href="/tags/debug/" rel="tag">debug</a>, <a class="tag-link-link" href="/tags/package/" rel="tag">package</a>, <a class="tag-link-link" href="/tags/python/" rel="tag">python</a>, <a class="tag-link-link" href="/tags/scipy/" rel="tag">scipy</a>, <a class="tag-link-link" href="/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/" rel="tag">数据分析</a>
-    </div>
-
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2021/09/15/python%E6%97%A7%E7%89%88%E6%9C%AC%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8Edebug-%E2%80%94%E2%80%94%E2%80%94%E2%80%94-%E4%BB%A5scipy1.2.0%E4%B8%BA%E4%BE%8B/">
-            <time datetime="2021-09-15T13:25:23.482Z" itemprop="datePublished">2021-09-15</time>
-        </a>
-    </div>
-
-
-                        
-                            <i class="fa fa-bar-chart"></i>
-                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
-                        
-                        
-                            <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/zthxxx/Wiki-site/raw/writing/source/_posts/python旧版本的安装与debug-————-以scipy1.2.0为例.md'> Source </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/zthxxx/Wiki-site/edit/writing/source/_posts/python旧版本的安装与debug-————-以scipy1.2.0为例.md'> Edit </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/zthxxx/Wiki-site/commits/writing/source/_posts/python旧版本的安装与debug-————-以scipy1.2.0为例.md'> History </a>
-                            </div>
-                        
-                    </div>
-                
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2021/09/15/python%E6%97%A7%E7%89%88%E6%9C%AC%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8Edebug-%E2%80%94%E2%80%94%E2%80%94%E2%80%94-%E4%BB%A5scipy1.2.0%E4%B8%BA%E4%BE%8B/">python旧版本的安装与debug ———— 以scipy1.2.0为例</a>
-        </h1>
-    
-
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-        
-            
-                
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                
-                    
-                    <p><h1 id="python旧版本的安装与debug-————-以scipy1-2-0为例"><a href="#python旧版本的安装与debug-————-以scipy1-2-0为例" class="headerlink" title="python旧版本的安装与debug ———— 以scipy1.2.0为例"></a>python旧版本的安装与debug ———— 以scipy1.2.0为例</h1><p>在对照<a target="_blank" rel="noopener" href="http://www.numpy.org.cn/article/basics/python_numpy_tutorial.html#%E5%AD%90%E5%9B%BE">numpy中文文档</a>进行学习时，使用pip安装对应的包，启动以下示例代码中的py文件：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">from</span> scipy.misc <span class="keyword">import</span> imread, imresize</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line">img = imread(<span class="string">&#x27;assets/cat.jpg&#x27;</span>) <span class="comment">#这里的是一张自定义的资源图片文件</span></span><br><span class="line">img_tinted = img * [<span class="number">1</span>, <span class="number">0.95</span>, <span class="number">0.9</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment"># Show the original image</span></span><br><span class="line">plt.subplot(<span class="number">1</span>, <span class="number">2</span>, <span class="number">1</span>)</span><br><span class="line">plt.imshow(img)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Show the tinted image</span></span><br><span class="line">plt.subplot(<span class="number">1</span>, <span class="number">2</span>, <span class="number">2</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># A slight gotcha with imshow is that it might give strange results</span></span><br><span class="line"><span class="comment"># if presented with data that is not uint8. To work around this, we</span></span><br><span class="line"><span class="comment"># explicitly cast the image to uint8 before displaying it.</span></span><br><span class="line">plt.imshow(np.uint8(img_tinted))</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
-<p>产生报错如下：<br><code>AttributeError: &#39;module&#39; object has no attribute &#39;imread&#39; </code><br>经过查询相关博客，发现导致该报错的原因在于，从1.3版本开始，imread等几个经典方法已经从scipy包的misc模块中移除。<br>那么，既然找到问题，我们就要寻求解决的方法，目前发现了以下三个：</p>
-<ol>
-<li>安装imageio库<a target="_blank" rel="noopener" href="https://blog.csdn.net/sky_9900/article/details/98171702">https://blog.csdn.net/sky_9900/article/details/98171702</a></li>
-<p>
-                
-            
-        
-        
-            </div>   
-            <div class="article-more-link">
-                <a href="/2021/09/15/python%E6%97%A7%E7%89%88%E6%9C%AC%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8Edebug-%E2%80%94%E2%80%94%E2%80%94%E2%80%94-%E4%BB%A5scipy1.2.0%E4%B8%BA%E4%BE%8B/#more">Read More</a>
-            </div>
-        
-        <footer class="article-footer">
-        </footer>
-    </div>
-</article>
-
-
-
-
-
-
-    
         <nav id="page-nav">
-        <a class="extend prev" rel="prev" href="/page/3/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/5/">Next &amp;raquo;</a>
+        <a class="extend prev" rel="prev" href="/page/3/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/5/">Next &amp;raquo;</a>
         </nav>
     
 </section>
@@ -1563,7 +1563,7 @@
         <footer id="footer">
     <div class="outer">
         <div id="footer-info" class="inner">
-            John Doe &copy; 2022 
+            John Doe &copy; 2023 
             <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/80x15.png" /></a>
             <br> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Theme - <a target="_blank" rel="noopener" href="https://github.com/zthxxx/hexo-theme-Wikitten">wikitten</a>
             
